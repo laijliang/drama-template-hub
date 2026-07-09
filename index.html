@@ -549,9 +549,6 @@
       <button class="btn btn-sm" onclick="exportAll()">Export · 导出</button>
       <button class="btn btn-sm btn-danger" onclick="clearAll()">Clear · 清空</button>
       <button class="btn btn-sm" onclick="refreshAll()">↻ Refresh · 刷新</button>
-      <label class="toggle-label">
-        <input type="checkbox" id="autoPoll" checked onchange="togglePoll()"> Auto · 自动同步
-      </label>
     </div>
   </div>
 
@@ -601,7 +598,28 @@ let templates = [];
 let pollTimer = null;
 let activeFilters = { track: '', emotion: '' };
 
-function init() { load(); render(); populateChips(); checkServer(); if (document.getElementById('autoPoll').checked) startPoll(); }
+function init() { load(); render(); populateChips(); syncFromGitHub(); setInterval(syncFromGitHub, 30000); }
+
+function syncFromGitHub() {
+  fetch('data/templates.json')
+    .then(r => { if (!r.ok) throw Error('No data file'); return r.json(); })
+    .then(data => {
+      if (!Array.isArray(data) || !data.length) return;
+      let n = 0;
+      data.forEach(item => {
+        if (!item.video_source && !item.track) return;
+        if (templates.some(t => t.video_source && item.video_source && t.video_source === item.video_source)) return;
+        templates.push({ ...item, plot_structure: item.plot_structure || {}, audio_visual_params: item.audio_visual_params || {}, ai_prompt_template: item.ai_prompt_template || {} });
+        n++;
+      });
+      if (n > 0) { save(); render(); populateChips(); toast(`Synced ${n} entries · 同步了${n}条`); }
+      setStatus(true);
+    })
+    .catch(() => { setStatus(false); });
+}
+
+function setStatus(ok) { document.getElementById('statusDot').className='dot '+(ok?'on':'off'); document.getElementById('statusLabel').textContent=ok?'Online · 已连接':'Offline · 未连接'; }
+function refreshAll() { syncFromGitHub(); }
 
 function load() { try { templates = JSON.parse(localStorage.getItem('lapian_templates') || '[]'); } catch(e) { templates = []; } }
 function save() { localStorage.setItem('lapian_templates', JSON.stringify(templates)); }
@@ -772,20 +790,6 @@ function exportAll() {
   a.href=url;a.download=`lapian_${new Date().toISOString().slice(0,10)}.json`;
   a.click();URL.revokeObjectURL(url);toast(`Exported ${templates.length} entries · 已导出${templates.length}条`);
 }
-
-function checkServer() { fetch('http://127.0.0.1:8000/api/health').then(r=>r.json()).then(()=>setStatus(true)).catch(()=>setStatus(false)); }
-function setStatus(ok) { document.getElementById('statusDot').className='dot '+(ok?'on':'off'); document.getElementById('statusLabel').textContent=ok?'Online · 已连接':'Offline · 未连接'; }
-function refreshAll() { fetchList(); checkServer(); }
-function fetchList() {
-  fetch('http://127.0.0.1:8000/api/list').then(r=>r.json()).then(data=>{
-    if(!Array.isArray(data)||!data.length)return; let n=0;
-    data.forEach(item=>{if(!item.video_source||templates.some(t=>t.video_source===item.video_source))return;templates.push(item);n++;});
-    if(n>0){save();render();populateChips();toast(`Synced ${n} entries · 同步了${n}条`);}
-  }).catch(()=>{});
-}
-function startPoll() { if(pollTimer)clearInterval(pollTimer); pollTimer=setInterval(fetchList,3000); }
-function stopPoll() { if(pollTimer){clearInterval(pollTimer);pollTimer=null} }
-function togglePoll() { document.getElementById('autoPoll').checked?startPoll():stopPoll(); }
 
 function esc(s) { return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''; }
 function toast(msg) { const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),2200); }
