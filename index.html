@@ -1,0 +1,796 @@
+<!--
+  Stripe Design System — awesome-design-md
+  Primary: #533afd · Canvas: #ffffff · Ink: #0d253d
+  Display: 300 weight · Negative tracking · Gradient mesh
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拉片模板库 — Lapian Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════
+     Stripe Design System
+     ═══════════════════════════════════════════ */
+
+  :root {
+    /* Brand */
+    --primary: #533afd;
+    --primary-deep: #4434d4;
+    --primary-soft: #665efd;
+    --primary-bg: rgba(83, 58, 253, 0.08);
+    --primary-bg-soft: rgba(83, 58, 253, 0.04);
+
+    /* Canvas */
+    --canvas: #ffffff;
+    --canvas-soft: #f6f9fc;
+    --canvas-cream: #f5e9d4;
+    --hairline: #e3e8ee;
+    --hairline-input: #a8c3de;
+
+    /* Ink */
+    --ink: #0d253d;
+    --ink-secondary: #273951;
+    --ink-mute: #64748b;
+    --ink-mute-2: #61718a;
+
+    /* Shadows */
+    --shadow-color: rgba(0, 55, 112, 0.08);
+    --shadow-color-strong: rgba(0, 55, 112, 0.12);
+
+    /* Typography */
+    --sans: "Inter", "SF Pro Display", system-ui, -apple-system, "PingFang SC", "Noto Sans SC", sans-serif;
+    --mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+
+    /* Spacing (8px base) */
+    --sp-xs: 4px;
+    --sp-sm: 8px;
+    --sp-md: 12px;
+    --sp-lg: 16px;
+    --sp-xl: 24px;
+    --sp-xxl: 32px;
+    --sp-huge: 48px;
+    --sp-section: 64px;
+
+    /* Radius */
+    --r-xs: 4px;
+    --r-sm: 6px;
+    --r-md: 8px;
+    --r-lg: 12px;
+    --r-xl: 16px;
+    --r-pill: 9999px;
+
+    /* Z */
+    --z-nav: 100;
+    --z-drawer: 2000;
+    --z-sheet: 1500;
+    --z-toast: 3000;
+  }
+
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink);
+    background: var(--canvas);
+    min-height: 100vh;
+    padding-bottom: var(--sp-section);
+    font-feature-settings: "ss01";
+    opacity: 0;
+    animation: bodyIn 0.6s ease forwards;
+  }
+  @keyframes bodyIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ── Gradient Mesh (Stripe signature) ── */
+  .mesh-bg {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 480px;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(243, 230, 220, 0.6) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 90% 10%, rgba(83, 58, 253, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 50% 30%, rgba(245, 233, 212, 0.5) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 40% at 20% 60%, rgba(83, 58, 253, 0.03) 0%, transparent 40%),
+      radial-gradient(ellipse 70% 30% at 80% 50%, rgba(234, 34, 97, 0.04) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Container ── */
+  .container {
+    position: relative; z-index: 1;
+    max-width: 1120px; margin: 0 auto; padding: 0 var(--sp-xl);
+  }
+
+  /* ── Nav Bar ── */
+  .navbar {
+    position: sticky; top: 0; z-index: var(--z-nav);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .navbar-inner {
+    max-width: 1120px; margin: 0 auto;
+    padding: 0 var(--sp-xl);
+    display: flex; align-items: center;
+    height: 56px; gap: var(--sp-lg);
+  }
+  .navbar-brand {
+    font-size: 20px; font-weight: 300; letter-spacing: -0.4px;
+    color: var(--ink); display: flex; align-items: center; gap: var(--sp-sm);
+  }
+  .navbar-brand span { font-weight: 500; color: var(--primary); }
+  .navbar-right {
+    margin-left: auto; display: flex; align-items: center; gap: var(--sp-md);
+  }
+  .nav-status {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 400; color: var(--ink-mute);
+    padding: 4px 12px; border-radius: var(--r-pill);
+    background: var(--primary-bg-soft);
+  }
+  .nav-status .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--ink-mute);
+    transition: background 0.3s;
+  }
+  .nav-status .dot.on { background: #00a854; }
+
+  /* ── Hero Header ── */
+  .hero {
+    padding: var(--sp-huge) 0 var(--sp-xxl);
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 48px; font-weight: 300; letter-spacing: -0.96px;
+    line-height: 1.15; margin-bottom: var(--sp-md);
+    color: var(--ink);
+  }
+  .hero h1 strong {
+    font-weight: 400; color: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: 18px; font-weight: 300; line-height: 1.4;
+    color: var(--ink-mute); max-width: 480px; margin: 0 auto;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Section Header ── */
+  .section-hd {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: var(--sp-xl);
+    padding-bottom: var(--sp-md);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .section-hd h2 {
+    font-size: 22px; font-weight: 400; letter-spacing: -0.22px;
+    color: var(--ink);
+  }
+  .section-hd .count {
+    font-size: 13px; font-weight: 400; color: var(--ink-mute);
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Toolbar / Controls ── */
+  .toolbar {
+    display: flex; gap: var(--sp-md); flex-wrap: wrap; align-items: center;
+    margin-bottom: var(--sp-xxl);
+    padding: var(--sp-lg) var(--sp-xl);
+    background: var(--canvas-soft);
+    border-radius: var(--r-lg);
+    border: 1px solid var(--hairline);
+  }
+  .chip-group {
+    display: flex; gap: 4px; flex-wrap: wrap;
+  }
+  .chip {
+    font-size: 13px; font-weight: 400; letter-spacing: -0.2px;
+    padding: 4px 12px; border-radius: var(--r-pill);
+    border: 1px solid var(--hairline);
+    background: var(--canvas);
+    color: var(--ink-mute);
+    cursor: pointer; transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .chip:hover { border-color: var(--primary); color: var(--primary); }
+  .chip.active {
+    background: var(--primary); border-color: var(--primary);
+    color: #fff;
+  }
+
+  .search-box {
+    display: flex; align-items: center; gap: var(--sp-sm);
+    padding: 4px 12px;
+    border-radius: var(--r-pill);
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    flex: 1; min-width: 140px;
+    transition: border-color 0.15s;
+  }
+  .search-box:focus-within { border-color: var(--primary); }
+  .search-box input {
+    border: none; background: none; outline: none;
+    font-family: inherit; font-size: 13px; color: var(--ink);
+    width: 100%;
+  }
+  .search-box input::placeholder { color: var(--ink-mute); }
+
+  .toolbar-actions {
+    display: flex; gap: var(--sp-sm); align-items: center;
+    margin-left: auto;
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+    padding: 8px 16px; border-radius: var(--r-pill);
+    border: 1px solid var(--hairline);
+    background: var(--canvas);
+    font-family: var(--sans); font-size: 14px; font-weight: 400;
+    color: var(--ink-secondary); cursor: pointer;
+    transition: all 0.15s ease; white-space: nowrap;
+    line-height: 1;
+  }
+  .btn:hover { border-color: var(--primary); color: var(--primary); }
+  .btn-primary {
+    background: var(--primary); border-color: var(--primary);
+    color: #fff; font-weight: 400;
+  }
+  .btn-primary:hover { background: var(--primary-deep); border-color: var(--primary-deep); color: #fff; }
+  .btn-danger { color: #b91c1c; border-color: rgba(185,28,28,0.3); }
+  .btn-danger:hover { border-color: #b91c1c; color: #b91c1c; background: rgba(185,28,28,0.04); }
+  .btn-sm { padding: 6px 14px; font-size: 13px; }
+  .btn-icon { width: 36px; height: 36px; padding: 0; border-radius: 50%; font-size: 16px; }
+
+  .toggle-label {
+    display: flex; align-items: center; gap: var(--sp-xs);
+    font-size: 13px; color: var(--ink-mute); cursor: pointer;
+  }
+  .toggle-label input { accent-color: var(--primary); cursor: pointer; }
+
+  /* ── Import Sheet ── */
+  .sheet-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(13,37,61,0.3);
+    backdrop-filter: blur(4px);
+    z-index: var(--z-sheet);
+  }
+  .sheet-overlay.active { display: block; }
+  .sheet {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--canvas);
+    border-top: 1px solid var(--hairline);
+    padding: var(--sp-xxl) var(--sp-xxl) var(--sp-huge);
+    max-width: 560px; margin: 0 auto;
+    animation: sheetUp 0.3s ease;
+    max-height: 70vh; overflow-y: auto;
+  }
+  @keyframes sheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .sheet h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.44px; margin-bottom: var(--sp-sm); }
+  .sheet .desc { font-size: 15px; font-weight: 300; color: var(--ink-mute); margin-bottom: var(--sp-xl); }
+  .sheet textarea {
+    width: 100%; min-height: 120px; padding: var(--sp-md);
+    border: 1px solid var(--hairline-input);
+    border-radius: var(--r-sm); background: var(--canvas);
+    font-family: var(--mono); font-size: 13px; color: var(--ink);
+    resize: vertical; outline: none; margin-bottom: var(--sp-lg);
+    line-height: 1.5;
+  }
+  .sheet textarea:focus { border-color: var(--primary); }
+  .sheet-actions { display: flex; gap: var(--sp-sm); }
+
+  /* ── Card Grid ── */
+  .grid {
+    display: grid; grid-template-columns: 1fr;
+    gap: var(--sp-md);
+  }
+
+  .card {
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    padding: var(--sp-xxl);
+    box-shadow: 0 1px 3px var(--shadow-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    animation: cardIn 0.4s ease both;
+  }
+  .card:hover {
+    box-shadow: 0 8px 24px var(--shadow-color-strong), 0 2px 6px var(--shadow-color);
+    border-color: rgba(83,58,253,0.15);
+  }
+  @keyframes cardIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card-badges {
+    display: flex; gap: var(--sp-xs); flex-wrap: wrap;
+    margin-bottom: var(--sp-md);
+  }
+  .card-badge {
+    font-size: 11px; font-weight: 400; letter-spacing: -0.2px;
+    padding: 2px 10px; border-radius: var(--r-pill);
+    border: 1px solid var(--hairline);
+    color: var(--ink-mute); background: var(--canvas-soft);
+  }
+  .card-badge.track { border-color: var(--primary); color: var(--primary); background: var(--primary-bg); }
+  .card-badge.emotion { border-color: #ea2261; color: #b01a4a; background: rgba(234,34,97,0.06); }
+  .card-badge.hook { border-color: #0c8f4a; color: #0c8f4a; background: rgba(12,143,74,0.06); }
+
+  .card-title {
+    font-size: 20px; font-weight: 400; letter-spacing: -0.22px;
+    line-height: 1.3; margin-bottom: var(--sp-sm);
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  .card-preview {
+    font-size: 14px; font-weight: 300; line-height: 1.5;
+    color: var(--ink-mute);
+    margin-bottom: var(--sp-lg);
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  .card-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 13px; font-weight: 300; color: var(--ink-mute-2);
+  }
+  .card-footer .actions { display: flex; gap: var(--sp-sm); }
+  .card-footer .actions .btn { font-size: 12px; padding: 4px 12px; }
+
+  .card-source {
+    font-size: 12px; font-weight: 300; color: var(--ink-mute-2);
+    margin-top: var(--sp-md);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    opacity: 0.6;
+  }
+
+  /* ── Empty State ── */
+  .empty-state {
+    text-align: center;
+    padding: var(--sp-section) var(--sp-xl);
+    border: 1px dashed var(--hairline);
+    border-radius: var(--r-lg);
+    background: var(--canvas-soft);
+  }
+  .empty-state .icon { font-size: 48px; margin-bottom: var(--sp-lg); opacity: 0.4; }
+  .empty-state h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.44px; margin-bottom: var(--sp-sm); }
+  .empty-state p { font-size: 15px; font-weight: 300; color: var(--ink-mute); margin-bottom: var(--sp-xl); }
+
+  /* ── Drawer ── */
+  .drawer-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(13,37,61,0.3);
+    z-index: var(--z-drawer);
+  }
+  .drawer-overlay.active { display: block; }
+
+  .drawer {
+    position: fixed; top: 0; right: -680px;
+    width: 640px; max-width: 94vw; height: 100vh; height: 100dvh;
+    background: var(--canvas);
+    border-left: 1px solid var(--hairline);
+    box-shadow: -8px 0 32px var(--shadow-color-strong);
+    transition: right 0.3s ease;
+    z-index: calc(var(--z-drawer) + 1);
+    overflow-y: auto;
+  }
+  .drawer.open { right: 0; }
+  .drawer::-webkit-scrollbar { width: 4px; }
+  .drawer::-webkit-scrollbar-thumb { background: var(--hairline); border-radius: 2px; }
+
+  .drawer-top {
+    position: sticky; top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--hairline);
+    padding: var(--sp-lg) var(--sp-xxl);
+    display: flex; align-items: center; gap: var(--sp-md);
+    z-index: 1;
+  }
+  .drawer-top .back {
+    font-size: 14px; font-weight: 400; letter-spacing: -0.2px;
+    border: none; background: none; cursor: pointer;
+    color: var(--primary); padding: 4px 0;
+  }
+  .drawer-top .back::before { content: "←  "; }
+  .drawer-top .title {
+    font-size: 20px; font-weight: 400; letter-spacing: -0.22px;
+  }
+
+  .drawer-body { padding: var(--sp-xl) var(--sp-xxl) var(--sp-section); }
+
+  .form-section {
+    margin-bottom: var(--sp-xxl);
+    padding-bottom: var(--sp-xxl);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .form-section:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .form-section .fs-title {
+    font-size: 13px; font-weight: 500; letter-spacing: -0.2px;
+    text-transform: uppercase; color: var(--ink-mute-2);
+    margin-bottom: var(--sp-lg);
+  }
+
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--sp-lg); margin-bottom: var(--sp-lg);
+  }
+  .form-row.col-2 { grid-template-columns: 1fr 1fr; }
+
+  .field { margin-bottom: var(--sp-lg); }
+  .field:last-child { margin-bottom: 0; }
+  .field .fl {
+    font-size: 12px; font-weight: 500; letter-spacing: -0.2px;
+    color: var(--ink-mute); margin-bottom: var(--sp-xs);
+  }
+  .field input, .field textarea {
+    width: 100%; padding: 6px 0;
+    border: none; border-bottom: 1.5px solid var(--hairline);
+    background: none;
+    font-family: var(--sans); font-size: 15px; font-weight: 300;
+    color: var(--ink); outline: none; resize: vertical;
+    transition: border-color 0.15s;
+  }
+  .field textarea { min-height: 28px; }
+  .field input:focus, .field textarea:focus { border-bottom-color: var(--primary); }
+  .field .hint {
+    font-size: 12px; font-weight: 300; color: var(--ink-mute);
+    margin-top: 2px;
+  }
+
+  .prompt-area {
+    display: flex; gap: var(--sp-md); align-items: flex-start;
+  }
+  .prompt-area textarea {
+    flex: 1; min-height: 90px;
+    padding: var(--sp-md); border: 1px solid var(--hairline-input);
+    border-radius: var(--r-sm);
+    background: var(--canvas-soft);
+    font-family: var(--mono); font-size: 13px; font-weight: 400;
+    color: var(--ink); resize: vertical; outline: none;
+    line-height: 1.6;
+  }
+  .prompt-area textarea:focus { border-color: var(--primary); }
+  .prompt-area .btn { flex-shrink: 0; margin-top: 0; }
+
+  /* ── Toast ── */
+  .toast-wrap {
+    position: fixed; bottom: var(--sp-xl); left: 50%;
+    transform: translateX(-50%); z-index: var(--z-toast);
+    pointer-events: none;
+  }
+  .toast {
+    background: var(--ink); color: #fff;
+    padding: 10px 20px; border-radius: var(--r-pill);
+    font-size: 14px; font-weight: 300; letter-spacing: -0.2px;
+    box-shadow: 0 8px 24px var(--shadow-color-strong);
+    opacity: 0; transform: translateY(8px);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .container { padding: 0 var(--sp-lg); }
+    .navbar-inner { padding: 0 var(--sp-lg); }
+    .hero h1 { font-size: 32px; letter-spacing: -0.64px; }
+    .hero p { font-size: 16px; }
+    .toolbar { flex-direction: column; align-items: stretch; }
+    .toolbar-actions { margin-left: 0; flex-wrap: wrap; }
+    .card { padding: var(--sp-xl); }
+    .drawer { width: 100vw; max-width: 100vw; }
+    .drawer-top { padding: var(--sp-lg); }
+    .drawer-body { padding: var(--sp-lg); }
+    .form-row { grid-template-columns: 1fr; }
+    .form-row.col-2 { grid-template-columns: 1fr; }
+    .sheet { padding: var(--sp-xl); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Gradient Mesh (Stripe signature background) -->
+<div class="mesh-bg"></div>
+
+<!-- Nav -->
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-brand">拉片 <span>Lapian Library</span></div>
+    <div class="navbar-right">
+      <span class="nav-status">
+        <span class="dot off" id="statusDot"></span>
+        <span id="statusLabel">Offline</span>
+      </span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>爆款拉片<br><strong>模板库</strong></h1>
+    <p>Import viral video analysis JSON, browse templates, edit plot details and export AI video prompts — 导入、浏览、编辑、导出，一站式管理你的爆款复刻模板.</p>
+  </div>
+
+  <!-- Section Header -->
+  <div class="section-hd">
+    <h2>Templates · 模板库</h2>
+    <span class="count" id="countLabel">0 entries · 条</span>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="chip-group" id="trackChips">
+      <span class="chip active" data-filter="track" data-value="">All · 全部赛道</span>
+    </div>
+    <div class="chip-group" id="emotionChips">
+      <span class="chip active" data-filter="emotion" data-value="">All · 全部情绪</span>
+    </div>
+    <div class="search-box">
+      <span style="color:var(--ink-mute);font-size:13px;">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search · 搜索模板..." oninput="render()">
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-sm" onclick="openSheet()">+ Import · 导入</button>
+      <button class="btn btn-sm" onclick="document.getElementById('fileInput').click()">File · 文件</button>
+      <input type="file" id="fileInput" accept=".json" style="display:none" onchange="importFile(event)">
+      <button class="btn btn-sm" onclick="exportAll()">Export · 导出</button>
+      <button class="btn btn-sm btn-danger" onclick="clearAll()">Clear · 清空</button>
+      <button class="btn btn-sm" onclick="refreshAll()">↻ Refresh · 刷新</button>
+      <label class="toggle-label">
+        <input type="checkbox" id="autoPoll" checked onchange="togglePoll()"> Auto · 自动同步
+      </label>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="grid" id="cardGrid"></div>
+  <div class="empty-state" id="emptyState">
+    <div class="icon">📄</div>
+    <h3>No entries yet · 还没有模板</h3>
+    <p>Import your first lapian analysis JSON to start building your library. 导入第一条拉片 JSON 开始使用.</p>
+    <button class="btn btn-primary" onclick="openSheet()">+ Import JSON · 导入</button>
+  </div>
+
+</main>
+
+<!-- Import Sheet -->
+<div class="sheet-overlay" id="sheetOverlay" onclick="if(event.target===this)closeSheet()">
+  <div class="sheet">
+    <h3>Import JSON · 导入数据</h3>
+    <p class="desc">Paste one or more lapian analysis results. Duplicate detection is automatic. 粘贴一条或多条拉片分析 JSON，自动去重.</p>
+    <textarea id="jsonPaste" placeholder='[{ "video_source": "https://...", "track": "情感逆袭", ... }]'></textarea>
+    <div class="sheet-actions">
+      <button class="btn btn-primary" onclick="importPasted()" style="flex:1">Import · 导入</button>
+      <button class="btn" onclick="closeSheet()">Cancel · 取消</button>
+    </div>
+  </div>
+</div>
+
+<!-- Drawer -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-top">
+    <button class="back" onclick="closeDrawer()">Back · 返回</button>
+    <span class="title" id="drawerTitle">Template · 详情</span>
+  </div>
+  <div class="drawer-body" id="drawerContent"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast-wrap"><div class="toast" id="toast"></div></div>
+
+<script>
+// ═══════════════════════════════════════════
+// Lapian Library — Stripe Design
+// ═══════════════════════════════════════════
+
+let templates = [];
+let pollTimer = null;
+let activeFilters = { track: '', emotion: '' };
+
+function init() { load(); render(); populateChips(); checkServer(); if (document.getElementById('autoPoll').checked) startPoll(); }
+
+function load() { try { templates = JSON.parse(localStorage.getItem('lapian_templates') || '[]'); } catch(e) { templates = []; } }
+function save() { localStorage.setItem('lapian_templates', JSON.stringify(templates)); }
+
+function render() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  let f = templates.filter(t => {
+    if (activeFilters.track && t.track !== activeFilters.track) return false;
+    if (activeFilters.emotion && t.core_emotion !== activeFilters.emotion) return false;
+    if (q) { const hay = ((t.video_source||'')+(t.track||'')+(t.core_emotion||'')+(t.viral_reason||'')+(t.hook_type||'')+(t.tags||[]).join(' ')).toLowerCase(); if (!hay.includes(q)) return false; }
+    return true;
+  });
+  document.getElementById('countLabel').textContent = f.length + ' entries';
+  const grid = document.getElementById('cardGrid');
+  const empty = document.getElementById('emptyState');
+  if (f.length === 0) { grid.innerHTML = ''; empty.style.display = 'block'; empty.querySelector('h3').textContent = templates.length === 0 ? 'No entries yet · 还没有模板' : 'No matches · 没有匹配'; empty.querySelector('p').textContent = templates.length === 0 ? 'Import your first lapian analysis JSON. 导入第一条拉片 JSON 开始使用.' : 'Try different filters. 试试其他筛选条件.'; return; }
+  empty.style.display = 'none';
+  grid.innerHTML = f.map((t, i) => {
+    const idx = templates.indexOf(t);
+    const title = t.viral_reason || t.track || 'Untitled';
+    const prev = t.ai_prompt_template?.video ? t.ai_prompt_template.video.slice(0, 120) + '…' : 'No prompt yet';
+    return `<div class="card" onclick="openDrawer(${idx})" style="animation-delay:${i*50}ms">
+      <div class="card-badges">${t.track?`<span class="card-badge track">${esc(t.track)}</span>`:''}${t.core_emotion?`<span class="card-badge emotion">${esc(t.core_emotion)}</span>`:''}${t.hook_type?`<span class="card-badge hook">${esc(t.hook_type)}</span>`:''}</div>
+      <div class="card-title">${esc(title)}</div>
+      <div class="card-preview">${esc(prev)}</div>
+      <div class="card-footer">
+        <span>${esc(t.video_source||'').replace(/^https?:\/\//,'').slice(0,36)||'—'}</span>
+        <div class="actions" onclick="event.stopPropagation()">
+          <button class="btn btn-sm" onclick="copyP(${idx})">Copy prompt · 复制</button>
+          <button class="btn btn-sm" onclick="openDrawer(${idx})">Edit · 编辑</button>
+          <button class="btn btn-sm btn-danger" onclick="del(${idx})">✕</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function populateChips() {
+  const tracks = new Set(), emotions = new Set();
+  templates.forEach(t => { if (t.track) tracks.add(t.track); if (t.core_emotion) emotions.add(t.core_emotion); });
+  setChips('trackChips', tracks, 'track'); setChips('emotionChips', emotions, 'emotion');
+}
+function setChips(id, vals, key) {
+  const el = document.getElementById(id); if (!el) return;
+  el.innerHTML = `<span class="chip${activeFilters[key]===''?' active':''}" data-filter="${key}" data-value="">All</span>`;
+  [...vals].sort().forEach(v => {
+    const c = document.createElement('span');
+    c.className = 'chip' + (activeFilters[key]===v?' active':''); c.dataset.filter = key; c.dataset.value = v;
+    c.textContent = v; c.onclick = () => filterChip(key, v); el.appendChild(c);
+  });
+  el.querySelector('.chip').onclick = () => filterChip(key, '');
+}
+function filterChip(key, val) {
+  activeFilters[key] = val;
+  document.querySelectorAll(`[data-filter="${key}"]`).forEach(c => c.classList.toggle('active', c.dataset.value === val));
+  render();
+}
+
+function openDrawer(idx) {
+  const t = templates[idx]; if (!t) return;
+  document.getElementById('drawerOverlay').classList.add('active');
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerTitle').textContent = t.viral_reason || 'Template';
+  const plot = t.plot_structure || {}, av = t.audio_visual_params || {}, prompt = t.ai_prompt_template?.video || '';
+  document.getElementById('drawerContent').innerHTML = `
+    <div class="form-section">
+      <div class="fs-title">Source · 来源</div>
+      <div class="field"><div class="fl">URL · 视频链接</div><input value="${esc(t.video_source||'')}" onchange="upd(${idx},'video_source',this.value)"></div>
+      <div class="form-row">
+        <div class="field"><div class="fl">Track · 赛道</div><input value="${esc(t.track||'')}" onchange="upd(${idx},'track',this.value)"></div>
+        <div class="field"><div class="fl">Emotion · 情绪</div><input value="${esc(t.core_emotion||'')}" onchange="upd(${idx},'core_emotion',this.value)"></div>
+        <div class="field"><div class="fl">Hook · 钩子</div><input value="${esc(t.hook_type||'')}" onchange="upd(${idx},'hook_type',this.value)"></div>
+      </div>
+      <div class="field"><div class="fl">Viral reason · 爆火原因</div><textarea onchange="upd(${idx},'viral_reason',this.value)">${esc(t.viral_reason||'')}</textarea></div>
+    </div>
+    <div class="form-section">
+      <div class="fs-title">Plot Structure · 剧情结构</div>
+      <div class="field"><div class="fl">Opening 0–3s · 开场</div><textarea onchange="updN(${idx},'plot_structure','opening',this.value)">${esc(plot.opening||'')}</textarea></div>
+      <div class="field"><div class="fl">Middle · 递进</div><textarea onchange="updN(${idx},'plot_structure','middle',this.value)">${esc(plot.middle||'')}</textarea></div>
+      <div class="field"><div class="fl">Climax · 反转</div><textarea onchange="updN(${idx},'plot_structure','climax_reverse',this.value)">${esc(plot.climax_reverse||'')}</textarea></div>
+      <div class="field"><div class="fl">Ending · 结尾</div><textarea onchange="updN(${idx},'plot_structure','ending_hook',this.value)">${esc(plot.ending_hook||'')}</textarea></div>
+      <div class="form-row col-2">
+        <div class="field"><div class="fl">Rhythm · 节奏</div><input value="${esc(plot.story_rhythm||'')}" onchange="updN(${idx},'plot_structure','story_rhythm',this.value)"></div>
+        <div class="field"><div class="fl">Conflict · 冲突</div><input value="${esc(plot.conflict_type||'')}" onchange="updN(${idx},'plot_structure','conflict_type',this.value)"></div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="fs-title">Audio / Visual · 视听参数</div>
+      <div class="form-row col-2">
+        <div class="field"><div class="fl">Tone · 色调</div><input value="${esc(av.tone||'')}" onchange="updN(${idx},'audio_visual_params','tone',this.value)"></div>
+        <div class="field"><div class="fl">BGM · 配乐</div><input value="${esc(av.bgm_type||'')}" onchange="updN(${idx},'audio_visual_params','bgm_type',this.value)"></div>
+        <div class="field"><div class="fl">Shot cut · 切镜</div><input value="${esc(av.shot_cut_freq||'')}" onchange="updN(${idx},'audio_visual_params','shot_cut_freq',this.value)"></div>
+        <div class="field"><div class="fl">Camera · 运镜</div><input value="${esc(av.camera_movement||'')}" onchange="updN(${idx},'audio_visual_params','camera_movement',this.value)"></div>
+        <div class="field"><div class="fl">Visual style · 视觉</div><input value="${esc(av.visual_style||'')}" onchange="updN(${idx},'audio_visual_params','visual_style',this.value)"></div>
+        <div class="field"><div class="fl">Sound · 声音</div><input value="${esc(av.sound_design||'')}" onchange="updN(${idx},'audio_visual_params','sound_design',this.value)"></div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="fs-title">AI Video Prompt · 视频生成提示词</div>
+      <div class="prompt-area">
+        <textarea id="dprompt" onchange="upd(${idx},'ai_prompt_template',{video:this.value})">${esc(prompt)}</textarea>
+        <button class="btn btn-sm" onclick="copyEl('dprompt')" style="flex-shrink:0">Copy · 复制</button>
+      </div>
+      <div class="field"><span class="hint">Auto-regenerated when plot/AV fields above are edited. 修改上方字段后自动重新生成.</span></div>
+    </div>`;
+}
+
+function closeDrawer() { document.getElementById('drawerOverlay').classList.remove('active'); document.getElementById('drawer').classList.remove('open'); }
+
+function upd(idx, f, v) { if (templates[idx]) { templates[idx][f] = v; onEdit(idx); } }
+function updN(idx, p, f, v) { if (templates[idx]) { if (!templates[idx][p]) templates[idx][p] = {}; templates[idx][p][f] = v; onEdit(idx); } }
+function onEdit(idx) { rebuild(idx); save(); const el = document.getElementById('dprompt'); if (el && templates[idx]?.ai_prompt_template?.video) el.value = templates[idx].ai_prompt_template.video; }
+function rebuild(idx) {
+  const t = templates[idx]; if (!t) return;
+  const plot = t.plot_structure || {}, av = t.audio_visual_params || {};
+  const dur = estDur(t.track);
+  const p = [];
+  p.push(`Generate a ${dur}s short video: ${av.tone||''}, ${av.bgm_type||''} BGM.`);
+  if (plot.opening) p.push(`Opening 3s: ${plot.opening}.`);
+  if (plot.middle) p.push(`Middle: ${plot.middle}.`);
+  if (av.shot_cut_freq) p.push(`Shot changes: ${av.shot_cut_freq}.`);
+  if (plot.climax_reverse) p.push(`Climax: ${plot.climax_reverse}.`);
+  if (plot.ending_hook) p.push(`Ending: ${plot.ending_hook}.`);
+  p.push(`${av.visual_style||'Cinematic'} style, 8K${av.tone?', '+av.tone:''}.`);
+  if (!t.ai_prompt_template) t.ai_prompt_template = {};
+  t.ai_prompt_template.video = p.join(' ');
+}
+function estDur(track) { if (!track) return 25; const m={'情感逆袭':25,'职场干货':30,'萌宠日常':15,'知识科普':40,'生活技巧':30,'悬疑剧情':25,'搞笑段子':15,'治愈系':20}; for(const[k,v]of Object.entries(m)){if(track.includes(k))return v} return 25; }
+
+function copyP(idx) { const t=templates[idx]; if(!t?.ai_prompt_template?.video){toast('No prompt · 暂无提示词');return} copyText(t.ai_prompt_template.video); toast('Copied · 已复制'); }
+function copyEl(id) { const el=document.getElementById(id); if(el){copyText(el.value);toast('Copied · 已复制');}}
+function copyText(t) { if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t);return} const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta); }
+function del(idx) { if(!confirm('Delete this entry? · 确认删除？'))return; templates.splice(idx,1); save(); render(); populateChips(); closeDrawer(); toast('Deleted · 已删除'); }
+function clearAll() { if(!confirm('Clear all templates? · 确认清空？'))return; if(!confirm(`Delete all ${templates.length} entries? · 确认删除全部${templates.length}条？`))return; templates=[]; save(); render(); populateChips(); closeDrawer(); toast('Cleared · 已清空'); }
+
+function openSheet() { document.getElementById('sheetOverlay').classList.add('active'); }
+function closeSheet() { document.getElementById('sheetOverlay').classList.remove('active'); }
+function importPasted() {
+  const raw = document.getElementById('jsonPaste').value.trim();
+  if (!raw) { toast('Paste JSON · 请粘贴 JSON'); return; }
+  try { const d=JSON.parse(raw); addList(Array.isArray(d)?d:[d]); document.getElementById('jsonPaste').value=''; closeSheet(); }
+  catch(e) { toast('JSON error · 格式错误: '+e.message); }
+}
+function importFile(ev) {
+  const file=ev.target.files[0]; if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{try{const d=JSON.parse(e.target.result);addList(Array.isArray(d)?d:[d])}catch(err){toast('File error · 文件解析失败: '+err.message)}};
+  reader.readAsText(file); ev.target.value='';
+}
+function addList(list) {
+  let n=0;
+  list.forEach(item => {
+    if(!item.video_source&&!item.track)return;
+    if(item.video_source&&templates.some(t=>t.video_source===item.video_source))return;
+    if(!item.plot_structure)item.plot_structure={};
+    if(!item.audio_visual_params)item.audio_visual_params={};
+    if(!item.ai_prompt_template)item.ai_prompt_template={};
+    templates.push(item); n++;
+  });
+  templates.forEach((t,i)=>{if(!t.ai_prompt_template?.video)rebuild(i)});
+  save(); render(); populateChips(); toast(`Imported ${n} entries · 导入了${n}条`);
+}
+
+function exportAll() {
+  if(!templates.length){toast('Nothing to export · 暂无模板可导出');return}
+  const blob=new Blob([JSON.stringify(templates,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob); const a=document.createElement('a');
+  a.href=url;a.download=`lapian_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();URL.revokeObjectURL(url);toast(`Exported ${templates.length} entries · 已导出${templates.length}条`);
+}
+
+function checkServer() { fetch('http://127.0.0.1:8000/api/health').then(r=>r.json()).then(()=>setStatus(true)).catch(()=>setStatus(false)); }
+function setStatus(ok) { document.getElementById('statusDot').className='dot '+(ok?'on':'off'); document.getElementById('statusLabel').textContent=ok?'Online · 已连接':'Offline · 未连接'; }
+function refreshAll() { fetchList(); checkServer(); }
+function fetchList() {
+  fetch('http://127.0.0.1:8000/api/list').then(r=>r.json()).then(data=>{
+    if(!Array.isArray(data)||!data.length)return; let n=0;
+    data.forEach(item=>{if(!item.video_source||templates.some(t=>t.video_source===item.video_source))return;templates.push(item);n++;});
+    if(n>0){save();render();populateChips();toast(`Synced ${n} entries · 同步了${n}条`);}
+  }).catch(()=>{});
+}
+function startPoll() { if(pollTimer)clearInterval(pollTimer); pollTimer=setInterval(fetchList,3000); }
+function stopPoll() { if(pollTimer){clearInterval(pollTimer);pollTimer=null} }
+function togglePoll() { document.getElementById('autoPoll').checked?startPoll():stopPoll(); }
+
+function esc(s) { return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''; }
+function toast(msg) { const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),2200); }
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
