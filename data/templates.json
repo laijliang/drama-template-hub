@@ -28,8 +28,8 @@
             "characterDescription": "A middle-aged Chinese man in his 40s with tired bloodshot eyes, light stubble, messy hair, wearing a worn-out grey shirt, rough calloused hands, hunched shoulders"
           }
         ],
-        "imageGenerationPrompt": "A middle-aged Chinese man in his 40s with tired bloodshot eyes and light stubble, wearing a worn-out grey shirt, cornered by a crowd against a wall in front of old residential buildings, overcast afternoon, cold blue-grey lighting, handheld camera close-up, high contrast, half his face in shadow, cinematic realistic style, 8K",
-        "videoMotionPrompt": "Shaky handheld close-up; the man stands still with downcast eyes while people point at him; subtle micro-expressions of suppressed anger; camera slightly wobbles to enhance tension"
+        "imageGenerationPrompt": "近景手持晃动镜头：中年男人被街坊围堵在墙角，灰色旧衬衫，疲惫胡茬脸，眼神低垂，攥紧拳头指节发白，午后阴天冷调青灰光线，写实电影感，高对比度，8K",
+        "videoMotionPrompt": "手持晃动近景：男人站着不动低头不语，周围人群指指点点，镜头微微晃动增强冲突感，捕捉眼角紧绷的微表情"
       },
       {
         "shotNumber": 2,
@@ -49,8 +49,8 @@
             "characterDescription": "A middle-aged Chinese man in his 40s with tired bloodshot eyes, light stubble, messy hair, wearing a worn-out grey shirt"
           }
         ],
-        "imageGenerationPrompt": "A middle-aged Chinese man in a worn-out grey shirt, standing silently as angry neighbors point and shout at him, dark cold lighting, half his face in shadow, high contrast, camera pans from the shouting crowd to his stoic expression, realistic style, shallow depth of field, 8K",
-        "videoMotionPrompt": "Camera pans slowly from crowd to the man's face; the man's jaw tightens, shoulders tremble slightly, he doesn't fight back; focus transitions from crowd to his eyes"
+        "imageGenerationPrompt": "中景摇移镜头：人群愤怒指责的脸摇到男人沉默的侧脸，灰色旧衬衫，焦点从人群切换到男人紧绷的表情，冷调硬光，人脸半明半暗，写实电影感，8K",
+        "videoMotionPrompt": "镜头从人群缓慢摇向男人侧脸：男人下颌紧绷，肩膀微颤但不反抗，焦点从人群切换到他布满红血丝的眼睛"
       },
       {
         "shotNumber": 3,
@@ -74,8 +74,8 @@
             "characterDescription": "A Chinese woman in her 30s, disheveled hair, red-eyed from crying, wearing a simple plain dress, desperate expression"
           }
         ],
-        "imageGenerationPrompt": "Interior of a modest living room at dusk, a middle-aged man sits silently at a table in a worn grey shirt, hands clasped, a woman with disheveled hair and red eyes stands crying, broken glass on floor, hospital papers taped on wall, warm amber low light, heavy shadows, cinematic realistic style, 8K",
-        "videoMotionPrompt": "Static wide shot of the room; the woman screams and throws a cup; the man remains motionless; slow zoom on his clasped hands"
+        "imageGenerationPrompt": "家中黄昏室内：男人穿灰色旧衬衫沉默坐在桌边双手交叉，妻子披头散发红着眼睛哭喊，地上摔碎的水杯，墙上贴着医院诊断书，暖黄低饱和灯光，压抑氛围，电影感，8K",
+        "videoMotionPrompt": "固定中景镜头：妻子摔杯哭喊，男人始终沉默不动，镜头缓慢推近到他交叉的双手特写"
       },
       {
         "shotNumber": 4,
@@ -95,8 +95,8 @@
             "characterDescription": "Same middle-aged man now in hospital corridor, grey shirt wrinkled, hair more disheveled, eyes hollow"
           }
         ],
-        "imageGenerationPrompt": "A middle-aged Chinese man in a wrinkled grey shirt crouching alone at the end of a hospital corridor, face buried in his arms, fluorescent white lights casting cold shadows, empty hallway stretching behind him, lonely atmosphere, cinematic realistic style, shallow depth of field, 8K",
-        "videoMotionPrompt": "Static close-up slowly pushes in; the man's shoulders shake silently as he suppresses sobs; a single tear drops onto the floor"
+        "imageGenerationPrompt": "医院走廊尽头：男人蹲在地上缩成一团，灰色旧衬衫皱巴巴，脸埋在手臂里，冷白荧光灯，空荡走廊惨白墙面，孤寂氛围，浅景深，电影感，8K",
+        "videoMotionPrompt": "固定镜头缓慢推进：男人肩膀无声抽动强忍泪水，一滴眼泪滴落在地板上，镜头停留在颤抖的背上"
       },
       {
         "shotNumber": 5,
@@ -116,8 +116,8 @@
             "characterDescription": "Same man now in work clothes, sweat-soaked shirt, exhausted but determined expression, carrying heavy loads"
           }
         ],
-        "imageGenerationPrompt": "Night at a construction site, a middle-aged Chinese man in sweat-soaked clothes carrying heavy materials, cold blue moonlight and harsh work lights, exhausted but determined expression, sweat dripping from his face, cinematic realistic style, high contrast, 8K",
-        "videoMotionPrompt": "Camera follows the man as he walks bent under a load; slow tracking shot shows his strained muscles and gritted teeth"
+        "imageGenerationPrompt": "深夜工地：男人扛着重物弯腰行走，汗水浸透衬衫，咬牙坚持的表情，冷蓝月光加上工地探照灯，高反差光影，写实劳动场景，电影感，8K",
+        "videoMotionPrompt": "镜头跟随男人负重前行：缓慢跟拍他弯曲的脊背和汗湿的衬衫，脚步声沉重，呼吸急促"
       },
       {
         "shotNumber": 6,
@@ -137,8 +137,8 @@
             "characterDescription": "A middle-aged Chinese man, face half-lit by a desk lamp, tired eyes with tears, old shirt sleeves rolled up"
           }
         ],
-        "imageGenerationPrompt": "Close-up of a middle-aged Chinese man's hands trembling as he signs a document under a single desk lamp, Rembrandt lighting with warm light on the paper and darkness around, his face half-lit, a tear rolling down his cheek, cinematic dramatic style, 8K",
-        "videoMotionPrompt": "Slow push-in on signing hands; the pen hesitates then moves; camera tilts up to his face as a tear falls; shallow focus on the document"
+        "imageGenerationPrompt": "昏暗房间里特写：男人颤抖的手握笔签协议，一盏台灯暖光聚焦在合同上，周围黑暗，伦勃朗式布光，一滴泪水滑落脸颊，电影感，8K",
+        "videoMotionPrompt": "缓慢推进到签字的双手：笔尖迟疑然后落下，镜头缓缓上摇到男人闭眼落泪的脸，单光源照亮半张脸"
       },
       {
         "shotNumber": 7,
@@ -158,8 +158,8 @@
             "characterDescription": "A Chinese woman in her 30s, exhausted but hopeful, hospital clothes, disheveled hair"
           }
         ],
-        "imageGenerationPrompt": "Hospital corridor in daytime, a Chinese woman in her 30s in simple clothes looks at a doctor with shock and confusion, warm sunlight streaming through windows, hopeful atmosphere, cinematic realistic style, 8K",
-        "videoMotionPrompt": "Static shot; the woman's expression changes from confusion to dawning realization; subtle zoom on her face"
+        "imageGenerationPrompt": "医院走廊白天：女人穿朴素衣服茫然看着医生，震惊的表情捂着嘴，温暖阳光透过窗户洒进来，希望感初现，电影感写实风格，8K",
+        "videoMotionPrompt": "固定近景：女人表情从困惑到逐渐意识到真相，瞳孔微张，手捂住嘴，阳光在她身后形成轮廓光"
       },
       {
         "shotNumber": 8,
@@ -183,8 +183,8 @@
             "characterDescription": "An elderly Chinese man, kind wrinkled face, simple clothes, gentle voice"
           }
         ],
-        "imageGenerationPrompt": "Hospital corridor warm with sunlight, an elderly Chinese man speaks seriously to a woman, warm golden light streaming through windows; in the background through a doorway, the silhouette of a man leaning against the wall wiping tears, half in shadow, emotional cinematic scene, 8K",
-        "videoMotionPrompt": "Slow pan from the elder speaking to the door frame where the man is listening; the man silently cries and wipes his face with his hand; camera lingers on his trembling hand"
+        "imageGenerationPrompt": "医院走廊温暖阳光中：老人叹息说出真相，暖金光线透过窗户，门外男人靠墙偷听低头擦泪半身隐在阴影里，情绪反转时刻，电影感，8K",
+        "videoMotionPrompt": "缓慢横摇：从老人说话摇到门外男人的剪影，他靠在墙上无声哭泣用粗糙的手擦眼泪，镜头停留在他颤抖的手上"
       },
       {
         "shotNumber": 9,
@@ -208,8 +208,8 @@
             "characterDescription": "A Chinese woman embracing him, face buried in his chest, crying, disheveled hair"
           }
         ],
-        "imageGenerationPrompt": "Hospital corridor bathed in warm golden sunlight, a Chinese woman crying as she embraces a middle-aged man, his rough hands gently patting her back, both in simple worn clothes, emotional embrace, cinematic realism, shallow depth of field, warm amber tones, 8K",
-        "videoMotionPrompt": "Quick push-in as the woman runs to embrace him; camera circles slightly around the hugging couple; subtle slow-motion effect on the embrace"
+        "imageGenerationPrompt": "走廊里夫妻拥抱：女人冲出来紧抱男人泪流满面，男人粗糙的手轻轻拍她后背，金色阳光洒满走廊，暖色调，浅景深，催泪氛围，电影感，8K",
+        "videoMotionPrompt": "快速推近：女人跑向男人拥抱，镜头环绕拥抱的两人微妙慢动作，阳光从背后打出轮廓光"
       },
       {
         "shotNumber": 10,
@@ -237,8 +237,8 @@
             "characterDescription": "A young girl about 8-10 years old lying in hospital bed, weak but smiling, pale face with slight color returning"
           }
         ],
-        "imageGenerationPrompt": "Sunlit hospital room, a family of three holding hands by the bed, warm golden light streaming through window, a young girl in hospital bed smiling weakly, the man holding her hand gently, the woman resting on his shoulder, hope and warmth, cinematic soft lighting, shallow depth of field, 8K",
-        "videoMotionPrompt": "Camera slowly pulls back from the family; gentle push-out revealing the full scene; warm light fills the frame; subtle slow zoom out"
+        "imageGenerationPrompt": "阳光病房全景：一家三口床边手牵手，女儿躺在病床上脸色好转露出虚弱笑容，暖金色阳光铺满病床，柔光温馨，电影感治愈色调，8K",
+        "videoMotionPrompt": "镜头缓慢拉远：从三人紧握的手缓缓拉远成全景，阳光充满画面，温暖的收尾留白"
       },
       {
         "shotNumber": 11,
@@ -253,8 +253,8 @@
         "audioEffects": "钢琴最后一个音符，余韵留白2秒",
         "artDirection": "极简文字画面，留白收尾",
         "characters": [],
-        "imageGenerationPrompt": "Pure black background with white Chinese calligraphy-style text centered: '你只管救女儿，骂名我来背', clean minimal typography, cinematic letterbox format, emotional pause, 8K",
-        "videoMotionPrompt": "Static shot; the text slowly fades in with a 2-second pause at the end"
+        "imageGenerationPrompt": "纯黑背景：白色宋体字居中显示你只管救女儿，骂名我来背，电影银幕比例，极简留白，庄重肃穆，8K",
+        "videoMotionPrompt": "固定镜头：文字缓缓淡入，留白2秒后淡出，安静收尾"
       }
     ]
   }
