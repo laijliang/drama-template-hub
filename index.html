@@ -895,6 +895,7 @@ function openDrawer(idx) {
   }
 
   document.getElementById('drawerContent').innerHTML = html;
+  return;
 
   // Legacy format (no rows)
   const plot = t.plot_structure || {}, av = t.audio_visual_params || {}, prompt = t.ai_prompt_template?.video || '';
