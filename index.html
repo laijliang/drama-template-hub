@@ -746,19 +746,63 @@ function openDrawer(idx) {
   // Storyboard format (has rows array)
   if (t.rows && Array.isArray(t.rows) && t.rows.length > 0) {
     let html = `<div class="form-section">
-      <div class="fs-title">Source · 来源</div>
-      <div class="field"><div class="fl">URL</div><input value="${esc(t.video_source||'')}" onchange="upd(${idx},'video_source',this.value)"></div>
+      <div class="fs-title">Overview · 项目概览</div>
+      <div class="field"><div class="fl">URL · 来源</div><input value="${esc(t.video_source||'')}" onchange="upd(${idx},'video_source',this.value)"></div>
       <div class="form-row">
         <div class="field"><div class="fl">Track · 赛道</div><input value="${esc(t.track||'')}" onchange="upd(${idx},'track',this.value)"></div>
         <div class="field"><div class="fl">Emotion · 情绪</div><input value="${esc(t.core_emotion||'')}" onchange="upd(${idx},'core_emotion',this.value)"></div>
         <div class="field"><div class="fl">Hook · 钩子</div><input value="${esc(t.hook_type||'')}" onchange="upd(${idx},'hook_type',this.value)"></div>
       </div>
+      <div class="form-row col-2">
+        <div class="field"><div class="fl">Style · 画风</div><input value="${esc(t.visual_style||t.audio_visual_params?.visual_style||'')}" onchange="upd(${idx},'visual_style',this.value)"></div>
+        <div class="field"><div class="fl">Tone · 色调</div><input value="${esc(t.tone||t.audio_visual_params?.tone||'')}" onchange="upd(${idx},'tone',this.value)"></div>
+      </div>
       <div class="field"><div class="fl">Viral reason · 爆火原因</div><textarea onchange="upd(${idx},'viral_reason',this.value)">${esc(t.viral_reason||'')}</textarea></div>
-      ${t.matched_pattern ? `<div class="field"><div class="fl">Pattern · 匹配模式</div><input value="${esc(t.matched_pattern)}" onchange="upd(${idx},'matched_pattern',this.value)"></div>` : ''}
-    </div>
-    <div class="form-section">
+    </div>`;
+
+    // Part 1: Character profiles (主角人设)
+    const chars = t.characters || t.main_characters;
+    if (chars && Array.isArray(chars) && chars.length > 0) {
+      html += `<div class="form-section">
+        <div class="fs-title">Characters · 角色人设</div>`;
+      chars.forEach((c, ci) => {
+        html += `<div class="shot-card">
+          <div class="shot-header"><span>${esc(c.characterName || c.name || '角色' + (ci+1))}</span></div>
+          <div class="shot-desc">${esc(c.characterDescription || c.description || c.appearance || '')}</div>
+          ${c.outfit ? `<div style="font-size:13px;color:var(--ink-mute);margin-top:4px"><span class="label">Outfit · 穿搭:</span> ${esc(c.outfit)}</div>` : ''}
+          ${c.forbidden ? `<div style="font-size:13px;color:#b91c1c;margin-top:4px"><span class="label">🚫 Forbidden · 禁止:</span> ${esc(c.forbidden)}</div>` : ''}
+        </div>`;
+      });
+      html += `</div>`;
+    }
+
+    // Part 1: Scene library (场景库)
+    const scenes = t.scenes;
+    if (scenes && Array.isArray(scenes) && scenes.length > 0) {
+      html += `<div class="form-section">
+        <div class="fs-title">Scenes · 场景库</div>`;
+      scenes.forEach(s => {
+        html += `<div class="shot-card">
+          <div class="shot-header"><span>${esc(s.name || '')}</span><span class="badge">${esc(s.lighting || s.light || '')}</span></div>
+          <div class="shot-desc">${esc(s.description || '')}</div>
+        </div>`;
+      });
+      html += `</div>`;
+    }
+
+    // Part 1: Art rules (美术规则)
+    if (t.art_rules || t.global_rules) {
+      const rules = t.art_rules || t.global_rules;
+      html += `<div class="form-section">
+        <div class="fs-title">Art Rules · 美术规则</div>
+        <div class="shot-card"><div class="shot-desc" style="white-space:pre-wrap">${esc(typeof rules === 'string' ? rules : JSON.stringify(rules, null, 2))}</div></div>
+      </div>`;
+    }
+
+    // Part 2+3: Storyboard
+    html += `<div class="form-section">
       <div class="fs-title">Storyboard · ${t.rows.length} Shots · ${t.rows.length}镜分镜</div>
-      <button class="btn btn-sm" onclick="copyAllShotPrompts(${idx})" style="margin-bottom:var(--sp-md)">📋 Copy All Image Prompts · 复制全部生图提示词</button>
+      <button class="btn btn-sm" onclick="copyAllShotPrompts(${idx})" style="margin-bottom:var(--sp-md)">📋 Copy All · 复制全部</button>
       ${t.rows.map((s, si) => {
         const imgP = s.imageGenerationPrompt || '';
         const vidP = s.videoMotionPrompt || '';
@@ -775,9 +819,9 @@ function openDrawer(idx) {
           </div>
           <div class="shot-desc">${esc(s.characterAction || '')}</div>
           <div class="shot-prompts">
-            <textarea readonly rows="2" id="imgp_${idx}_${si}" placeholder="imageGenerationPrompt">${esc(imgP)}</textarea>
+            <textarea rows="3" readonly id="imgp_${idx}_${si}" placeholder="imageGenerationPrompt">${esc(imgP)}</textarea>
             <button class="btn btn-sm" onclick="copyEl('imgp_${idx}_${si}')" title="Copy image prompt">🖼️</button>
-            <textarea readonly rows="2" id="vidp_${idx}_${si}" placeholder="videoMotionPrompt">${esc(vidP)}</textarea>
+            <textarea rows="3" readonly id="vidp_${idx}_${si}" placeholder="videoMotionPrompt">${esc(vidP)}</textarea>
             <button class="btn btn-sm" onclick="copyEl('vidp_${idx}_${si}')" title="Copy video prompt">🎬</button>
           </div>
         </div>`;
