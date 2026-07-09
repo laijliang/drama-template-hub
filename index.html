@@ -649,18 +649,28 @@ let activeFilters = { track: '', emotion: '' };
 function init() { load(); render(); populateChips(); syncFromGitHub(); setInterval(syncFromGitHub, 30000); }
 
 function syncFromGitHub() {
-  fetch('data/templates.json')
+  // Cache-busting: append timestamp to bypass GitHub Pages CDN cache
+  fetch('data/templates.json?_=' + Date.now())
     .then(r => { if (!r.ok) throw Error('No data file'); return r.json(); })
     .then(data => {
       if (!Array.isArray(data) || !data.length) return;
-      let n = 0;
-      data.forEach(item => {
-        if (!item.video_source && !item.track) return;
-        if (templates.some(t => t.video_source && item.video_source && t.video_source === item.video_source)) return;
-        templates.push({ ...item, plot_structure: item.plot_structure || {}, audio_visual_params: item.audio_visual_params || {}, ai_prompt_template: item.ai_prompt_template || {} });
-        n++;
-      });
-      if (n > 0) { save(); render(); populateChips(); toast(`Synced ${n} entries · 同步了${n}条`); }
+      // Serialize both to compare content (not just count)
+      const localRaw = JSON.stringify(templates);
+      const remoteRaw = JSON.stringify(data);
+      if (localRaw === remoteRaw) { setStatus(true); return; }
+
+      // Replace local data entirely with remote data
+      templates = data.map(item => ({
+        ...item,
+        plot_structure: item.plot_structure || {},
+        audio_visual_params: item.audio_visual_params || {},
+        ai_prompt_template: item.ai_prompt_template || {}
+      }));
+      save();
+      render();
+      populateChips();
+      const msg = 'Synced · 已同步 ' + templates.length + ' entries';
+      toast(msg);
       setStatus(true);
     })
     .catch(() => { setStatus(false); });
