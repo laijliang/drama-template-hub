@@ -463,6 +463,54 @@
   .prompt-area textarea:focus { border-color: var(--primary); }
   .prompt-area .btn { flex-shrink: 0; margin-top: 0; }
 
+  /* ── Storyboard Shot Cards ── */
+  .shot-card {
+    background: var(--canvas-soft);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    padding: var(--sp-lg);
+    margin-bottom: var(--sp-md);
+    transition: border-color 0.15s;
+  }
+  .shot-card:hover { border-color: var(--primary); }
+  .shot-card .shot-header {
+    display: flex; align-items: center; gap: var(--sp-sm);
+    margin-bottom: var(--sp-sm);
+    font-size: 13px; font-weight: 500; color: var(--primary);
+  }
+  .shot-card .shot-header .badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    padding: 1px 8px; border-radius: var(--r-pill);
+    background: rgba(83,58,253,0.08);
+    color: var(--primary);
+    font-size: 11px; font-weight: 400;
+  }
+  .shot-card .shot-detail {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: var(--sp-sm); margin-bottom: var(--sp-sm);
+    font-size: 13px; color: var(--ink-mute);
+  }
+  .shot-card .shot-detail .label { font-weight: 500; color: var(--ink-secondary); }
+  .shot-card .shot-desc {
+    font-size: 13px; line-height: 1.6; color: var(--ink-secondary);
+    margin-bottom: var(--sp-sm);
+  }
+  .shot-card .shot-prompts { display: flex; gap: var(--sp-sm); }
+  .shot-card .shot-prompts textarea {
+    flex: 1; min-height: 36px; padding: 6px 8px;
+    border: 1px solid var(--hairline); border-radius: var(--r-sm);
+    background: var(--canvas);
+    font-family: var(--mono); font-size: 11px; color: var(--ink);
+    resize: vertical; outline: none;
+  }
+  .shot-card .shot-prompts textarea:focus { border-color: var(--primary); }
+  .shot-card .shot-prompts .btn { font-size: 10px; padding: 4px 8px; height: auto; min-height: 28px; border-radius: var(--r-sm); white-space: nowrap; }
+
+  @media (max-width: 768px) {
+    .shot-card .shot-detail { grid-template-columns: 1fr; }
+    .shot-card .shot-prompts { flex-direction: column; }
+  }
+
   /* ── Toast ── */
   .toast-wrap {
     position: fixed; bottom: var(--sp-xl); left: 50%;
@@ -640,16 +688,17 @@ function render() {
   grid.innerHTML = f.map((t, i) => {
     const idx = templates.indexOf(t);
     const title = t.viral_reason || t.track || 'Untitled';
-    const prev = t.ai_prompt_template?.video ? t.ai_prompt_template.video.slice(0, 120) + '…' : 'No prompt yet';
+    const hasShots = t.rows && Array.isArray(t.rows) && t.rows.length > 0;
+    const prev = hasShots ? '🎬 ' + t.rows.length + ' shots · ' + t.rows.length + '镜分镜故事板' : (t.ai_prompt_template?.video ? t.ai_prompt_template.video.slice(0, 120) + '…' : 'No prompt yet');
+    const badgeExtra = hasShots ? '<span class="card-badge" style="background:rgba(83,58,253,0.08);color:var(--primary);border-color:var(--primary)">🎬 ' + t.rows.length + '镜</span>' : '';
     return `<div class="card" onclick="openDrawer(${idx})" style="animation-delay:${i*50}ms">
-      <div class="card-badges">${t.track?`<span class="card-badge track">${esc(t.track)}</span>`:''}${t.core_emotion?`<span class="card-badge emotion">${esc(t.core_emotion)}</span>`:''}${t.hook_type?`<span class="card-badge hook">${esc(t.hook_type)}</span>`:''}</div>
+      <div class="card-badges">${t.track?`<span class="card-badge track">${esc(t.track)}</span>`:''}${t.core_emotion?`<span class="card-badge emotion">${esc(t.core_emotion)}</span>`:''}${t.hook_type?`<span class="card-badge hook">${esc(t.hook_type)}</span>`:''}${badgeExtra}</div>
       <div class="card-title">${esc(title)}</div>
       <div class="card-preview">${esc(prev)}</div>
       <div class="card-footer">
         <span>${esc(t.video_source||'').replace(/^https?:\/\//,'').slice(0,36)||'—'}</span>
         <div class="actions" onclick="event.stopPropagation()">
-          <button class="btn btn-sm" onclick="copyP(${idx})">Copy prompt · 复制</button>
-          <button class="btn btn-sm" onclick="openDrawer(${idx})">Edit · 编辑</button>
+          <button class="btn btn-sm" onclick="openDrawer(${idx})">View · 查看</button>
           <button class="btn btn-sm btn-danger" onclick="del(${idx})">✕</button>
         </div>
       </div>
@@ -683,6 +732,52 @@ function openDrawer(idx) {
   document.getElementById('drawerOverlay').classList.add('active');
   document.getElementById('drawer').classList.add('open');
   document.getElementById('drawerTitle').textContent = t.viral_reason || 'Template';
+
+  // Storyboard format (has rows array)
+  if (t.rows && Array.isArray(t.rows) && t.rows.length > 0) {
+    let html = `<div class="form-section">
+      <div class="fs-title">Source · 来源</div>
+      <div class="field"><div class="fl">URL</div><input value="${esc(t.video_source||'')}" onchange="upd(${idx},'video_source',this.value)"></div>
+      <div class="form-row">
+        <div class="field"><div class="fl">Track · 赛道</div><input value="${esc(t.track||'')}" onchange="upd(${idx},'track',this.value)"></div>
+        <div class="field"><div class="fl">Emotion · 情绪</div><input value="${esc(t.core_emotion||'')}" onchange="upd(${idx},'core_emotion',this.value)"></div>
+        <div class="field"><div class="fl">Hook · 钩子</div><input value="${esc(t.hook_type||'')}" onchange="upd(${idx},'hook_type',this.value)"></div>
+      </div>
+      <div class="field"><div class="fl">Viral reason · 爆火原因</div><textarea onchange="upd(${idx},'viral_reason',this.value)">${esc(t.viral_reason||'')}</textarea></div>
+      ${t.matched_pattern ? `<div class="field"><div class="fl">Pattern · 匹配模式</div><input value="${esc(t.matched_pattern)}" onchange="upd(${idx},'matched_pattern',this.value)"></div>` : ''}
+    </div>
+    <div class="form-section">
+      <div class="fs-title">Storyboard · ${t.rows.length} Shots · ${t.rows.length}镜分镜</div>
+      <button class="btn btn-sm" onclick="copyAllShotPrompts(${idx})" style="margin-bottom:var(--sp-md)">📋 Copy All Image Prompts · 复制全部生图提示词</button>
+      ${t.rows.map((s, si) => {
+        const imgP = s.imageGenerationPrompt || '';
+        const vidP = s.videoMotionPrompt || '';
+        return `<div class="shot-card">
+          <div class="shot-header">
+            <span>#${s.shotNumber}</span>
+            <span class="badge">${s.durationSeconds || '?'}s</span>
+            <span class="badge">${s.shotSize || '—'}</span>
+            <span class="badge">${s.emotion || '—'}</span>
+          </div>
+          <div class="shot-detail">
+            <span><span class="label">Camera · 运镜:</span> ${s.plotDescription ? esc(s.plotDescription.replace(/\(.*?\)/,'').trim().slice(0,60)) : '—'}</span>
+            <span><span class="label">Dialogue · 台词:</span> ${s.dialogue || '/'}</span>
+          </div>
+          <div class="shot-desc">${esc(s.characterAction || '')}</div>
+          <div class="shot-prompts">
+            <textarea readonly rows="2" id="imgp_${idx}_${si}" placeholder="imageGenerationPrompt">${esc(imgP)}</textarea>
+            <button class="btn btn-sm" onclick="copyEl('imgp_${idx}_${si}')" title="Copy image prompt">🖼️</button>
+            <textarea readonly rows="2" id="vidp_${idx}_${si}" placeholder="videoMotionPrompt">${esc(vidP)}</textarea>
+            <button class="btn btn-sm" onclick="copyEl('vidp_${idx}_${si}')" title="Copy video prompt">🎬</button>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>`;
+    document.getElementById('drawerContent').innerHTML = html;
+    return;
+  }
+
+  // Legacy format (no rows)
   const plot = t.plot_structure || {}, av = t.audio_visual_params || {}, prompt = t.ai_prompt_template?.video || '';
   document.getElementById('drawerContent').innerHTML = `
     <div class="form-section">
@@ -725,6 +820,12 @@ function openDrawer(idx) {
       </div>
       <div class="field"><span class="hint">Auto-regenerated when plot/AV fields above are edited. 修改上方字段后自动重新生成.</span></div>
     </div>`;
+}
+
+function copyAllShotPrompts(idx) {
+  const t = templates[idx]; if (!t || !t.rows) return;
+  const all = t.rows.map(s => `=== Shot ${s.shotNumber} ===\n\nImage prompt:\n${s.imageGenerationPrompt || ''}\n\nVideo motion prompt:\n${s.videoMotionPrompt || ''}\n`).join('\n');
+  copyText(all); toast('Copied all ' + t.rows.length + ' shot prompts · 已复制全部' + t.rows.length + '镜提示词');
 }
 
 function closeDrawer() { document.getElementById('drawerOverlay').classList.remove('active'); document.getElementById('drawer').classList.remove('open'); }
