@@ -743,93 +743,158 @@ function openDrawer(idx) {
   document.getElementById('drawer').classList.add('open');
   document.getElementById('drawerTitle').textContent = t.viral_reason || 'Template';
 
-  // Storyboard format (has rows array)
-  if (t.rows && Array.isArray(t.rows) && t.rows.length > 0) {
-    let html = `<div class="form-section">
-      <div class="fs-title">Overview · 项目概览</div>
-      <div class="field"><div class="fl">URL · 来源</div><input value="${esc(t.video_source||'')}" onchange="upd(${idx},'video_source',this.value)"></div>
-      <div class="form-row">
-        <div class="field"><div class="fl">Track · 赛道</div><input value="${esc(t.track||'')}" onchange="upd(${idx},'track',this.value)"></div>
-        <div class="field"><div class="fl">Emotion · 情绪</div><input value="${esc(t.core_emotion||'')}" onchange="upd(${idx},'core_emotion',this.value)"></div>
-        <div class="field"><div class="fl">Hook · 钩子</div><input value="${esc(t.hook_type||'')}" onchange="upd(${idx},'hook_type',this.value)"></div>
-      </div>
-      <div class="form-row col-2">
-        <div class="field"><div class="fl">Style · 画风</div><input value="${esc(t.visual_style||t.audio_visual_params?.visual_style||'')}" onchange="upd(${idx},'visual_style',this.value)"></div>
-        <div class="field"><div class="fl">Tone · 色调</div><input value="${esc(t.tone||t.audio_visual_params?.tone||'')}" onchange="upd(${idx},'tone',this.value)"></div>
-      </div>
-      <div class="field"><div class="fl">Viral reason · 爆火原因</div><textarea onchange="upd(${idx},'viral_reason',this.value)">${esc(t.viral_reason||'')}</textarea></div>
-    </div>`;
+  // Build 7-module detail view
+  let html = `<div class="form-section">
+    <div class="fs-title">Overview · 项目概览</div>
+    <div class="field"><div class="fl">URL · 来源</div><input value="${esc(t.video_source||'')}" onchange="upd(${idx},'video_source',this.value)"></div>
+    <div class="form-row">
+      <div class="field"><div class="fl">Track · 赛道</div><input value="${esc(t.track||'')}" onchange="upd(${idx},'track',this.value)"></div>
+      <div class="field"><div class="fl">Emotion · 情绪</div><input value="${esc(t.core_emotion||'')}" onchange="upd(${idx},'core_emotion',this.value)"></div>
+      <div class="field"><div class="fl">Hook · 钩子</div><input value="${esc(t.hook_type||'')}" onchange="upd(${idx},'hook_type',this.value)"></div>
+    </div>
+    <div class="field"><div class="fl">Viral reason · 爆火原因</div><textarea onchange="upd(${idx},'viral_reason',this.value)">${esc(t.viral_reason||'')}</textarea></div>
+  </div>`;
 
-    // Part 1: Character profiles (主角人设)
-    const chars = t.characters || t.main_characters;
-    if (chars && Array.isArray(chars) && chars.length > 0) {
-      html += `<div class="form-section">
-        <div class="fs-title">Characters · 角色人设</div>`;
-      chars.forEach((c, ci) => {
+  // Module 1: 故事脚本
+  const script = t.script;
+  if (script) {
+    html += `<div class="form-section">
+      <div class="fs-title">1 · Story Script · 故事脚本模块</div>`;
+    if (script.structure) html += `<div class="shot-card"><div class="shot-desc" style="white-space:pre-wrap">${esc(script.structure)}</div></div>`;
+    if (script.acts && Array.isArray(script.acts)) {
+      script.acts.forEach(a => {
         html += `<div class="shot-card">
-          <div class="shot-header"><span>${esc(c.characterName || c.name || '角色' + (ci+1))}</span></div>
-          <div class="shot-desc">${esc(c.characterDescription || c.description || c.appearance || '')}</div>
-          ${c.outfit ? `<div style="font-size:13px;color:var(--ink-mute);margin-top:4px"><span class="label">Outfit · 穿搭:</span> ${esc(c.outfit)}</div>` : ''}
-          ${c.forbidden ? `<div style="font-size:13px;color:#b91c1c;margin-top:4px"><span class="label">🚫 Forbidden · 禁止:</span> ${esc(c.forbidden)}</div>` : ''}
+          <div class="shot-header"><span>${esc(a.title||'')}</span><span class="badge">${esc(a.tag||'')}</span></div>
+          <div class="shot-desc">${esc(a.content||'')}</div>
         </div>`;
       });
-      html += `</div>`;
     }
+    html += `</div>`;
+  }
 
-    // Part 1: Scene library (场景库)
-    const scenes = t.scenes;
-    if (scenes && Array.isArray(scenes) && scenes.length > 0) {
-      html += `<div class="form-section">
-        <div class="fs-title">Scenes · 场景库</div>`;
-      scenes.forEach(s => {
+  // Module 2: AI分析
+  const analysis = t.analysis || t.ai_analysis;
+  if (analysis) {
+    html += `<div class="form-section">
+      <div class="fs-title">2 · AI Analysis · AI分析模块</div>`;
+    if (Array.isArray(analysis)) {
+      analysis.forEach(a => {
         html += `<div class="shot-card">
-          <div class="shot-header"><span>${esc(s.name || '')}</span><span class="badge">${esc(s.lighting || s.light || '')}</span></div>
-          <div class="shot-desc">${esc(s.description || '')}</div>
+          <div class="shot-header"><span>${esc(a.name||a.type||'')}</span></div>
+          <div class="shot-desc">${esc(a.content||a.description||'')}</div>
         </div>`;
       });
-      html += `</div>`;
+    } else if (typeof analysis === 'string') {
+      html += `<div class="shot-card"><div class="shot-desc" style="white-space:pre-wrap">${esc(analysis)}</div></div>`;
+    } else {
+      html += `<div class="shot-card"><div class="shot-desc" style="white-space:pre-wrap">${esc(JSON.stringify(analysis, null, 2))}</div></div>`;
     }
+    html += `</div>`;
+  }
 
-    // Part 1: Art rules (美术规则)
-    if (t.art_rules || t.global_rules) {
-      const rules = t.art_rules || t.global_rules;
-      html += `<div class="form-section">
-        <div class="fs-title">Art Rules · 美术规则</div>
-        <div class="shot-card"><div class="shot-desc" style="white-space:pre-wrap">${esc(typeof rules === 'string' ? rules : JSON.stringify(rules, null, 2))}</div></div>
+  // Module 3: 分镜结构
+  const shots = t.shots || t.storyboard_structure;
+  if (shots && Array.isArray(shots)) {
+    html += `<div class="form-section">
+      <div class="fs-title">3 · Storyboard Structure · 分镜结构模块</div>`;
+    shots.forEach(s => {
+      html += `<div class="shot-card">
+        <div class="shot-header"><span>${esc(s.name||s.shot||'')}</span><span class="badge">${esc(s.tag||s.label||'')}</span></div>
+        <div class="shot-desc">${esc(s.description||s.content||'')}</div>
       </div>`;
-    }
+    });
+    html += `</div>`;
+  }
 
-    // Part 2+3: Storyboard
+  // Module 4: 素材库
+  const materials = t.materials || t.material_library;
+  if (materials) {
+    html += `<div class="form-section">
+      <div class="fs-title">4 · Materials · 素材库模块</div>`;
+    if (typeof materials === 'object') {
+      Object.entries(materials).forEach(([k, v]) => {
+        const items = Array.isArray(v) ? v : [v];
+        html += `<div class="shot-card">
+          <div class="shot-header"><span>${esc(k)}</span><span class="badge">${items.length} items</span></div>`;
+        items.forEach(item => {
+          html += `<div class="shot-desc" style="margin-top:4px">• ${esc(typeof item === 'string' ? item : item.name||item.description||JSON.stringify(item))}</div>`;
+        });
+        html += `</div>`;
+      });
+    } else if (typeof materials === 'string') {
+      html += `<div class="shot-card"><div class="shot-desc" style="white-space:pre-wrap">${esc(materials)}</div></div>`;
+    }
+    html += `</div>`;
+  }
+
+  // Module 5: 提示词与导出
+  const prompts = t.prompts || t.prompt_module;
+  if (prompts) {
+    html += `<div class="form-section">
+      <div class="fs-title">5 · Prompts & Export · 提示词与导出模块</div>`;
+    if (typeof prompts === 'object' && !Array.isArray(prompts)) {
+      Object.entries(prompts).forEach(([k, v]) => {
+        html += `<div class="shot-card">
+          <div class="shot-header"><span>${esc(k)}</span></div>
+          <div class="shot-desc" style="white-space:pre-wrap">${esc(Array.isArray(v) ? v.join('\n') : typeof v === 'string' ? v : JSON.stringify(v, null, 2))}</div>
+        </div>`;
+      });
+    } else if (typeof prompts === 'string') {
+      html += `<div class="shot-card"><div class="shot-desc" style="white-space:pre-wrap">${esc(prompts)}</div></div>`;
+    }
+    html += `</div>`;
+  }
+
+  // Module 6: 导出/连接
+  const connection = t.connection || t.export_module;
+  if (connection) {
+    html += `<div class="form-section">
+      <div class="fs-title">6 · Export & Connect · 导出/连接模块</div>
+      <div class="shot-card"><div class="shot-desc" style="white-space:pre-wrap">${esc(typeof connection === 'string' ? connection : JSON.stringify(connection, null, 2))}</div></div>
+    </div>`;
+  }
+
+  // Module 7: 外部视频模型
+  const external = t.external_models || t.video_models;
+  if (external) {
+    html += `<div class="form-section">
+      <div class="fs-title">7 · External Models · 外部视频模型模块</div>`;
+    const models = Array.isArray(external) ? external : [external];
+    html += `<div style="display:flex;flex-wrap:wrap;gap:6px">`;
+    models.forEach(m => {
+      html += `<span class="card-badge" style="background:rgba(83,58,253,0.08);color:var(--primary);border-color:var(--primary)">${esc(typeof m === 'string' ? m : m.name||m)}</span>`;
+    });
+    html += `</div></div>`;
+  }
+
+  // Legacy: Storyboard rows (if exists)
+  if (t.rows && Array.isArray(t.rows) && t.rows.length > 0) {
     html += `<div class="form-section">
       <div class="fs-title">Storyboard · ${t.rows.length} Shots · ${t.rows.length}镜分镜</div>
       <button class="btn btn-sm" onclick="copyAllShotPrompts(${idx})" style="margin-bottom:var(--sp-md)">📋 Copy All · 复制全部</button>
-      ${t.rows.map((s, si) => {
-        const imgP = s.imageGenerationPrompt || '';
-        const vidP = s.videoMotionPrompt || '';
-        return `<div class="shot-card">
-          <div class="shot-header">
-            <span>#${s.shotNumber}</span>
-            <span class="badge">${s.durationSeconds || '?'}s</span>
-            <span class="badge">${s.shotSize || '—'}</span>
-            <span class="badge">${s.emotion || '—'}</span>
-          </div>
-          <div class="shot-detail">
-            <span><span class="label">Camera · 运镜:</span> ${s.plotDescription ? esc(s.plotDescription.replace(/\(.*?\)/,'').trim().slice(0,60)) : '—'}</span>
-            <span><span class="label">Dialogue · 台词:</span> ${s.dialogue || '/'}</span>
-          </div>
-          <div class="shot-desc">${esc(s.characterAction || '')}</div>
-          <div class="shot-prompts">
-            <textarea rows="3" readonly id="imgp_${idx}_${si}" placeholder="imageGenerationPrompt">${esc(imgP)}</textarea>
-            <button class="btn btn-sm" onclick="copyEl('imgp_${idx}_${si}')" title="Copy image prompt">🖼️</button>
-            <textarea rows="3" readonly id="vidp_${idx}_${si}" placeholder="videoMotionPrompt">${esc(vidP)}</textarea>
-            <button class="btn btn-sm" onclick="copyEl('vidp_${idx}_${si}')" title="Copy video prompt">🎬</button>
-          </div>
-        </div>`;
-      }).join('')}
+      ${t.rows.map((s, si) => `<div class="shot-card">
+        <div class="shot-header">
+          <span>#${s.shotNumber}</span>
+          <span class="badge">${s.durationSeconds || '?'}s</span>
+          <span class="badge">${s.shotSize || '—'}</span>
+          <span class="badge">${s.emotion || '—'}</span>
+        </div>
+        <div class="shot-detail">
+          <span><span class="label">Camera:</span> ${s.plotDescription ? esc(s.plotDescription.replace(/\(.*?\)/,'').trim().slice(0,60)) : '—'}</span>
+          <span><span class="label">Dialogue:</span> ${s.dialogue || '/'}</span>
+        </div>
+        <div class="shot-desc">${esc(s.characterAction || '')}</div>
+        <div class="shot-prompts">
+          <textarea rows="3" readonly id="imgp_${idx}_${si}" placeholder="imageGeneratePrompt">${esc(s.imageGenerationPrompt||'')}</textarea>
+          <button class="btn btn-sm" onclick="copyEl('imgp_${idx}_${si}')">🖼️</button>
+          <textarea rows="3" readonly id="vidp_${idx}_${si}" placeholder="videoMotionPrompt">${esc(s.videoMotionPrompt||'')}</textarea>
+          <button class="btn btn-sm" onclick="copyEl('vidp_${idx}_${si}')">🎬</button>
+        </div>
+      </div>`).join('')}
     </div>`;
-    document.getElementById('drawerContent').innerHTML = html;
-    return;
   }
+
+  document.getElementById('drawerContent').innerHTML = html;
 
   // Legacy format (no rows)
   const plot = t.plot_structure || {}, av = t.audio_visual_params || {}, prompt = t.ai_prompt_template?.video || '';
