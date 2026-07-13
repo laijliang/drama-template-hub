@@ -1,0 +1,35 @@
+{
+  "video_source": "https://v.douyin.com/-beG5S8IIpg/",
+  "analysis_time": "2026-07-09T13:30:00+08:00",
+  "track": "情感逆袭",
+  "core_emotion": "感动泪目",
+  "hook_type": "冲突开场",
+  "target_audience": "25-45岁男女，尤其有家庭/子女的中青年人群，亲情向、隐忍牺牲题材共鸣度高",
+  "viral_reason": "先抑后扬的反转叙事——全员误解父亲→真相是为救女儿主动背骂名，强烈的情绪反差制造催泪爆点，父爱隐忍牺牲的主题戳中大众软肋",
+
+  "plot_structure": {
+    "opening": "中年男主被街坊围堵指责'冷血不配当爹'，近景怼脸拍摄他紧绷的眼角，隐忍不辩解，嘈杂人声白噪音，字幕'所有人都骂我狠心，可没人知道我藏在背后的算计'",
+    "middle": "A线外界视角：邻里传播闲话、亲戚远离、全网唾弃；B线私下视角：深夜独自跑多份兼职、低声求人借钱、偷偷签协议换救治资金。双线交叉剪辑，强烈反差制造心疼感",
+    "climax_reverse": "知情老人说出真相：男主为换女儿手术费自愿背污名，刻意不和家人解释以免妻女被流言中伤。门外偷听的男主靠墙低头擦泪，不敢进去相见",
+    "ending_hook": "妻子冲出病房抱男主崩溃大哭；全景一家三口在病房牵手，阳光落在病床上；文案'你只管救女儿，骂名我来背'；评论区引导'你能理解这位父亲吗？如果是你会怎么做？'",
+    "story_rhythm": "前15s快节奏冲突钩子，中段45s双线叙事铺垫情绪，后段20s反转爆发+催泪收尾",
+    "conflict_type": "人与命运（父亲 vs 绝症手术费）+ 人与人（被全社会误解）"
+  },
+
+  "audio_visual_params": {
+    "tone": "压抑冷调（前期）→ 暖光复苏（结尾反转后），高对比度",
+    "bgm_type": "前期低沉压抑白噪音+轻弦乐，反转后切换为悲伤催泪钢琴纯音乐",
+    "shot_cut_freq": "开篇快剪0.5-1s/切，中段叙事2s/切，高潮反转处慢镜头留白2-3s",
+    "camera_movement": "开篇手持晃动增强冲突感，中段固定镜头叙事，结尾稳定推近",
+    "visual_style": "电影感叙事，浅景深特写为主，弱化大场景聚焦人物微表情",
+    "sound_design": "开篇嘈杂人声白噪音，中段安静环境音+心跳声，反转后音效骤停+纯音乐起"
+  },
+
+  "ai_prompt_template": {
+    "video": "Generate a 25-second emotional short video: warm cinematic tones transitioning from cold oppressive to hopeful warmth. Opening 3s: close-up of a middle-aged man surrounded by accusing neighbors shouting 'heartless father', shaky handheld camera, noisy crowd sound, subtitle 'They all call me cruel, but no one knows my plan'. Middle 15s: dual cross-cutting montage — A-line shows people gossiping and condemning him on social media; B-line shows him secretly working multiple night jobs, begging for money, signing a document with trembling hands. Shot changes every 2s. Climax 5s: an elder reveals the truth — he sacrificed his reputation to pay for his daughter's life-saving surgery. Close-up: the man leans against the hospital wall, silently wiping tears, too overwhelmed to enter. Ending 2s: wife hugs him crying, wide shot of the family holding hands by the hospital bed with warm sunlight streaming in. Cinematic style, shallow depth of field, 8K, high contrast, emotionally charged.",
+    "image_thumbnail": "Cinematic poster split diagonally: left side dark with man being accused under cold blue light, right side warm golden light with family holding hands in hospital room. Title '你只管救女儿，骂名我来背' centered in bold white serif font.",
+    "title_copy": "你只管救女儿，骂名我来背｜看哭全网的父亲"
+  },
+
+  "tags": ["亲情催泪", "父爱牺牲", "先抑后扬", "反转虐心", "以身入局", "隐忍"]
+}

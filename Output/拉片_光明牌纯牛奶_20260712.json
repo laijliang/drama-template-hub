@@ -1,0 +1,31 @@
+{
+  "video_source": "用户提供文字剧情（无原始视频链接）",
+  "analysis_time": "2026-07-12T00:39:00+08:00",
+  "track": "脑洞反转喜剧",
+  "core_emotion": "爆笑荒诞",
+  "hook_type": "反差钩子（史诗黑暗大殿 vs 一盒纯牛奶）",
+  "target_audience": "18-35岁短视频用户，偏好中二/反套路/职场吐槽/无厘头反转的年轻群体",
+  "viral_reason": "极致反差叙事——前半段用全套史诗视听语言堆'黑暗大殿决战'的压迫感（暗红LED、混响台词、必杀技命名），结尾瞬间揭晓'终极神器——光明'竟是一盒纯牛奶、魔王因乳糖不耐受当场战败，反套路笑点密集；保洁大妈作为'终极BOSS'二次反转，把中二感彻底打回社畜现实，荒诞感与爽感双重爆点",
+  "plot_structure": {
+    "opening": "黄昏密闭办公室，遮光帘隔绝自然光，暗红LED把空间映成黑暗大殿；魔王黑斗篷转椅背对门散发压迫感。慢节奏铺陈压抑史诗感",
+    "middle": "英雄破披风巨剑踉跄闯入，魔王用重度混响低沉台词宣战；英雄甩掉狼狈摆出中二勇者姿态亮出'终极神器——光明'；魔王闻言震惊转椅高速旋转正面",
+    "climax_reverse": "英雄掏出方正比例长方体物件（牛奶盒）举剑蓄力，嘶吼必杀技劈落，剑砍中物件'噗嗤啪叽'白色液体喷涌——白炽灯全亮，黑暗大殿秒变普通办公室，'光明'竟是纯牛奶；魔王被泼满脸僵住",
+    "ending_hook": "英雄摆烂舔奶；魔王崩溃咆哮；魔王乳糖不耐受过敏抽搐战败；英雄踩桌耍帅 victory pose；保洁大妈拖把逆光登场气场碾压，英雄秒怂跪滑擦地求饶王阿姨，全员扣绩效收尾。评论区引导'你以为的史诗决战 vs 实际的一盒牛奶'",
+    "story_rhythm": "前10s慢节奏史诗铺垫，中段15s中二对峙提速，反转瞬间0.5s静帧+爆笑，后段20s连环反转密集笑点",
+    "conflict_type": "人与设定（英雄的中二执念 vs 现实的荒谬）+ 人与人（英雄 vs 魔王 vs 保洁大妈）"
+  },
+  "audio_visual_params": {
+    "tone": "前半暗红冷调压抑→劈奶瞬间惨白平光→结尾明快荒诞",
+    "bgm_type": "前半史诗管弦+混响人声，反转后尴尬静默+搞笑音效（噗嗤/啪叽/哐当），结尾滑稽小调",
+    "shot_cut_freq": "开篇慢推2-3s/切，对峙段1.5s/切，劈砍慢镜0.5s静帧，反转后快剪0.5-1s/切",
+    "camera_movement": "开篇缓慢环绕推近营造压迫，魔王台词时低角度仰拍，劈砍高速跟拍，反转后固定广角暴露全貌",
+    "visual_style": "漫画感厚涂+电影光影，前半暗调高对比，反转后平光写实暴露办公杂物",
+    "sound_design": "开门巨响、转椅旋转声、剑破空声、牛奶噗嗤啪叽、铁剑哐当、保洁咆哮，混响人声贯穿前半"
+  },
+  "ai_prompt_template": {
+    "video": "Generate a 45-second comedic reversal short: opening 10s dark office with blackout curtains, dim red LED, a 'demon lord' in cheap Halloween cape slumped in office chair back to door, oppressive low-angle shots. Mid 15s: a 'hero' bursts through door with tattered cape and giant iron sword, panting; demon lord speaks with heavy reverb; hero strikes a chuunibyou pose revealing 'ultimate artifact — LIGHT'. Climax: hero pulls out a milk carton, raises sword, screams ultimate move and slashes; 'splat' white liquid bursts; all fluorescent lights snap on revealing a normal office. Ending 20s: milk-faced hero, lactose-intolerant demon lord collapses, hero victory pose, a mop-wielding cleaning lady appears as true final boss, hero grovels mopping floor. Cinematic comic style, 8K.",
+    "image_thumbnail": "Split poster: left dark office with red LED and caped figure in chair, right normal office with hero covered in milk holding carton and demon lord shocked; bold title '光明牌纯牛奶' centered.",
+    "title_copy": "你以为的史诗决战，实际是一盒牛奶｜魔王因乳糖不耐受战败"
+  },
+  "tags": ["反转喜剧", "中二", "无厘头", "职场吐槽", "脑洞", "牛奶", "保洁大妈"]
+}

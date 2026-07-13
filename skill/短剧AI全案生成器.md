@@ -1,0 +1,395 @@
+---
+name: 短剧AI全案生成器
+description: >-
+  内容生成专用 skill。给一个剧情或爆款视频，产出完整的结构化 JSON 包
+  （含 rows + characters[] + scenes[] + props[] 资产块），供前端索引或 libtv-drama
+  做画布编排。不操作画布，不生成图片/视频。
+---
+
+# Skill Name: 短剧AI全案生成器
+
+## 适用场景
+
+**这是内容生成 skill，不是画布操作 skill。** 你的职责只有一条：把用户的故事/分析需求变成一份**机器和人都能读的结构化 JSON**。画布编排有另一个 skill（`libtv-drama`）负责，你不要越界。
+
+## 输入引导
+
+### 场景 A：用户给了剧情/故事构思
+直接进入分析流程。如果信息不全（缺人设细节/场景/情绪走向等），在输出中合理补全而非追问。
+
+### 场景 B：用户给了爆款视频链接
+
+自动拉取视频数据，除非脚本不可用才引导用户描述。
+
+**执行流程：**
+
+```bash
+cd d:/Manage_Drama
+"C:/Users/34355/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe" scripts/get_douyin_video.py "<用户给的视频链接>"
+```
+
+脚本输出 JSON 包含：
+- `title` — 视频标题/描述
+- `author` — 作者昵称、签名、粉丝数
+- `stats` — 点赞/评论/收藏/分享数
+- `topics` — 话题标签
+- `cover_url` — 视频封面图
+- `video_url` — 视频下载地址（可以下载后分析画面）
+- `create_time` — 发布时间
+
+拿到数据后，结合 `stats`（高点赞/高分享说明哪里打动人）、`topics`（话题标签暗示受众定位）、`title`（标题描述剧情/内容方向）做复刻分析。
+
+如果用户明确要求“拉片/逐镜/画面分析”，必须继续处理 `video_url`：
+```bash
+cd d:/Manage_Drama
+"C:/Users/34355/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe" scripts/prepare_douyin_lapian.py "<用户给的视频链接>" --frame-interval 1 --max-frames 120
+```
+
+脚本会输出：
+- `manifest` — 拉片素材清单 JSON；
+- `video_path` — 已下载到本地的 mp4；
+- `frames_dir` — 抽帧图片目录；
+- `frame_count` / `duration_seconds` — 抽帧数量和视频时长。
+
+拿到 `manifest` 后，按 `frame_extraction.frames[]` 的时间顺序读取帧图，分析每个镜头的场景、景别、构图、运镜趋势、人物动作、情绪、可见字幕/文字与节奏变化。不可见或未转写的声音/对白不要编造，只能标注为“画面不可确认”或基于字幕判断。
+
+只有元数据时，不要声称已经完成逐镜拉片；应说明当前分析基于标题、话题、互动数据和封面，画面级拉片需要先下载视频或由用户提供视频文件。
+
+**如果脚本报错**（cookie 过期、无法访问等），回退到以下引导方式：
+
+### 场景 C：用户直接提供了完整视频描述
+基于描述直接分析。
+
+---
+
+## ⚠️ 复刻规则（核心！读三遍）
+
+当用户要求"复刻"一个视频（无论是给了链接还是描述），你必须严格遵守以下原则：
+
+### 什么是"复刻"
+
+> **内核不变，故事换新。** 不是改写/换皮，是提取原作的"结构 DNA"，然后用全新的剧情/角色/场景/对白重新演绎一遍。
+
+### 保留不变的结构 DNA（与原作一致）
+
+| 维度 | 说明 | 示例 |
+| --- | --- | --- |
+| **赛道** `track` | 情感逆袭 / 职场干货 / 萌宠日常 / 搞笑段子 / 悬疑剧情 / 治愈系 | 原作是"情感逆袭" → 复刻也是"情感逆袭" |
+| **核心情绪** `core_emotion` | 爽感逆袭 / 感动泪目 / 治愈共鸣 / 幽默解压 | 原作是"感动泪目" → 复刻也是"感动泪目" |
+| **3秒钩子类型** `hook_type` | 冲突开场 / 反差提问 / 悬念前置 / 视觉冲击 | 原作是"冲突开场" → 复刻也是"冲突开场" |
+| **情绪曲线** | 压抑→铺垫→反转→爆发→收尾 的节奏模式 | 同样"先抑后扬过山车"模式 |
+| **叙事结构** | 三幕式 / 双线叙事 / 倒叙 / 单线递进 | 同样结构，同样反转时机（70%处反转） |
+| **冲突类型** | 人与命运 / 人与社会 / 认知冲突 / 利益冲突 | 同样是"人与社会（被误解）" |
+| **视听基调** | 色调演变方向、节奏变化模式 | 同样"冷灰开场→暖金收尾"的色调弧线 |
+
+### 必须完全换新的（与原作不同）
+
+| 维度 | 说明 | 示例 |
+| --- | --- | --- |
+| **场景** | 不同的时间、地点、空间 | 原作是"居民楼+医院" → 复刻是"学校+法院" |
+| **具体冲突** | 不同的矛盾触发事件 | 原作是"手术费凑不齐" → 复刻是"冤案即将判刑" |
+| **道具/关键物件** | 不同的叙事锚点 | 原作是"诊断书+签协议" → 复刻是"证据袋+判决书" |
+| **台词/对白** | 完全重写，不沿用原词 | 原作"你只管救女儿，骂名我来背" → 复刻"你只管读书，案子我来扛" |
+| **视觉元素** | 不同的服装色系、场景色调细节 | 原作"灰色旧衬衫" → 复刻"深蓝工装" |
+
+### 执行检查清单
+
+输出前逐条自查：
+
+- [ ] 赛道与原作一致？ ✅
+- [ ] 情绪曲线模式一致？ ✅
+- [ ] 叙事结构一致？ ✅
+- [ ] 角色完全不同（名/身份/关系）？ ✅
+- [ ] 场景完全不同？ ✅
+- [ ] 具体冲突事件不同？ ✅
+- [ ] 台词完全是新写的？ ✅
+- [ ] 如果把两部作品并列看，不会觉得"这是同一个故事换了个名"？ ✅
+
+> **宁可"看起来是完全不同的故事，但感觉一样"——也不要"看起来一样，只是换了个名字"。**
+
+---
+
+## 输出结构（四阶段，依次输出）
+
+---
+
+### 🏗️ 阶段一：项目资产锚定
+
+按以下格式输出完整资产库，这是全案的"宪法"，后续所有阶段必须强制绑定。
+
+#### 【一、项目基础信息】
+- **项目名称：**
+- **剧集类型：** （甜宠/悬疑/玄幻/古风/都市/重生/逆袭/情感/搞笑/知识）
+- **视频比例：** 16:9横屏
+- **整体画风：** （例：高清国漫写实、厚涂玄幻、轻小说二次元、电影感写实）
+- **整体画质标准：** 8K、超清、极致细节、无崩坏
+- **整体色调：** （例：高透亮冷白、暖柔奶油、赛博冷调、阴郁青灰）
+- **目标受众：** 短剧观众
+- **整体镜头节奏：** 快节奏 / 中速叙事 / 慢节奏氛围感
+
+#### 【二、全局美术规则（强制执行）】
+1. **时代背景：**
+2. **画面风格规则：** （光影标准、构图标准、色彩演变）
+3. **画面禁止元素（黑名单）：** 现代穿帮、透视错误、多余文字、水印、畸形手指、多指、变形
+4. **剧情风格约束：**
+
+#### 【三、主角人设资产包（全程锁定）】
+- **角色姓名：**
+- **性别/年龄/身高：**
+- **五官基准：** （例：丹凤眼、薄唇、下颚线分明）
+- **发型发色（锁定）：**
+- **常服套装（锁定）：**
+- **性格标签与常用情绪：**
+- **专属光影色调：**
+- **绝对禁止崩坏项：** （例：不能歪嘴、不能变短发、不能换衣服）
+
+#### 【四、配角人设资产包】
+*（每个配角复制此结构）*
+- **角色名：**
+- **外貌固定特征与穿搭：**
+- **角色定位：** （盟友/反派/助攻）
+
+#### 【五、场景资产库（全剧复用）】
+- **常用室内场景：**
+- **常用室外场景：**
+- **特殊剧情专属场景：**
+- **场景固定光影方案：**
+
+#### 【六、全局AI生成强制锁规则】
+1. 全剧人物五官、发色、穿搭、体型全程锁定。
+2. 全剧画风笔触、清晰度、饱和度、光影统一。
+3. 所有镜头严禁畸形、多指、变形、错位。
+4. 画面必须符合叙事逻辑，不出现无关元素。
+
+#### 【七、角色表（rows.characters 直推格式）】
+*（每个角色一行，供阶段三直接填入分镜 `rows[*].characters[]`）*
+- **角色名：** `<角色名>`
+  - `characterName`: `"<角色名>"`
+  - `characterDescription`: `"<One-line English: hair, face, outfit, accessories>"`
+
+---
+
+### 📜 阶段二：逐镜剧本编译
+
+把剧情编译为逐镜结构化剧本。**一句台词对应一个独立镜头**，动作描写必须可绘画（具象），禁止抽象心理描写。
+
+#### 场次：[场次名称]
+
+#### 镜号 1
+- **时长：** 2s
+- **景别：** 全景/近景/中景/特写
+- **运镜方式：** 固定/推/拉/摇/移/跟/手持晃动
+- **画面场景：** （场景描述+构图+光影）
+- **角色动作+表情：** （可绘画的具象动作）
+- **台词：** "..." 或 /
+- **情绪标签：** 平淡/温柔/冷漠/愤怒/委屈/震惊/暧昧/悲伤/狂妄/好奇/感动
+- **音效：** （环境音/BGM/音效）
+- **前镜关联：** 首镜 / 沿用镜号X场景与服装
+
+#### 【剧本 rows JSON 骨架（必出）】
+
+在剧本正文之后，输出一个 ` ```rows ` 围栏 JSON 块，字段映射如下：
+
+| 剧本字段 | rows 字段 | 说明 |
+| --- | --- | --- |
+| 镜号 | `shotNumber` | number，从 1 递增 |
+| 时长 | `durationSeconds` | number（秒） |
+| 景别 | `shotSize` | 特写/近景/中景/全景/远景 |
+| 画面场景+运镜+前镜关联 | `plotDescription` | 合并成一句画面叙事，运镜和前关联用括号补在句尾 |
+| 角色动作+表情 | `characterAction` | string |
+| 台词 | `dialogue` | string，无台词填 `"/"` |
+| 情绪标签 | `emotion` | string |
+| 场景标签 | `sceneTags` | string，斜杠分隔 |
+| 光影氛围 | `lightingAndAtmosphere` | string |
+| 音效 | `audioEffects` | string |
+| 角色绑定 | `characters` | `[{characterName, characterDescription}]`，引用阶段一第七节 |
+
+```rows
+[
+  {
+    "shotNumber": 1,
+    "durationSeconds": 2,
+    "shotSize": "全景",
+    "plotDescription": "幽暗石砌枯井底部，小青蛙被手机幽蓝光照亮（运镜:固定；首镜）",
+    "characterAction": "青蛙抬头望井口，眼睛映出蓝光",
+    "dialogue": "/",
+    "emotion": "好奇",
+    "sceneTags": "枯井底部/青苔井壁/井口蓝天",
+    "lightingAndAtmosphere": "手机冷蓝屏光+井口自然顶光，冷色调",
+    "audioEffects": "风声/井底回响",
+    "characters": [{ "characterName": "小青蛙", "characterDescription": "A round cute cartoon frog with big green eyes, sitting in a stone well" }]
+  }
+]
+```
+
+---
+
+### 🎬 阶段三：分镜增强 + AI 提示词
+
+读取阶段二的 `rows` 骨架 + 阶段一的角色表。**本阶段是"原地增强"**——保留阶段二所有字段原值，仅新增/补全下列字段：
+
+| 新增字段 | 说明 |
+| --- | --- |
+| `imageGenerationPrompt` | **英文正向 Prompt**：主体+动作+服装（绑定角色描述）+场景+光影+构图+画质风格词，可直接喂生图 |
+| `videoMotionPrompt` | **英文 Prompt**：运镜方向+动作节奏+镜头语言，可直接喂生视频 |
+
+**统一负向词（不入 rows，生成时追加）：**
+`nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, deformed, ugly, bad proportions, extra limbs, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, mutated hands, mutilated, mutilated hands, cloned face`
+
+#### 最终 rows JSON（画布直推版）
+
+本阶段"原地增强"：**沿用阶段二 rows 每个镜头的全部字段原值**，仅在每个镜头对象末尾追加下面两个英文字段。最终输出仍是一个完整的 ` ```rows ` 围栏块（阶段二全部字段 + 这两字段）。
+
+以镜 1 为例，追加内容为：
+
+```json
+"imageGenerationPrompt": "A round cute cartoon frog with big green eyes sitting at the bottom of a stone masonry well, lit by cold blue glow of a smartphone screen, mossy well walls, a small circle of blue sky visible at the well mouth above, flat Chinese comic style, clean lines, bright colors, 8k, high detail, sharp focus",
+"videoMotionPrompt": "Static wide shot; faint blue light flickers on frog's face from the phone screen; subtle dust motes drift in the light beam"
+```
+
+---
+
+### 📦 阶段四：输出打包（落盘 JSON）
+
+将所有内容写入项目 `Output/` 目录，生成一个完整的 JSON 文件。这是全案的唯一产出物，**既是前端可读的模板数据，也是 libtv-drama 做画布编排的数据源**。
+
+#### 文件：`Output/{项目名}_全案_{日期}.json`
+
+JSON 包含三大部分：
+1. **前端展示字段**（`video_source` / `track` / `script` / `shots` / `prompts` 等）— 保持与 index.html 兼容
+2. **rows 数组** — 阶段三最终版，含 `imageGenerationPrompt` / `videoMotionPrompt`
+3. **独立资产块（即"素材库"）** `characters[]` / `scenes[]` / `props[]` — 角色/场景/道具素材统一由这三个结构化资产块承担，前端"素材库"直接读它们，**不再单列 `materials` 字段**，避免与资产重复浪费 token。也供画布 skill 做角色分组/三视图/场景占位/道具锁定，不混入 rows
+
+```json
+{
+  "video_source": "",
+  "track": "赛道名称",
+  "core_emotion": "核心情绪",
+  "hook_type": "钩子类型",
+  "viral_reason": "一句话总结",
+
+  "script": {
+    "structure": "叙事结构描述",
+    "acts": [
+      { "title": "第一幕", "tag": "冲突建立", "content": "..." }
+    ]
+  },
+
+  "analysis": [
+    { "name": "角色分析", "content": "..." },
+    { "name": "冲突分析", "content": "..." },
+    { "name": "情绪曲线分析", "content": "..." },
+    { "name": "节奏分析", "content": "..." }
+  ],
+
+  "shots": [
+    {
+      "name": "镜号1-场景名",
+      "tag": "标签",
+      "durationSeconds": 3,
+      "description": "画面内容+镜头语言+构图+光影+人物表情+肢体动作+音效+台词"
+    }
+  ],
+
+  "prompts": {
+    "镜头提示词(中文生图用)": "...",
+    "画面提示词(生视频用)": "...",
+    "风格提示词(统一画风用)": "..."
+  },
+
+  "connection": "使用说明",
+
+  "external_models": ["Runway Gen-3", "KLING", "Pika", "Vidu"],
+
+  "ai_prompt_template": {
+    "video": "一份完整的、可直接粘贴到视频生成工具的英文提示词，涵盖全片叙事、色调、节奏、运镜，约150-300词。"
+  },
+
+  "rows": [
+    {
+      "shotNumber": 1,
+      "durationSeconds": 2,
+      "shotSize": "全景",
+      "plotDescription": "",
+      "characterAction": "",
+      "dialogue": "/",
+      "emotion": "",
+      "sceneTags": "",
+      "lightingAndAtmosphere": "",
+      "audioEffects": "",
+      "characters": [],
+      "imageGenerationPrompt": "",
+      "videoMotionPrompt": ""
+    }
+  ],
+
+  "characters": [
+    {
+      "characterName": "角色名",
+      "characterId": "role-1",
+      "gender": "男/女",
+      "age": 30,
+      "appearance": {
+        "face": "五官描述（丹凤眼、薄唇、下颚线分明）",
+        "hair": "发型发色",
+        "body": "身高体型",
+        "distinctive": "辨识度特征（泪痣、疤痕等）"
+      },
+      "costume": {
+        "default": "常服套装描述（含颜色/材质/款式）",
+        "colorPalette": ["主色1", "主色2", "点缀色"],
+        "prohibited": "禁止出现的穿搭元素"
+      },
+      "lighting": "专属光影色调",
+      "emotions": ["常用情绪1", "常用情绪2"],
+      "characterDescription": "One-line English description for prompt injection"
+    }
+  ],
+
+  "scenes": [
+    {
+      "sceneName": "场景名称",
+      "sceneId": "scene-1",
+      "type": "室内/室外",
+      "description": "详细场景描述（风格/色调/关键物件）",
+      "lightingPlan": "该场景的固定光影方案",
+      "colorTone": "色调倾向",
+      "props": ["关键道具1", "关键道具2"],
+      "prohibited": "禁止出现元素"
+    }
+  ],
+
+  "props": [
+    {
+      "propName": "道具名称",
+      "propId": "prop-1",
+      "type": "关键叙事道具 / 日常道具 / 象征物",
+      "description": "详细外观描述（材质、颜色、新旧、尺寸、纹样等可绘画细节）",
+      "symbolism": "象征意义与叙事作用（代表什么、为何重要、如何推动情绪）",
+      "lockedDetails": "跨镜必须锁定的细节（颜色/磨损/刻字/形态，保证每一镜外观一致）",
+      "appearsIn": "出现镜次（如 镜1 / 镜5 / 镜9）",
+      "prohibited": "禁止出现的变化或元素",
+      "promptSnippet": "One-line English description for prompt injection"
+    }
+  ]
+}
+```
+
+> `characters[]` 里的 `characterDescription` 与阶段一第七节一致，可被画布 skill 读去做三视图提示词拼接。
+> `scenes[]` 供画布 skill 做 720 场景节点占位。
+> `props[]` 把关键道具升级为独立资产：含象征意义、跨镜锁定细节与英文 `promptSnippet`，保证叙事锚点道具（信物/关键物件等）在每一镜外观一致。仅收录"承担叙事作用的关键道具"，纯背景杂物不必入块。
+
+---
+
+## 执行规则（总纲）
+
+1. **一次输出全部四阶段**：不允许分多次对话完成，不允许说"下一阶段需要你确认后再继续"。
+2. **格式严格对齐**：阶段一固定格式，阶段二逐镜格式，阶段三 rows JSON，阶段四完整的 JSON 文件。
+3. **角色一致性**：所有阶段的角色描述必须引用阶段一的角色表，确保服装/外貌跨镜统一。
+4. **画面可绘画**：所有场景/动作描述必须具象（颜色、材质、光线方向），禁止抽象心理描写。
+5. **提示词可执行**：`imageGenerationPrompt` 和 `videoMotionPrompt` 必须完整、可粘贴到 AI 工具直接使用，不含占位符。
+6. **英文 prompts**：阶段三 rows 中用英文（兼容 libtv 和主流 AI 工具）；`prompts` 字段用中文（适合中文用户直接复制）。
+7. **前端格式兼容**：JSON 中的 `rows` 和 `ai_prompt_template` 字段确保前端卡片显示正常。
+8. **文件命名**：`{项目名}` 用中文简短名，`{日期}` 用 `YYYYMMDD` 格式。
+9. **只生产内容，不操作画布**：不要在响应中调用 libtv CLI 或任何画布操作命令。
+10. **分镜必须标时长**：阶段四 `shots[]`（分镜结构）里每一镜都必须含 `durationSeconds`（数字，单位秒），标注该镜头预计时长；所有镜时长之和应与 `script.structure` 描述的总时长大致吻合。

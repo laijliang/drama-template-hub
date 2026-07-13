@@ -1,0 +1,433 @@
+{
+  "video_source": "复刻自：https://v.douyin.com/XLp6yJo_6AQ/（原作：我的见闻录·一元爱心厨房）",
+  "analysis_time": "2026-07-13T23:45:00+08:00",
+  "track": "情感温暖",
+  "core_emotion": "温暖治愈",
+  "hook_type": "反差钩子",
+  "viral_reason": "巷口老奶奶一块钱一碗热汤面温暖深夜众生，面'廉价'但善意无价；当年被喂饱的少年长大后归来接棒，善意传承戳中人心",
+  "matched_pattern": "反差钩子 + 群像温情 + 善意传承呼应",
+  "matched_emotion_curve": "曲线：市井烟火→困境者被托举→少年落泪→时间流转→老人老去→少年归来接棒→升华（温暖递进，结尾呼应升华）",
+  "target_audience": "全年龄段情感共鸣人群，向往人间温情、认同平凡善意与'物质廉价而爱无价'价值观的大众用户",
+
+  "script": {
+    "structure": "以巷口面摊为核心场景的群像温情结构，总时长约79秒。烟火暖橙的面摊与冷蓝夜色对照，三个困境者被一碗面温暖，时间流转后老人老去、当年少年归来接棒，善意传承升华。",
+    "acts": [
+      {
+        "title": "第一幕 - 一碗面的烟火(0-24s)",
+        "tag": "温暖铺垫",
+        "content": "夜色老城巷口，褪色木招牌'热汤面 一块钱一碗'，老奶奶在煤炉前熟练下面撒葱花卧蛋，热气腾腾。反差钩子字幕'这碗面只要一块钱，可有人说它无价'。暖橙烟火对比周遭冷蓝夜色。"
+      },
+      {
+        "title": "第二幕 - 深夜众生(25-52s)",
+        "tag": "群像温情",
+        "content": "疲惫外卖小哥深夜停车吃面，老奶奶多卧一个蛋；失业中年摸遍口袋只有几毛，老奶奶'钱下次再给'把面推过去；冻得发抖的离家少年缩在摊边，老奶奶默默端来一碗'吃饱了就有力气回家'，少年吃面落泪，老奶奶轻拍他肩。"
+      },
+      {
+        "title": "第三幕 - 传承与升华(53-79s)",
+        "tag": "呼应升华",
+        "content": "寒来暑往面摊灯火一直亮。多年后老奶奶白发更多手也抖了，某个雨夜摊前冷清。一个撑伞的制服青年出现——正是当年少年，红着眼'奶奶，我回来了，这碗面该我下给您吃了'。青年接过勺子为老人也为夜里的人下面，招牌依旧'一块钱一碗'。黑底暖光文案收尾。"
+      }
+    ]
+  },
+
+  "analysis": [
+    {
+      "name": "角色分析",
+      "content": "面摊老奶奶：无私守望型，话不多，善意全靠'多卧一个蛋''钱下次再给''默默端面'等具象动作传递，是全片的温暖锚点。困境群像(外卖小哥/失业中年/离家少年)：代表深夜里被生活压弯的普通人，被一碗面接住。归来青年：善意传承的载体，与少年是同一人，完成'被温暖→去温暖'的闭环。"
+    },
+    {
+      "name": "冲突分析",
+      "content": "核心冲突：普通人 vs 生活的重压(疲惫/失业/离家/衰老)。没有反派，冲突由'一碗一块钱的面'温柔化解。深层张力来自'廉价的物质'与'无价的善意'之间的反差，以及'施与者终会老去，善意能否延续'的悬念，由少年归来接棒解答。"
+    },
+    {
+      "name": "情绪曲线分析",
+      "content": "温暖(0-12s烟火)-心疼(13-30s外卖小哥/失业者)-破防(31-45s少年落泪)-温情流转(46-60s时间蒙太奇)-揪心(61-68s老人老去雨夜冷清)-泪目温暖(69-78s少年归来)-升华(79s接棒)。温暖递进型曲线，不靠悲剧靠善意层层累积，结尾呼应上扬。"
+    },
+    {
+      "name": "地理分析",
+      "content": "核心空间：老城巷口面摊——褪色木招牌、煤炉、粗瓷碗，暖橙灯火是全片情感中心；周遭城市夜巷冷蓝，形成'一小片暖对抗一整夜冷'的视觉主题。雨夜面摊强化衰老与冷清，归来时灯火重新温暖，空间的冷暖变化对应善意的延续。"
+    },
+    {
+      "name": "节奏分析",
+      "content": "中慢(0-24s烟火铺垫4-5s/镜)-中(25-52s群像每人一段6-9s/镜)-快切慢(53-60s时间流转蒙太奇1-2s/镜后转慢)-慢(61-79s雨夜与归来长镜留白8-10s/镜)。靠情绪密度和留白打动人，关键温暖处放慢，时间流转处加快对比。"
+    }
+  ],
+
+  "shots": [
+    { "name": "镜1-一块钱招牌", "tag": "反差钩子", "durationSeconds": 5, "description": "画面内容：夜色老城巷口，一块褪色木招牌写着'热汤面 一块钱一碗'，招牌下老奶奶在煤炉前下面，白色热气腾腾升起。\n镜头语言：中景固定，暖橙灯光是画面唯一亮源。\n构图：招牌在上，老奶奶与煤炉在下，四周夜色压暗留白。\n光影：暖橙摊灯对比周遭冷蓝夜色，热气透光。\n人物表情：老奶奶低头专注，嘴角带着习惯性的温和。\n音效：煤炉火苗声+锅里水沸+远处夜市杂音，温暖钢琴单音。\n字幕：这碗面只要一块钱，可有人说，它无价。" },
+    { "name": "镜2-下面卧蛋", "tag": "烟火温暖", "durationSeconds": 6, "description": "画面内容：老奶奶熟练地把面下进翻滚的汤锅，撒一把翠绿葱花，卧一个金黄鸡蛋，盛进粗瓷碗热气升腾。\n镜头语言：近景特写手部动作，浅景深。\n构图：粗瓷碗与热气居中，暖光聚焦。\n光影：暖橙灯光，蒸汽在光里翻腾。\n人物表情：动作利落从容，眼神慈爱。\n音效：下面声+葱花入汤的滋声+瓷碗轻响+钢琴轻起。\n台词：/" },
+    { "name": "镜3-外卖小哥", "tag": "群像温情", "durationSeconds": 7, "description": "画面内容：疲惫的外卖小哥深夜把电动车停在摊边，摘下头盔捧着热面大口吃，老奶奶悄悄又给他碗里卧了个蛋。\n镜头语言：中景，焦点在小哥与碗。\n构图：小哥坐矮凳偏右，老奶奶的手从左入画添蛋。\n光影：暖橙摊灯照亮疲惫的脸，身后夜色冷蓝。\n人物表情：小哥狼吞虎咽眼含暖意，老奶奶含笑。\n音效：吃面的吸溜声+电动车余温滴答+温暖弦乐。\n台词：(老奶奶)跑一天了吧，多吃个蛋。" },
+    { "name": "镜4-失业中年", "tag": "群像温情", "durationSeconds": 8, "description": "画面内容：西装皱巴巴领带松垮的中年男坐在摊角，摸遍所有口袋只掏出几枚硬币，尴尬低头，老奶奶不动声色把面推到他面前。\n镜头语言：中近景，前景是摊开的几毛钱。\n构图：中年男在右三分线佝偻，老奶奶推面的手在左。\n光影：暖光中夹着人物脸上的阴影，落寞。\n人物表情：中年男强撑的疲惫与愧色，老奶奶了然的温和。\n音效：硬币碰桌声+夜风+低钢琴。\n台词：(老奶奶)钱下次再给，先吃饱。日子啊，扛过去就好了。" },
+    { "name": "镜5-离家少年", "tag": "群像温情", "durationSeconds": 9, "description": "画面内容：一个背着破旧书包的少年缩在摊边台阶上，冻得发抖不敢靠近，老奶奶默默盛了一碗热面走过去递到他手里。\n镜头语言：全景转近景，缓慢推近。\n构图：少年蜷缩在暗处角落，老奶奶端面的暖光靠近他。\n光影：少年在冷蓝阴影里，面碗的暖光照亮他的脸。\n人物表情：少年戒备又渴望，老奶奶温柔不问缘由。\n音效：夜风+少年发抖的呼吸+温暖钢琴。\n台词：(老奶奶)吃吧，吃饱了，就有力气回家了。" },
+    { "name": "镜6-少年落泪", "tag": "情绪破防", "durationSeconds": 6, "description": "画面内容：少年捧着热面大口吃着，眼泪一滴滴砸进碗里，老奶奶伸手轻轻拍了拍他的肩。\n镜头语言：近景特写，焦点在少年含泪的脸与颤抖的手。\n构图：少年居中，老奶奶的手从肩上入画。\n光影：暖光照亮泪光，柔和。\n人物表情：少年边吃边无声落泪，老奶奶眼神心疼慈爱。\n音效：压抑的抽泣+吃面声+催泪钢琴。\n台词：/" },
+    { "name": "镜7-灯火流转", "tag": "时间流转", "durationSeconds": 7, "description": "画面内容：快速蒙太奇——春夏秋冬、雨雪风霜，巷口面摊那盏灯始终亮着，一个个不同的人来了又走都被热面温暖。\n镜头语言：一组快切固定镜头叠化。\n构图：同一机位，面摊灯火恒定，人物与季节流转。\n光影：季节色调变化但摊灯的暖橙恒定。\n人物表情：形形色色的人捧碗的满足。\n音效：叠化的环境音变化+温暖弦乐渐强。\n字幕：一碗面，一块钱，一守就是好多年。" },
+    { "name": "镜8-老人老去", "tag": "揪心转折", "durationSeconds": 8, "description": "画面内容：多年后的雨夜，老奶奶白发更多背更驼，下面的手微微发抖，摊前冷清无人，雨敲着棚布。\n镜头语言：全景固定，雨帘留白。\n构图：老奶奶独自守在暖光小摊，四周被雨夜冷蓝吞没。\n光影：暖橙摊灯在雨中显得孤单，雨丝反光。\n人物表情：老奶奶望着空荡的巷口，眼神平静却落寞。\n音效：雨声+煤炉微火+孤单钢琴。\n台词：/" },
+    { "name": "镜9-少年归来", "tag": "呼应泪目", "durationSeconds": 10, "description": "画面内容：一把伞出现在摊前，撑伞的是个穿整洁制服的青年——正是当年的少年，他红着眼看着老奶奶，声音哽咽。\n镜头语言：中景，缓慢推近到青年含泪的脸再切老奶奶怔住的脸。\n构图：青年立于雨中摊前，老奶奶在暖光里抬头。\n光影：青年半身在雨的冷蓝里，脸被摊灯暖光照亮。\n人物表情：青年强忍泪水的笑，老奶奶从怔忪到红了眼眶。\n音效：雨声渐弱+催泪钢琴推起。\n台词：(青年哽咽)奶奶，我回来了。这碗面，该换我下给您吃了。" },
+    { "name": "镜10-接棒传承", "tag": "温暖升华", "durationSeconds": 8, "description": "画面内容：青年绕到摊后接过老奶奶手里的旧搪瓷勺，为她也为雨夜里陆续到来的人下面，褪色招牌依旧写着'一块钱一碗'，老奶奶坐在一旁欣慰地笑。\n镜头语言：全景固定缓缓拉远。\n构图：青年在摊后忙碌，老奶奶在暖光旁，招牌居于画面上方。\n光影：雨渐停，摊灯的暖橙重新明亮温暖。\n人物表情：青年专注温柔，老奶奶含泪欣慰笑。\n音效：下面声+雨后滴水+钢琴转明亮温暖。\n台词：(老奶奶轻声)好，好啊……" },
+    { "name": "镜11-文案收尾", "tag": "升华留白", "durationSeconds": 5, "description": "画面内容：暖光面摊虚化为背景，中央浮现核心文案白字逐行淡入。\n镜头语言：固定镜头，文案淡入淡出留白。\n构图：暖橙柔焦背景，白字居中极简。\n光影：温暖柔光，文字清晰。\n音效：钢琴最后一个音符轻柔收尾。\n字幕：一块钱的面，喂饱的是胃，也是人心。/ 这世上最贵的，往往都是不要钱的东西。" }
+  ],
+
+
+  "prompts": {
+    "镜头提示词(中文生图用)": "夜色老城巷口褪色木招牌热汤面一块钱一碗老奶奶煤炉前下面白色热气腾腾暖橙摊灯对比冷蓝夜色中景电影写实8K\n近景特写老奶奶下面撒翠绿葱花卧金黄鸡蛋粗瓷碗热气升腾暖光聚焦浅景深烟火气8K\n疲惫外卖小哥深夜摊边捧碗大口吃面老奶奶悄悄添蛋暖橙灯照疲惫脸身后夜色冷蓝中景8K\n冻得发抖的少年缩在摊边台阶阴影里老奶奶端热面走近暖光照亮少年的脸冷暖对比全景8K\n雨夜制服青年撑伞立于暖光面摊前红着眼老奶奶抬头怔住雨帘冷蓝脸被摊灯照亮中景催泪8K",
+    "画面提示词(生视频用)": "中景固定暖橙面摊煤炉热气升腾招牌轻晃周遭夜色压暗镜头微微呼吸\n近景老奶奶熟练下面撒葱花卧蛋盛碗蒸汽在暖光里翻腾手部特写\n中景外卖小哥狼吞虎咽老奶奶的手入画添蛋温暖氛围浅景深\n缓慢推近老奶奶端面走向阴影里发抖的少年暖光靠近照亮他的脸\n雨中缓慢推近撑伞青年含泪的脸再切老奶奶怔住红眼眶催泪慢动作",
+    "风格提示词(统一画风用)": "电影感写实AI漫剧，市井烟火暖调，浅景深特写聚焦手部动作与微表情。核心视觉主题'一小片暖橙对抗一整夜冷蓝'：面摊暖橙灯火恒定温暖，周遭城市夜色冷蓝孤清，雨夜更冷清、归来后重新温暖。以暖橙、米白、热气白为主色。禁止卡通化、过饱和、喜剧化表情、现代穿帮、模糊人脸、手指畸形、显年轻化的老人；少年与长大后的青年须保持五官一致。"
+  },
+
+  "connection": "将提示词包与素材清单整合用于AI视频生成。流程：(1)逐镜复制imageGenerationPrompt生成底帧，严格绑定角色锁定描述，重点保证'离家少年'与'归来青年'五官一致(2)复制videoMotionPrompt生成动态片段(3)按镜号1-11排序导入剪辑(4)铺市井环境音与温暖钢琴BGM，镜7时间流转处做叠化蒙太奇，镜8雨夜加雨声(5)全片贯彻'暖橙面摊vs冷蓝夜色'的色温对照，雨夜偏冷、归来后回暖(6)合并导出，片尾保留反差升华文案。",
+
+  "external_models": [
+    "Runway Gen-3(写实人物与烟火暖光推荐)",
+    "KLING 1.6(人物情绪特写与吃面微表情)",
+    "Vidu(市井巷口与热气质感)",
+    "Pika 2.0(时间流转叠化蒙太奇)",
+    "Sora(雨夜长镜头与拉远)"
+  ],
+
+  "ai_prompt_template": {
+    "video": "A 79-second cinematic warm emotional AI short film in a realistic street-food style about a small noodle stall in an old city alley, where a kind old granny sells a bowl of hot noodle soup for just one yuan. Open at night on a faded wooden sign 'Hot Noodles, One Yuan a Bowl'; the granny cooks over a coal stove, steam rising, warm orange stall light against the cold blue night, subtitle 'This bowl costs one yuan, but some say it is priceless'. Close-up: she drops noodles into boiling broth, sprinkles green scallions, adds a golden egg, fills a coarse ceramic bowl with rising steam. A tired late-night delivery rider eats hungrily as she quietly adds an extra egg 'You've worked all day, have another egg'. A weary middle-aged man in a wrinkled suit finds only a few coins in his pockets; she pushes the bowl to him 'Pay next time, eat first, hard days will pass'. A shivering runaway teenage boy huddles at the edge; she silently brings him a bowl 'Eat, once you're full you'll have the strength to go home'; the boy weeps into the bowl as she pats his shoulder. A montage through seasons: the stall light always on, many strangers warmed. Years later on a rainy night the granny is older, hands trembling, the stall empty. A young man in a neat uniform appears under an umbrella, the grown-up boy, eyes red 'Granny, I'm back. Let me cook this bowl for you now.' He takes the old enamel ladle and cooks for her and for the people in the rainy night, the sign still reading 'One Yuan a Bowl', the granny smiling through tears. End on warm text over the glowing stall: 'A one-yuan bowl of noodles fills the stomach, and the heart. The most precious things in this world often cost nothing.' Color theme: a small patch of warm orange against a whole cold-blue night; rain colder, warmth returning after. Warm piano score, gentle slow motion, shallow depth of field, close-ups on hands and micro-expressions, no cartoonish or oversaturated look, consistent character design, the boy and the grown man clearly the same person.",
+    "duration": "79",
+    "aspect_ratio": "16:9",
+    "negative": "nsfw, lowres, bad anatomy, bad hands, text glitch, missing fingers, extra digit, cropped, worst quality, jpeg artifacts, watermark, blurry, deformed, oversaturated, cartoonish, comedic expression, modern anachronism, disfigured, cloned face"
+  },
+
+  "rows": [
+    {
+      "shotNumber": 1,
+      "durationSeconds": 5,
+      "shotSize": "中景",
+      "plotDescription": "夜色老城巷口，褪色木招牌'热汤面 一块钱一碗'，招牌下老奶奶在煤炉前下面白色热气腾腾（运镜:固定，暖橙灯为唯一亮源；首镜）",
+      "characterAction": "老奶奶低头专注地在煤炉汤锅前下面，嘴角带着习惯性的温和",
+      "dialogue": "/",
+      "emotion": "温暖/烟火",
+      "sceneTags": "老城巷口/褪色木招牌/煤炉/暖橙摊灯/冷蓝夜色",
+      "lightingAndAtmosphere": "暖橙摊灯对比周遭冷蓝夜色，热气透光",
+      "audioEffects": "煤炉火苗声+锅里水沸+远处夜市杂音+温暖钢琴单音",
+      "characters": [{ "characterName": "面摊老奶奶", "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up" }],
+      "imageGenerationPrompt": "Night in an old city alley, a faded wooden sign reading Chinese characters for 'hot noodles one yuan a bowl', beneath it a kind old granny around 70 with silver hair in a bun cooking over a coal stove, white steam rising, warm orange stall light as the only light source against the cold blue night, cinematic realistic street-food style, shallow depth of field, cozy atmosphere, 8k, high detail",
+      "videoMotionPrompt": "Static medium shot with subtle breathing motion; steam rises from the coal stove, the sign sways faintly, surroundings dark; warm and quiet"
+    },
+    {
+      "shotNumber": 2,
+      "durationSeconds": 6,
+      "shotSize": "近景",
+      "plotDescription": "老奶奶熟练把面下进翻滚汤锅撒翠绿葱花卧金黄鸡蛋盛进粗瓷碗热气升腾（运镜:近景特写手部动作，浅景深；沿用面摊场景）",
+      "characterAction": "利落地下面、撒葱花、卧蛋、盛碗，动作从容眼神慈爱",
+      "dialogue": "/",
+      "emotion": "温暖/从容",
+      "sceneTags": "面摊/粗瓷碗/葱花鸡蛋/热气",
+      "lightingAndAtmosphere": "暖橙灯光，蒸汽在光里翻腾",
+      "audioEffects": "下面声+葱花入汤滋声+瓷碗轻响+钢琴轻起",
+      "characters": [{ "characterName": "面摊老奶奶", "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up" }],
+      "imageGenerationPrompt": "Close-up of an old granny's hands dropping noodles into boiling broth, sprinkling bright green scallions and adding a golden egg into a coarse blue-patterned ceramic bowl, steam rising, warm orange light, shallow depth of field, street-food realism, 8k, high detail",
+      "videoMotionPrompt": "Close-up on hands; she cooks the noodles, sprinkles scallions, adds an egg and fills the bowl; steam swirls in the warm light; deft and tender"
+    },
+    {
+      "shotNumber": 3,
+      "durationSeconds": 7,
+      "shotSize": "中景",
+      "plotDescription": "疲惫外卖小哥深夜停车摘头盔捧热面大口吃，老奶奶悄悄又给他碗里卧个蛋（运镜:中景，焦点在小哥与碗；沿用面摊）",
+      "characterAction": "外卖小哥狼吞虎咽眼含暖意，老奶奶的手从旁入画悄悄添蛋含笑",
+      "dialogue": "(老奶奶)跑一天了吧，多吃个蛋。",
+      "emotion": "心疼/温暖",
+      "sceneTags": "面摊/外卖小哥/电动车/添蛋",
+      "lightingAndAtmosphere": "暖橙摊灯照亮疲惫的脸，身后夜色冷蓝",
+      "audioEffects": "吃面吸溜声+电动车余温滴答+温暖弦乐",
+      "characters": [
+        { "characterName": "面摊老奶奶", "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up" },
+        { "characterName": "外卖小哥", "characterDescription": "A tired young food delivery rider around 25 in a worn delivery uniform, helmet just taken off, weary face" }
+      ],
+      "imageGenerationPrompt": "A tired young food delivery rider around 25 sitting on a low stool at a night noodle stall eating hungrily from a steaming bowl, an old granny's hand adding an extra egg into his bowl, warm orange stall light on his weary face, cold blue night behind, cinematic realistic style, medium shot, 8k",
+      "videoMotionPrompt": "Medium shot; the rider eats hungrily, the granny's hand enters frame to add an egg; warm intimate atmosphere, shallow depth of field"
+    },
+    {
+      "shotNumber": 4,
+      "durationSeconds": 8,
+      "shotSize": "中近景",
+      "plotDescription": "皱西装领带松垮的中年男坐摊角摸遍口袋只掏出几枚硬币尴尬低头，老奶奶不动声色把面推到他面前（运镜:中近景，前景摊开的几毛钱；沿用面摊）",
+      "characterAction": "中年男掏出几枚硬币窘迫低头，老奶奶温和地把热面推过去",
+      "dialogue": "(老奶奶)钱下次再给，先吃饱。日子啊，扛过去就好了。",
+      "emotion": "落寞/暖心",
+      "sceneTags": "面摊/失业中年/几枚硬币/推面",
+      "lightingAndAtmosphere": "暖光中夹着人物脸上阴影，落寞",
+      "audioEffects": "硬币碰桌声+夜风+低钢琴",
+      "characters": [
+        { "characterName": "面摊老奶奶", "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up" },
+        { "characterName": "失业中年", "characterDescription": "A weary middle-aged man around 45 in a wrinkled worn suit with a loosened tie, downcast dejected expression" }
+      ],
+      "imageGenerationPrompt": "A weary middle-aged man in a wrinkled suit with loosened tie sitting at the corner of a night noodle stall, only a few coins spread on the table, head lowered in embarrassment, an old granny gently pushing a steaming bowl toward him, warm light with soft shadows on faces, melancholic tender mood, cinematic realistic style, 8k",
+      "videoMotionPrompt": "Medium close shot, coins in foreground; the man lowers his head, the granny quietly pushes the bowl to him; warm, aching, gentle"
+    },
+    {
+      "shotNumber": 5,
+      "durationSeconds": 9,
+      "shotSize": "全景转近景",
+      "plotDescription": "背破旧书包的少年缩在摊边台阶冻得发抖不敢靠近，老奶奶默默盛热面走过去递到他手里（运镜:缓慢推近；沿用面摊，少年在阴影）",
+      "characterAction": "少年蜷缩戒备又渴望，老奶奶温柔端面靠近递到他手里",
+      "dialogue": "(老奶奶)吃吧，吃饱了，就有力气回家了。",
+      "emotion": "怜惜/温柔",
+      "sceneTags": "面摊台阶/离家少年/破旧书包/递面",
+      "lightingAndAtmosphere": "少年在冷蓝阴影里，面碗暖光照亮他的脸",
+      "audioEffects": "夜风+少年发抖的呼吸+温暖钢琴",
+      "characters": [
+        { "characterName": "面摊老奶奶", "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up" },
+        { "characterName": "离家少年", "characterDescription": "A thin runaway teenage boy around 15 with a shabby backpack, messy hair, cold and hunched, wary but longing eyes" }
+      ],
+      "imageGenerationPrompt": "A thin teenage boy around 15 with a shabby backpack huddled shivering on the steps beside a night noodle stall in cold blue shadow, an old granny bringing a bowl of hot noodles toward him, the warm bowl light illuminating his face, cold-warm contrast, cinematic realistic style, slow push-in, 8k, high detail",
+      "videoMotionPrompt": "Slow push-in from wide to close; the boy huddles in shadow, the granny approaches with the glowing bowl and hands it to him; tender, cold night air"
+    },
+    {
+      "shotNumber": 6,
+      "durationSeconds": 6,
+      "shotSize": "近景",
+      "plotDescription": "少年捧热面大口吃眼泪一滴滴砸进碗里，老奶奶伸手轻拍他的肩（运镜:近景特写含泪的脸与颤抖的手；沿用台阶）",
+      "characterAction": "少年边狼吞虎咽边无声落泪，老奶奶的手轻拍他的肩安慰",
+      "dialogue": "/",
+      "emotion": "破防/悲喜交加",
+      "sceneTags": "面摊台阶/少年落泪/拍肩",
+      "lightingAndAtmosphere": "暖光照亮泪光，柔和",
+      "audioEffects": "压抑抽泣+吃面声+催泪钢琴",
+      "characters": [
+        { "characterName": "离家少年", "characterDescription": "A thin runaway teenage boy around 15 with a shabby backpack, messy hair, cold and hunched, wary but longing eyes" },
+        { "characterName": "面摊老奶奶", "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up" }
+      ],
+      "imageGenerationPrompt": "Close-up of a teenage boy eating hot noodles while tears drop into the bowl, an old granny's hand gently patting his shoulder, warm light catching the tears, tender heartbreaking mood, cinematic realistic style, shallow depth of field, 8k, high detail",
+      "videoMotionPrompt": "Close-up on the boy's tearful face and trembling hands; he eats while silently crying, the granny pats his shoulder; warm, moving, slow"
+    },
+    {
+      "shotNumber": 7,
+      "durationSeconds": 7,
+      "shotSize": "固定叠化",
+      "plotDescription": "快速蒙太奇春夏秋冬雨雪风霜巷口面摊的灯始终亮着一个个不同的人来了又走都被热面温暖（运镜:一组快切固定镜头叠化；同机位时间流转）",
+      "characterAction": "形形色色的人在同一面摊前捧碗吃面满足，季节在背景流转",
+      "dialogue": "/",
+      "emotion": "温情/流转",
+      "sceneTags": "面摊/四季流转/群像/恒亮的灯",
+      "lightingAndAtmosphere": "季节色调变化但摊灯暖橙恒定",
+      "audioEffects": "叠化的环境音变化+温暖弦乐渐强",
+      "characters": [{ "characterName": "面摊老奶奶", "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up" }],
+      "imageGenerationPrompt": "A time-lapse montage from a fixed camera of the same alley noodle stall through spring summer autumn winter, rain and snow, the warm orange stall lamp always glowing, different people coming and going warmed by the noodles, seasonal color shifts but constant warm light, cinematic realistic style, 8k",
+      "videoMotionPrompt": "A series of quick fixed shots cross-dissolving; seasons and people change while the stall light stays constant; warm strings swelling"
+    },
+    {
+      "shotNumber": 8,
+      "durationSeconds": 8,
+      "shotSize": "全景",
+      "plotDescription": "多年后雨夜老奶奶白发更多背更驼下面的手微微发抖摊前冷清无人雨敲棚布（运镜:固定，雨帘留白；时间推进）",
+      "characterAction": "更苍老的老奶奶独自守摊，手发抖，望着空荡的巷口",
+      "dialogue": "/",
+      "emotion": "揪心/落寞",
+      "sceneTags": "雨夜面摊/更苍老/棚布/冷清",
+      "lightingAndAtmosphere": "暖橙摊灯在雨中显得孤单，雨丝反光",
+      "audioEffects": "雨声+煤炉微火+孤单钢琴",
+      "characters": [{ "characterName": "面摊老奶奶", "characterDescription": "An even older version of the granny around 78, more white hair, more stooped back, slightly trembling hands, same faded floral apron" }],
+      "imageGenerationPrompt": "A rainy night years later, the granny now much older around 78 with more white hair and a stooped back, hands trembling as she cooks, the stall empty and quiet, rain hitting the awning, the warm orange lamp lonely in the rain, cinematic realistic style, wide shot, 8k, high detail",
+      "videoMotionPrompt": "Static wide shot with rain curtain; the aged granny stands alone at the glowing stall gazing at the empty alley; lonely, rain falling"
+    },
+    {
+      "shotNumber": 9,
+      "durationSeconds": 10,
+      "shotSize": "中景",
+      "plotDescription": "一把伞出现在摊前撑伞的是穿整洁制服的青年正是当年少年红着眼看着老奶奶哽咽（运镜:缓慢推近青年含泪的脸再切老奶奶怔住的脸；呼应）",
+      "characterAction": "青年撑伞立于雨中强忍泪水地笑，老奶奶抬头从怔忪到红了眼眶",
+      "dialogue": "(青年哽咽)奶奶，我回来了。这碗面，该换我下给您吃了。",
+      "emotion": "泪目/重逢",
+      "sceneTags": "雨夜面摊/归来青年/伞/重逢",
+      "lightingAndAtmosphere": "青年半身在雨的冷蓝里，脸被摊灯暖光照亮",
+      "audioEffects": "雨声渐弱+催泪钢琴推起",
+      "characters": [
+        { "characterName": "归来青年", "characterDescription": "A young man around 27 in a neat uniform, the grown-up version of the runaway boy with the same recognizable facial features, gentle determined eyes holding back tears, under an umbrella" },
+        { "characterName": "面摊老奶奶", "characterDescription": "An even older version of the granny around 78, more white hair, more stooped back, same faded floral apron" }
+      ],
+      "imageGenerationPrompt": "A young man around 27 in a neat uniform standing under an umbrella before the warm rainy noodle stall, eyes red with held-back tears, clearly the grown-up version of the runaway boy with the same features, the old granny looking up stunned, his face lit by the warm stall lamp while his body is in the cold blue rain, cinematic realistic style, medium shot, tearful, 8k, high detail",
+      "videoMotionPrompt": "Slow push-in to the young man's tearful face then cut to the granny's stunned reddening eyes; rain easing, tearful piano rising"
+    },
+    {
+      "shotNumber": 10,
+      "durationSeconds": 8,
+      "shotSize": "全景",
+      "plotDescription": "青年绕到摊后接过老奶奶手里的旧搪瓷勺为她也为雨夜陆续到来的人下面褪色招牌依旧'一块钱一碗'老奶奶坐一旁欣慰笑（运镜:全景固定缓缓拉远；升华）",
+      "characterAction": "青年在摊后专注下面，老奶奶坐旁含泪欣慰笑，招牌依旧",
+      "dialogue": "(老奶奶轻声)好，好啊……",
+      "emotion": "释怀/温暖传承",
+      "sceneTags": "雨后面摊/青年接棒/旧搪瓷勺/一块钱招牌",
+      "lightingAndAtmosphere": "雨渐停，摊灯暖橙重新明亮温暖",
+      "audioEffects": "下面声+雨后滴水+钢琴转明亮温暖",
+      "characters": [
+        { "characterName": "归来青年", "characterDescription": "A young man around 27 in a neat uniform, the grown-up version of the runaway boy with the same recognizable facial features, gentle determined eyes" },
+        { "characterName": "面摊老奶奶", "characterDescription": "An even older version of the granny around 78, more white hair, more stooped back, same faded floral apron" }
+      ],
+      "imageGenerationPrompt": "A young man in a neat uniform behind the noodle stall taking the old enamel ladle from the aged granny, cooking noodles for her and for people arriving in the rainy night, the faded sign still reading 'one yuan a bowl', the granny sitting nearby smiling through tears, rain stopping, the warm orange lamp bright again, cinematic realistic style, wide shot pulling back, 8k, high detail",
+      "videoMotionPrompt": "Static wide shot slowly pulling back; the young man cooks behind the stall, the granny watches smiling through tears; warm light returns, gentle"
+    },
+    {
+      "shotNumber": 11,
+      "durationSeconds": 5,
+      "shotSize": "全景",
+      "plotDescription": "暖光面摊虚化为背景中央浮现核心文案白字逐行淡入（运镜:固定，文案淡入淡出留白；收尾）",
+      "characterAction": "无人物，白色文案在暖橙柔焦背景中央逐行淡入",
+      "dialogue": "/",
+      "emotion": "升华/共鸣",
+      "sceneTags": "暖橙面摊柔焦背景/白色文案",
+      "lightingAndAtmosphere": "温暖柔光，文字清晰，留白",
+      "audioEffects": "钢琴最后一个音符轻柔收尾",
+      "characters": [],
+      "imageGenerationPrompt": "Soft blurred warm orange background of a glowing noodle stall at night, centered elegant white Chinese text fading in line by line, tender warm light, minimalist, cinematic, 8k",
+      "videoMotionPrompt": "Static shot; white text fades in line by line over the softly blurred warm stall; final piano note; gentle fade to hold"
+    }
+  ],
+
+  "characters": [
+    {
+      "characterName": "面摊老奶奶",
+      "characterId": "role-1",
+      "gender": "女",
+      "age": 70,
+      "appearance": {
+        "face": "慈祥布满皱纹的笑脸，眼神温和有神",
+        "hair": "银白色头发挽成发髻",
+        "body": "微胖敦实，约155cm，晚年更驼",
+        "distinctive": "常年劳作的手，掌心粗糙"
+      },
+      "costume": {
+        "default": "褪色碎花围裙内搭深色棉布衣，袖子挽起，布鞋",
+        "colorPalette": ["褪花", "深棉", "米白"],
+        "prohibited": "不能浓妆、不能鲜艳华丽、不能显年轻"
+      },
+      "lighting": "暖橙摊灯为主光，慈爱温暖；雨夜偏冷孤单",
+      "emotions": ["慈爱", "从容", "落寞", "欣慰"],
+      "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+    },
+    {
+      "characterName": "离家少年/归来青年",
+      "characterId": "role-2",
+      "gender": "男",
+      "age": 15,
+      "appearance": {
+        "face": "少年清瘦戒备又渴望，长大后同一五官变得温和坚定",
+        "hair": "少年蓬乱，青年整洁",
+        "body": "少年约165cm偏瘦，青年约178cm挺拔",
+        "distinctive": "眉眼特征跨年龄一致可辨认为同一人"
+      },
+      "costume": {
+        "default": "少年破旧外套背旧书包；长大后整洁制服(护士/军人/职员)",
+        "colorPalette": ["旧灰", "制服色"],
+        "prohibited": "少年与青年五官必须一致，不能变成两个人"
+      },
+      "lighting": "少年在冷蓝阴影被暖光照亮；青年雨夜半身冷蓝脸被暖光照",
+      "emotions": ["戒备", "感激", "坚定", "泪目"],
+      "characterDescription": "The runaway boy around 15 and his grown-up self around 27 in a neat uniform, same recognizable facial features across ages, from wary and hungry to gentle and determined"
+    },
+    {
+      "characterName": "深夜众生群像",
+      "characterId": "role-3",
+      "gender": "群像",
+      "age": 0,
+      "appearance": {
+        "face": "疲惫外卖小哥、落寞失业中年、环卫工、夜归者、独居老人等",
+        "hair": "各异",
+        "body": "各年龄各职业",
+        "distinctive": "共同点是深夜里被生活压弯又被一碗面接住"
+      },
+      "costume": {
+        "default": "外卖工服/皱西装/环卫橙衣/朴素便装等",
+        "colorPalette": ["各职业色"],
+        "prohibited": "不能光鲜富态、不能喜剧化"
+      },
+      "lighting": "在冷蓝夜色中被面摊暖光照亮",
+      "emotions": ["疲惫", "感动", "满足"],
+      "characterDescription": "Various ordinary people of the late night — a tired delivery rider, a dejected jobless man, sanitation workers, lone elders — all bent by life and caught by a bowl of noodles"
+    }
+  ],
+
+  "scenes": [
+    {
+      "sceneName": "老城巷口面摊(夜)",
+      "sceneId": "scene-1",
+      "type": "室外",
+      "description": "斑驳砖墙的老城巷口，褪色木招牌'热汤面 一块钱一碗'，煤炉汤锅、矮凳、粗瓷碗，暖橙摊灯，是全片情感中心",
+      "lightingPlan": "暖橙摊灯为唯一主光源，热气透光，周遭夜色冷蓝压暗",
+      "colorTone": "暖橙烟火 vs 冷蓝夜色",
+      "props": ["褪色木招牌", "煤炉汤锅", "粗瓷碗", "矮凳", "旧搪瓷勺"],
+      "prohibited": "不能出现现代连锁店招、霓虹过曝、穿帮"
+    },
+    {
+      "sceneName": "雨夜面摊",
+      "sceneId": "scene-2",
+      "type": "室外",
+      "description": "多年后的同一面摊，下雨，加了棚布，雨帘，摊前冷清，用于衰老与呼应",
+      "lightingPlan": "暖橙摊灯在雨中显孤单，雨丝反光，归来后回暖",
+      "colorTone": "冷蓝雨夜 / 归来后回暖",
+      "props": ["棚布", "雨伞", "褪色招牌", "煤炉"],
+      "prohibited": "不能过亮、不能失去孤单感(归来前)"
+    },
+    {
+      "sceneName": "城市夜巷",
+      "sceneId": "scene-3",
+      "type": "室外",
+      "description": "老城窄巷，昏黄路灯，湿漉地面，冷蓝夜色，衬托面摊那一小片暖",
+      "lightingPlan": "昏黄路灯与冷蓝夜色，湿地反光",
+      "colorTone": "冷蓝偏暗",
+      "props": ["路灯", "湿漉地面", "电动车"],
+      "prohibited": "不能明亮繁华、不能现代穿帮"
+    }
+  ],
+
+  "props": [
+    {
+      "propName": "褪色木招牌",
+      "propId": "prop-1",
+      "type": "象征物",
+      "description": "一块边角磨损、油漆褪色的旧木招牌，黑漆手写'热汤面 一块钱一碗'，字迹被岁月磨得发浅，挂在面摊上方微微晃动",
+      "symbolism": "全片的价值宣言与反差核心——'一块钱'的廉价与'守了几十年'的无价形成张力，是善意始终如一的象征，结尾青年接棒时招牌依旧未变，点明传承",
+      "lockedDetails": "'一块钱一碗'字样、木料裂纹与褪色程度全片一致，多年后不能翻新，只能更旧",
+      "appearsIn": "镜1 / 镜7 / 镜10",
+      "prohibited": "不能换成新招牌、不能改价格、不能出现现代喷绘或霓虹",
+      "promptSnippet": "A weathered faded wooden signboard with hand-painted Chinese characters 'hot noodles, one yuan a bowl', paint peeling, edges worn"
+    },
+    {
+      "propName": "粗瓷碗热汤面",
+      "propId": "prop-2",
+      "type": "关键叙事道具",
+      "description": "白底蓝纹的旧粗瓷碗，盛满冒着热气的汤面，翠绿葱花漂浮，一颗金黄卧蛋，碗沿有细小磕痕",
+      "symbolism": "善意最直接的载体，每一次'递碗'都是一次接住困境者的动作，热气与暖色是全片温暖的具象",
+      "lockedDetails": "碗的蓝纹样式、葱花与卧蛋的搭配全片统一，热气始终清晰可见",
+      "appearsIn": "镜2 / 镜3 / 镜4 / 镜5 / 镜6",
+      "prohibited": "不能换成一次性餐盒、不能出现精致餐具、汤面不能冷掉无热气",
+      "promptSnippet": "A chipped blue-and-white coarse ceramic bowl of steaming noodle soup with green scallions and a golden egg"
+    },
+    {
+      "propName": "旧搪瓷勺",
+      "propId": "prop-3",
+      "type": "象征物",
+      "description": "一把掉了瓷、露出金属底的旧搪瓷长柄勺，握柄被磨得发亮，是老奶奶用了几十年的下面工具",
+      "symbolism": "'接棒'的信物——青年从老奶奶手中接过这把勺，完成善意从上一代到下一代的交接，是传承的具象锚点",
+      "lockedDetails": "掉瓷位置与磨亮的握柄全片一致，交接特写需清晰可辨为同一把",
+      "appearsIn": "镜2 / 镜10",
+      "prohibited": "不能换成新勺、交接时不能变形或换样式",
+      "promptSnippet": "An old worn enamel ladle with chipped enamel exposing metal, handle polished smooth from years of use"
+    },
+    {
+      "propName": "一块钱",
+      "propId": "prop-4",
+      "type": "象征物",
+      "description": "一枚磨得发亮的一元硬币或一张软旧的一元纸币，出现在付钱/掏不出钱的时刻",
+      "symbolism": "反差钩子的核心符号——'最便宜的价格'与'最昂贵的善意'并置；失业中年掏不出的窘迫与老奶奶'下次再给'的宽容都围绕它展开",
+      "lockedDetails": "面额始终是一元，样式统一",
+      "appearsIn": "镜4",
+      "prohibited": "不能出现大额钞票、不能变成移动支付码",
+      "promptSnippet": "A worn shiny one-yuan coin or a soft old one-yuan note"
+    },
+    {
+      "propName": "煤炉汤锅",
+      "propId": "prop-5",
+      "type": "日常道具",
+      "description": "老式蜂窝煤炉架着一口熏黑的大汤锅，炉膛透出橘红火光，锅里汤水翻滚冒着白气",
+      "symbolism": "烟火气与'始终亮着的灯火'的来源，炉火不灭象征善意长明，雨夜微火则烘托孤单",
+      "lockedDetails": "炉子的熏黑程度与橘红火光全片一致，雨夜火光偏弱",
+      "appearsIn": "镜1 / 镜2 / 镜8",
+      "prohibited": "不能换成燃气灶或电磁炉、不能出现现代厨具",
+      "promptSnippet": "An old honeycomb-coal stove with a soot-blackened broth pot, orange fire glowing, white steam rising"
+    }
+  ]
+}

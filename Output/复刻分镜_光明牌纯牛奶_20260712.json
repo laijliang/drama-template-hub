@@ -1,0 +1,314 @@
+{
+  "video_source": "用户提供文字剧情（无原始视频链接）",
+  "analysis_time": "2026-07-12T00:39:00+08:00",
+  "track": "脑洞反转喜剧",
+  "core_emotion": "爆笑荒诞",
+  "hook_type": "反差钩子（史诗黑暗大殿 vs 一盒纯牛奶）",
+  "target_audience": "18-35岁短视频用户，偏好中二/反套路/职场吐槽/无厘头反转的年轻群体",
+  "viral_reason": "前半段堆满史诗压迫感，结尾'终极神器'揭晓为一盒牛奶、魔王因乳糖不耐受战败，反套路笑点密集；保洁大妈作为终极BOSS二次反转，把中二感打回社畜现实",
+  "matched_pattern": "反差铺垫 + 多重反转",
+  "matched_emotion_curve": "曲线C「过山车+断崖」：压抑史诗→中二燃→爆笑反转→荒诞收尾",
+  "rows": [
+    {
+      "shotNumber": 1,
+      "durationSeconds": 3,
+      "shotSize": "全景",
+      "plotDescription": "黄昏密闭现代办公室，厚重遮光窗帘隔绝自然光，暗红LED氛围灯把空间映成黑暗大殿，魔王黑斗篷转椅背对门口，周身散发傲慢阴冷压迫感（运镜：缓慢环绕推近；首镜）",
+      "characterAction": "魔王陷在转椅里，兜帽遮脸，背对门口，一动不动，傲慢慵懒",
+      "dialogue": "/",
+      "emotion": "压迫/慵懒",
+      "sceneTags": "密闭办公室/遮光帘/暗红LED/转椅",
+      "lightingAndAtmosphere": "暗红LED单色光，封闭压抑，高对比阴影",
+      "audioEffects": "低频环境嗡鸣+混响，静谧压迫",
+      "artDirection": "暗调厚涂漫画风，红黑主色，电影感高对比",
+      "characters": [
+        {
+          "characterName": "魔王",
+          "characterDescription": "A man in a cheap black Halloween cape with the hood covering his face, slumped lazily in an office swivel chair with his back to the door, radiating arrogant cold oppression"
+        }
+      ],
+      "imageGenerationPrompt": "A modern sealed office at dusk, blackout curtains blocking all natural light, dim red LED ambient lights turning the space into a dark oppressive hall, a figure in a cheap black Halloween cape slumped in an office swivel chair with back to the door, hood covering face, cinematic comic style, deep red and black palette, high contrast shadows, 8K",
+      "videoMotionPrompt": "Slow orbital push-in around the silent chair; the caped figure remains motionless, radiating cold arrogance; subtle red light flicker on the walls"
+    },
+    {
+      "shotNumber": 2,
+      "durationSeconds": 2,
+      "shotSize": "中景",
+      "plotDescription": "实木办公室大门被暴力踹开，门板剧烈晃动后撞击墙壁，扬起一阵细微灰尘（运镜：手持晃动快速切；沿用镜1场景）",
+      "characterAction": "门向外被猛力踹飞，撞击墙面后回弹晃动，灰尘簌簌扬起",
+      "dialogue": "（一声巨响）",
+      "emotion": "冲击",
+      "sceneTags": "办公室门/撞墙/灰尘/门缝微光",
+      "lightingAndAtmosphere": "暗红光影中门缝透出走廊冷白微光",
+      "audioEffects": "一声巨响+门撞墙闷响+灰尘簌簌",
+      "artDirection": "动态模糊，冲击感强，漫画式速度线",
+      "characters": [],
+      "imageGenerationPrompt": "A solid wooden office door being kicked violently open, slamming against the wall and shaking, fine dust puffing up in the dim red light, dynamic motion blur, cinematic comic style, speed lines, 8K",
+      "videoMotionPrompt": "Handheld shaky shot; the door bursts open and slams the wall; dust particles float in the red light; quick hard cut"
+    },
+    {
+      "shotNumber": 3,
+      "durationSeconds": 3,
+      "shotSize": "中景",
+      "plotDescription": "英雄身披破烂泛黄起毛的披风，双手紧握巨型铁艺大剑，脚步踉跄闯入，胸腔剧烈起伏大口喘气（运镜：跟拍前推；场景转室内）",
+      "characterAction": "英雄单膝微屈，双手拄着大剑支撑身体，满脸疲惫但眼神坚定凌厉，死死盯前方",
+      "dialogue": "/",
+      "emotion": "疲惫/坚定",
+      "sceneTags": "办公室内/破披风/巨剑/喘气",
+      "lightingAndAtmosphere": "暗红LED光，英雄逆光剪影，披风边缘起毛可见",
+      "audioEffects": "沉重脚步+急促喘息+剑尖拖地声",
+      "artDirection": "漫画厚涂，英雄居中偏下，暗调衬托孤勇",
+      "characters": [
+        {
+          "characterName": "英雄",
+          "characterDescription": "A young man in a tattered yellowed ragged cape with frayed edges, holding a giant iron greatsword, exhausted but determined eyes, stumbling into the room"
+        }
+      ],
+      "imageGenerationPrompt": "A young man in a tattered yellowed ragged cape with frayed edges, gripping a giant iron greatsword, stumbling into a dark red-lit office, one knee bent leaning on the sword to support himself, face exhausted but eyes sharp and determined, cinematic comic style, 8K",
+      "videoMotionPrompt": "Tracking shot pushing forward; the hero staggers in, hands on the sword hilt breathing heavily; subtle cape sway"
+    },
+    {
+      "shotNumber": 4,
+      "durationSeconds": 3,
+      "shotSize": "近景",
+      "plotDescription": "魔王缓缓开口，声音带重度混响，低沉沙哑又缓慢，转椅未动（运镜：低角度仰拍；沿用镜1）",
+      "characterAction": "魔王依旧背对，兜帽下传来压迫感十足的混响嗓音，姿态慵懒却阴冷",
+      "dialogue": "英雄……跨越层层黑暗，你终究还是执意闯入这片禁地，前来送死。放弃无谓的抵抗吧，在我统治的这座黑暗大殿里，没有一丝光芒可以存活，无边无尽的黑暗，终将缓缓降临，吞噬你的执念、你的勇气、你的一切……",
+      "emotion": "压迫/宣战",
+      "sceneTags": "转椅背影/混响/暗红",
+      "lightingAndAtmosphere": "暗红单色，混响让空间显得更深邃",
+      "audioEffects": "重度混响人声，低频回荡",
+      "artDirection": "低角度仰拍强化魔王压迫，漫画式阴影",
+      "characters": [
+        {
+          "characterName": "魔王",
+          "characterDescription": "A man in a cheap black Halloween cape with hood covering face, slumped in office chair back to door, arrogant cold aura, speaking with heavy reverb"
+        }
+      ],
+      "imageGenerationPrompt": "Low-angle close-up of a caped figure in a cheap black Halloween cape with hood, slumped in an office chair back to camera in a dark red-lit room, oppressive shadow, cinematic comic style with heavy reverb implied by echoed dark lines, 8K",
+      "videoMotionPrompt": "Low-angle static shot; the figure's shoulders rise and fall slightly as he speaks; red light pulses with the reverberating voice"
+    },
+    {
+      "shotNumber": 5,
+      "durationSeconds": 3,
+      "shotSize": "中景",
+      "plotDescription": "英雄收起疲惫，挺直腰背，褪去狼狈，摆出中二勇者站姿：单肩扛剑、左手叉腰、冷笑（运镜：缓慢抬升；场景室内）",
+      "characterAction": "英雄嘴角勾起轻蔑自信的冷笑，眼神锐利直视黑暗中的魔王",
+      "dialogue": "哼，愚昧的魔王，你永远不会明白希望的力量。你以为黑暗可以笼罩一切？无论长夜何其荒芜，我永远不会低头。因为……我带来了那件足以净化阴霾、驱散一切黑暗的终极神器——【光明】！",
+      "emotion": "中二/自信",
+      "sceneTags": "勇者站姿/扛剑/叉腰/冷笑",
+      "lightingAndAtmosphere": "暗红中英雄周身泛起一丝冷白轮廓光",
+      "audioEffects": "气势上升弦乐，台词字字铿锵",
+      "artDirection": "漫画式帅气分镜，英雄居中，披风微扬",
+      "characters": [
+        {
+          "characterName": "英雄",
+          "characterDescription": "A young man in tattered yellowed ragged cape, resting a giant iron greatsword on his right shoulder, left hand on hip, confident smirk, sharp determined eyes"
+        }
+      ],
+      "imageGenerationPrompt": "A young man in a tattered yellowed ragged cape, giant iron greatsword resting on his right shoulder, left hand on hip, confident smirk, sharp eyes staring into the dark, a faint cold white rim light around him, cinematic comic style, 8K",
+      "videoMotionPrompt": "Slow upward tilt from the hero's feet to his smirking face; cape lifts slightly; rim light intensifies as he declares the artifact"
+    },
+    {
+      "shotNumber": 6,
+      "durationSeconds": 2,
+      "shotSize": "近景",
+      "plotDescription": "魔王闻'光明'二字浑身一僵，转椅猛地高速旋转，正面转向英雄，兜帽下脸庞被红光映照（运镜：快速旋转跟拍；沿用镜1）",
+      "characterAction": "魔王双眼瞪大、瞳孔骤缩，嘴巴大张，满脸难以置信，双手死死攥紧转椅扶手，身体前倾",
+      "dialogue": "什么？！【光明】？那件早已消失多年、传说级的净化圣物？这不可能！绝对不可能！区区凡人英雄，根本没有资格、更没有力量解放它的封印！",
+      "emotion": "震惊/慌乱",
+      "sceneTags": "转椅旋转/瞪眼/攥扶手",
+      "lightingAndAtmosphere": "暗红LED打在魔王脸上，瞳孔反射红光",
+      "audioEffects": "转椅旋转声+急促呼吸+破音惊呼",
+      "artDirection": "漫画式震惊特写，速度线表现旋转",
+      "characters": [
+        {
+          "characterName": "魔王",
+          "characterDescription": "A man in a cheap black Halloween cape with hood now pushed back, face lit by red light, eyes wide with contracted pupils, mouth open in disbelief, gripping chair armrests"
+        }
+      ],
+      "imageGenerationPrompt": "Close-up of a man in a black Halloween cape with hood pushed back, face lit by red LED light, eyes wide with contracted pupils, mouth open in shock, gripping office chair armrests, cinematic comic style, dramatic red lighting, 8K",
+      "videoMotionPrompt": "Fast spin-around as the chair rotates to face front; the camera locks on his widening eyes; red light flashes across his face"
+    },
+    {
+      "shotNumber": 7,
+      "durationSeconds": 3,
+      "shotSize": "特写",
+      "plotDescription": "英雄左手从腰间帆布小包掏出方正比例长方体小物件，牢牢攥在手心，双手合并握紧剑柄举剑过头蓄力（运镜：缓慢推近特写；场景室内）",
+      "characterAction": "英雄全身肌肉紧绷，进入必杀技蓄力状态，周身仿佛凝聚无形力量，史诗感拉满",
+      "dialogue": "好好看清楚，躲藏在黑暗里的魔王。这一战，没有退路。看好了——这就是，彻底打破无尽黑暗的最终奥义！",
+      "emotion": "决绝/蓄力",
+      "sceneTags": "方正比例长方体/举剑/肌肉紧绷",
+      "lightingAndAtmosphere": "暗红中英雄周身聚起冷白能量微光",
+      "audioEffects": "能量聚集嗡鸣，张力拉满",
+      "artDirection": "漫画式蓄力特写，物件被手握特写，光粒汇聚",
+      "characters": [
+        {
+          "characterName": "英雄",
+          "characterDescription": "A young man in tattered cape, both hands gripping the greatsword hilt raised overhead, a small rectangular cuboid object clutched in his left palm, muscles tense, epic charging pose"
+        }
+      ],
+      "imageGenerationPrompt": "Extreme close-up of a young hero in tattered cape, both hands gripping a giant sword hilt raised overhead, a small rectangular milk-carton-like object clutched in his left palm, muscles tense, faint cold white energy particles gathering, cinematic comic style, 8K",
+      "videoMotionPrompt": "Slow push-in on the clutched object and tense hands; energy particles swirl upward; the hero's body coils like a spring"
+    },
+    {
+      "shotNumber": 8,
+      "durationSeconds": 2,
+      "shotSize": "中景",
+      "plotDescription": "全场氛围凝固，英雄腰身扭转双臂爆发，抡起巨剑带着磅礴气势自上而下猛然劈落，剑刃划破黑暗发出尖锐破空声（运镜：高速跟拍劈砍；场景室内）",
+      "characterAction": "英雄嘶吼出声，双臂爆发下劈，气势毁天灭地",
+      "dialogue": "接招吧，黑暗的支配者——破天——！绝地——！大——！【挥斩】！！！",
+      "emotion": "爆发/必杀",
+      "sceneTags": "劈砍/破空/剑刃下劈",
+      "lightingAndAtmosphere": "暗红被剑光划出一道冷白弧线",
+      "audioEffects": "尖锐破空声+嘶吼+能量爆鸣",
+      "artDirection": "漫画式高速分镜，动作线拉满，剑光特写",
+      "characters": [
+        {
+          "characterName": "英雄",
+          "characterDescription": "A young man in tattered cape, swinging a giant iron greatsword downward with full force, body twisted from the waist, shouting the ultimate move"
+        }
+      ],
+      "imageGenerationPrompt": "Mid-shot of a young hero in tattered cape swinging a giant iron greatsword downward with explosive force, body twisted from the waist, a cold white arc of sword-light cutting through dark red air, motion lines, cinematic comic style, 8K",
+      "videoMotionPrompt": "High-speed follow shot of the sword arcing down; motion blur on the blade; the hero's shout visualized as impact lines"
+    },
+    {
+      "shotNumber": 9,
+      "durationSeconds": 1,
+      "shotSize": "特写",
+      "plotDescription": "大剑精准劈中左手紧握的长方体物件，伴随'噗嗤——啪叽'粘稠闷响，白色液体瞬间喷涌（运镜：0.5s静帧后慢镜；场景室内）",
+      "characterAction": "剑刃嵌进物体，白色液体四溅，英雄表情错愕又淡定",
+      "dialogue": "（噗嗤——啪叽）",
+      "emotion": "错愕/爆笑前奏",
+      "sceneTags": "劈爆/白色液体喷涌/静帧",
+      "lightingAndAtmosphere": "暗红中白色液体飞溅的高光特写",
+      "audioEffects": "噗嗤啪叽粘稠闷响+液体飞溅",
+      "artDirection": "漫画式喷溅特写，慢镜定格笑点",
+      "characters": [
+        {
+          "characterName": "英雄",
+          "characterDescription": "A young man in tattered cape, giant sword embedded in a small rectangular object, white liquid bursting out, face frozen between shock and calm"
+        }
+      ],
+      "imageGenerationPrompt": "Extreme close-up of a giant sword blade embedded in a small rectangular carton, white milk-like liquid bursting and splattering, the hero's hand frozen mid-strike, cinematic comic style with splash highlights, 8K",
+      "videoMotionPrompt": "0.5s frozen frame then slow-motion; white liquid bursts outward in droplets; the blade vibrates on impact"
+    },
+    {
+      "shotNumber": 10,
+      "durationSeconds": 3,
+      "shotSize": "全景",
+      "plotDescription": "所有惨白白炽灯同步亮起，刺眼平光铺满全场，'黑暗大殿'秒变普通上班办公室，打印机饮水机杂乱办公桌清晰暴露（运镜：固定广角暴露全貌；场景切换）",
+      "characterAction": "英雄满脸发丝披风沾满白色奶液，左手举着被劈裂的光明牌纯牛奶纸盒；对面魔王迎面被飞溅牛奶泼满脸，浑身僵在转椅上眼神空洞呆滞",
+      "dialogue": "/",
+      "emotion": "荒诞反转",
+      "sceneTags": "白炽灯/普通办公室/打印机饮水机/满身奶液",
+      "lightingAndAtmosphere": "惨白平光，瞬间失去所有史诗感，暴露办公杂物",
+      "audioEffects": "灯光嗡鸣启动+静默一拍+尴尬环境音",
+      "artDirection": "平光写实，荒诞反差，漫画式'滤镜碎裂'",
+      "characters": [
+        {
+          "characterName": "英雄",
+          "characterDescription": "A young man in tattered cape now covered in white milk on face, hair and cape, holding a split-open milk carton labeled in his left hand"
+        },
+        {
+          "characterName": "魔王",
+          "characterDescription": "A man in black Halloween cape sitting frozen in office chair, face and cape splashed with white milk, empty stunned expression"
+        }
+      ],
+      "imageGenerationPrompt": "Wide shot of a suddenly brightly lit normal office, fluorescent lights on, printer and water dispenser and messy desk visible, a young man in tattered cape covered in white milk holding a split milk carton, opposite a man in black cape frozen in chair with milk splashed on his face, absurd contrast, cinematic comic style, 8K",
+      "videoMotionPrompt": "Static wide shot revealing the full ordinary office; the hero and demon lord frozen mid-tableau; the absurd normal lighting replaces the dark mood"
+    },
+    {
+      "shotNumber": 11,
+      "durationSeconds": 2,
+      "shotSize": "近景",
+      "plotDescription": "英雄面无表情抬手用手背抹掉脸上牛奶，下意识舔了舔嘴角残留奶渍，语气平淡摆烂（运镜：固定；场景室内）",
+      "characterAction": "英雄一脸理所应当，毫无中二包袱",
+      "dialogue": "啧，发力没控制好，稍微用力过猛了。这破牛奶盒的吸管死活插不进去，撕包装又太麻烦，没办法，只能直接用大剑劈开喝奶了。可惜了，我的专属神器——【光明】牌纯牛奶。",
+      "emotion": "摆烂/淡定",
+      "sceneTags": "抹奶/舔嘴角/平淡",
+      "lightingAndAtmosphere": "惨白平光，荒诞日常感",
+      "audioEffects": "舔嘴角声+平淡旁白",
+      "artDirection": "漫画式反差萌，英雄去滤镜化",
+      "characters": [
+        {
+          "characterName": "英雄",
+          "characterDescription": "A young man in milk-stained tattered cape, wiping milk off his face with the back of his hand, licking his lips, deadpan expression"
+        }
+      ],
+      "imageGenerationPrompt": "Close-up of a young man in milk-stained tattered cape wiping milk off his face with his hand back, licking his lips, completely deadpan, plain office fluorescent lighting, cinematic comic style, 8K",
+      "videoMotionPrompt": "Static shot; the hero wipes his face and licks his lips with a flat expression; no epic music, just awkward silence"
+    },
+    {
+      "shotNumber": 12,
+      "durationSeconds": 3,
+      "shotSize": "中景",
+      "plotDescription": "魔王崩溃咆哮，英雄却理直气壮单手提剑剑尖对准魔王鼻尖辩解（运镜：正反打；场景室内）",
+      "characterAction": "魔王愤怒挥舞手臂；英雄一脸理直气壮单手提剑",
+      "dialogue": "魔王：你是不是有病啊！！！谁跟魔王决战决斗，中途莫名其妙掏出一盒牛奶？还拿双手大剑劈奶盒？！劈个破牛奶你喊那么大声、整那么中二的必杀技名字干什么？！ / 英雄：废话！不及时补充营养和蛋白质，我哪来的力气跟你继续打架？不用大招威慑一下，万一手滑切到手指头，多危险啊？！",
+      "emotion": "崩溃/理直气壮",
+      "sceneTags": "咆哮/单手提剑/对呛",
+      "lightingAndAtmosphere": "惨白平光，两人吵闹的日常感",
+      "audioEffects": "魔王破音咆哮+英雄认真辩解",
+      "artDirection": "漫画式正反打争吵分镜",
+      "characters": [
+        {
+          "characterName": "魔王",
+          "characterDescription": "A man in black Halloween cape, face still with milk stains, arms flailing, furious expression"
+        },
+        {
+          "characterName": "英雄",
+          "characterDescription": "A young man in milk-stained tattered cape, holding the greatsword in one hand with the tip pointing at the demon lord's nose, righteous expression"
+        }
+      ],
+      "imageGenerationPrompt": "Mid-shot of a man in black cape with milk on his face furiously yelling, opposite a young man in milk-stained tattered cape holding a giant sword tip pointing at the other's nose with a self-righteous look, plain office background, cinematic comic style, 8K",
+      "videoMotionPrompt": "Shot-reverse-shot of the two arguing; the demon lord flails arms, the hero points sword tip calmly; comedic timing"
+    },
+    {
+      "shotNumber": 13,
+      "durationSeconds": 3,
+      "shotSize": "中景",
+      "plotDescription": "魔王突然呼吸一滞，脸颊快速泛红肿胀，五官发胀变形，双手死死捂住脖颈剧烈呛咳，双腿发软重重跪倒在地（运镜：手持晃动；场景室内）",
+      "characterAction": "魔王浑身抽搐，气息微弱断断续续呻吟，最终直挺挺倒在办公室地毯上一动不动",
+      "dialogue": "你……你这盒牛奶……居然……我天生重度乳糖不耐受……还对牛乳蛋白严重过敏……完了……撑不住了……呃啊……",
+      "emotion": "战败/抽搐",
+      "sceneTags": "脸颊红肿/捂脖/跪倒/地毯",
+      "lightingAndAtmosphere": "惨白平光，喜剧式战败",
+      "audioEffects": "呛咳+重物倒地+微弱呻吟",
+      "artDirection": "漫画式夸张战败，魔王瘫倒",
+      "characters": [
+        {
+          "characterName": "魔王",
+          "characterDescription": "A man in black Halloween cape, cheeks swollen red, hands clutching throat, coughing and collapsing onto the office carpet, defeated"
+        }
+      ],
+      "imageGenerationPrompt": "A man in black Halloween cape with swollen red cheeks, hands clutching his throat, collapsing onto an office carpet, comically defeated, plain fluorescent lighting, cinematic comic style, 8K",
+      "videoMotionPrompt": "Handheld shaky shot; the demon lord coughs, knees buckle, falls flat onto the carpet; a cartoon 'defeated' puff appears"
+    },
+    {
+      "shotNumber": 14,
+      "durationSeconds": 4,
+      "shotSize": "全景",
+      "plotDescription": "英雄踩上办公桌面摆经典勇者胜利姿势——左手高举劈开的光明奶盒，右手将大剑倒插地面；办公室门口逆光中保洁大妈拖把登场气场碾压；英雄秒怂丢飞大剑跪滑两米疯狂擦地求饶（运镜：拉远全景→门口逆光剪影→英雄怂态；场景收尾）",
+      "characterAction": "英雄先耍帅后崩溃：先高冷胜利者，见保洁大妈后脸色煞白双膝跪地滑行擦地，卑微求饶；保洁大妈双手叉腰高分贝咆哮",
+      "dialogue": "英雄：哼，渺小的黑暗。现在你终于明白，这就是【光明】真正的力量……（见大妈）对不起王阿姨！千错万错都是我的错！我马上打扫、马上清理！求求您高抬贵手，千万别扣我工资啊！！ / 保洁大妈：是谁！是谁在办公室乱撒牛奶？！满地污渍全是奶！今天你们两个人，谁也别想准时下班！卫生全部返工，全员扣绩效、扣工资！！！",
+      "emotion": "反转收尾/荒诞",
+      "sceneTags": "踩桌胜利/拖把逆光/跪滑擦地/扣绩效",
+      "lightingAndAtmosphere": "办公室平光，门口自然光逆光勾勒保洁大妈黑影，气场超魔王",
+      "audioEffects": "铁剑哐当落地+滑跪声+保洁咆哮+哭腔求饶",
+      "artDirection": "漫画式终极反转，英雄气场断崖式消失，保洁大妈成真·BOSS",
+      "characters": [
+        {
+          "characterName": "英雄",
+          "characterDescription": "A young man in milk-stained tattered cape, first striking a victory pose on the desk then on his knees sliding on the carpet wiping milk with his cape, terrified begging expression"
+        },
+        {
+          "characterName": "保洁大妈",
+          "characterDescription": "An angry cleaning lady in her 50s holding a dripping wet mop, silhouetted against corridor backlight from the doorway, terrifying aura, hands on hips"
+        }
+      ],
+      "imageGenerationPrompt": "Wide shot of a normal office: a young man in milk-stained tattered cape on his knees sliding on the carpet wiping milk with his cape, terrified; at the doorway an angry cleaning lady in her 50s holding a dripping mop silhouetted against backlight, overwhelming aura; an iron sword lying on the floor, cinematic comic style, 8K",
+      "videoMotionPrompt": "Camera pulls back to full scene; the hero's victory pose instantly collapses into groveling; the cleaning lady's silhouette looms; sword clatters; comedic final beat"
+    }
+  ]
+}

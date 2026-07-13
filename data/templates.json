@@ -1,414 +1,1136 @@
 [
   {
-    "video_source": "https://v.douyin.com/-beG5S8IIpg/",
-    "analysis_time": "2026-07-09T14:00:00+08:00",
-    "track": "情感逆袭",
-    "core_emotion": "感动泪目",
-    "hook_type": "冲突开场",
-    "target_audience": "25-45岁男女，有家庭/子女的中青年人群",
-    "viral_reason": "先抑后扬反转催泪——全员误解父亲→真相是主动背骂名救女儿，父爱隐忍牺牲戳中大众软肋",
-    "matched_pattern": "先抑后扬 + 情感共鸣",
-    "matched_emotion_curve": "曲线A「过山车」：冲突→压抑→铺垫→反转爆发→温暖收尾",
-    "rows": [
-      {
-        "shotNumber": 1,
-        "durationSeconds": 2,
-        "shotSize": "近景",
-        "plotDescription": "老旧居民楼前，中年男主被街坊围堵在墙角，午后阴天冷调青灰光线，手持晃动镜头（运镜：手持晃动；首镜）",
-        "characterAction": "男主被多人指着，眼神低垂看向地面，嘴角紧抿不辩解，攥紧的拳头指节发白",
-        "dialogue": "/",
-        "emotion": "压抑",
-        "sceneTags": "老旧居民楼前/斑驳墙面/阴天",
-        "lightingAndAtmosphere": "冷调青灰光线，高对比，人脸半明半暗",
-        "audioEffects": "嘈杂人声白噪音，低沉弦乐起",
-        "artDirection": "写实生活化，灰暗冷色调，人物穿着朴素旧衣",
-        "characters": [
-          {
-            "characterName": "父亲",
-            "characterDescription": "A middle-aged Chinese man in his 40s with tired bloodshot eyes, light stubble, messy hair, wearing a worn-out grey shirt, rough calloused hands, hunched shoulders"
-          }
-        ],
-        "imageGenerationPrompt": "近景手持晃动镜头：中年男人被街坊围堵在墙角，灰色旧衬衫，疲惫胡茬脸，眼神低垂，攥紧拳头指节发白，午后阴天冷调青灰光线，写实电影感，高对比度，8K",
-        "videoMotionPrompt": "手持晃动近景：男人站着不动低头不语，周围人群指指点点，镜头微微晃动增强冲突感，捕捉眼角紧绷的微表情"
-      },
-      {
-        "shotNumber": 2,
-        "durationSeconds": 2,
-        "shotSize": "中景",
-        "plotDescription": "从人群愤怒指责的脸摇移到男主沉默的侧脸，焦点切换（运镜：摇移；沿用镜1场景）",
-        "characterAction": "男主不躲闪不辩解，舌尖顶住脸颊内侧克制愤怒，肩膀微微颤抖",
-        "dialogue": "为了钱连亲生女儿都不管，心太狠了！",
-        "emotion": "愤怒",
-        "sceneTags": "老旧居民楼前/人群手指",
-        "lightingAndAtmosphere": "冷调硬光，人脸半明半暗，增强冲突压迫感",
-        "audioEffects": "尖利女声指责+嘈杂附和声，BGM加重低音",
-        "artDirection": "写实风格，高对比光影，突出冲突张力",
-        "characters": [
-          {
-            "characterName": "父亲",
-            "characterDescription": "A middle-aged Chinese man in his 40s with tired bloodshot eyes, light stubble, messy hair, wearing a worn-out grey shirt"
-          }
-        ],
-        "imageGenerationPrompt": "中景摇移镜头：人群愤怒指责的脸摇到男人沉默的侧脸，灰色旧衬衫，焦点从人群切换到男人紧绷的表情，冷调硬光，人脸半明半暗，写实电影感，8K",
-        "videoMotionPrompt": "镜头从人群缓慢摇向男人侧脸：男人下颌紧绷，肩膀微颤但不反抗，焦点从人群切换到他布满红血丝的眼睛"
-      },
-      {
-        "shotNumber": 3,
-        "durationSeconds": 2,
-        "shotSize": "中景",
-        "plotDescription": "家中客厅争吵，昏黄室内灯光，墙上贴着女儿的诊断书（运镜：固定；场景转换）",
-        "characterAction": "妻子崩溃质问，摔碎水杯，男主全程沉默坐在桌边，双手交叉放在桌上",
-        "dialogue": "你倒是说句话啊！女儿还在医院躺着！",
-        "emotion": "绝望",
-        "sceneTags": "老旧客厅/诊断书贴墙/碎水杯",
-        "lightingAndAtmosphere": "昏黄室内灯光，温暖但压抑，阴影深重",
-        "audioEffects": "摔杯声+妻子哭喊，BGM转为沉重钢琴",
-        "artDirection": "室内生活化场景，暖黄但低饱和，细节破旧家具",
-        "characters": [
-          {
-            "characterName": "父亲",
-            "characterDescription": "A middle-aged Chinese man in worn grey shirt, sitting at a table with clasped hands, head slightly bowed"
-          },
-          {
-            "characterName": "妻子",
-            "characterDescription": "A Chinese woman in her 30s, disheveled hair, red-eyed from crying, wearing a simple plain dress, desperate expression"
-          }
-        ],
-        "imageGenerationPrompt": "家中黄昏室内：男人穿灰色旧衬衫沉默坐在桌边双手交叉，妻子披头散发红着眼睛哭喊，地上摔碎的水杯，墙上贴着医院诊断书，暖黄低饱和灯光，压抑氛围，电影感，8K",
-        "videoMotionPrompt": "固定中景镜头：妻子摔杯哭喊，男人始终沉默不动，镜头缓慢推近到他交叉的双手特写"
-      },
-      {
-        "shotNumber": 4,
-        "durationSeconds": 3,
-        "shotSize": "特写",
-        "plotDescription": "男主独自蹲在医院走廊尽头，手里夹着未点燃的烟，双手发抖（运镜：固定；场景转医院）",
-        "characterAction": "男主靠墙蹲下，把脸埋进手臂里，肩膀无声抽动，克制不哭出声",
-        "dialogue": "/",
-        "emotion": "悲伤",
-        "sceneTags": "医院走廊/白炽灯/消毒水味",
-        "lightingAndAtmosphere": "冷白医院灯光，惨白孤寂",
-        "audioEffects": "医院环境音+心跳声，BGM低音渐起",
-        "artDirection": "医院真实场景，冷白荧光灯，白色墙面，空荡走廊",
-        "characters": [
-          {
-            "characterName": "父亲",
-            "characterDescription": "Same middle-aged man now in hospital corridor, grey shirt wrinkled, hair more disheveled, eyes hollow"
-          }
-        ],
-        "imageGenerationPrompt": "医院走廊尽头：男人蹲在地上缩成一团，灰色旧衬衫皱巴巴，脸埋在手臂里，冷白荧光灯，空荡走廊惨白墙面，孤寂氛围，浅景深，电影感，8K",
-        "videoMotionPrompt": "固定镜头缓慢推进：男人肩膀无声抽动强忍泪水，一滴眼泪滴落在地板上，镜头停留在颤抖的背上"
-      },
-      {
-        "shotNumber": 5,
-        "durationSeconds": 3,
-        "shotSize": "全景",
-        "plotDescription": "深夜，男主在工地搬砖/做兼职的蒙太奇，月冷光，瘦削背影（运镜：跟随；场景转工地夜）",
-        "characterAction": "男主扛重物弯腰行走，汗水浸透衬衫，咬牙坚持的侧脸",
-        "dialogue": "/",
-        "emotion": "隐忍",
-        "sceneTags": "工地夜景/月光/重物",
-        "lightingAndAtmosphere": "冷蓝月光+工地探照灯，高反差",
-        "audioEffects": "工地环境音+重物落地声，BGM沉重渐强",
-        "artDirection": "城市工地夜景，蓝冷调，写实劳动场景",
-        "characters": [
-          {
-            "characterName": "父亲",
-            "characterDescription": "Same man now in work clothes, sweat-soaked shirt, exhausted but determined expression, carrying heavy loads"
-          }
-        ],
-        "imageGenerationPrompt": "深夜工地：男人扛着重物弯腰行走，汗水浸透衬衫，咬牙坚持的表情，冷蓝月光加上工地探照灯，高反差光影，写实劳动场景，电影感，8K",
-        "videoMotionPrompt": "镜头跟随男人负重前行：缓慢跟拍他弯曲的脊背和汗湿的衬衫，脚步声沉重，呼吸急促"
-      },
-      {
-        "shotNumber": 6,
-        "durationSeconds": 3,
-        "shotSize": "特写",
-        "plotDescription": "男主在昏暗房间里签下一份协议，手指颤抖，笔尖迟疑（运镜：固定推进）",
-        "characterAction": "男主盯着协议看了很久，深吸一口气，签字，闭眼，一滴泪滑落",
-        "dialogue": "入局之后我这辈子都要背负骂名，但只要她能活，值。",
-        "emotion": "决绝",
-        "sceneTags": "昏暗房间/协议文件/台灯",
-        "lightingAndAtmosphere": "一盏台灯暖光聚焦协议，周围黑暗，伦勃朗式布光",
-        "audioEffects": "笔尖划纸声+深呼吸，BGM钢琴渐高",
-        "artDirection": "极简暗室，单光源聚焦，电影感布光",
-        "characters": [
-          {
-            "characterName": "父亲",
-            "characterDescription": "A middle-aged Chinese man, face half-lit by a desk lamp, tired eyes with tears, old shirt sleeves rolled up"
-          }
-        ],
-        "imageGenerationPrompt": "昏暗房间里特写：男人颤抖的手握笔签协议，一盏台灯暖光聚焦在合同上，周围黑暗，伦勃朗式布光，一滴泪水滑落脸颊，电影感，8K",
-        "videoMotionPrompt": "缓慢推进到签字的双手：笔尖迟疑然后落下，镜头缓缓上摇到男人闭眼落泪的脸，单光源照亮半张脸"
-      },
-      {
-        "shotNumber": 7,
-        "durationSeconds": 2,
-        "shotSize": "近景",
-        "plotDescription": "医院病房走廊，医生告诉妻子治疗费已凑齐，妻子震惊困惑（运镜：固定；场景转医院白天）",
-        "characterAction": "妻子瞪大眼睛，捂住嘴，难以置信",
-        "dialogue": "钱…钱哪来的？",
-        "emotion": "震惊",
-        "sceneTags": "医院走廊白天/医生白大褂",
-        "lightingAndAtmosphere": "自然白光+暖光透过病房窗户",
-        "audioEffects": "环境安静，BGM暂停→准备进入反转",
-        "artDirection": "医院白天明亮场景，色调开始转暖",
-        "characters": [
-          {
-            "characterName": "妻子",
-            "characterDescription": "A Chinese woman in her 30s, exhausted but hopeful, hospital clothes, disheveled hair"
-          }
-        ],
-        "imageGenerationPrompt": "医院走廊白天：女人穿朴素衣服茫然看着医生，震惊的表情捂着嘴，温暖阳光透过窗户洒进来，希望感初现，电影感写实风格，8K",
-        "videoMotionPrompt": "固定近景：女人表情从困惑到逐渐意识到真相，瞳孔微张，手捂住嘴，阳光在她身后形成轮廓光"
-      },
-      {
-        "shotNumber": 8,
-        "durationSeconds": 4,
-        "shotSize": "中景",
-        "plotDescription": "知情老人出现，说出全部真相，门外男主偷听（运镜：缓慢摇移；场景转走廊转角）",
-        "characterAction": "老人叹息说出真相；门外男主靠墙低头，默默擦泪，不敢进去相见",
-        "dialogue": "你丈夫为了凑手术费，答应背下所有骂名…他不让告诉你们，就是怕你们娘俩被流言伤到啊。",
-        "emotion": "真相揭露",
-        "sceneTags": "医院走廊转角/老人/偷听",
-        "lightingAndAtmosphere": "暖光从窗户照进，照亮老人，门外的男主半身在阴影里",
-        "audioEffects": "BGM骤停→静默1秒→催泪钢琴起",
-        "artDirection": "暖调开始占据画面，象征真相的光芒",
-        "characters": [
-          {
-            "characterName": "父亲",
-            "characterDescription": "Same man, leaning against the wall outside the door, crying silently, wiping tears with his rough hand"
-          },
-          {
-            "characterName": "知情老人",
-            "characterDescription": "An elderly Chinese man, kind wrinkled face, simple clothes, gentle voice"
-          }
-        ],
-        "imageGenerationPrompt": "医院走廊温暖阳光中：老人叹息说出真相，暖金光线透过窗户，门外男人靠墙偷听低头擦泪半身隐在阴影里，情绪反转时刻，电影感，8K",
-        "videoMotionPrompt": "缓慢横摇：从老人说话摇到门外男人的剪影，他靠在墙上无声哭泣用粗糙的手擦眼泪，镜头停留在他颤抖的手上"
-      },
-      {
-        "shotNumber": 9,
-        "durationSeconds": 3,
-        "shotSize": "近景",
-        "plotDescription": "妻子冲出病房，看到丈夫在走廊尽头，崩溃大哭奔向他（运镜：快速推进）",
-        "characterAction": "妻子跑向丈夫，捶打他胸口然后紧紧抱住，丈夫抬手轻轻拍她的背",
-        "dialogue": "你为什么不告诉我…你个傻子…",
-        "emotion": "感动泪目",
-        "sceneTags": "医院走廊/拥抱",
-        "lightingAndAtmosphere": "暖金色阳光洒满走廊，色调由冷转暖完成",
-        "audioEffects": "催泪钢琴高潮，轻微的哭声",
-        "artDirection": "色调明显转暖，金色阳光象征救赎与理解",
-        "characters": [
-          {
-            "characterName": "父亲",
-            "characterDescription": "A middle-aged Chinese man crying, rough hands gently patting his wife's back, worn grey shirt, tired but relieved eyes"
-          },
-          {
-            "characterName": "妻子",
-            "characterDescription": "A Chinese woman embracing him, face buried in his chest, crying, disheveled hair"
-          }
-        ],
-        "imageGenerationPrompt": "走廊里夫妻拥抱：女人冲出来紧抱男人泪流满面，男人粗糙的手轻轻拍她后背，金色阳光洒满走廊，暖色调，浅景深，催泪氛围，电影感，8K",
-        "videoMotionPrompt": "快速推近：女人跑向男人拥抱，镜头环绕拥抱的两人微妙慢动作，阳光从背后打出轮廓光"
-      },
-      {
-        "shotNumber": 10,
-        "durationSeconds": 3,
-        "shotSize": "全景",
-        "plotDescription": "一家三口在病房手牵手，女儿躺在病床上脸色好转，阳光洒在病床上（运镜：稳定推远）",
-        "characterAction": "三人手牵手，男主看着女儿微笑，妻子靠在他肩上，女儿露出虚弱的笑容",
-        "dialogue": "你只管好好养病，所有骂名，爸爸一个人扛。",
-        "emotion": "希望",
-        "sceneTags": "病房/牵手/阳光",
-        "lightingAndAtmosphere": "暖金阳光布满房间，柔光漫射，温馨治愈",
-        "audioEffects": "钢琴收尾渐弱，环境安静温暖",
-        "artDirection": "暖色调完全主导，柔和明亮，象征新的开始",
-        "characters": [
-          {
-            "characterName": "父亲",
-            "characterDescription": "A middle-aged Chinese man, tired but smiling gently, holding his daughter's hand"
-          },
-          {
-            "characterName": "妻子",
-            "characterDescription": "A Chinese woman resting her head on her husband's shoulder, peaceful expression"
-          },
-          {
-            "characterName": "女儿",
-            "characterDescription": "A young girl about 8-10 years old lying in hospital bed, weak but smiling, pale face with slight color returning"
-          }
-        ],
-        "imageGenerationPrompt": "阳光病房全景：一家三口床边手牵手，女儿躺在病床上脸色好转露出虚弱笑容，暖金色阳光铺满病床，柔光温馨，电影感治愈色调，8K",
-        "videoMotionPrompt": "镜头缓慢拉远：从三人紧握的手缓缓拉远成全景，阳光充满画面，温暖的收尾留白"
-      },
-      {
-        "shotNumber": 11,
-        "durationSeconds": 2,
-        "shotSize": "特写",
-        "plotDescription": "黑底白字浮现核心文案（运镜：固定）",
-        "characterAction": "/",
-        "dialogue": "你只管救女儿，骂名我来背。",
-        "emotion": "升华",
-        "sceneTags": "黑底白字/文案",
-        "lightingAndAtmosphere": "纯黑背景，白色宋体字居中",
-        "audioEffects": "钢琴最后一个音符，余韵留白2秒",
-        "artDirection": "极简文字画面，留白收尾",
-        "characters": [],
-        "imageGenerationPrompt": "纯黑背景：白色宋体字居中显示你只管救女儿，骂名我来背，电影银幕比例，极简留白，庄重肃穆，8K",
-        "videoMotionPrompt": "固定镜头：文字缓缓淡入，留白2秒后淡出，安静收尾"
-      }
-    ],
-    "characters": [
-      {
-        "characterName": "父亲",
-        "characterDescription": "约45岁中年男人，布满红血丝的疲惫双眼、眼下深黑眼圈、面带胡茬，蓬乱的黑发夹杂白发，灰色旧衬衫洗到发白、袖子卷到小臂，黑色长裤、老式布鞋",
-        "outfit": "灰色旧衬衫（洗到发白）、黑色长裤、老式布鞋，衬衫袖子永远卷到小臂",
-        "forbidden": "不能大笑、不能换干净新衣服、不能剃胡茬、不能变胖、不能表情夸张"
-      },
-      {
-        "characterName": "妻子",
-        "characterDescription": "约35岁女性，披肩散发略显凌乱，红眼眶，穿素色家居服或医院陪护便装，无首饰素颜",
-        "outfit": "素色家居服或医院陪护便装，无首饰，朴素",
-        "forbidden": "不能浓妆、不能穿华丽衣服、不能变年轻"
-      },
-      {
-        "characterName": "女儿",
-        "characterDescription": "约8-10岁女孩，脸色苍白消瘦，躺在病床上穿白色病号服，手背有输液胶带",
-        "outfit": "白色病号服",
-        "forbidden": "不能看起来健康红润（前期），不能穿自己的衣服"
-      }
-    ],
-    "scenes": [
-      {
-        "name": "老旧居民楼前",
-        "description": "斑驳墙面、灰色水泥地、阴天，冷调青灰光线，用于开场冲突围堵",
-        "lighting": "冷灰"
-      },
-      {
-        "name": "家中客厅",
-        "description": "破旧沙发、木桌、墙上贴着诊断书和缴费单，昏黄低饱和灯光，用于家庭争吵",
-        "lighting": "昏黄低饱和"
-      },
-      {
-        "name": "医院走廊",
-        "description": "白色墙面、荧光灯、长椅、自动售货机，前期冷白/后期暖金，用于真相揭露和结局",
-        "lighting": "冷白→暖金"
-      },
-      {
-        "name": "医院病房",
-        "description": "白色病床、医疗设备、窗帘，阳光从窗户射入，用于温馨收尾",
-        "lighting": "暖金阳光"
-      },
-      {
-        "name": "工地夜",
-        "description": "冷蓝月光加探照灯，用于展示私下付出和艰辛",
-        "lighting": "冷蓝+白"
-      }
-    ],
-    "art_rules": "【光影】前期冷调高对比硬光，后期暖调柔光漫射，情绪反转处光影切换\n【构图】冲突段手持+对角线，叙事段黄金分割偏置，结尾段中心对称\n【禁止】现代建筑穿帮、多余水印、过饱和颜色、卡通化五官、模糊人脸\n【色彩】开场冷灰→中段渐暖→反转暖金→结尾柔光",
-    "visual_style": "写实生活化电影感，浅景深特写为主",
-    "tone": "前期压抑冷调→后期暖光复苏",
+    "video_source": "复刻自：https://v.douyin.com/ObGJae6slhI/（原作：我的见闻录·汶川18周年父爱纪念）",
+    "analysis_time": "2026-07-13T13:40:00+08:00",
+    "track": "情感催泪",
+    "core_emotion": "思念泪目",
+    "hook_type": "悬念前置+情感召唤",
+    "viral_reason": "母亲以栀子花寄托对早逝女儿的思念，回忆与现实空座双线对照，先埋温暖再揭永别，结尾'请为想念的人停留三秒'唤起集体共鸣",
+    "matched_pattern": "物件触发回忆 + 现实空缺对照 + 真相后置 + 互动召唤",
+    "matched_emotion_curve": "曲线：孤独→触物思念→回忆温暖→现实空落→真相爆发→释怀升华（先抑后扬的催泪弧线，70%处揭示永别）",
+    "target_audience": "25-50岁情感共鸣人群，经历过或恐惧失去至亲、重视亲情与生命教育的大众用户",
     "script": {
-      "structure": "三幕式叙事结构，完整脚本字数1250",
+      "structure": "现实与回忆双线交织的催泪结构，总时长约82秒。现实线冷清（独居老母），回忆线暖金（女儿生前），以栀子花贯穿，结尾释怀升华并发出情感召唤。",
       "acts": [
         {
-          "title": "第一幕·旧梦",
-          "tag": "铺垫",
-          "content": "雨夜，主角文清回到曾居住过的老街，街灯忽明忽暗，空气中弥漫着旧时光的味道，完成场景与情绪铺垫。"
+          "title": "第一幕 - 触物思念(0-25s)",
+          "tag": "情绪铺垫",
+          "content": "清晨老母亲独自醒来，手下意识摸向身边空位。取出女儿的旧黄毛衣贴脸轻嗅。翻开相册抚过女儿照片。BGM单钢琴音+环境静。留白慢镜，悬念前置字幕'她每天醒来，还是会先摸一摸那边'。"
         },
         {
-          "title": "第二幕·发现",
-          "tag": "转折",
-          "content": "文清在旧书店发现一本泛黄日记，日记中夹着一张褪色照片，触发剧情转折与核心线索。"
+          "title": "第二幕 - 回忆与空落(26-58s)",
+          "tag": "双线对照",
+          "content": "回忆闪回：童年女儿穿黄毛衣扑进怀里笑；青年女儿与母亲在院里种下栀子花苗'妈，等花开了我就回来看你'。切回现实：老母亲给零星花苞浇水；饭桌两副碗筷，一副始终空着，她对空座轻声说话。暖金回忆与冷清现实交叉剪辑。"
         },
         {
-          "title": "第三幕·抉择",
-          "tag": "行动",
-          "content": "雨停后主角内心愈发慌乱，最终决定踏上寻找真相的旅程，完成剧情的核心抉择与行动闭环。"
+          "title": "第三幕 - 永别与释怀(59-82s)",
+          "tag": "情绪爆发+升华",
+          "content": "镜头揭示墙上女儿的黑白照片与未寄出的信——她十八年前的春天永远留在了22岁。老母亲抱着黄毛衣在花前无声痛哭。清晨栀子花满树盛开，老人擦泪微笑，恍惚看见女儿在花丛中挥手化作花瓣。黑底白字核心文案+'请为想念的人停留三秒'。"
         }
       ]
     },
     "analysis": [
       {
         "name": "角色分析",
-        "content": "分析主角文清的性格弧光与内心驱动力"
+        "content": "老母亲：隐忍思念型，外表平静内心汹涌，全片几乎无大段台词，靠摸空位、嗅毛衣、给空碗夹菜等具象动作传递思念。女儿：情感锚点，只存在于回忆与遗物中，童年与青年两个年龄段承载'被爱过的温暖'。核心是'子欲留而人已逝'的永恒缺失。"
       },
       {
         "name": "冲突分析",
-        "content": "人与回忆的冲突、现实与过去的拉扯"
+        "content": "核心冲突：人与命运/无常——至亲被夺走无从挽回。次要冲突：现实的空与回忆的满之间的落差。没有反派，冲突来自'时间带不走思念，却带走了人'，让观众在温暖与遗憾间被反复揉搓。"
       },
       {
         "name": "情绪曲线分析",
-        "content": "平静→好奇→紧张→慌乱→决然"
+        "content": "孤独(0-10s摸空位)-思念(11-25s嗅毛衣翻相册)-温暖(26-45s回忆闪回)-空落(46-58s浇花/空碗)-震惊悲痛(59-72s揭示永别)-崩溃(69-76s痛哭)-释怀温暖(77-82s花开微笑)。先抑后扬过山车，70%处揭示真相，结尾上扬留暖。"
       },
       {
         "name": "地理分析",
-        "content": "老街作为核心空间，串联回忆与现实"
+        "content": "三大空间：(1)老屋卧室——晨光斜射，思念起点；(2)青砖小院+栀子花——贯穿全片的情感寄托，现实冷清/回忆暖金；(3)堂屋饭桌——两副碗筷的空缺具象化。空间在现实与回忆间切换，色温对照强化情绪。"
       },
       {
         "name": "节奏分析",
-        "content": "慢→渐快→紧张→舒缓"
+        "content": "慢(0-25s思念铺垫3-4s/镜)-中(26-45s回忆穿插2-3s/镜)-慢(46-58s现实空镜留白4s/镜)-骤停(59s揭示真相静默1秒)-慢(69-82s哭与花开长镜留白3-4s/镜)。全程慢节奏留白，靠情绪密度而非剪辑速度打动人。"
       }
     ],
     "shots": [
       {
-        "name": "场景·建立氛围",
-        "tag": "氛围",
-        "description": "老街雨夜，街灯昏黄"
+        "name": "镜1-摸向空位",
+        "tag": "悬念钩子",
+        "durationSeconds": 4,
+        "description": "画面内容：清晨老屋卧室，银发老母亲在旧木床上睁眼，手下意识摸向身边空荡的另一侧，微微一怔。\n镜头语言：近景固定，晨光从窗棂斜射。\n构图：老人偏左，右侧空床位大面积留白。\n光影：冷暖交界的清晨侧光，暖黄晨光扫过褪色碎花床单。\n人物表情：眼神刚醒的怔忪，随即泛起一丝失落。\n音效：清晨鸟鸣+一个孤单的钢琴单音。\n字幕：她每天醒来，还是会先摸一摸那边。"
       },
       {
-        "name": "冲突·升起",
-        "tag": "转折",
-        "description": "发现日记的瞬间"
+        "name": "镜2-嗅旧毛衣",
+        "tag": "触物思念",
+        "durationSeconds": 7,
+        "description": "画面内容：老母亲坐床边打开樟木箱，取出一件叠得整齐的黄色旧毛衣，贴到脸颊轻嗅，闭眼。\n镜头语言：近景缓慢推近到毛衣与脸。\n构图：手与毛衣居中，樟木箱在下前景。\n光影：暖黄室内光，毛衣绒毛边缘透光。\n人物表情：闭眼轻嗅，眉头微蹙，嘴角克制颤动。\n音效：樟木箱开启的木质摩擦+钢琴轻起。\n台词：/"
       },
       {
-        "name": "低潮·探索",
-        "tag": "关键",
-        "description": "翻阅日记的过程"
+        "name": "镜3-童年扑怀(回忆)",
+        "tag": "回忆温暖",
+        "durationSeconds": 7,
+        "description": "画面内容：暖金回忆，穿黄毛衣的小女孩笑着扑进年轻些的母亲怀里。\n镜头语言：中景手持轻微跟随，柔焦。\n构图：母女相拥居中，背景暖金虚化。\n光影：明亮暖金阳光，过曝柔光营造回忆感。\n人物表情：女孩灿烂大笑，母亲低头温柔笑。\n音效：孩童清脆笑声+温暖钢琴旋律。\n台词：(女孩童声)妈妈！"
       },
       {
-        "name": "近景·线索",
-        "tag": "铺垫",
-        "description": "照片特写"
+        "name": "镜4-抚过照片",
+        "tag": "触物思念",
+        "durationSeconds": 7,
+        "description": "画面内容：现实，老母亲翻开牛皮纸相册，枯瘦手指缓缓抚过一张女儿青年时的微笑照片。\n镜头语言：俯拍近景，焦点在指尖与照片。\n构图：相册占满画面，手指引导视线。\n光影：暖黄台灯光，照片微微反光。\n人物表情：镜头未给脸，仅手指的摩挲传递眷恋。\n音效：纸页翻动声+钢琴延音。\n台词：/"
       },
       {
-        "name": "特写·回忆",
-        "tag": "线索",
-        "description": "闪回过去的画面"
+        "name": "镜5-种花约定(回忆)",
+        "tag": "回忆温暖",
+        "durationSeconds": 9,
+        "description": "画面内容：暖金回忆，青年女儿与母亲蹲在院里一起把一株栀子花苗种进土中，女儿抬头笑着说话。\n镜头语言：中景固定，浅景深。\n构图：母女在左，新栽花苗在右三分线。\n光影：明亮暖金午后光，尘埃在光束中漂浮。\n人物表情：女儿眼神明亮带憧憬，母亲含笑点头。\n音效：铲土声+鸟鸣+温暖弦乐。\n台词：(女儿)妈，等花开了，我就回来看你。"
       },
       {
-        "name": "中景·决定",
-        "tag": "抉择",
-        "description": "最终决定出发"
+        "name": "镜6-独自浇花",
+        "tag": "现实空落",
+        "durationSeconds": 9,
+        "description": "画面内容：现实青砖小院，那株栀子花只有零星花苞，老母亲弯腰迟缓地给它浇水。\n镜头语言：全景固定，缓慢留白。\n构图：老人在花旁偏下，大面积青砖与空院留白。\n光影：清晨冷调偏灰蓝，暖光微弱。\n人物表情：专注而落寞，动作迟缓。\n音效：水浇在土上的细声+空院回响+低钢琴。\n台词：/"
+      },
+      {
+        "name": "镜7-空碗夹菜",
+        "tag": "现实空落",
+        "durationSeconds": 9,
+        "description": "画面内容：堂屋木饭桌摆着两副碗筷，一副始终干净空着。老母亲往空碗里夹了一筷菜，对着空座轻声说话。\n镜头语言：中景固定，前景空碗清晰。\n构图：老人在右，空座与空碗在左三分线。\n光影：暖黄吊灯光，空座处光线略暗。\n人物表情：温柔像在对谁说话，眼眶泛红。\n音效：碗筷轻碰+吊灯电流微响+钢琴。\n台词：(老母亲轻声)今天的菜，是你最爱吃的。"
+      },
+      {
+        "name": "镜8-揭示永别",
+        "tag": "真相揭示",
+        "durationSeconds": 9,
+        "description": "画面内容：镜头缓缓摇到柜上——女儿的黑白照片旁供着一小束栀子花，压着一封没寄出的信。\n镜头语言：缓慢横摇+推近到照片与信。\n构图：黑白照居中，栀子花与信在下前景。\n光影：一束天光落在照片上，四周转暗。\n人物表情：无人物，物件叙事。\n音效：BGM骤停→静默1秒→单钢琴音落下。\n字幕：那年春天，她永远留在了二十二岁。"
+      },
+      {
+        "name": "镜9-花前痛哭",
+        "tag": "情绪爆发",
+        "durationSeconds": 7,
+        "description": "画面内容：老母亲抱着黄毛衣，蹲在栀子花前，肩膀剧烈颤抖无声痛哭。\n镜头语言：中景缓慢环绕半周。\n构图：老人蜷缩在画面中心，花苞在侧。\n光影：冷调晨光，泪光反射微亮。\n人物表情：埋头于毛衣，从颤抖的背影可知痛哭。\n音效：压抑啜泣+催泪钢琴推向高潮。\n台词：(哽咽)妈想你了……"
+      },
+      {
+        "name": "镜10-花开重逢",
+        "tag": "释怀升华",
+        "durationSeconds": 8,
+        "description": "画面内容：清晨满树栀子花盛开白花缀满枝头，阳光洒满小院。老母亲擦干泪抬头微笑，恍惚看见青年女儿站在花丛中含笑挥手，身影在光中渐化作飘落的花瓣。\n镜头语言：全景固定缓缓拉远。\n构图：盛开的栀子花树居中，老人与虚影的女儿呼应。\n光影：柔和暖金晨光，花瓣与光斑漫天。\n人物表情：老人含泪释然微笑，女儿虚影温柔挥手。\n音效：钢琴转明亮温暖+风吹花枝+隐约女儿轻唤'妈'。\n台词：(女儿虚影)妈，我一直都在。"
+      },
+      {
+        "name": "镜11-文案召唤",
+        "tag": "升华留白",
+        "durationSeconds": 5,
+        "description": "画面内容：栀子花虚化为背景，中央浮现核心文案白字，逐行淡入。\n镜头语言：固定镜头，文案淡入淡出留白。\n构图：花海柔焦背景，白字居中极简。\n光影：柔光暖调，文字清晰。\n音效：钢琴最后一个音符轻柔收尾。\n字幕：被深深爱过的人，从来不曾真正离开。/ 如果你也在想念一个人，请为TA停留三秒。"
       }
     ],
-    "materials": {
-      "角色素材": [
-        "文清（主角）形象图",
-        "老街坊邻里面孔",
-        "神秘人物剪影"
-      ],
-      "场景素材": [
-        "雨后老街全景",
-        "旧书店室内",
-        "深夜街道一角"
-      ],
-      "道具素材": [
-        "泛黄日记本",
-        "老式相机",
-        "褪色项链"
+    "prompts": {
+      "镜头提示词(中文生图用)": "清晨老屋卧室银发老母亲旧木床上醒来手摸向身边空床位晨光斜射褪色碎花床单近景电影写实浅景深8K\n暖金回忆穿黄毛衣小女孩笑着扑进年轻母亲怀里过曝柔光尘埃漂浮中景柔焦温暖电影感8K\n青砖小院老母亲弯腰给零星花苞的栀子花浇水冷调灰蓝清晨大面积留白全景孤寂氛围8K\n木饭桌两副蓝边碗筷一副空置老母亲往空碗夹菜暖黄吊灯眼眶泛红中景电影写实8K\n清晨满树白色栀子花盛开阳光洒满青砖小院老母亲擦泪微笑花瓣飘落柔金光斑全景治愈8K",
+      "画面提示词(生视频用)": "近景老母亲刚醒手缓缓摸向空床位微怔晨光中尘埃浮动镜头轻微推近\n中景柔焦回忆小女孩奔跑扑进母亲怀里手持轻晃暖金过曝温暖氛围\n全景老母亲迟缓浇花水珠落在土上空院留白镜头固定情绪压抑\n缓慢横摇从空碗摇到柜上女儿黑白照片与栀子花BGM骤停静默\n全景固定缓缓拉远满树栀子花盛开老人抬头微笑女儿虚影挥手化作花瓣慢动作",
+      "风格提示词(统一画风用)": "电影感写实AI漫剧，柔光暖调，浅景深特写为主聚焦微表情与手部动作。色调弧线：现实线冷清灰蓝偏暖黄，回忆线明亮暖金过曝柔光，结尾释怀柔和金光。以栀子花白与暖金为主色，情绪压抑段偏冷灰蓝。禁止卡通化、过饱和、喜剧化表情、现代穿帮、模糊人脸、手指畸形、显年轻化的老人。"
+    },
+    "connection": "将提示词包与素材清单整合用于AI视频生成。流程：(1)逐镜复制imageGenerationPrompt到AI绘图工具生成底帧，严格绑定角色锁定描述保证跨镜一致(2)复制videoMotionPrompt到AI视频工具生成动态片段(3)按镜号1-11排序导入剪辑软件(4)按音效说明铺催泪钢琴BGM与环境音，镜8真相处留静默1秒(5)现实线与回忆线用色温区分(冷清/暖金)(6)合并导出，片尾保留情感召唤文案引导互动。",
+    "external_models": [
+      "Runway Gen-3(写实人物与柔光氛围推荐)",
+      "KLING 1.6(人物情绪特写与微表情)",
+      "Vidu(中国风院落与花木质感)",
+      "Pika 2.0(回忆闪回柔焦转场)",
+      "Sora(花开与拉远长镜头)"
+    ],
+    "ai_prompt_template": {
+      "video": "An 82-second cinematic emotional AI short film in warm soft realistic style about an elderly Chinese mother grieving her long-lost daughter, using a gardenia plant as the thread of remembrance. Open on a quiet old bedroom at dawn: a silver-haired mother around 65 wakes and instinctively reaches for the empty side of the bed, subtitle 'She still reaches for that side every morning'. She takes an old hand-knitted yellow sweater from a camphor chest and presses it to her cheek. Warm golden flashback: a little girl in the yellow sweater runs laughing into a younger mother's arms. Back to reality, her thin fingers trace a photo in an old album. Flashback: a young woman and her mother plant a gardenia seedling together, the daughter smiling 'Mom, when it blooms I'll come back to see you'. Reality, cold blue morning: the mother slowly waters the sparse buds; at a wooden table two bowls are set, one always empty, she places food in the empty bowl and speaks softly. The camera pans to a black-and-white photo of the daughter with a small bunch of gardenias and an unsent letter, subtitle 'That spring, she stayed forever at twenty-two'. The mother clutches the yellow sweater and weeps silently before the flowers. At dawn the gardenia bursts into full white bloom, sunlight floods the brick courtyard, the mother wipes her tears and smiles as she glimpses her young daughter waving among the flowers, her figure dissolving into falling petals. End on soft text over blooming gardenias: 'Those who were deeply loved never truly leave. If you miss someone too, stay for three seconds for them.' Color arc: cold blue-gray reality warming to golden memory to tender golden release. Tearful piano score, one second of silence at the reveal. Shallow depth of field, close-ups on micro-expressions and hands, no cartoonish or oversaturated look, consistent character design.",
+      "duration": "82",
+      "aspect_ratio": "16:9",
+      "negative": "nsfw, lowres, bad anatomy, bad hands, text glitch, missing fingers, extra digit, cropped, worst quality, jpeg artifacts, watermark, blurry, deformed, oversaturated, cartoonish, comedic expression, modern anachronism, disfigured, cloned face"
+    },
+    "rows": [
+      {
+        "shotNumber": 1,
+        "durationSeconds": 4,
+        "shotSize": "近景",
+        "plotDescription": "清晨老屋卧室，银发老母亲在旧木床上醒来，手下意识摸向身边空荡的另一侧微怔（运镜:固定，晨光斜射；首镜）",
+        "characterAction": "缓缓睁眼，手掌无意识地探向身旁空床位，随即微微一怔，眼神泛起失落",
+        "dialogue": "/",
+        "emotion": "孤独/怔忪",
+        "sceneTags": "老屋卧室/旧木床/褪色碎花床单/木格窗晨光",
+        "lightingAndAtmosphere": "冷暖交界的清晨侧光，暖黄晨光扫过床单，整体清冷",
+        "audioEffects": "清晨鸟鸣+孤单的钢琴单音",
+        "characters": [
+          {
+            "characterName": "老母亲",
+            "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
+          }
+        ],
+        "imageGenerationPrompt": "An elderly Chinese woman around 65 with silver-gray hair in a low bun, gentle wrinkled face, lying awake on an old wooden bed with faded floral sheets, her hand reaching toward the empty side of the bed, soft slanting dawn light through a wooden lattice window, cinematic realistic style, shallow depth of field, muted warm tones, quiet melancholy, 8k, high detail",
+        "videoMotionPrompt": "Static close shot slowly pushing in; the old woman opens her eyes and her hand drifts to the empty side of the bed, then pauses; dust motes float in the dawn light; subtle, still, melancholic"
+      },
+      {
+        "shotNumber": 2,
+        "durationSeconds": 7,
+        "shotSize": "近景",
+        "plotDescription": "老母亲坐床边打开樟木箱，取出叠得整齐的黄色旧毛衣贴到脸颊轻嗅闭眼（运镜:缓慢推近到毛衣与脸；沿用卧室场景）",
+        "characterAction": "打开樟木箱，双手捧出黄毛衣，缓缓贴到脸颊闭眼轻嗅，嘴角克制颤动",
+        "dialogue": "/",
+        "emotion": "眷恋/隐忍",
+        "sceneTags": "老屋卧室/樟木箱/黄色旧毛衣",
+        "lightingAndAtmosphere": "暖黄室内光，毛衣绒毛边缘透光，温柔",
+        "audioEffects": "樟木箱开启的木质摩擦声+钢琴轻起",
+        "characters": [
+          {
+            "characterName": "老母亲",
+            "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
+          }
+        ],
+        "imageGenerationPrompt": "An elderly Chinese woman with silver hair pressing a folded old hand-knitted yellow sweater to her cheek with eyes closed, sitting by an open camphor wood chest, warm indoor light rim-lighting the wool fibers, tender grief, cinematic realistic style, shallow depth of field, 8k, high detail",
+        "videoMotionPrompt": "Slow push-in close shot; she lifts the yellow sweater to her cheek and closes her eyes, breathing it in; her lips tremble faintly; warm and quiet"
+      },
+      {
+        "shotNumber": 3,
+        "durationSeconds": 7,
+        "shotSize": "中景",
+        "plotDescription": "暖金回忆，穿黄毛衣的小女孩笑着扑进年轻些的母亲怀里（运镜:手持轻微跟随，柔焦；回忆线，色温转暖金）",
+        "characterAction": "小女孩张开双臂奔跑扑进母亲怀里，母亲低头张臂接住温柔笑",
+        "dialogue": "(女孩童声)妈妈！",
+        "emotion": "温暖/欢欣",
+        "sceneTags": "回忆院子/暖金阳光/黄毛衣",
+        "lightingAndAtmosphere": "明亮暖金阳光，过曝柔光营造回忆感，尘埃漂浮",
+        "audioEffects": "孩童清脆笑声+温暖钢琴旋律",
+        "characters": [
+          {
+            "characterName": "女儿-童年",
+            "characterDescription": "A little Chinese girl around 7 with twin ponytails tied with red hair ties, round cheeks, wearing a hand-knitted yellow sweater"
+          },
+          {
+            "characterName": "母亲-年轻",
+            "characterDescription": "The same mother but around 45, dark hair with few grays, softer face, plain warm-toned blouse"
+          }
+        ],
+        "imageGenerationPrompt": "Warm golden memory, a little Chinese girl around 7 with twin ponytails in a yellow knitted sweater running with open arms into the embrace of her younger mother around 45, overexposed soft golden sunlight, floating dust motes, soft focus, warm nostalgic cinematic style, shallow depth of field, 8k",
+        "videoMotionPrompt": "Handheld gentle follow, soft focus; the little girl runs and leaps into her mother's arms, both laughing; golden light blooms; warm and dreamy slow motion"
+      },
+      {
+        "shotNumber": 4,
+        "durationSeconds": 7,
+        "shotSize": "近景",
+        "plotDescription": "现实，老母亲翻开牛皮纸相册，枯瘦手指缓缓抚过女儿青年时的微笑照片（运镜:俯拍近景，焦点在指尖与照片；回到现实线）",
+        "characterAction": "翻开相册，枯瘦手指停在女儿照片上缓缓摩挲",
+        "dialogue": "/",
+        "emotion": "眷恋/怅惘",
+        "sceneTags": "老屋/牛皮纸相册/女儿照片/台灯",
+        "lightingAndAtmosphere": "暖黄台灯光，照片微微反光，安静",
+        "audioEffects": "纸页翻动声+钢琴延音",
+        "characters": [
+          {
+            "characterName": "老母亲",
+            "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
+          }
+        ],
+        "imageGenerationPrompt": "Top-down close shot of thin wrinkled elderly hands gently tracing a photo of a smiling young woman in an old kraft-paper photo album, warm desk lamp light, soft reflection on the photo, quiet longing, cinematic realistic style, shallow depth of field, 8k, high detail",
+        "videoMotionPrompt": "Top-down close shot, focus on fingertips and photo; her fingers slowly caress the daughter's photo; a page settles; warm, still, wistful"
+      },
+      {
+        "shotNumber": 5,
+        "durationSeconds": 9,
+        "shotSize": "中景",
+        "plotDescription": "暖金回忆，青年女儿与母亲蹲在院里一起把栀子花苗种进土中，女儿抬头笑着许下约定（运镜:固定，浅景深；回忆线暖金）",
+        "characterAction": "母女并肩蹲着培土，女儿拍掉手上的泥抬头，眼神明亮带憧憬地笑着说话",
+        "dialogue": "(女儿)妈，等花开了，我就回来看你。",
+        "emotion": "温暖/憧憬",
+        "sceneTags": "回忆院子/栀子花苗/培土",
+        "lightingAndAtmosphere": "明亮暖金午后光，尘埃在光束中漂浮，浅景深",
+        "audioEffects": "铲土声+鸟鸣+温暖弦乐",
+        "characters": [
+          {
+            "characterName": "女儿-青年",
+            "characterDescription": "A young Chinese woman around 22, long black hair, bright warm smile, wearing a soft cream knit sweater"
+          },
+          {
+            "characterName": "母亲-年轻",
+            "characterDescription": "The same mother but around 45, dark hair with few grays, softer face, plain warm-toned blouse"
+          }
+        ],
+        "imageGenerationPrompt": "Warm golden memory, a young Chinese woman around 22 in a cream knit sweater and her mother around 45 crouching together planting a gardenia seedling in a brick courtyard, the daughter looking up with a bright hopeful smile, warm afternoon light, dust in the light beams, shallow depth of field, nostalgic cinematic style, 8k",
+        "videoMotionPrompt": "Static medium shot, shallow depth of field; mother and daughter pat soil around the seedling, the daughter looks up and speaks with a hopeful smile; gentle warm light, birdsong ambiance"
+      },
+      {
+        "shotNumber": 6,
+        "durationSeconds": 9,
+        "shotSize": "全景",
+        "plotDescription": "现实青砖小院，栀子花只有零星花苞，老母亲弯腰迟缓地浇水，大面积留白（运镜:固定，缓慢留白；现实线冷清）",
+        "characterAction": "老母亲提着水壶弯腰给花浇水，动作迟缓，久久凝视花苞",
+        "dialogue": "/",
+        "emotion": "落寞/空落",
+        "sceneTags": "青砖小院/栀子花零星花苞/水壶",
+        "lightingAndAtmosphere": "清晨冷调偏灰蓝，暖光微弱，空院寂静",
+        "audioEffects": "水浇在土上的细声+空院回响+低钢琴",
+        "characters": [
+          {
+            "characterName": "老母亲",
+            "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
+          }
+        ],
+        "imageGenerationPrompt": "Wide shot of an elderly silver-haired woman bending slowly to water a gardenia plant with only sparse buds in a quiet gray-brick courtyard, cold bluish morning light with faint warmth, large empty negative space, lonely melancholic atmosphere, cinematic realistic style, 8k, high detail",
+        "videoMotionPrompt": "Static wide shot with slow pacing; the old woman bends and waters the sparse buds, then gazes at them; still, empty courtyard, cold quiet air"
+      },
+      {
+        "shotNumber": 7,
+        "durationSeconds": 9,
+        "shotSize": "中景",
+        "plotDescription": "堂屋木饭桌摆两副碗筷一副空置，老母亲往空碗夹菜对空座轻声说话（运镜:固定，前景空碗清晰；现实线）",
+        "characterAction": "老母亲夹起一筷菜放进对面空碗，看着空座温柔说话，眼眶泛红",
+        "dialogue": "(老母亲轻声)今天的菜，是你最爱吃的。",
+        "emotion": "温柔/心酸",
+        "sceneTags": "堂屋饭桌/两副蓝边碗筷/空座",
+        "lightingAndAtmosphere": "暖黄吊灯光，空座处光线略暗",
+        "audioEffects": "碗筷轻碰+吊灯电流微响+钢琴",
+        "characters": [
+          {
+            "characterName": "老母亲",
+            "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
+          }
+        ],
+        "imageGenerationPrompt": "Medium shot of an elderly woman placing food into an empty bowl across a dark wooden dining table set with two blue-rimmed bowls, one always empty, warm yellow pendant light, the empty seat slightly darker, red-rimmed eyes, tender heartbreak, cinematic realistic style, shallow depth of field, 8k",
+        "videoMotionPrompt": "Static medium shot, empty bowl sharp in foreground; she places food in the empty bowl and speaks softly toward the empty seat; warm dim light, aching stillness"
+      },
+      {
+        "shotNumber": 8,
+        "durationSeconds": 9,
+        "shotSize": "近景",
+        "plotDescription": "镜头缓缓摇到柜上——女儿黑白照片旁供一小束栀子花压着一封没寄出的信（运镜:缓慢横摇+推近到照片与信；真相揭示）",
+        "characterAction": "无人物，物件叙事，天光落在黑白照片上",
+        "dialogue": "/",
+        "emotion": "震惊/哀恸",
+        "sceneTags": "柜台/女儿黑白照片/栀子花/未寄出的信",
+        "lightingAndAtmosphere": "一束天光落在照片上，四周转暗，肃穆",
+        "audioEffects": "BGM骤停→静默1秒→单钢琴音落下",
+        "characters": [],
+        "imageGenerationPrompt": "A black-and-white portrait of a young woman on a cabinet, beside it a small bunch of white gardenias and an unsent yellowed letter, a single shaft of soft light falling on the photo, surroundings darkening, solemn and sorrowful, cinematic realistic style, shallow depth of field, 8k, high detail",
+        "videoMotionPrompt": "Slow pan then push-in to the photo and letter; music cuts to one second of silence then a single piano note; solemn reveal, no people"
+      },
+      {
+        "shotNumber": 9,
+        "durationSeconds": 7,
+        "shotSize": "中景",
+        "plotDescription": "老母亲抱着黄毛衣蹲在栀子花前肩膀剧烈颤抖无声痛哭（运镜:缓慢环绕半周；情绪高潮）",
+        "characterAction": "老母亲把脸埋进黄毛衣，蜷缩蹲下，肩膀剧烈起伏无声痛哭",
+        "dialogue": "(哽咽)妈想你了……",
+        "emotion": "崩溃/悲痛",
+        "sceneTags": "青砖小院/栀子花/黄毛衣",
+        "lightingAndAtmosphere": "冷调晨光，泪光反射微亮",
+        "audioEffects": "压抑啜泣+催泪钢琴推向高潮",
+        "characters": [
+          {
+            "characterName": "老母亲",
+            "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
+          }
+        ],
+        "imageGenerationPrompt": "An elderly silver-haired woman crouching before a gardenia plant, burying her face in an old yellow sweater, shoulders trembling as she weeps silently, cold morning light with faint tear glint, deep grief, cinematic realistic style, shallow depth of field, 8k, high detail",
+        "videoMotionPrompt": "Slow half-orbit around her; she clutches the yellow sweater and her shoulders heave with silent sobbing; cold light, tearful piano rising"
+      },
+      {
+        "shotNumber": 10,
+        "durationSeconds": 8,
+        "shotSize": "全景",
+        "plotDescription": "清晨满树栀子花盛开，老母亲擦泪微笑，恍惚看见青年女儿在花丛中含笑挥手身影化作花瓣（运镜:固定缓缓拉远；释怀升华）",
+        "characterAction": "老母亲抬头擦干泪露出释然微笑，花丛中女儿虚影温柔挥手，身影渐化作飘落花瓣",
+        "dialogue": "(女儿虚影)妈，我一直都在。",
+        "emotion": "释怀/温暖",
+        "sceneTags": "青砖小院/满树栀子花盛开/女儿虚影/花瓣",
+        "lightingAndAtmosphere": "柔和暖金晨光，花瓣与光斑漫天，治愈",
+        "audioEffects": "钢琴转明亮温暖+风吹花枝+隐约女儿轻唤'妈'",
+        "characters": [
+          {
+            "characterName": "老母亲",
+            "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
+          },
+          {
+            "characterName": "女儿-青年",
+            "characterDescription": "A young Chinese woman around 22, long black hair, bright warm smile, wearing a soft cream knit sweater, semi-transparent luminous figure"
+          }
+        ],
+        "imageGenerationPrompt": "Wide shot of a gardenia tree in full white bloom flooding a brick courtyard with morning light, an elderly woman wiping her tears and smiling as she glimpses a semi-transparent luminous figure of her young daughter in a cream sweater waving gently among the flowers, her figure dissolving into falling petals, tender golden light, petals and light specks drifting, healing atmosphere, cinematic realistic style, 8k, high detail",
+        "videoMotionPrompt": "Static wide shot slowly pulling back; the mother looks up smiling through tears; the daughter's luminous figure waves and dissolves into drifting petals; warm golden light, petals in the air, gentle slow motion"
+      },
+      {
+        "shotNumber": 11,
+        "durationSeconds": 5,
+        "shotSize": "全景",
+        "plotDescription": "栀子花虚化为背景，中央浮现核心文案白字逐行淡入并发出情感召唤（运镜:固定，文案淡入淡出留白；收尾）",
+        "characterAction": "无人物，白色文案在花海柔焦背景中央逐行淡入",
+        "dialogue": "/",
+        "emotion": "升华/共鸣",
+        "sceneTags": "栀子花海柔焦背景/白色文案",
+        "lightingAndAtmosphere": "柔光暖调，文字清晰，留白",
+        "audioEffects": "钢琴最后一个音符轻柔收尾",
+        "characters": [],
+        "imageGenerationPrompt": "Soft blurred background of blooming white gardenias, centered elegant white Chinese text fading in line by line, tender warm light, minimalist, cinematic, 8k",
+        "videoMotionPrompt": "Static shot; white text fades in line by line over softly blurred blooming gardenias; final piano note; gentle fade to hold"
+      }
+    ],
+    "characters": [
+      {
+        "characterName": "老母亲",
+        "characterId": "role-1",
+        "gender": "女",
+        "age": 65,
+        "appearance": {
+          "face": "慈祥布满皱纹的脸，眼神温和略带疲惫，眼角有泪痕般的细纹",
+          "hair": "银灰色头发梳成整齐低髻",
+          "body": "身形微驼偏瘦，约158cm",
+          "distinctive": "常年操劳的枯瘦双手，指节略粗"
+        },
+        "costume": {
+          "default": "尘蓝色棉开衫内搭灰色衬衣，深色棉布裤，黑布鞋",
+          "colorPalette": [
+            "尘蓝",
+            "灰",
+            "米白"
+          ],
+          "prohibited": "不能浓妆、不能鲜艳华丽衣着、不能显年轻"
+        },
+        "lighting": "现实线冷清灰蓝偏暖黄，情绪处伦勃朗侧光",
+        "emotions": [
+          "思念",
+          "隐忍",
+          "落寞",
+          "释怀"
+        ],
+        "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
+      },
+      {
+        "characterName": "女儿-青年",
+        "characterId": "role-2",
+        "gender": "女",
+        "age": 22,
+        "appearance": {
+          "face": "温暖明亮的笑容，清秀白净，眼神干净带憧憬",
+          "hair": "黑色长直发",
+          "body": "约165cm，清瘦",
+          "distinctive": "笑起来有浅浅梨涡"
+        },
+        "costume": {
+          "default": "柔软的米白色针织毛衣，浅色长裙",
+          "colorPalette": [
+            "米白",
+            "浅暖"
+          ],
+          "prohibited": "不能出现在现实线、不能显病态、不能换发型"
+        },
+        "lighting": "回忆线明亮暖金过曝柔光；结尾虚影为发光半透明",
+        "emotions": [
+          "明亮",
+          "憧憬",
+          "温柔"
+        ],
+        "characterDescription": "A young Chinese woman around 22, long black hair, bright warm smile, wearing a soft cream knit sweater"
+      },
+      {
+        "characterName": "女儿-童年",
+        "characterId": "role-3",
+        "gender": "女",
+        "age": 7,
+        "appearance": {
+          "face": "圆脸大眼，笑容灿烂",
+          "hair": "双马尾扎红头绳",
+          "body": "约120cm，圆润",
+          "distinctive": "跑动时马尾飞扬"
+        },
+        "costume": {
+          "default": "手织黄色毛衣，深色小裤，小布鞋",
+          "colorPalette": [
+            "明黄",
+            "暖"
+          ],
+          "prohibited": "不能换毛衣颜色、不能换发型"
+        },
+        "lighting": "回忆线明亮暖金柔光",
+        "emotions": [
+          "欢欣",
+          "天真"
+        ],
+        "characterDescription": "A little Chinese girl around 7 with twin ponytails tied with red hair ties, round cheeks, wearing a hand-knitted yellow sweater"
+      }
+    ],
+    "scenes": [
+      {
+        "sceneName": "老屋卧室",
+        "sceneId": "scene-1",
+        "type": "室内",
+        "description": "老式木床铺褪色碎花床单，床边一口樟木箱，木格窗，墙面斑驳",
+        "lightingPlan": "清晨侧光从木格窗斜射，暖黄晨光配冷清空气",
+        "colorTone": "冷暖交界，偏清冷",
+        "props": [
+          "旧木床",
+          "褪色碎花床单",
+          "樟木箱",
+          "黄色旧毛衣"
+        ],
+        "prohibited": "不能出现现代家电、鲜艳装饰"
+      },
+      {
+        "sceneName": "青砖小院",
+        "sceneId": "scene-2",
+        "type": "室外",
+        "description": "青砖地面的小院，一株栀子花，竹椅木凳，贯穿全片的情感寄托空间",
+        "lightingPlan": "现实线清晨冷调偏灰蓝暖光微弱；结尾满院暖金晨光花瓣纷飞",
+        "colorTone": "现实冷清 / 结尾暖金",
+        "props": [
+          "栀子花(花苗→满树盛开)",
+          "水壶",
+          "竹椅"
+        ],
+        "prohibited": "不能出现现代穿帮、过饱和色彩"
+      },
+      {
+        "sceneName": "堂屋饭桌",
+        "sceneId": "scene-3",
+        "type": "室内",
+        "description": "深色木方桌摆两副蓝边碗筷，一副始终空置，暖黄吊灯",
+        "lightingPlan": "暖黄吊灯顶光，空座处光线略暗形成缺失感",
+        "colorTone": "暖黄偏低饱和",
+        "props": [
+          "木方桌",
+          "两副蓝边碗筷",
+          "空座"
+        ],
+        "prohibited": "不能坐满人、空碗不能被使用"
+      },
+      {
+        "sceneName": "回忆院子",
+        "sceneId": "scene-4",
+        "type": "室外",
+        "description": "与青砖小院同一空间的回忆版本，阳光明亮花木繁盛，充满生机",
+        "lightingPlan": "明亮暖金午后光，过曝柔光，尘埃在光束中漂浮",
+        "colorTone": "明亮暖金过曝",
+        "props": [
+          "栀子花苗",
+          "培土工具",
+          "黄毛衣"
+        ],
+        "prohibited": "不能出现现实线的冷清、不能显破败"
+      }
+    ],
+    "props": [
+      {
+        "propName": "黄色旧毛衣",
+        "propId": "prop-1",
+        "type": "象征物",
+        "description": "一件手织的黄色旧毛衣，绒毛起球、袖口微微磨损，被叠得整整齐齐，是女儿童年穿过的衣物",
+        "symbolism": "母亲思念的核心信物，贯穿'嗅毛衣—回忆—痛哭抱毛衣'，是可触摸的女儿的余温",
+        "lockedDetails": "毛衣颜色与起球磨损程度全片一致，回忆里童年女儿身上的与现实里母亲手中的须为同一件",
+        "appearsIn": "镜2 / 镜3 / 镜9",
+        "prohibited": "不能换颜色、不能变新、不能出现别的款式",
+        "promptSnippet": "An old hand-knitted yellow sweater, wool slightly pilled, cuffs worn, neatly folded"
+      },
+      {
+        "propName": "栀子花",
+        "propId": "prop-2",
+        "type": "关键叙事道具",
+        "description": "白色栀子花，从一株瘦弱花苗到满树盛开的白花，栽在青砖小院中央",
+        "symbolism": "'等花开我就回来'的约定载体与母女重逢的象征，花的从苗到盛开对应从思念到释怀，是全片情感主线的具象锚点",
+        "lockedDetails": "花的品种与白色始终一致，现实线只有零星花苞、结尾满树盛开，同一株",
+        "appearsIn": "镜5 / 镜6 / 镜9 / 镜10",
+        "prohibited": "不能换成别的花、不能变色、结尾盛开前不能提前满开",
+        "promptSnippet": "A white gardenia plant, from a frail seedling to a tree in full white bloom, in a brick courtyard"
+      },
+      {
+        "propName": "牛皮纸相册",
+        "propId": "prop-3",
+        "type": "日常道具",
+        "description": "泛黄的牛皮纸卡纸相册，内页贴着女儿各年龄段的照片，边角卷翘",
+        "symbolism": "承载女儿成长记忆的容器，母亲抚过照片是'时光倒流'式的思念触发",
+        "lockedDetails": "相册的泛黄程度与照片排布一致",
+        "appearsIn": "镜4",
+        "prohibited": "不能换成电子相册、不能出现现代照片",
+        "promptSnippet": "An old yellowed kraft-paper photo album with curled corners, photos of a girl at different ages"
+      },
+      {
+        "propName": "两副碗筷(一副空置)",
+        "propId": "prop-4",
+        "type": "象征物",
+        "description": "蓝边白瓷碗筷两副摆在饭桌上，其中一副始终干净空置",
+        "symbolism": "缺失的具象——'空着的那一副'无声诉说女儿的离去，母亲给空碗夹菜是思念最日常的表达",
+        "lockedDetails": "碗的蓝边样式一致，空置的一副始终不被使用、保持洁净",
+        "appearsIn": "镜7",
+        "prohibited": "空碗不能被吃用、不能坐满人",
+        "promptSnippet": "Two sets of blue-rimmed white ceramic bowls on a table, one always clean and untouched"
+      },
+      {
+        "propName": "未寄出的信",
+        "propId": "prop-5",
+        "type": "关键叙事道具",
+        "description": "一封泛黄的信封，压在女儿的黑白照片下，从未寄出",
+        "symbolism": "真相揭示的锚点，暗示女儿的永别与未竟的话语，是镜8情绪陡转的关键物件",
+        "lockedDetails": "信封的泛黄与摆放位置一致，与黑白照片同框",
+        "appearsIn": "镜8",
+        "prohibited": "不能拆开展示内容、不能变成新信封",
+        "promptSnippet": "A yellowed unsent letter tucked under a black-and-white portrait photo"
+      }
+    ]
+  },
+  {
+    "video_source": "复刻自：https://v.douyin.com/XLp6yJo_6AQ/（原作：我的见闻录·一元爱心厨房）",
+    "analysis_time": "2026-07-13T23:45:00+08:00",
+    "track": "情感温暖",
+    "core_emotion": "温暖治愈",
+    "hook_type": "反差钩子",
+    "viral_reason": "巷口老奶奶一块钱一碗热汤面温暖深夜众生，面'廉价'但善意无价；当年被喂饱的少年长大后归来接棒，善意传承戳中人心",
+    "matched_pattern": "反差钩子 + 群像温情 + 善意传承呼应",
+    "matched_emotion_curve": "曲线：市井烟火→困境者被托举→少年落泪→时间流转→老人老去→少年归来接棒→升华（温暖递进，结尾呼应升华）",
+    "target_audience": "全年龄段情感共鸣人群，向往人间温情、认同平凡善意与'物质廉价而爱无价'价值观的大众用户",
+    "script": {
+      "structure": "以巷口面摊为核心场景的群像温情结构，总时长约79秒。烟火暖橙的面摊与冷蓝夜色对照，三个困境者被一碗面温暖，时间流转后老人老去、当年少年归来接棒，善意传承升华。",
+      "acts": [
+        {
+          "title": "第一幕 - 一碗面的烟火(0-24s)",
+          "tag": "温暖铺垫",
+          "content": "夜色老城巷口，褪色木招牌'热汤面 一块钱一碗'，老奶奶在煤炉前熟练下面撒葱花卧蛋，热气腾腾。反差钩子字幕'这碗面只要一块钱，可有人说它无价'。暖橙烟火对比周遭冷蓝夜色。"
+        },
+        {
+          "title": "第二幕 - 深夜众生(25-52s)",
+          "tag": "群像温情",
+          "content": "疲惫外卖小哥深夜停车吃面，老奶奶多卧一个蛋；失业中年摸遍口袋只有几毛，老奶奶'钱下次再给'把面推过去；冻得发抖的离家少年缩在摊边，老奶奶默默端来一碗'吃饱了就有力气回家'，少年吃面落泪，老奶奶轻拍他肩。"
+        },
+        {
+          "title": "第三幕 - 传承与升华(53-79s)",
+          "tag": "呼应升华",
+          "content": "寒来暑往面摊灯火一直亮。多年后老奶奶白发更多手也抖了，某个雨夜摊前冷清。一个撑伞的制服青年出现——正是当年少年，红着眼'奶奶，我回来了，这碗面该我下给您吃了'。青年接过勺子为老人也为夜里的人下面，招牌依旧'一块钱一碗'。黑底暖光文案收尾。"
+        }
       ]
     },
+    "analysis": [
+      {
+        "name": "角色分析",
+        "content": "面摊老奶奶：无私守望型，话不多，善意全靠'多卧一个蛋''钱下次再给''默默端面'等具象动作传递，是全片的温暖锚点。困境群像(外卖小哥/失业中年/离家少年)：代表深夜里被生活压弯的普通人，被一碗面接住。归来青年：善意传承的载体，与少年是同一人，完成'被温暖→去温暖'的闭环。"
+      },
+      {
+        "name": "冲突分析",
+        "content": "核心冲突：普通人 vs 生活的重压(疲惫/失业/离家/衰老)。没有反派，冲突由'一碗一块钱的面'温柔化解。深层张力来自'廉价的物质'与'无价的善意'之间的反差，以及'施与者终会老去，善意能否延续'的悬念，由少年归来接棒解答。"
+      },
+      {
+        "name": "情绪曲线分析",
+        "content": "温暖(0-12s烟火)-心疼(13-30s外卖小哥/失业者)-破防(31-45s少年落泪)-温情流转(46-60s时间蒙太奇)-揪心(61-68s老人老去雨夜冷清)-泪目温暖(69-78s少年归来)-升华(79s接棒)。温暖递进型曲线，不靠悲剧靠善意层层累积，结尾呼应上扬。"
+      },
+      {
+        "name": "地理分析",
+        "content": "核心空间：老城巷口面摊——褪色木招牌、煤炉、粗瓷碗，暖橙灯火是全片情感中心；周遭城市夜巷冷蓝，形成'一小片暖对抗一整夜冷'的视觉主题。雨夜面摊强化衰老与冷清，归来时灯火重新温暖，空间的冷暖变化对应善意的延续。"
+      },
+      {
+        "name": "节奏分析",
+        "content": "中慢(0-24s烟火铺垫4-5s/镜)-中(25-52s群像每人一段6-9s/镜)-快切慢(53-60s时间流转蒙太奇1-2s/镜后转慢)-慢(61-79s雨夜与归来长镜留白8-10s/镜)。靠情绪密度和留白打动人，关键温暖处放慢，时间流转处加快对比。"
+      }
+    ],
+    "shots": [
+      {
+        "name": "镜1-一块钱招牌",
+        "tag": "反差钩子",
+        "durationSeconds": 5,
+        "description": "画面内容：夜色老城巷口，一块褪色木招牌写着'热汤面 一块钱一碗'，招牌下老奶奶在煤炉前下面，白色热气腾腾升起。\n镜头语言：中景固定，暖橙灯光是画面唯一亮源。\n构图：招牌在上，老奶奶与煤炉在下，四周夜色压暗留白。\n光影：暖橙摊灯对比周遭冷蓝夜色，热气透光。\n人物表情：老奶奶低头专注，嘴角带着习惯性的温和。\n音效：煤炉火苗声+锅里水沸+远处夜市杂音，温暖钢琴单音。\n字幕：这碗面只要一块钱，可有人说，它无价。"
+      },
+      {
+        "name": "镜2-下面卧蛋",
+        "tag": "烟火温暖",
+        "durationSeconds": 6,
+        "description": "画面内容：老奶奶熟练地把面下进翻滚的汤锅，撒一把翠绿葱花，卧一个金黄鸡蛋，盛进粗瓷碗热气升腾。\n镜头语言：近景特写手部动作，浅景深。\n构图：粗瓷碗与热气居中，暖光聚焦。\n光影：暖橙灯光，蒸汽在光里翻腾。\n人物表情：动作利落从容，眼神慈爱。\n音效：下面声+葱花入汤的滋声+瓷碗轻响+钢琴轻起。\n台词：/"
+      },
+      {
+        "name": "镜3-外卖小哥",
+        "tag": "群像温情",
+        "durationSeconds": 7,
+        "description": "画面内容：疲惫的外卖小哥深夜把电动车停在摊边，摘下头盔捧着热面大口吃，老奶奶悄悄又给他碗里卧了个蛋。\n镜头语言：中景，焦点在小哥与碗。\n构图：小哥坐矮凳偏右，老奶奶的手从左入画添蛋。\n光影：暖橙摊灯照亮疲惫的脸，身后夜色冷蓝。\n人物表情：小哥狼吞虎咽眼含暖意，老奶奶含笑。\n音效：吃面的吸溜声+电动车余温滴答+温暖弦乐。\n台词：(老奶奶)跑一天了吧，多吃个蛋。"
+      },
+      {
+        "name": "镜4-失业中年",
+        "tag": "群像温情",
+        "durationSeconds": 8,
+        "description": "画面内容：西装皱巴巴领带松垮的中年男坐在摊角，摸遍所有口袋只掏出几枚硬币，尴尬低头，老奶奶不动声色把面推到他面前。\n镜头语言：中近景，前景是摊开的几毛钱。\n构图：中年男在右三分线佝偻，老奶奶推面的手在左。\n光影：暖光中夹着人物脸上的阴影，落寞。\n人物表情：中年男强撑的疲惫与愧色，老奶奶了然的温和。\n音效：硬币碰桌声+夜风+低钢琴。\n台词：(老奶奶)钱下次再给，先吃饱。日子啊，扛过去就好了。"
+      },
+      {
+        "name": "镜5-离家少年",
+        "tag": "群像温情",
+        "durationSeconds": 9,
+        "description": "画面内容：一个背着破旧书包的少年缩在摊边台阶上，冻得发抖不敢靠近，老奶奶默默盛了一碗热面走过去递到他手里。\n镜头语言：全景转近景，缓慢推近。\n构图：少年蜷缩在暗处角落，老奶奶端面的暖光靠近他。\n光影：少年在冷蓝阴影里，面碗的暖光照亮他的脸。\n人物表情：少年戒备又渴望，老奶奶温柔不问缘由。\n音效：夜风+少年发抖的呼吸+温暖钢琴。\n台词：(老奶奶)吃吧，吃饱了，就有力气回家了。"
+      },
+      {
+        "name": "镜6-少年落泪",
+        "tag": "情绪破防",
+        "durationSeconds": 6,
+        "description": "画面内容：少年捧着热面大口吃着，眼泪一滴滴砸进碗里，老奶奶伸手轻轻拍了拍他的肩。\n镜头语言：近景特写，焦点在少年含泪的脸与颤抖的手。\n构图：少年居中，老奶奶的手从肩上入画。\n光影：暖光照亮泪光，柔和。\n人物表情：少年边吃边无声落泪，老奶奶眼神心疼慈爱。\n音效：压抑的抽泣+吃面声+催泪钢琴。\n台词：/"
+      },
+      {
+        "name": "镜7-灯火流转",
+        "tag": "时间流转",
+        "durationSeconds": 7,
+        "description": "画面内容：快速蒙太奇——春夏秋冬、雨雪风霜，巷口面摊那盏灯始终亮着，一个个不同的人来了又走都被热面温暖。\n镜头语言：一组快切固定镜头叠化。\n构图：同一机位，面摊灯火恒定，人物与季节流转。\n光影：季节色调变化但摊灯的暖橙恒定。\n人物表情：形形色色的人捧碗的满足。\n音效：叠化的环境音变化+温暖弦乐渐强。\n字幕：一碗面，一块钱，一守就是好多年。"
+      },
+      {
+        "name": "镜8-老人老去",
+        "tag": "揪心转折",
+        "durationSeconds": 8,
+        "description": "画面内容：多年后的雨夜，老奶奶白发更多背更驼，下面的手微微发抖，摊前冷清无人，雨敲着棚布。\n镜头语言：全景固定，雨帘留白。\n构图：老奶奶独自守在暖光小摊，四周被雨夜冷蓝吞没。\n光影：暖橙摊灯在雨中显得孤单，雨丝反光。\n人物表情：老奶奶望着空荡的巷口，眼神平静却落寞。\n音效：雨声+煤炉微火+孤单钢琴。\n台词：/"
+      },
+      {
+        "name": "镜9-少年归来",
+        "tag": "呼应泪目",
+        "durationSeconds": 10,
+        "description": "画面内容：一把伞出现在摊前，撑伞的是个穿整洁制服的青年——正是当年的少年，他红着眼看着老奶奶，声音哽咽。\n镜头语言：中景，缓慢推近到青年含泪的脸再切老奶奶怔住的脸。\n构图：青年立于雨中摊前，老奶奶在暖光里抬头。\n光影：青年半身在雨的冷蓝里，脸被摊灯暖光照亮。\n人物表情：青年强忍泪水的笑，老奶奶从怔忪到红了眼眶。\n音效：雨声渐弱+催泪钢琴推起。\n台词：(青年哽咽)奶奶，我回来了。这碗面，该换我下给您吃了。"
+      },
+      {
+        "name": "镜10-接棒传承",
+        "tag": "温暖升华",
+        "durationSeconds": 8,
+        "description": "画面内容：青年绕到摊后接过老奶奶手里的旧搪瓷勺，为她也为雨夜里陆续到来的人下面，褪色招牌依旧写着'一块钱一碗'，老奶奶坐在一旁欣慰地笑。\n镜头语言：全景固定缓缓拉远。\n构图：青年在摊后忙碌，老奶奶在暖光旁，招牌居于画面上方。\n光影：雨渐停，摊灯的暖橙重新明亮温暖。\n人物表情：青年专注温柔，老奶奶含泪欣慰笑。\n音效：下面声+雨后滴水+钢琴转明亮温暖。\n台词：(老奶奶轻声)好，好啊……"
+      },
+      {
+        "name": "镜11-文案收尾",
+        "tag": "升华留白",
+        "durationSeconds": 5,
+        "description": "画面内容：暖光面摊虚化为背景，中央浮现核心文案白字逐行淡入。\n镜头语言：固定镜头，文案淡入淡出留白。\n构图：暖橙柔焦背景，白字居中极简。\n光影：温暖柔光，文字清晰。\n音效：钢琴最后一个音符轻柔收尾。\n字幕：一块钱的面，喂饱的是胃，也是人心。/ 这世上最贵的，往往都是不要钱的东西。"
+      }
+    ],
     "prompts": {
-      "镜头提示词": "春日小镇、老街、阳光、慢镜头",
-      "画面提示词": "少女、回眸、温暖光线、樱花",
-      "风格提示词": "日系青春、清新、柔和色调"
+      "镜头提示词(中文生图用)": "夜色老城巷口褪色木招牌热汤面一块钱一碗老奶奶煤炉前下面白色热气腾腾暖橙摊灯对比冷蓝夜色中景电影写实8K\n近景特写老奶奶下面撒翠绿葱花卧金黄鸡蛋粗瓷碗热气升腾暖光聚焦浅景深烟火气8K\n疲惫外卖小哥深夜摊边捧碗大口吃面老奶奶悄悄添蛋暖橙灯照疲惫脸身后夜色冷蓝中景8K\n冻得发抖的少年缩在摊边台阶阴影里老奶奶端热面走近暖光照亮少年的脸冷暖对比全景8K\n雨夜制服青年撑伞立于暖光面摊前红着眼老奶奶抬头怔住雨帘冷蓝脸被摊灯照亮中景催泪8K",
+      "画面提示词(生视频用)": "中景固定暖橙面摊煤炉热气升腾招牌轻晃周遭夜色压暗镜头微微呼吸\n近景老奶奶熟练下面撒葱花卧蛋盛碗蒸汽在暖光里翻腾手部特写\n中景外卖小哥狼吞虎咽老奶奶的手入画添蛋温暖氛围浅景深\n缓慢推近老奶奶端面走向阴影里发抖的少年暖光靠近照亮他的脸\n雨中缓慢推近撑伞青年含泪的脸再切老奶奶怔住红眼眶催泪慢动作",
+      "风格提示词(统一画风用)": "电影感写实AI漫剧，市井烟火暖调，浅景深特写聚焦手部动作与微表情。核心视觉主题'一小片暖橙对抗一整夜冷蓝'：面摊暖橙灯火恒定温暖，周遭城市夜色冷蓝孤清，雨夜更冷清、归来后重新温暖。以暖橙、米白、热气白为主色。禁止卡通化、过饱和、喜剧化表情、现代穿帮、模糊人脸、手指畸形、显年轻化的老人；少年与长大后的青年须保持五官一致。"
     },
-    "connection": "将提示词包与素材清单整合，可直接用于分镜创作的生成流程，实现上下游工具衔接。支持导出：分镜脚本（PDF）、提示词（JSON）、素材清单（CSV）",
+    "connection": "将提示词包与素材清单整合用于AI视频生成。流程：(1)逐镜复制imageGenerationPrompt生成底帧，严格绑定角色锁定描述，重点保证'离家少年'与'归来青年'五官一致(2)复制videoMotionPrompt生成动态片段(3)按镜号1-11排序导入剪辑(4)铺市井环境音与温暖钢琴BGM，镜7时间流转处做叠化蒙太奇，镜8雨夜加雨声(5)全片贯彻'暖橙面摊vs冷蓝夜色'的色温对照，雨夜偏冷、归来后回暖(6)合并导出，片尾保留反差升华文案。",
     "external_models": [
-      "Runway",
-      "Pika",
-      "KLING",
-      "Vidu"
+      "Runway Gen-3(写实人物与烟火暖光推荐)",
+      "KLING 1.6(人物情绪特写与吃面微表情)",
+      "Vidu(市井巷口与热气质感)",
+      "Pika 2.0(时间流转叠化蒙太奇)",
+      "Sora(雨夜长镜头与拉远)"
+    ],
+    "ai_prompt_template": {
+      "video": "A 79-second cinematic warm emotional AI short film in a realistic street-food style about a small noodle stall in an old city alley, where a kind old granny sells a bowl of hot noodle soup for just one yuan. Open at night on a faded wooden sign 'Hot Noodles, One Yuan a Bowl'; the granny cooks over a coal stove, steam rising, warm orange stall light against the cold blue night, subtitle 'This bowl costs one yuan, but some say it is priceless'. Close-up: she drops noodles into boiling broth, sprinkles green scallions, adds a golden egg, fills a coarse ceramic bowl with rising steam. A tired late-night delivery rider eats hungrily as she quietly adds an extra egg 'You've worked all day, have another egg'. A weary middle-aged man in a wrinkled suit finds only a few coins in his pockets; she pushes the bowl to him 'Pay next time, eat first, hard days will pass'. A shivering runaway teenage boy huddles at the edge; she silently brings him a bowl 'Eat, once you're full you'll have the strength to go home'; the boy weeps into the bowl as she pats his shoulder. A montage through seasons: the stall light always on, many strangers warmed. Years later on a rainy night the granny is older, hands trembling, the stall empty. A young man in a neat uniform appears under an umbrella, the grown-up boy, eyes red 'Granny, I'm back. Let me cook this bowl for you now.' He takes the old enamel ladle and cooks for her and for the people in the rainy night, the sign still reading 'One Yuan a Bowl', the granny smiling through tears. End on warm text over the glowing stall: 'A one-yuan bowl of noodles fills the stomach, and the heart. The most precious things in this world often cost nothing.' Color theme: a small patch of warm orange against a whole cold-blue night; rain colder, warmth returning after. Warm piano score, gentle slow motion, shallow depth of field, close-ups on hands and micro-expressions, no cartoonish or oversaturated look, consistent character design, the boy and the grown man clearly the same person.",
+      "duration": "79",
+      "aspect_ratio": "16:9",
+      "negative": "nsfw, lowres, bad anatomy, bad hands, text glitch, missing fingers, extra digit, cropped, worst quality, jpeg artifacts, watermark, blurry, deformed, oversaturated, cartoonish, comedic expression, modern anachronism, disfigured, cloned face"
+    },
+    "rows": [
+      {
+        "shotNumber": 1,
+        "durationSeconds": 5,
+        "shotSize": "中景",
+        "plotDescription": "夜色老城巷口，褪色木招牌'热汤面 一块钱一碗'，招牌下老奶奶在煤炉前下面白色热气腾腾（运镜:固定，暖橙灯为唯一亮源；首镜）",
+        "characterAction": "老奶奶低头专注地在煤炉汤锅前下面，嘴角带着习惯性的温和",
+        "dialogue": "/",
+        "emotion": "温暖/烟火",
+        "sceneTags": "老城巷口/褪色木招牌/煤炉/暖橙摊灯/冷蓝夜色",
+        "lightingAndAtmosphere": "暖橙摊灯对比周遭冷蓝夜色，热气透光",
+        "audioEffects": "煤炉火苗声+锅里水沸+远处夜市杂音+温暖钢琴单音",
+        "characters": [
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+          }
+        ],
+        "imageGenerationPrompt": "Night in an old city alley, a faded wooden sign reading Chinese characters for 'hot noodles one yuan a bowl', beneath it a kind old granny around 70 with silver hair in a bun cooking over a coal stove, white steam rising, warm orange stall light as the only light source against the cold blue night, cinematic realistic street-food style, shallow depth of field, cozy atmosphere, 8k, high detail",
+        "videoMotionPrompt": "Static medium shot with subtle breathing motion; steam rises from the coal stove, the sign sways faintly, surroundings dark; warm and quiet"
+      },
+      {
+        "shotNumber": 2,
+        "durationSeconds": 6,
+        "shotSize": "近景",
+        "plotDescription": "老奶奶熟练把面下进翻滚汤锅撒翠绿葱花卧金黄鸡蛋盛进粗瓷碗热气升腾（运镜:近景特写手部动作，浅景深；沿用面摊场景）",
+        "characterAction": "利落地下面、撒葱花、卧蛋、盛碗，动作从容眼神慈爱",
+        "dialogue": "/",
+        "emotion": "温暖/从容",
+        "sceneTags": "面摊/粗瓷碗/葱花鸡蛋/热气",
+        "lightingAndAtmosphere": "暖橙灯光，蒸汽在光里翻腾",
+        "audioEffects": "下面声+葱花入汤滋声+瓷碗轻响+钢琴轻起",
+        "characters": [
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+          }
+        ],
+        "imageGenerationPrompt": "Close-up of an old granny's hands dropping noodles into boiling broth, sprinkling bright green scallions and adding a golden egg into a coarse blue-patterned ceramic bowl, steam rising, warm orange light, shallow depth of field, street-food realism, 8k, high detail",
+        "videoMotionPrompt": "Close-up on hands; she cooks the noodles, sprinkles scallions, adds an egg and fills the bowl; steam swirls in the warm light; deft and tender"
+      },
+      {
+        "shotNumber": 3,
+        "durationSeconds": 7,
+        "shotSize": "中景",
+        "plotDescription": "疲惫外卖小哥深夜停车摘头盔捧热面大口吃，老奶奶悄悄又给他碗里卧个蛋（运镜:中景，焦点在小哥与碗；沿用面摊）",
+        "characterAction": "外卖小哥狼吞虎咽眼含暖意，老奶奶的手从旁入画悄悄添蛋含笑",
+        "dialogue": "(老奶奶)跑一天了吧，多吃个蛋。",
+        "emotion": "心疼/温暖",
+        "sceneTags": "面摊/外卖小哥/电动车/添蛋",
+        "lightingAndAtmosphere": "暖橙摊灯照亮疲惫的脸，身后夜色冷蓝",
+        "audioEffects": "吃面吸溜声+电动车余温滴答+温暖弦乐",
+        "characters": [
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+          },
+          {
+            "characterName": "外卖小哥",
+            "characterDescription": "A tired young food delivery rider around 25 in a worn delivery uniform, helmet just taken off, weary face"
+          }
+        ],
+        "imageGenerationPrompt": "A tired young food delivery rider around 25 sitting on a low stool at a night noodle stall eating hungrily from a steaming bowl, an old granny's hand adding an extra egg into his bowl, warm orange stall light on his weary face, cold blue night behind, cinematic realistic style, medium shot, 8k",
+        "videoMotionPrompt": "Medium shot; the rider eats hungrily, the granny's hand enters frame to add an egg; warm intimate atmosphere, shallow depth of field"
+      },
+      {
+        "shotNumber": 4,
+        "durationSeconds": 8,
+        "shotSize": "中近景",
+        "plotDescription": "皱西装领带松垮的中年男坐摊角摸遍口袋只掏出几枚硬币尴尬低头，老奶奶不动声色把面推到他面前（运镜:中近景，前景摊开的几毛钱；沿用面摊）",
+        "characterAction": "中年男掏出几枚硬币窘迫低头，老奶奶温和地把热面推过去",
+        "dialogue": "(老奶奶)钱下次再给，先吃饱。日子啊，扛过去就好了。",
+        "emotion": "落寞/暖心",
+        "sceneTags": "面摊/失业中年/几枚硬币/推面",
+        "lightingAndAtmosphere": "暖光中夹着人物脸上阴影，落寞",
+        "audioEffects": "硬币碰桌声+夜风+低钢琴",
+        "characters": [
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+          },
+          {
+            "characterName": "失业中年",
+            "characterDescription": "A weary middle-aged man around 45 in a wrinkled worn suit with a loosened tie, downcast dejected expression"
+          }
+        ],
+        "imageGenerationPrompt": "A weary middle-aged man in a wrinkled suit with loosened tie sitting at the corner of a night noodle stall, only a few coins spread on the table, head lowered in embarrassment, an old granny gently pushing a steaming bowl toward him, warm light with soft shadows on faces, melancholic tender mood, cinematic realistic style, 8k",
+        "videoMotionPrompt": "Medium close shot, coins in foreground; the man lowers his head, the granny quietly pushes the bowl to him; warm, aching, gentle"
+      },
+      {
+        "shotNumber": 5,
+        "durationSeconds": 9,
+        "shotSize": "全景转近景",
+        "plotDescription": "背破旧书包的少年缩在摊边台阶冻得发抖不敢靠近，老奶奶默默盛热面走过去递到他手里（运镜:缓慢推近；沿用面摊，少年在阴影）",
+        "characterAction": "少年蜷缩戒备又渴望，老奶奶温柔端面靠近递到他手里",
+        "dialogue": "(老奶奶)吃吧，吃饱了，就有力气回家了。",
+        "emotion": "怜惜/温柔",
+        "sceneTags": "面摊台阶/离家少年/破旧书包/递面",
+        "lightingAndAtmosphere": "少年在冷蓝阴影里，面碗暖光照亮他的脸",
+        "audioEffects": "夜风+少年发抖的呼吸+温暖钢琴",
+        "characters": [
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+          },
+          {
+            "characterName": "离家少年",
+            "characterDescription": "A thin runaway teenage boy around 15 with a shabby backpack, messy hair, cold and hunched, wary but longing eyes"
+          }
+        ],
+        "imageGenerationPrompt": "A thin teenage boy around 15 with a shabby backpack huddled shivering on the steps beside a night noodle stall in cold blue shadow, an old granny bringing a bowl of hot noodles toward him, the warm bowl light illuminating his face, cold-warm contrast, cinematic realistic style, slow push-in, 8k, high detail",
+        "videoMotionPrompt": "Slow push-in from wide to close; the boy huddles in shadow, the granny approaches with the glowing bowl and hands it to him; tender, cold night air"
+      },
+      {
+        "shotNumber": 6,
+        "durationSeconds": 6,
+        "shotSize": "近景",
+        "plotDescription": "少年捧热面大口吃眼泪一滴滴砸进碗里，老奶奶伸手轻拍他的肩（运镜:近景特写含泪的脸与颤抖的手；沿用台阶）",
+        "characterAction": "少年边狼吞虎咽边无声落泪，老奶奶的手轻拍他的肩安慰",
+        "dialogue": "/",
+        "emotion": "破防/悲喜交加",
+        "sceneTags": "面摊台阶/少年落泪/拍肩",
+        "lightingAndAtmosphere": "暖光照亮泪光，柔和",
+        "audioEffects": "压抑抽泣+吃面声+催泪钢琴",
+        "characters": [
+          {
+            "characterName": "离家少年",
+            "characterDescription": "A thin runaway teenage boy around 15 with a shabby backpack, messy hair, cold and hunched, wary but longing eyes"
+          },
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+          }
+        ],
+        "imageGenerationPrompt": "Close-up of a teenage boy eating hot noodles while tears drop into the bowl, an old granny's hand gently patting his shoulder, warm light catching the tears, tender heartbreaking mood, cinematic realistic style, shallow depth of field, 8k, high detail",
+        "videoMotionPrompt": "Close-up on the boy's tearful face and trembling hands; he eats while silently crying, the granny pats his shoulder; warm, moving, slow"
+      },
+      {
+        "shotNumber": 7,
+        "durationSeconds": 7,
+        "shotSize": "固定叠化",
+        "plotDescription": "快速蒙太奇春夏秋冬雨雪风霜巷口面摊的灯始终亮着一个个不同的人来了又走都被热面温暖（运镜:一组快切固定镜头叠化；同机位时间流转）",
+        "characterAction": "形形色色的人在同一面摊前捧碗吃面满足，季节在背景流转",
+        "dialogue": "/",
+        "emotion": "温情/流转",
+        "sceneTags": "面摊/四季流转/群像/恒亮的灯",
+        "lightingAndAtmosphere": "季节色调变化但摊灯暖橙恒定",
+        "audioEffects": "叠化的环境音变化+温暖弦乐渐强",
+        "characters": [
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+          }
+        ],
+        "imageGenerationPrompt": "A time-lapse montage from a fixed camera of the same alley noodle stall through spring summer autumn winter, rain and snow, the warm orange stall lamp always glowing, different people coming and going warmed by the noodles, seasonal color shifts but constant warm light, cinematic realistic style, 8k",
+        "videoMotionPrompt": "A series of quick fixed shots cross-dissolving; seasons and people change while the stall light stays constant; warm strings swelling"
+      },
+      {
+        "shotNumber": 8,
+        "durationSeconds": 8,
+        "shotSize": "全景",
+        "plotDescription": "多年后雨夜老奶奶白发更多背更驼下面的手微微发抖摊前冷清无人雨敲棚布（运镜:固定，雨帘留白；时间推进）",
+        "characterAction": "更苍老的老奶奶独自守摊，手发抖，望着空荡的巷口",
+        "dialogue": "/",
+        "emotion": "揪心/落寞",
+        "sceneTags": "雨夜面摊/更苍老/棚布/冷清",
+        "lightingAndAtmosphere": "暖橙摊灯在雨中显得孤单，雨丝反光",
+        "audioEffects": "雨声+煤炉微火+孤单钢琴",
+        "characters": [
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "An even older version of the granny around 78, more white hair, more stooped back, slightly trembling hands, same faded floral apron"
+          }
+        ],
+        "imageGenerationPrompt": "A rainy night years later, the granny now much older around 78 with more white hair and a stooped back, hands trembling as she cooks, the stall empty and quiet, rain hitting the awning, the warm orange lamp lonely in the rain, cinematic realistic style, wide shot, 8k, high detail",
+        "videoMotionPrompt": "Static wide shot with rain curtain; the aged granny stands alone at the glowing stall gazing at the empty alley; lonely, rain falling"
+      },
+      {
+        "shotNumber": 9,
+        "durationSeconds": 10,
+        "shotSize": "中景",
+        "plotDescription": "一把伞出现在摊前撑伞的是穿整洁制服的青年正是当年少年红着眼看着老奶奶哽咽（运镜:缓慢推近青年含泪的脸再切老奶奶怔住的脸；呼应）",
+        "characterAction": "青年撑伞立于雨中强忍泪水地笑，老奶奶抬头从怔忪到红了眼眶",
+        "dialogue": "(青年哽咽)奶奶，我回来了。这碗面，该换我下给您吃了。",
+        "emotion": "泪目/重逢",
+        "sceneTags": "雨夜面摊/归来青年/伞/重逢",
+        "lightingAndAtmosphere": "青年半身在雨的冷蓝里，脸被摊灯暖光照亮",
+        "audioEffects": "雨声渐弱+催泪钢琴推起",
+        "characters": [
+          {
+            "characterName": "归来青年",
+            "characterDescription": "A young man around 27 in a neat uniform, the grown-up version of the runaway boy with the same recognizable facial features, gentle determined eyes holding back tears, under an umbrella"
+          },
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "An even older version of the granny around 78, more white hair, more stooped back, same faded floral apron"
+          }
+        ],
+        "imageGenerationPrompt": "A young man around 27 in a neat uniform standing under an umbrella before the warm rainy noodle stall, eyes red with held-back tears, clearly the grown-up version of the runaway boy with the same features, the old granny looking up stunned, his face lit by the warm stall lamp while his body is in the cold blue rain, cinematic realistic style, medium shot, tearful, 8k, high detail",
+        "videoMotionPrompt": "Slow push-in to the young man's tearful face then cut to the granny's stunned reddening eyes; rain easing, tearful piano rising"
+      },
+      {
+        "shotNumber": 10,
+        "durationSeconds": 8,
+        "shotSize": "全景",
+        "plotDescription": "青年绕到摊后接过老奶奶手里的旧搪瓷勺为她也为雨夜陆续到来的人下面褪色招牌依旧'一块钱一碗'老奶奶坐一旁欣慰笑（运镜:全景固定缓缓拉远；升华）",
+        "characterAction": "青年在摊后专注下面，老奶奶坐旁含泪欣慰笑，招牌依旧",
+        "dialogue": "(老奶奶轻声)好，好啊……",
+        "emotion": "释怀/温暖传承",
+        "sceneTags": "雨后面摊/青年接棒/旧搪瓷勺/一块钱招牌",
+        "lightingAndAtmosphere": "雨渐停，摊灯暖橙重新明亮温暖",
+        "audioEffects": "下面声+雨后滴水+钢琴转明亮温暖",
+        "characters": [
+          {
+            "characterName": "归来青年",
+            "characterDescription": "A young man around 27 in a neat uniform, the grown-up version of the runaway boy with the same recognizable facial features, gentle determined eyes"
+          },
+          {
+            "characterName": "面摊老奶奶",
+            "characterDescription": "An even older version of the granny around 78, more white hair, more stooped back, same faded floral apron"
+          }
+        ],
+        "imageGenerationPrompt": "A young man in a neat uniform behind the noodle stall taking the old enamel ladle from the aged granny, cooking noodles for her and for people arriving in the rainy night, the faded sign still reading 'one yuan a bowl', the granny sitting nearby smiling through tears, rain stopping, the warm orange lamp bright again, cinematic realistic style, wide shot pulling back, 8k, high detail",
+        "videoMotionPrompt": "Static wide shot slowly pulling back; the young man cooks behind the stall, the granny watches smiling through tears; warm light returns, gentle"
+      },
+      {
+        "shotNumber": 11,
+        "durationSeconds": 5,
+        "shotSize": "全景",
+        "plotDescription": "暖光面摊虚化为背景中央浮现核心文案白字逐行淡入（运镜:固定，文案淡入淡出留白；收尾）",
+        "characterAction": "无人物，白色文案在暖橙柔焦背景中央逐行淡入",
+        "dialogue": "/",
+        "emotion": "升华/共鸣",
+        "sceneTags": "暖橙面摊柔焦背景/白色文案",
+        "lightingAndAtmosphere": "温暖柔光，文字清晰，留白",
+        "audioEffects": "钢琴最后一个音符轻柔收尾",
+        "characters": [],
+        "imageGenerationPrompt": "Soft blurred warm orange background of a glowing noodle stall at night, centered elegant white Chinese text fading in line by line, tender warm light, minimalist, cinematic, 8k",
+        "videoMotionPrompt": "Static shot; white text fades in line by line over the softly blurred warm stall; final piano note; gentle fade to hold"
+      }
+    ],
+    "characters": [
+      {
+        "characterName": "面摊老奶奶",
+        "characterId": "role-1",
+        "gender": "女",
+        "age": 70,
+        "appearance": {
+          "face": "慈祥布满皱纹的笑脸，眼神温和有神",
+          "hair": "银白色头发挽成发髻",
+          "body": "微胖敦实，约155cm，晚年更驼",
+          "distinctive": "常年劳作的手，掌心粗糙"
+        },
+        "costume": {
+          "default": "褪色碎花围裙内搭深色棉布衣，袖子挽起，布鞋",
+          "colorPalette": [
+            "褪花",
+            "深棉",
+            "米白"
+          ],
+          "prohibited": "不能浓妆、不能鲜艳华丽、不能显年轻"
+        },
+        "lighting": "暖橙摊灯为主光，慈爱温暖；雨夜偏冷孤单",
+        "emotions": [
+          "慈爱",
+          "从容",
+          "落寞",
+          "欣慰"
+        ],
+        "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+      },
+      {
+        "characterName": "离家少年/归来青年",
+        "characterId": "role-2",
+        "gender": "男",
+        "age": 15,
+        "appearance": {
+          "face": "少年清瘦戒备又渴望，长大后同一五官变得温和坚定",
+          "hair": "少年蓬乱，青年整洁",
+          "body": "少年约165cm偏瘦，青年约178cm挺拔",
+          "distinctive": "眉眼特征跨年龄一致可辨认为同一人"
+        },
+        "costume": {
+          "default": "少年破旧外套背旧书包；长大后整洁制服(护士/军人/职员)",
+          "colorPalette": [
+            "旧灰",
+            "制服色"
+          ],
+          "prohibited": "少年与青年五官必须一致，不能变成两个人"
+        },
+        "lighting": "少年在冷蓝阴影被暖光照亮；青年雨夜半身冷蓝脸被暖光照",
+        "emotions": [
+          "戒备",
+          "感激",
+          "坚定",
+          "泪目"
+        ],
+        "characterDescription": "The runaway boy around 15 and his grown-up self around 27 in a neat uniform, same recognizable facial features across ages, from wary and hungry to gentle and determined"
+      },
+      {
+        "characterName": "深夜众生群像",
+        "characterId": "role-3",
+        "gender": "群像",
+        "age": 0,
+        "appearance": {
+          "face": "疲惫外卖小哥、落寞失业中年、环卫工、夜归者、独居老人等",
+          "hair": "各异",
+          "body": "各年龄各职业",
+          "distinctive": "共同点是深夜里被生活压弯又被一碗面接住"
+        },
+        "costume": {
+          "default": "外卖工服/皱西装/环卫橙衣/朴素便装等",
+          "colorPalette": [
+            "各职业色"
+          ],
+          "prohibited": "不能光鲜富态、不能喜剧化"
+        },
+        "lighting": "在冷蓝夜色中被面摊暖光照亮",
+        "emotions": [
+          "疲惫",
+          "感动",
+          "满足"
+        ],
+        "characterDescription": "Various ordinary people of the late night — a tired delivery rider, a dejected jobless man, sanitation workers, lone elders — all bent by life and caught by a bowl of noodles"
+      }
+    ],
+    "scenes": [
+      {
+        "sceneName": "老城巷口面摊(夜)",
+        "sceneId": "scene-1",
+        "type": "室外",
+        "description": "斑驳砖墙的老城巷口，褪色木招牌'热汤面 一块钱一碗'，煤炉汤锅、矮凳、粗瓷碗，暖橙摊灯，是全片情感中心",
+        "lightingPlan": "暖橙摊灯为唯一主光源，热气透光，周遭夜色冷蓝压暗",
+        "colorTone": "暖橙烟火 vs 冷蓝夜色",
+        "props": [
+          "褪色木招牌",
+          "煤炉汤锅",
+          "粗瓷碗",
+          "矮凳",
+          "旧搪瓷勺"
+        ],
+        "prohibited": "不能出现现代连锁店招、霓虹过曝、穿帮"
+      },
+      {
+        "sceneName": "雨夜面摊",
+        "sceneId": "scene-2",
+        "type": "室外",
+        "description": "多年后的同一面摊，下雨，加了棚布，雨帘，摊前冷清，用于衰老与呼应",
+        "lightingPlan": "暖橙摊灯在雨中显孤单，雨丝反光，归来后回暖",
+        "colorTone": "冷蓝雨夜 / 归来后回暖",
+        "props": [
+          "棚布",
+          "雨伞",
+          "褪色招牌",
+          "煤炉"
+        ],
+        "prohibited": "不能过亮、不能失去孤单感(归来前)"
+      },
+      {
+        "sceneName": "城市夜巷",
+        "sceneId": "scene-3",
+        "type": "室外",
+        "description": "老城窄巷，昏黄路灯，湿漉地面，冷蓝夜色，衬托面摊那一小片暖",
+        "lightingPlan": "昏黄路灯与冷蓝夜色，湿地反光",
+        "colorTone": "冷蓝偏暗",
+        "props": [
+          "路灯",
+          "湿漉地面",
+          "电动车"
+        ],
+        "prohibited": "不能明亮繁华、不能现代穿帮"
+      }
+    ],
+    "props": [
+      {
+        "propName": "褪色木招牌",
+        "propId": "prop-1",
+        "type": "象征物",
+        "description": "一块边角磨损、油漆褪色的旧木招牌，黑漆手写'热汤面 一块钱一碗'，字迹被岁月磨得发浅，挂在面摊上方微微晃动",
+        "symbolism": "全片的价值宣言与反差核心——'一块钱'的廉价与'守了几十年'的无价形成张力，是善意始终如一的象征，结尾青年接棒时招牌依旧未变，点明传承",
+        "lockedDetails": "'一块钱一碗'字样、木料裂纹与褪色程度全片一致，多年后不能翻新，只能更旧",
+        "appearsIn": "镜1 / 镜7 / 镜10",
+        "prohibited": "不能换成新招牌、不能改价格、不能出现现代喷绘或霓虹",
+        "promptSnippet": "A weathered faded wooden signboard with hand-painted Chinese characters 'hot noodles, one yuan a bowl', paint peeling, edges worn"
+      },
+      {
+        "propName": "粗瓷碗热汤面",
+        "propId": "prop-2",
+        "type": "关键叙事道具",
+        "description": "白底蓝纹的旧粗瓷碗，盛满冒着热气的汤面，翠绿葱花漂浮，一颗金黄卧蛋，碗沿有细小磕痕",
+        "symbolism": "善意最直接的载体，每一次'递碗'都是一次接住困境者的动作，热气与暖色是全片温暖的具象",
+        "lockedDetails": "碗的蓝纹样式、葱花与卧蛋的搭配全片统一，热气始终清晰可见",
+        "appearsIn": "镜2 / 镜3 / 镜4 / 镜5 / 镜6",
+        "prohibited": "不能换成一次性餐盒、不能出现精致餐具、汤面不能冷掉无热气",
+        "promptSnippet": "A chipped blue-and-white coarse ceramic bowl of steaming noodle soup with green scallions and a golden egg"
+      },
+      {
+        "propName": "旧搪瓷勺",
+        "propId": "prop-3",
+        "type": "象征物",
+        "description": "一把掉了瓷、露出金属底的旧搪瓷长柄勺，握柄被磨得发亮，是老奶奶用了几十年的下面工具",
+        "symbolism": "'接棒'的信物——青年从老奶奶手中接过这把勺，完成善意从上一代到下一代的交接，是传承的具象锚点",
+        "lockedDetails": "掉瓷位置与磨亮的握柄全片一致，交接特写需清晰可辨为同一把",
+        "appearsIn": "镜2 / 镜10",
+        "prohibited": "不能换成新勺、交接时不能变形或换样式",
+        "promptSnippet": "An old worn enamel ladle with chipped enamel exposing metal, handle polished smooth from years of use"
+      },
+      {
+        "propName": "一块钱",
+        "propId": "prop-4",
+        "type": "象征物",
+        "description": "一枚磨得发亮的一元硬币或一张软旧的一元纸币，出现在付钱/掏不出钱的时刻",
+        "symbolism": "反差钩子的核心符号——'最便宜的价格'与'最昂贵的善意'并置；失业中年掏不出的窘迫与老奶奶'下次再给'的宽容都围绕它展开",
+        "lockedDetails": "面额始终是一元，样式统一",
+        "appearsIn": "镜4",
+        "prohibited": "不能出现大额钞票、不能变成移动支付码",
+        "promptSnippet": "A worn shiny one-yuan coin or a soft old one-yuan note"
+      },
+      {
+        "propName": "煤炉汤锅",
+        "propId": "prop-5",
+        "type": "日常道具",
+        "description": "老式蜂窝煤炉架着一口熏黑的大汤锅，炉膛透出橘红火光，锅里汤水翻滚冒着白气",
+        "symbolism": "烟火气与'始终亮着的灯火'的来源，炉火不灭象征善意长明，雨夜微火则烘托孤单",
+        "lockedDetails": "炉子的熏黑程度与橘红火光全片一致，雨夜火光偏弱",
+        "appearsIn": "镜1 / 镜2 / 镜8",
+        "prohibited": "不能换成燃气灶或电磁炉、不能出现现代厨具",
+        "promptSnippet": "An old honeycomb-coal stove with a soot-blackened broth pot, orange fire glowing, white steam rising"
+      }
     ]
   }
 ]

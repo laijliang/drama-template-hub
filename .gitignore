@@ -1,0 +1,13 @@
+# 下载的视频 / 抽帧图（抖音版权内容 + 大文件）
+Output/media/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 本地个人配置
+.claude/settings.local.json
+
+# 系统文件
+.DS_Store
+Thumbs.db
