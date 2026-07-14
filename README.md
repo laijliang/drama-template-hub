@@ -25,14 +25,16 @@ Manage_Drama/
 │   └── templates.json            # 前端模板数据库（同步到 GitHub Pages）
 ├── scripts/                      # 抖音数据采集脚本
 │   ├── get_douyin_video.py       #   获取视频元数据（标题/作者/互动/视频地址）
-│   └── prepare_douyin_lapian.py  #   下载视频 + 抽帧 + 生成拉片素材清单
+│   ├── prepare_douyin_lapian.py  #   下载视频 + 抽帧 + 分组拼图 + manifest
+│   └── make_contact_sheets.py    #   独立拼图工具（对已抽好的 frames/ 生成拼图）
 ├── skill/                        # AI Agent 技能定义
 │   └── 短剧AI全案生成器.md        #   内容生成 skill（三阶段产出 JSON）
 ├── Output/                       # 产出目录
 │   ├── *_全案_*.json             #   完整全案 JSON
 │   └── media/{video_id}/         #   下载的视频与抽帧图片
 │       ├── {video_id}.mp4
-│       ├── frames/frame_*.jpg
+│       ├── frames/frame_*.jpg           #   逐帧图（原样保留，供定向放大）
+│       ├── contact_sheets/sheet_*.jpg   #   分组拼图（拉片分析优先读这个）
 │       └── manifest.json
 ├── README.md
 └── .gitignore
@@ -109,12 +111,18 @@ python scripts/prepare_douyin_lapian.py "<抖音视频链接>" --frame-interval 
 - 使用 OpenCV 按时间间隔抽帧 + 场景切换检测（`scene_threshold=28.0`）
   - 采用**跳帧解码**（`cap.grab()` 跳过无关帧）+ **降采样场景检测**（约每 0.1 秒在缩小灰度图上比对差异），抽帧解码比逐帧快约 3–4 倍，抽帧结果基本一致
 - 帧图保存到 `Output/media/{video_id}/frames/frame_XXXX_XXX.XXs.jpg`
+- **分组拼图（contact sheet）**：把抽好的帧按场景切换均分成若干张网格拼图（默认每张 12 帧，长边 ≤1536px），每格标时间戳/帧号、镜头切换帧标红框 + CUT，存到 `Output/media/{video_id}/contact_sheets/sheet_*.jpg`
+  - 目的：拉片分析时**先读约 5–7 张拼图**（可并行、时序上下文完整）而非逐张读 80 帧，某段存疑再定向读原帧，大幅减少读图次数
+  - 参数：`--sheet-frames`（每张帧数）、`--sheet-max-long`（长边上限）、`--no-sheets`（关闭，完全兼容旧行为）
 - 生成 `manifest.json`（拉片素材清单），包含：
   - `video_info`：视频元数据
   - `local_video`：本地视频路径与大小
   - `frame_extraction`：FPS、总帧数、时长、抽帧列表（每帧含时间戳、路径、场景变化分数）
+  - `contact_sheets`：每张拼图的 `file` / `grid` / `frames` / `time_range` / `cells`（含每格时间戳、是否切换帧）
 
-> **依赖**：`opencv-python-headless`、`requests`、`python-dotenv`，以及外部项目 `DouYin_Spider`。
+> **依赖**：`opencv-python-headless`、`requests`、`python-dotenv`、`Pillow`，以及外部项目 `DouYin_Spider`。
+>
+> 独立工具 `scripts/make_contact_sheets.py` 可对已抽好的 `frames/` 直接生成拼图（不必重新下载视频），用法：`python scripts/make_contact_sheets.py <frames_dir> [--per-sheet 12] [--max-long 1536]`。
 
 ---
 
@@ -379,7 +387,8 @@ data/templates.json  ←(GitHub Pages 部署后同步)→  index.html
 | 组件 | 技术/依赖 |
 |------|-----------|
 | 数据采集 | Python 3、`requests`、`python-dotenv`、`DouYin_Spider`（外部项目） |
-| 视频抽帧 | `opencv-python-headless`（场景检测 + 帧提取） |
+| 视频抽帧 | `opencv-python-headless`（跳帧解码 + 场景检测） |
+| 分组拼图 | `Pillow`（拼网格 + 标注时间戳/切换帧，供拉片分析） |
 | 内容生成 | AI Agent skill（`短剧AI全案生成器.md`） |
 | 前端 | 原生 HTML/CSS/JS（无框架）、localStorage、GitHub Pages 同步 |
 

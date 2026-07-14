@@ -226,19 +226,71 @@ def extract_frames(
     }
 
 
-def write_manifest(work_dir: Path, info: dict, video: dict, frame_data: dict) -> Path:
+def build_contact_sheets(frame_data: dict, work_dir: Path, per_sheet: int,
+                         max_long: int, scene_threshold: float, quality: int = 88) -> list:
+    """把抽好的帧拼成分组 contact sheet（拉片分析用）。缺 PIL 或出错则返回空、不影响主流程。"""
+    try:
+        from PIL import Image
+        from make_contact_sheets import group_frames, choose_grid, build_sheet
+    except Exception:
+        return []
+    items = [
+        {"path": Path(fr["path"]), "index": fr["index"], "time": fr["time_seconds"]}
+        for fr in frame_data.get("frames", []) or []
+    ]
+    if not items:
+        return []
+    scene_set = {
+        fr["index"] for fr in frame_data["frames"]
+        if float(fr.get("scene_score", 0) or 0) >= scene_threshold
+    }
+    try:
+        with Image.open(items[0]["path"]) as im0:
+            ar = im0.size[0] / im0.size[1]
+    except Exception:
+        return []
+    out_dir = work_dir / "contact_sheets"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    sheets = []
+    for gi, group in enumerate(group_frames(items, per_sheet, scene_set)):
+        cols, rows, tw, th = choose_grid(len(group), ar, max_long)
+        fname = f"sheet_{gi:02d}.jpg"
+        build_sheet(group, cols, rows, tw, th, scene_set).save(out_dir / fname, quality=quality)
+        sheets.append({
+            "file": f"contact_sheets/{fname}",
+            "grid": [cols, rows],
+            "frames": [group[0]["index"], group[-1]["index"]],
+            "time_range": [round(group[0]["time"], 2), round(group[-1]["time"], 2)],
+            "cells": [
+                {"index": it["index"], "time": round(it["time"], 2), "scene_change": it["index"] in scene_set}
+                for it in group
+            ],
+        })
+    return sheets
+
+
+def write_manifest(work_dir: Path, info: dict, video: dict, frame_data: dict,
+                   contact_sheets: list = None) -> Path:
     manifest = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "status": "ready_for_lapian",
         "video_info": info,
         "local_video": video,
         "frame_extraction": frame_data,
-        "agent_next_step": [
+    }
+    if contact_sheets:
+        manifest["contact_sheets"] = contact_sheets
+        manifest["agent_next_step"] = [
+            "优先读取 contact_sheets[]：每张是一段按时序拼好的分组图，含时间戳/帧号，红框+CUT 标记镜头切换点；据此逐镜分析场景、景别、运镜、人物动作、可见字幕台词、情绪与节奏。",
+            "某段细节存疑时，再按 contact_sheets[].cells[].index 到 frame_extraction.frames[] 读取对应原帧放大确认。",
+            "不可见或未转写的声音/对白不要编造，只依据画面可见字幕判断。",
+        ]
+    else:
+        manifest["agent_next_step"] = [
             "Read frames in chronological order.",
             "Describe scene, shot size, camera movement, character action, subtitle/dialogue, emotion, and audio cues when visible or inferable.",
             "Do not claim exact dialogue/audio unless it is visible in subtitles or separately transcribed.",
-        ],
-    }
+        ]
     path = work_dir / "manifest.json"
     path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     return path
@@ -252,6 +304,9 @@ def main():
     parser.add_argument("--scene-threshold", type=float, default=28.0, help="Mean pixel diff threshold for scene-change frames; 0 disables")
     parser.add_argument("--min-scene-gap", type=float, default=0.8, help="Minimum seconds between scene-change frames")
     parser.add_argument("--max-width", type=int, default=960, help="Resize extracted frames to this width")
+    parser.add_argument("--sheet-frames", type=int, default=12, help="每张 contact sheet 拼几帧（默认 12）")
+    parser.add_argument("--sheet-max-long", type=int, default=1536, help="contact sheet 长边像素上限（默认 1536）")
+    parser.add_argument("--no-sheets", action="store_true", help="关闭 contact sheet 生成（兼容旧行为）")
     args = parser.parse_args()
 
     try:
@@ -274,7 +329,10 @@ def main():
             min_scene_gap_seconds=args.min_scene_gap,
             max_width=args.max_width,
         )
-        manifest_path = write_manifest(work_dir, info, video, frame_data)
+        sheets = [] if args.no_sheets else build_contact_sheets(
+            frame_data, work_dir, args.sheet_frames, args.sheet_max_long, args.scene_threshold
+        )
+        manifest_path = write_manifest(work_dir, info, video, frame_data, sheets)
 
         print(json.dumps({
             "status": "ok",
@@ -286,6 +344,8 @@ def main():
             "frames_dir": str(frames_dir),
             "frame_count": frame_data["extracted_count"],
             "duration_seconds": frame_data["duration_seconds"],
+            "contact_sheets_dir": str(work_dir / "contact_sheets") if sheets else None,
+            "sheet_count": len(sheets),
         }, ensure_ascii=False, indent=2))
     except Exception as e:
         print(json.dumps({"error": str(e)}, ensure_ascii=False, indent=2))
