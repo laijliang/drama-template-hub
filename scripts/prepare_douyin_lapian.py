@@ -39,7 +39,7 @@ PROJECT_DIR = SCRIPT_DIR.parent
 OUTPUT_DIR = PROJECT_DIR / "Output" / "media"
 
 sys.path.insert(0, str(SCRIPT_DIR))
-from get_douyin_video import SPIDER_PATH, extract_video_info, load_env, normalize_douyin_url
+from get_douyin_video import SPIDER_PATH, check_environment, extract_video_info, load_env, normalize_douyin_url
 
 
 def safe_name(value: str, fallback: str = "douyin_video") -> str:
@@ -48,8 +48,14 @@ def safe_name(value: str, fallback: str = "douyin_video") -> str:
 
 
 def get_video_info(source_url: str) -> dict:
+    problems = check_environment()
+    if problems:
+        raise RuntimeError(json.dumps({
+            "error": "environment_not_ready",
+            "message": "DouYin_Spider 环境未就绪，请先完成以下配置后重试：",
+            "steps": problems,
+        }, ensure_ascii=False, indent=2))
     resolved_url = normalize_douyin_url(source_url)
-    load_dotenv(SPIDER_PATH / ".env")
     auth = load_env()
     info = extract_video_info(auth, resolved_url)
     if info.get("error"):

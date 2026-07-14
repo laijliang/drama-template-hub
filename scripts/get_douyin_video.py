@@ -122,14 +122,43 @@ def extract_video_info(auth, url: str) -> dict:
     }
 
 
+def check_environment():
+    """运行前自检 DouYin_Spider 环境，缺什么就给出可照做的中文指引。"""
+    problems = []
+    env_file = SPIDER_PATH / ".env"
+    if not env_file.exists():
+        problems.append(
+            f"未配置抖音 cookie：请把 {SPIDER_PATH / '.env.example'} 复制为 {env_file}，"
+            "再填入登录抖音后从浏览器复制的 DY_COOKIES"
+        )
+    else:
+        load_dotenv(env_file)
+        if not os.environ.get("DY_COOKIES"):
+            problems.append(
+                f"{env_file} 里的 DY_COOKIES 为空：请填入登录抖音后从浏览器复制的整段 cookie"
+            )
+    if not (SPIDER_PATH / "node_modules").exists():
+        problems.append(
+            f'缺少 node 依赖（抖音签名需要）：请执行  cd "{SPIDER_PATH}" && npm install'
+        )
+    return problems
+
+
 def main():
     if len(sys.argv) < 2:
         print(json.dumps({"error": "请提供视频链接"}, ensure_ascii=False))
         sys.exit(1)
 
     try:
+        problems = check_environment()
+        if problems:
+            print(json.dumps({
+                "error": "environment_not_ready",
+                "message": "DouYin_Spider 环境未就绪，请先完成以下配置后重试：",
+                "steps": problems,
+            }, ensure_ascii=False, indent=2))
+            sys.exit(3)
         url = normalize_douyin_url(sys.argv[1])
-        load_dotenv(SPIDER_PATH / ".env")
         auth = load_env()
         info = extract_video_info(auth, url)
         info["resolved_url"] = url

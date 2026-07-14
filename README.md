@@ -43,6 +43,10 @@
    ```bash
    cd DouYin_Spider && npm install && cd ..
    ```
+   > ⚠️ 依赖里的 `canvas` 是**原生模块**，`npm install` 需要本机有编译环境，装不上多半是缺下面这些：
+   > - **Windows**：装 [Visual Studio Build Tools]（勾选「C++ 生成工具」）
+   > - **macOS**：`brew install pkg-config cairo pango libpng jpeg giflib librsvg`
+   > - **Linux**：`sudo apt install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev`
 3. **配置抖音 cookie**：把 `DouYin_Spider/.env.example` 复制成 `DouYin_Spider/.env`，填入你登录抖音后的 cookie（`.env` 已被 gitignore，不会上传）
    ```bash
    cp DouYin_Spider/.env.example DouYin_Spider/.env   # 然后编辑，填入 DY_COOKIES
@@ -52,6 +56,7 @@
    python scripts/get_douyin_video.py "<抖音视频链接>"
    python scripts/prepare_douyin_lapian.py "<抖音视频链接>"   # 下载+抽帧+拼图
    ```
+   > 环境没配齐时脚本会直接告诉你缺哪一步（cookie 没填 / 没 `npm install`），照提示补上即可，不会再报看不懂的错误码。
 
 > `DouYin_Spider/` 是第三方开源项目 [cv-cat/Douyin_Spider](https://github.com/cv-cat/Douyin_Spider) 的代码（已随本仓库提供；cookie 与 node_modules 需自行配置/安装）。要指向别处的 DouYin_Spider，设环境变量 `DOUYIN_SPIDER_PATH` 即可。
 
