@@ -2,7 +2,9 @@
   {
     "video_source": "复刻自：https://v.douyin.com/ObGJae6slhI/（原作：我的见闻录·汶川18周年父爱纪念）",
     "analysis_time": "2026-07-13T13:40:00+08:00",
-    "track": "情感催泪",
+    "tracks": [
+      "情感类"
+    ],
     "core_emotion": "思念泪目",
     "hook_type": "悬念前置+情感召唤",
     "viral_reason": "母亲以栀子花寄托对早逝女儿的思念，回忆与现实空座双线对照，先埋温暖再揭永别，结尾'请为想念的人停留三秒'唤起集体共鸣",
@@ -328,7 +330,10 @@
   {
     "video_source": "复刻自：https://v.douyin.com/XLp6yJo_6AQ/（原作：我的见闻录·一元爱心厨房）",
     "analysis_time": "2026-07-13T23:45:00+08:00",
-    "track": "情感温暖",
+    "tracks": [
+      "情感类",
+      "治愈类"
+    ],
     "core_emotion": "温暖治愈",
     "hook_type": "反差钩子",
     "viral_reason": "巷口老奶奶一块钱一碗热汤面温暖深夜众生，面'廉价'但善意无价；当年被喂饱的少年长大后归来接棒，善意传承戳中人心",

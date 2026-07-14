@@ -769,8 +769,22 @@ const TRACK_GRADS = [
 ];
 function trackGrad(s) { let h = 0; const str = s || ''; for (let i=0;i<str.length;i++) h = (h*31 + str.charCodeAt(i)) % 997; return TRACK_GRADS[h % TRACK_GRADS.length]; }
 function trackEmoji(t) {
-  const map = { '情感':'💔','逆袭':'🔥','职场':'💼','萌宠':'🐾','悬疑':'🔍','搞笑':'😂','喜剧':'😂','治愈':'🌿','知识':'📚','古风':'🏮','甜宠':'💗','玄幻':'⚔️','恐怖':'👻' };
+  const map = { '情感':'💔','逆袭':'🔥','搞笑':'😂','悬疑':'🔍','治愈':'🌿','知识':'📚','萌宠':'🐾','古风':'🏮','玄幻':'⚔️','都市':'🏙️','剧情':'🎬' };
   for (const k in map) if ((t||'').includes(k)) return map[k]; return '🎬';
+}
+
+// ── 基础赛道（固定 11 类，模板只能从中选，可多选）──
+const BASE_TRACKS = ['情感类','搞笑类','悬疑类','治愈类','逆袭类','知识类','萌宠类','古风类','玄幻类','都市类','剧情类'];
+// 旧细分赛道 → 基础赛道 的关键词归并
+const TRACK_MAP = { '情感':['情感类'],'催泪':['情感类'],'温暖':['治愈类'],'治愈':['治愈类'],'逆袭':['逆袭类'],'爽':['逆袭类'],'搞笑':['搞笑类'],'喜剧':['搞笑类'],'脑洞':['搞笑类'],'段子':['搞笑类'],'悬疑':['悬疑类'],'恐怖':['悬疑类'],'知识':['知识类'],'科普':['知识类'],'职场':['知识类'],'干货':['知识类'],'萌宠':['萌宠类'],'宠物':['萌宠类'],'古风':['古风类'],'玄幻':['玄幻类'],'仙侠':['玄幻类'],'都市':['都市类'] };
+// 返回一个模板的基础赛道数组：新数据读 tracks[]，旧数据按 track 字符串归并
+function trackList(t) {
+  if (Array.isArray(t.tracks) && t.tracks.length) return t.tracks.filter(x => BASE_TRACKS.includes(x));
+  const raw = t.track || '';
+  const set = new Set();
+  BASE_TRACKS.forEach(b => { const kw = b.replace('类',''); if (kw !== '剧情' && raw.includes(kw)) set.add(b); });
+  Object.entries(TRACK_MAP).forEach(([k, arr]) => { if (raw.includes(k)) arr.forEach(a => set.add(a)); });
+  return set.size ? [...set] : (raw ? ['剧情类'] : []);
 }
 function shotCountOf(t) {
   const r = (t.rows && Array.isArray(t.rows)) ? t.rows.length : 0;
@@ -783,16 +797,17 @@ let currentView = 'home';
 function currentFilter() {
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
   return templates.filter(t => {
-    if (activeFilters.track && t.track !== activeFilters.track) return false;
+    if (activeFilters.track && !trackList(t).includes(activeFilters.track)) return false;
     if (activeFilters.emotion && t.core_emotion !== activeFilters.emotion) return false;
-    if (q) { const hay = ((t.video_source||'')+(t.track||'')+(t.core_emotion||'')+(t.viral_reason||'')+(t.hook_type||'')).toLowerCase(); if (!hay.includes(q)) return false; }
+    if (q) { const hay = ((t.video_source||'')+trackList(t).join(' ')+(t.core_emotion||'')+(t.viral_reason||'')+(t.hook_type||'')).toLowerCase(); if (!hay.includes(q)) return false; }
     return true;
   });
 }
 
 function cardHTML(t, i) {
   const idx = templates.indexOf(t);
-  const title = t.viral_reason || t.track || '未命名全案';
+  const tks = trackList(t);
+  const title = t.viral_reason || tks[0] || '未命名全案';
   const shotCount = shotCountOf(t);
   const chars = (t.characters && Array.isArray(t.characters)) ? t.characters.length : 0;
   const scenes = (t.scenes && Array.isArray(t.scenes)) ? t.scenes.length : 0;
@@ -805,13 +820,13 @@ function cardHTML(t, i) {
   if (chars) meta.push(`<span class="m">👥 <b>${chars}</b></span>`);
   if (scenes) meta.push(`<span class="m">🏙 <b>${scenes}</b></span>`);
   return `<div class="card" onclick="openDrawer(${idx})" style="animation-delay:${i*45}ms">
-    <div class="card-cover" style="background:${trackGrad(t.track)}">
+    <div class="card-cover" style="background:${trackGrad(tks[0]||'')}">
       <span class="cover-shot">${shotCount ? shotCount + ' 镜' : t.core_emotion || '全案'}</span>
       <span class="cover-play">▶</span>
-      <span class="cover-emoji">${trackEmoji(t.track)}</span>
+      <span class="cover-emoji">${trackEmoji(tks[0]||'')}</span>
     </div>
     <div class="card-body">
-      <div class="card-badges">${t.track?`<span class="card-badge track">${esc(t.track)}</span>`:''}${t.core_emotion?`<span class="card-badge emotion">${esc(t.core_emotion)}</span>`:''}</div>
+      <div class="card-badges">${tks.map(tk=>`<span class="card-badge track">${esc(tk)}</span>`).join('')}${t.core_emotion?`<span class="card-badge emotion">${esc(t.core_emotion)}</span>`:''}</div>
       <div class="card-title">${esc(title)}</div>
       <div class="card-preview">${esc(prev)}</div>
       ${meta.length?`<div class="card-meta">${meta.join('')}</div>`:''}
@@ -872,13 +887,13 @@ function renderMaterials() {
   const chars = [], scenes = [], props = [], mats = {};
   templates.forEach((t, tIdx) => {
     const src = t.viral_reason || t.track || '未命名全案';
-    (Array.isArray(t.characters) ? t.characters : []).forEach((c, aIdx) => chars.push({ c, src, track: t.track, tIdx, aIdx }));
-    (Array.isArray(t.scenes) ? t.scenes : []).forEach((s, aIdx) => scenes.push({ s, src, track: t.track, tIdx, aIdx }));
-    (Array.isArray(t.props) ? t.props : []).forEach((p, aIdx) => props.push({ p, src, track: t.track, tIdx, aIdx }));
+    (Array.isArray(t.characters) ? t.characters : []).forEach((c, aIdx) => chars.push({ c, src, track: trackList(t)[0] || '', tIdx, aIdx }));
+    (Array.isArray(t.scenes) ? t.scenes : []).forEach((s, aIdx) => scenes.push({ s, src, track: trackList(t)[0] || '', tIdx, aIdx }));
+    (Array.isArray(t.props) ? t.props : []).forEach((p, aIdx) => props.push({ p, src, track: trackList(t)[0] || '', tIdx, aIdx }));
     // 旧数据兜底：没有任何资产块的模板才收集 materials
     const noAssets = !(Array.isArray(t.characters) && t.characters.length) && !(Array.isArray(t.scenes) && t.scenes.length) && !(Array.isArray(t.props) && t.props.length);
     if (noAssets && t.materials && typeof t.materials === 'object') {
-      Object.entries(t.materials).forEach(([k, v]) => { if (!mats[k]) mats[k] = []; (Array.isArray(v) ? v : [v]).forEach(it => mats[k].push({ it, src, track: t.track })); });
+      Object.entries(t.materials).forEach(([k, v]) => { if (!mats[k]) mats[k] = []; (Array.isArray(v) ? v : [v]).forEach(it => mats[k].push({ it, src, track: trackList(t)[0] || '' })); });
     }
   });
   if (!chars.length && !scenes.length && !props.length && !Object.keys(mats).length) {
@@ -941,7 +956,7 @@ function renderStatsView() {
     dur += (Array.isArray(t.rows) ? t.rows : []).reduce((s, r) => s + (Number(r.durationSeconds) || 0), 0);
     chars += (Array.isArray(t.characters) ? t.characters.length : 0);
     scenes += (Array.isArray(t.scenes) ? t.scenes.length : 0);
-    if (t.track) trackCount[t.track] = (trackCount[t.track] || 0) + 1;
+    trackList(t).forEach(tk => trackCount[tk] = (trackCount[tk] || 0) + 1);
     if (t.core_emotion) emoCount[t.core_emotion] = (emoCount[t.core_emotion] || 0) + 1;
   });
   const avg = Math.round(shots / templates.length);
@@ -988,18 +1003,19 @@ function renderHero() {
   let best = templates[0], bi = 0;
   templates.forEach((t, i) => { if (shotCountOf(t) > shotCountOf(best)) { best = t; bi = i; } });
   const shotCount = shotCountOf(best);
+  const btks = trackList(best);
   const chars = (best.characters && Array.isArray(best.characters)) ? best.characters : [];
   const avatars = chars.length
     ? chars.slice(0, 3).map(c => `<span class="av">${esc((c.characterName||'角')[0])}</span>`).join('')
-    : `<span class="av">${trackEmoji(best.track)}</span>`;
+    : `<span class="av">${trackEmoji(btks[0]||'')}</span>`;
   const sub = best.viral_reason || best.script?.structure || best.matched_emotion_curve || '';
   el.innerHTML = `
     <div class="h-badges">
       <span class="h-badge hot">🔥 精选</span>
+      ${btks.map(tk=>`<span class="h-badge">${esc(tk)}</span>`).join('')}
       ${best.core_emotion?`<span class="h-badge">${esc(best.core_emotion)}</span>`:''}
-      ${best.hook_type?`<span class="h-badge">${esc(best.hook_type)}</span>`:''}
     </div>
-    <h1>${esc(best.track || '爆款全案')}</h1>
+    <h1>${esc(btks.join(' · ') || '爆款全案')}</h1>
     <p class="h-sub">${esc(sub)}</p>
     <div class="h-foot">
       <div class="avatar-stack">${avatars}</div>
@@ -1016,8 +1032,8 @@ function renderRecentList() {
     const idx = templates.indexOf(t);
     const sc = shotCountOf(t);
     return `<div class="mini-item" onclick="openDrawer(${idx})">
-      <div class="mini-thumb" style="background:${trackGrad(t.track)}">${trackEmoji(t.track)}</div>
-      <div class="mini-txt"><div class="mt">${esc(t.viral_reason || t.track || '未命名全案')}</div><div class="ms">${esc(t.track||'')}${sc?' · '+sc+'镜':''}</div></div>
+      <div class="mini-thumb" style="background:${trackGrad(trackList(t)[0]||'')}">${trackEmoji(trackList(t)[0]||'')}</div>
+      <div class="mini-txt"><div class="mt">${esc(t.viral_reason || trackList(t)[0] || '未命名全案')}</div><div class="ms">${esc(trackList(t).join(' · '))}${sc?' · '+sc+'镜':''}</div></div>
       <span class="arrow">›</span>
     </div>`;
   }).join('');
@@ -1032,10 +1048,10 @@ function renderLastImport() {
   const rows = (t.rows && Array.isArray(t.rows)) ? t.rows : [];
   const dur = rows.reduce((s, r) => s + (Number(r.durationSeconds) || 0), 0);
   el.innerHTML = `<div class="last-card">
-    <div class="last-icon">${trackEmoji(t.track)}</div>
+    <div class="last-icon">${trackEmoji(trackList(t)[0]||'')}</div>
     <div class="last-info">
-      <div class="lt">${esc(t.viral_reason || t.track || '未命名全案')}</div>
-      <span class="ltag">${esc(t.track || '全案')}</span>
+      <div class="lt">${esc(t.viral_reason || trackList(t)[0] || '未命名全案')}</div>
+      <span class="ltag">${esc(trackList(t).join(' · ') || '全案')}</span>
     </div>
     <div class="last-stat"><div class="num">${sc?sc+' 镜':'—'}</div><div class="sub">${dur?dur+' 秒':(t.core_emotion||'')}</div></div>
     <button class="last-play" onclick="openDrawer(${idx})" title="查看">▶</button>
@@ -1044,7 +1060,7 @@ function renderLastImport() {
 
 function renderTrackDots() {
   const el = document.getElementById('trackDots'); if (!el) return;
-  const tracks = [...new Set(templates.map(t => t.track).filter(Boolean))].slice(0, 8);
+  const tracks = [...new Set(templates.flatMap(t => trackList(t)))].slice(0, 8);
   if (!tracks.length) { el.innerHTML = '<div class="track-empty">导入模板后<br>在此展示赛道</div>'; return; }
   el.innerHTML = tracks.map(v => {
     const on = activeFilters.track === v;
@@ -1056,7 +1072,7 @@ function renderTrackDots() {
 function updateStats() {
   const tracks = new Set(); let shots = 0, chars = 0;
   templates.forEach(t => {
-    if (t.track) tracks.add(t.track);
+    trackList(t).forEach(tk => tracks.add(tk));
     shots += shotCountOf(t);
     if (t.characters && Array.isArray(t.characters)) chars += t.characters.length;
   });
@@ -1069,7 +1085,7 @@ function updateStats() {
 
 function populateChips() {
   const tracks = new Set(), emotions = new Set();
-  templates.forEach(t => { if (t.track) tracks.add(t.track); if (t.core_emotion) emotions.add(t.core_emotion); });
+  templates.forEach(t => { trackList(t).forEach(tk => tracks.add(tk)); if (t.core_emotion) emotions.add(t.core_emotion); });
   setChips('trackChips', tracks, 'track'); setChips('emotionChips', emotions, 'emotion');
   setChips('trackChips2', tracks, 'track'); setChips('emotionChips2', emotions, 'emotion');
 }
@@ -1100,7 +1116,7 @@ function openDrawer(idx) {
     <div class="fs-title">项目概览</div>
     <div class="field"><div class="fl">视频来源</div><input value="${esc(t.video_source||'')}" onchange="upd(${idx},'video_source',this.value)"></div>
     <div class="form-row">
-      <div class="field"><div class="fl">赛道</div><input value="${esc(t.track||'')}" onchange="upd(${idx},'track',this.value)"></div>
+      <div class="field"><div class="fl">赛道（基础标签，可多选）</div><input value="${esc(trackList(t).join(' / '))}" readonly style="opacity:.75;cursor:default"></div>
       <div class="field"><div class="fl">核心情绪</div><input value="${esc(t.core_emotion||'')}" onchange="upd(${idx},'core_emotion',this.value)"></div>
       <div class="field"><div class="fl">钩子类型</div><input value="${esc(t.hook_type||'')}" onchange="upd(${idx},'hook_type',this.value)"></div>
     </div>

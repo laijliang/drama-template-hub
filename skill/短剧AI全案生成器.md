@@ -74,7 +74,7 @@ cd d:/Manage_Drama
 
 | 维度 | 说明 | 示例 |
 | --- | --- | --- |
-| **赛道** `track` | 情感逆袭 / 职场干货 / 萌宠日常 / 搞笑段子 / 悬疑剧情 / 治愈系 | 原作是"情感逆袭" → 复刻也是"情感逆袭" |
+| **赛道** `tracks` | 从固定 11 类基础赛道中选（可多选）：情感类 / 搞笑类 / 悬疑类 / 治愈类 / 逆袭类 / 知识类 / 萌宠类 / 古风类 / 玄幻类 / 都市类 / 剧情类。**不得自造新标签** | 原作是"情感类" → 复刻也是"情感类"（温情治愈可标"情感类 + 治愈类"） |
 | **核心情绪** `core_emotion` | 爽感逆袭 / 感动泪目 / 治愈共鸣 / 幽默解压 | 原作是"感动泪目" → 复刻也是"感动泪目" |
 | **3秒钩子类型** `hook_type` | 冲突开场 / 反差提问 / 悬念前置 / 视觉冲击 | 原作是"冲突开场" → 复刻也是"冲突开场" |
 | **情绪曲线** | 压抑→铺垫→反转→爆发→收尾 的节奏模式 | 同样"先抑后扬过山车"模式 |
@@ -195,13 +195,13 @@ cd d:/Manage_Drama
 #### 文件：`Output/{项目名}_全案_{日期}.json`
 
 JSON 包含两大部分：
-1. **前端展示字段**（`video_source` / `track` / `script` / `analysis` / `shots` / `prompts` / `connection` / `external_models` 等）— 保持与 index.html 兼容。分镜统一为中文 `shots`（每镜含 `name` / `tag` / `durationSeconds` / `description`），**不再有 `rows` 或英文分镜提示词**。
+1. **前端展示字段**（`video_source` / `tracks` / `core_emotion` / `hook_type` / `script` / `analysis` / `shots` / `prompts` / `connection` / `external_models` 等）— 保持与 index.html 兼容。分镜统一为中文 `shots`（每镜含 `name` / `tag` / `durationSeconds` / `description`），**不再有 `rows` 或英文分镜提示词**。
 2. **独立资产块（即"素材库"）** `characters[]` / `scenes[]` / `props[]` — 角色/场景/道具素材统一由这三个结构化资产块承担，前端"素材库"直接读它们，**不再单列 `materials` 字段**，避免重复浪费 token。
 
 ```json
 {
   "video_source": "",
-  "track": "赛道名称",
+  "tracks": ["情感类"],           // 从固定 11 类基础赛道选，可多选，不得自造新标签
   "core_emotion": "核心情绪",
   "hook_type": "钩子类型",
   "viral_reason": "一句话总结",

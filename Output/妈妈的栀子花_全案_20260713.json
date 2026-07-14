@@ -1,7 +1,9 @@
 {
   "video_source": "复刻自：https://v.douyin.com/ObGJae6slhI/（原作：我的见闻录·汶川18周年父爱纪念）",
   "analysis_time": "2026-07-13T13:40:00+08:00",
-  "track": "情感催泪",
+  "tracks": [
+    "情感类"
+  ],
   "core_emotion": "思念泪目",
   "hook_type": "悬念前置+情感召唤",
   "viral_reason": "母亲以栀子花寄托对早逝女儿的思念，回忆与现实空座双线对照，先埋温暖再揭永别，结尾'请为想念的人停留三秒'唤起集体共鸣",
