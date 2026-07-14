@@ -107,6 +107,7 @@ python scripts/prepare_douyin_lapian.py "<抖音视频链接>" --frame-interval 
 - 调用 A1 获取视频地址
 - 下载 MP4 到 `Output/media/{video_id}/{video_id}.mp4`
 - 使用 OpenCV 按时间间隔抽帧 + 场景切换检测（`scene_threshold=28.0`）
+  - 采用**跳帧解码**（`cap.grab()` 跳过无关帧）+ **降采样场景检测**（约每 0.1 秒在缩小灰度图上比对差异），抽帧解码比逐帧快约 3–4 倍，抽帧结果基本一致
 - 帧图保存到 `Output/media/{video_id}/frames/frame_XXXX_XXX.XXs.jpg`
 - 生成 `manifest.json`（拉片素材清单），包含：
   - `video_info`：视频元数据
@@ -218,8 +219,6 @@ JSON 结构：
   }]
 }
 ```
-
-> **注意**：早期格式的 JSON 使用 `rows[]`（含 `imageGenerationPrompt` / `videoMotionPrompt` 等英文字段），新版统一为中文 `shots[]`。两种格式前端均兼容（旧版 `rows` 会自动拼成中文分镜显示）。
 
 ---
 

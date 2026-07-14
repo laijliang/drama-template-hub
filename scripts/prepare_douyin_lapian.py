@@ -118,32 +118,39 @@ def extract_frames(
     min_scene_gap_frames = max(1, int(round(min_scene_gap_seconds * fps)))
 
     frames = []
-    prev_gray = None
+    prev_small = None
     last_scene_frame = -min_scene_gap_frames
     sample_index = 0
     frame_index = 0
+    # 场景检测采样步长：约每 0.1 秒解码一帧比对差异（短剧切镜多在 0.3s 以上，不会漏检），
+    # 其余帧用 cap.grab() 仅前进不解码，避免逐帧全解码，大幅提速。
+    scene_stride = max(1, int(round(fps * 0.1))) if scene_threshold > 0 else interval_frames
 
     while True:
+        need_sample = frame_index == 0 or frame_index % interval_frames == 0
+        need_scene = scene_threshold > 0 and frame_index % scene_stride == 0
+        if not (need_sample or need_scene):
+            if not cap.grab():          # 仅前进不解码，快速跳过无关帧
+                break
+            frame_index += 1
+            continue
+
         ok, frame = cap.read()
         if not ok:
             break
 
-        should_sample = frame_index == 0 or frame_index % interval_frames == 0
-        gray = None
+        should_sample = need_sample
         score = 0.0
-
-        if scene_threshold > 0:
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            score = frame_score(prev_gray, gray)
-            scene_changed = (
-                prev_gray is not None
-                and score >= scene_threshold
-                and frame_index - last_scene_frame >= min_scene_gap_frames
-            )
-            if scene_changed:
+        if need_scene:
+            # 在缩小灰度图上算差异，比全分辨率快几十倍
+            small = cv2.resize(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), (160, 90), interpolation=cv2.INTER_AREA)
+            score = frame_score(prev_small, small)
+            if (prev_small is not None
+                    and score >= scene_threshold
+                    and frame_index - last_scene_frame >= min_scene_gap_frames):
                 should_sample = True
                 last_scene_frame = frame_index
-            prev_gray = gray
+            prev_small = small
 
         if should_sample:
             timestamp = frame_index / fps if fps else 0.0
