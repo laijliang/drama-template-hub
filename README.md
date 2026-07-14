@@ -29,14 +29,12 @@ Manage_Drama/
 ├── skill/                        # AI Agent 技能定义
 │   └── 短剧AI全案生成器.md        #   内容生成 skill（三阶段产出 JSON）
 ├── Output/                       # 产出目录
-│   ├── *_全案_*.json             #   完整全案 JSON（最新格式）
-│   ├── 拉片_*.json               #   拉片分析结果（早期格式）
-│   ├── 复刻分镜_*.json           #   复刻分镜结果（早期格式，含 rows[]）
+│   ├── *_全案_*.json             #   完整全案 JSON
 │   └── media/{video_id}/         #   下载的视频与抽帧图片
 │       ├── {video_id}.mp4
 │       ├── frames/frame_*.jpg
 │       └── manifest.json
-├── WORKFLOW.md
+├── README.md
 └── .gitignore
 ```
 
@@ -328,10 +326,6 @@ data/templates.json  ←(GitHub Pages 部署后同步)→  index.html
 
 | 文件 | 类型 | 说明 |
 |------|------|------|
-| `拉片_以身入局_你只管救女儿_20260709.json` | 拉片分析 | 早期格式，含 `plot_structure` + `audio_visual_params` |
-| `复刻分镜_父爱牺牲_20260709.json` | 复刻分镜 | 早期格式，含 `rows[]` |
-| `拉片_光明牌纯牛奶_20260712.json` | 拉片分析 | 早期格式，脑洞反转喜剧 |
-| `复刻分镜_光明牌纯牛奶_20260712.json` | 复刻分镜 | 早期格式，含 `rows[]` |
 | `妈妈的栀子花_全案_20260713.json` | 完整全案 | 新格式，含 `shots[]` + `characters[]` + `scenes[]` + `props[]` |
 | `巷口那碗面_全案_20260713.json` | 完整全案 | 新格式，含 `shots[]` + `characters[]` + `scenes[]` + `props[]` |
 | `media/{video_id}/` | 拉片素材 | 抖音视频下载 + 抽帧 + manifest.json |
