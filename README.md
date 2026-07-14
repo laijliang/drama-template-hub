@@ -20,6 +20,16 @@
 
 > **前端 + "文字剧情 → 生成全案" 开箱即用；只有"从抖音链接拉片"才需要额外配 DouYin_Spider + cookie。**
 
+### 最省事：让 Claude Code 帮你一键装配
+
+如果你用 **Claude Code**（VS Code 插件或 CLI，**不是网页版**），在一个空文件夹里把下面这句话发给它，它会帮你 clone、装依赖、写 cookie、跑通验证，全程不用自己敲命令：
+
+> 帮我克隆 `https://github.com/laijliang/drama-template-hub`，按 README 的「快速开始」装好 Python 与 DouYin_Spider 的依赖；我的抖音 cookie 是 `<粘贴你的 cookie>`，帮我写进 `DouYin_Spider/.env`，然后跑一下 `scripts/get_douyin_video.py` 验证。
+
+**前提**：机器上要先有 `git` / `Python 3` / `Node.js`（这三个运行时 Claude 装不了，需自备）；网络能访问 GitHub 与 npm（国内一般要开代理）。抖音 cookie 是登录凭据、会过期，过期后重配一次即可。
+
+> 只想用前端浏览、或只用「文字剧情 → 生成全案」的话，连 cookie 和 DouYin_Spider 都不用——见下面 A。
+
 ### A. 只用前端 / 文字剧情生成（零配置）
 - **前端**：直接双击打开 `index.html`，或部署到 GitHub Pages 浏览
 - **生成全案**：用 Claude Code 打开本仓库，按 `skill/短剧AI全案生成器.md`，给一段剧情或文字描述即可生成全案 JSON —— 这条链不碰抖音、无需任何依赖
