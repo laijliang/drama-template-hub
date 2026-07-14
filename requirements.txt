@@ -5,12 +5,8 @@ requests
 python-dotenv
 Pillow
 
-# DouYin_Spider 抖音数据采集（第三方项目 cv-cat/Douyin_Spider）所需
+# DouYin_Spider 作品信息拉取的签名链所需（第三方项目 cv-cat/Douyin_Spider，仅保留用得到的核心）
 PyExecJS
-loguru
-retry
-urllib3
-websockets
+beautifulsoup4
+protobuf
 protobuf3_to_dict
-openpyxl
-aiofiles
