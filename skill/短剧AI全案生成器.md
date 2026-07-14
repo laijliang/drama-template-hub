@@ -3,14 +3,14 @@ name: 短剧AI全案生成器
 description: >-
   内容生成专用 skill。给一个剧情或爆款视频，产出完整的结构化 JSON 包
   （含中文 shots 分镜 + characters[] / scenes[] / props[] 资产块），供前端索引展示。
-  不操作画布，不生成图片/视频。
+  只产出结构化 JSON，不生成图片/视频。
 ---
 
 # Skill Name: 短剧AI全案生成器
 
 ## 适用场景
 
-**这是内容生成 skill，不是画布操作 skill。** 你的职责只有一条：把用户的故事/分析需求变成一份**机器和人都能读的结构化 JSON**。画布编排有另一个 skill（`libtv-drama`）负责，你不要越界。
+**这是内容生成 skill。** 你的职责只有一条：把用户的故事/分析需求变成一份**机器和人都能读的结构化 JSON**。
 
 ## 输入引导
 
@@ -161,11 +161,6 @@ cd d:/Manage_Drama
 3. 所有镜头严禁畸形、多指、变形、错位。
 4. 画面必须符合叙事逻辑，不出现无关元素。
 
-#### 【七、角色英文描述参考（供 characters[] 资产用）】
-*（每个角色一行，作为阶段三 `characters[]` 资产块的 `characterDescription`；分镜正文用中文，此英文描述仅存于资产块）*
-- **角色名：** `<角色名>`
-  - `characterDescription`: `"<One-line English: hair, face, outfit, accessories>"`
-
 ---
 
 ### 📜 阶段二：逐镜分镜脚本
@@ -244,10 +239,6 @@ JSON 包含两大部分：
 
   "external_models": ["Runway Gen-3", "KLING", "Pika", "Vidu"],
 
-  "ai_prompt_template": {
-    "video": "一份完整的、可直接粘贴到视频生成工具的英文提示词，涵盖全片叙事、色调、节奏、运镜，约150-300词。"
-  },
-
   "characters": [
     {
       "characterName": "角色名",
@@ -266,8 +257,7 @@ JSON 包含两大部分：
         "prohibited": "禁止出现的穿搭元素"
       },
       "lighting": "专属光影色调",
-      "emotions": ["常用情绪1", "常用情绪2"],
-      "characterDescription": "One-line English description for prompt injection"
+      "emotions": ["常用情绪1", "常用情绪2"]
     }
   ],
 
@@ -293,16 +283,13 @@ JSON 包含两大部分：
       "symbolism": "象征意义与叙事作用（代表什么、为何重要、如何推动情绪）",
       "lockedDetails": "跨镜必须锁定的细节（颜色/磨损/刻字/形态，保证每一镜外观一致）",
       "appearsIn": "出现镜次（如 镜1 / 镜5 / 镜9）",
-      "prohibited": "禁止出现的变化或元素",
-      "promptSnippet": "One-line English description for prompt injection"
+      "prohibited": "禁止出现的变化或元素"
     }
   ]
 }
 ```
 
-> `characters[]` 里的 `characterDescription` 与阶段一第七节一致，可被画布 skill 读去做三视图提示词拼接。
-> `scenes[]` 供画布 skill 做 720 场景节点占位。
-> `props[]` 把关键道具升级为独立资产：含象征意义、跨镜锁定细节与英文 `promptSnippet`，保证叙事锚点道具（信物/关键物件等）在每一镜外观一致。仅收录"承担叙事作用的关键道具"，纯背景杂物不必入块。
+> `props[]` 把关键道具升级为独立资产：含象征意义与跨镜锁定细节，保证叙事锚点道具（信物/关键物件等）在每一镜外观一致。仅收录"承担叙事作用的关键道具"，纯背景杂物不必入块。
 
 ---
 
@@ -315,5 +302,4 @@ JSON 包含两大部分：
 5. **分镜为中文**：分镜统一为中文 `shots`（`name` / `tag` / `durationSeconds` / `description`），不生成英文生图/生视频提示词。`prompts` 字段的中文提示词供用户直接复制。
 6. **前端格式兼容**：JSON 的 `shots` / `characters` / `scenes` / `props` 等字段确保前端展示正常。
 7. **文件命名**：`{项目名}` 用中文简短名，`{日期}` 用 `YYYYMMDD` 格式。
-8. **只生产内容，不操作画布**：不要在响应中调用 libtv CLI 或任何画布操作命令。
-9. **分镜必须标时长**：`shots[]` 里每一镜都必须含 `durationSeconds`（数字，单位秒），标注该镜头预计时长；所有镜时长之和应与 `script.structure` 描述的总时长大致吻合。
+8. **分镜必须标时长**：`shots[]` 里每一镜都必须含 `durationSeconds`（数字，单位秒），标注该镜头预计时长；所有镜时长之和应与 `script.structure` 描述的总时长大致吻合。

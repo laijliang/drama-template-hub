@@ -158,8 +158,7 @@
         "隐忍",
         "落寞",
         "释怀"
-      ],
-      "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
+      ]
     },
     {
       "characterName": "女儿-青年",
@@ -185,8 +184,7 @@
         "明亮",
         "憧憬",
         "温柔"
-      ],
-      "characterDescription": "A young Chinese woman around 22, long black hair, bright warm smile, wearing a soft cream knit sweater"
+      ]
     },
     {
       "characterName": "女儿-童年",
@@ -211,8 +209,7 @@
       "emotions": [
         "欢欣",
         "天真"
-      ],
-      "characterDescription": "A little Chinese girl around 7 with twin ponytails tied with red hair ties, round cheeks, wearing a hand-knitted yellow sweater"
+      ]
     }
   ],
   "scenes": [
@@ -283,8 +280,7 @@
       "symbolism": "母亲思念的核心信物，贯穿'嗅毛衣—回忆—痛哭抱毛衣'，是可触摸的女儿的余温",
       "lockedDetails": "毛衣颜色与起球磨损程度全片一致，回忆里童年女儿身上的与现实里母亲手中的须为同一件",
       "appearsIn": "镜2 / 镜3 / 镜9",
-      "prohibited": "不能换颜色、不能变新、不能出现别的款式",
-      "promptSnippet": "An old hand-knitted yellow sweater, wool slightly pilled, cuffs worn, neatly folded"
+      "prohibited": "不能换颜色、不能变新、不能出现别的款式"
     },
     {
       "propName": "栀子花",
@@ -294,8 +290,7 @@
       "symbolism": "'等花开我就回来'的约定载体与母女重逢的象征，花的从苗到盛开对应从思念到释怀，是全片情感主线的具象锚点",
       "lockedDetails": "花的品种与白色始终一致，现实线只有零星花苞、结尾满树盛开，同一株",
       "appearsIn": "镜5 / 镜6 / 镜9 / 镜10",
-      "prohibited": "不能换成别的花、不能变色、结尾盛开前不能提前满开",
-      "promptSnippet": "A white gardenia plant, from a frail seedling to a tree in full white bloom, in a brick courtyard"
+      "prohibited": "不能换成别的花、不能变色、结尾盛开前不能提前满开"
     },
     {
       "propName": "牛皮纸相册",
@@ -305,8 +300,7 @@
       "symbolism": "承载女儿成长记忆的容器，母亲抚过照片是'时光倒流'式的思念触发",
       "lockedDetails": "相册的泛黄程度与照片排布一致",
       "appearsIn": "镜4",
-      "prohibited": "不能换成电子相册、不能出现现代照片",
-      "promptSnippet": "An old yellowed kraft-paper photo album with curled corners, photos of a girl at different ages"
+      "prohibited": "不能换成电子相册、不能出现现代照片"
     },
     {
       "propName": "两副碗筷(一副空置)",
@@ -316,8 +310,7 @@
       "symbolism": "缺失的具象——'空着的那一副'无声诉说女儿的离去，母亲给空碗夹菜是思念最日常的表达",
       "lockedDetails": "碗的蓝边样式一致，空置的一副始终不被使用、保持洁净",
       "appearsIn": "镜7",
-      "prohibited": "空碗不能被吃用、不能坐满人",
-      "promptSnippet": "Two sets of blue-rimmed white ceramic bowls on a table, one always clean and untouched"
+      "prohibited": "空碗不能被吃用、不能坐满人"
     },
     {
       "propName": "未寄出的信",
@@ -327,8 +320,7 @@
       "symbolism": "真相揭示的锚点，暗示女儿的永别与未竟的话语，是镜8情绪陡转的关键物件",
       "lockedDetails": "信封的泛黄与摆放位置一致，与黑白照片同框",
       "appearsIn": "镜8",
-      "prohibited": "不能拆开展示内容、不能变成新信封",
-      "promptSnippet": "A yellowed unsent letter tucked under a black-and-white portrait photo"
+      "prohibited": "不能拆开展示内容、不能变成新信封"
     }
   ]
 }

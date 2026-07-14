@@ -158,8 +158,7 @@
         "从容",
         "落寞",
         "欣慰"
-      ],
-      "characterDescription": "A kind elderly Chinese woman around 70, silver hair in a bun, warm wrinkled smiling face, wearing a faded floral apron over dark cotton clothes, sleeves rolled up"
+      ]
     },
     {
       "characterName": "离家少年/归来青年",
@@ -186,8 +185,7 @@
         "感激",
         "坚定",
         "泪目"
-      ],
-      "characterDescription": "The runaway boy around 15 and his grown-up self around 27 in a neat uniform, same recognizable facial features across ages, from wary and hungry to gentle and determined"
+      ]
     },
     {
       "characterName": "深夜众生群像",
@@ -212,8 +210,7 @@
         "疲惫",
         "感动",
         "满足"
-      ],
-      "characterDescription": "Various ordinary people of the late night — a tired delivery rider, a dejected jobless man, sanitation workers, lone elders — all bent by life and caught by a bowl of noodles"
+      ]
     }
   ],
   "scenes": [
@@ -272,8 +269,7 @@
       "symbolism": "全片的价值宣言与反差核心——'一块钱'的廉价与'守了几十年'的无价形成张力，是善意始终如一的象征，结尾青年接棒时招牌依旧未变，点明传承",
       "lockedDetails": "'一块钱一碗'字样、木料裂纹与褪色程度全片一致，多年后不能翻新，只能更旧",
       "appearsIn": "镜1 / 镜7 / 镜10",
-      "prohibited": "不能换成新招牌、不能改价格、不能出现现代喷绘或霓虹",
-      "promptSnippet": "A weathered faded wooden signboard with hand-painted Chinese characters 'hot noodles, one yuan a bowl', paint peeling, edges worn"
+      "prohibited": "不能换成新招牌、不能改价格、不能出现现代喷绘或霓虹"
     },
     {
       "propName": "粗瓷碗热汤面",
@@ -283,8 +279,7 @@
       "symbolism": "善意最直接的载体，每一次'递碗'都是一次接住困境者的动作，热气与暖色是全片温暖的具象",
       "lockedDetails": "碗的蓝纹样式、葱花与卧蛋的搭配全片统一，热气始终清晰可见",
       "appearsIn": "镜2 / 镜3 / 镜4 / 镜5 / 镜6",
-      "prohibited": "不能换成一次性餐盒、不能出现精致餐具、汤面不能冷掉无热气",
-      "promptSnippet": "A chipped blue-and-white coarse ceramic bowl of steaming noodle soup with green scallions and a golden egg"
+      "prohibited": "不能换成一次性餐盒、不能出现精致餐具、汤面不能冷掉无热气"
     },
     {
       "propName": "旧搪瓷勺",
@@ -294,8 +289,7 @@
       "symbolism": "'接棒'的信物——青年从老奶奶手中接过这把勺，完成善意从上一代到下一代的交接，是传承的具象锚点",
       "lockedDetails": "掉瓷位置与磨亮的握柄全片一致，交接特写需清晰可辨为同一把",
       "appearsIn": "镜2 / 镜10",
-      "prohibited": "不能换成新勺、交接时不能变形或换样式",
-      "promptSnippet": "An old worn enamel ladle with chipped enamel exposing metal, handle polished smooth from years of use"
+      "prohibited": "不能换成新勺、交接时不能变形或换样式"
     },
     {
       "propName": "一块钱",
@@ -305,8 +299,7 @@
       "symbolism": "反差钩子的核心符号——'最便宜的价格'与'最昂贵的善意'并置；失业中年掏不出的窘迫与老奶奶'下次再给'的宽容都围绕它展开",
       "lockedDetails": "面额始终是一元，样式统一",
       "appearsIn": "镜4",
-      "prohibited": "不能出现大额钞票、不能变成移动支付码",
-      "promptSnippet": "A worn shiny one-yuan coin or a soft old one-yuan note"
+      "prohibited": "不能出现大额钞票、不能变成移动支付码"
     },
     {
       "propName": "煤炉汤锅",
@@ -316,8 +309,7 @@
       "symbolism": "烟火气与'始终亮着的灯火'的来源，炉火不灭象征善意长明，雨夜微火则烘托孤单",
       "lockedDetails": "炉子的熏黑程度与橘红火光全片一致，雨夜火光偏弱",
       "appearsIn": "镜1 / 镜2 / 镜8",
-      "prohibited": "不能换成燃气灶或电磁炉、不能出现现代厨具",
-      "promptSnippet": "An old honeycomb-coal stove with a soot-blackened broth pot, orange fire glowing, white steam rising"
+      "prohibited": "不能换成燃气灶或电磁炉、不能出现现代厨具"
     }
   ]
 }
