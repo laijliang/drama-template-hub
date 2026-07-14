@@ -2,8 +2,8 @@
 name: 短剧AI全案生成器
 description: >-
   内容生成专用 skill。给一个剧情或爆款视频，产出完整的结构化 JSON 包
-  （含 rows + characters[] + scenes[] + props[] 资产块），供前端索引或 libtv-drama
-  做画布编排。不操作画布，不生成图片/视频。
+  （含中文 shots 分镜 + characters[] / scenes[] / props[] 资产块），供前端索引展示。
+  不操作画布，不生成图片/视频。
 ---
 
 # Skill Name: 短剧AI全案生成器
@@ -161,17 +161,16 @@ cd d:/Manage_Drama
 3. 所有镜头严禁畸形、多指、变形、错位。
 4. 画面必须符合叙事逻辑，不出现无关元素。
 
-#### 【七、角色表（rows.characters 直推格式）】
-*（每个角色一行，供阶段三直接填入分镜 `rows[*].characters[]`）*
+#### 【七、角色英文描述参考（供 characters[] 资产用）】
+*（每个角色一行，作为阶段三 `characters[]` 资产块的 `characterDescription`；分镜正文用中文，此英文描述仅存于资产块）*
 - **角色名：** `<角色名>`
-  - `characterName`: `"<角色名>"`
   - `characterDescription`: `"<One-line English: hair, face, outfit, accessories>"`
 
 ---
 
-### 📜 阶段二：逐镜剧本编译
+### 📜 阶段二：逐镜分镜脚本
 
-把剧情编译为逐镜结构化剧本。**一句台词对应一个独立镜头**，动作描写必须可绘画（具象），禁止抽象心理描写。
+把剧情编译为逐镜分镜脚本。**一句台词对应一个独立镜头**，动作与画面描写必须可绘画（具象：颜色/材质/光线方向/构图），禁止抽象心理描写。每一镜先按下列要点构思，再**整合成一段连贯的中文描述**，作为阶段三 `shots[]` 里该镜的内容。
 
 #### 场次：[场次名称]
 
@@ -186,79 +185,23 @@ cd d:/Manage_Drama
 - **音效：** （环境音/BGM/音效）
 - **前镜关联：** 首镜 / 沿用镜号X场景与服装
 
-#### 【剧本 rows JSON 骨架（必出）】
+#### 【整合为 shots 分镜】
 
-在剧本正文之后，输出一个 ` ```rows ` 围栏 JSON 块，字段映射如下：
+把每一镜的上述要点，**整合成一段连贯的中文 `description`**，依次涵盖：画面内容 → 镜头语言/运镜 → 构图 → 光影 → 人物表情 → 肢体动作 → 音效 → 台词。角色的外貌/服装在描述里直接写明并跨镜保持一致（引用阶段一角色设定）。每镜同时记录 `durationSeconds`（数字秒）、镜号-场景名 `name` 与情绪/阶段 `tag`。
 
-| 剧本字段 | rows 字段 | 说明 |
-| --- | --- | --- |
-| 镜号 | `shotNumber` | number，从 1 递增 |
-| 时长 | `durationSeconds` | number（秒） |
-| 景别 | `shotSize` | 特写/近景/中景/全景/远景 |
-| 画面场景+运镜+前镜关联 | `plotDescription` | 合并成一句画面叙事，运镜和前关联用括号补在句尾 |
-| 角色动作+表情 | `characterAction` | string |
-| 台词 | `dialogue` | string，无台词填 `"/"` |
-| 情绪标签 | `emotion` | string |
-| 场景标签 | `sceneTags` | string，斜杠分隔 |
-| 光影氛围 | `lightingAndAtmosphere` | string |
-| 音效 | `audioEffects` | string |
-| 角色绑定 | `characters` | `[{characterName, characterDescription}]`，引用阶段一第七节 |
-
-```rows
-[
-  {
-    "shotNumber": 1,
-    "durationSeconds": 2,
-    "shotSize": "全景",
-    "plotDescription": "幽暗石砌枯井底部，小青蛙被手机幽蓝光照亮（运镜:固定；首镜）",
-    "characterAction": "青蛙抬头望井口，眼睛映出蓝光",
-    "dialogue": "/",
-    "emotion": "好奇",
-    "sceneTags": "枯井底部/青苔井壁/井口蓝天",
-    "lightingAndAtmosphere": "手机冷蓝屏光+井口自然顶光，冷色调",
-    "audioEffects": "风声/井底回响",
-    "characters": [{ "characterName": "小青蛙", "characterDescription": "A round cute cartoon frog with big green eyes, sitting in a stone well" }]
-  }
-]
-```
+> **不再输出结构化 `rows`，也不生成英文生图/生视频提示词。** 分镜统一为中文 `shots`，供前端展示与一键复制。示例见阶段三 `shots[]` 字段。
 
 ---
 
-### 🎬 阶段三：分镜增强 + AI 提示词
+### 📦 阶段三：输出打包（落盘 JSON）
 
-读取阶段二的 `rows` 骨架 + 阶段一的角色表。**本阶段是"原地增强"**——保留阶段二所有字段原值，仅新增/补全下列字段：
-
-| 新增字段 | 说明 |
-| --- | --- |
-| `imageGenerationPrompt` | **英文正向 Prompt**：主体+动作+服装（绑定角色描述）+场景+光影+构图+画质风格词，可直接喂生图 |
-| `videoMotionPrompt` | **英文 Prompt**：运镜方向+动作节奏+镜头语言，可直接喂生视频 |
-
-**统一负向词（不入 rows，生成时追加）：**
-`nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, deformed, ugly, bad proportions, extra limbs, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, mutated hands, mutilated, mutilated hands, cloned face`
-
-#### 最终 rows JSON（画布直推版）
-
-本阶段"原地增强"：**沿用阶段二 rows 每个镜头的全部字段原值**，仅在每个镜头对象末尾追加下面两个英文字段。最终输出仍是一个完整的 ` ```rows ` 围栏块（阶段二全部字段 + 这两字段）。
-
-以镜 1 为例，追加内容为：
-
-```json
-"imageGenerationPrompt": "A round cute cartoon frog with big green eyes sitting at the bottom of a stone masonry well, lit by cold blue glow of a smartphone screen, mossy well walls, a small circle of blue sky visible at the well mouth above, flat Chinese comic style, clean lines, bright colors, 8k, high detail, sharp focus",
-"videoMotionPrompt": "Static wide shot; faint blue light flickers on frog's face from the phone screen; subtle dust motes drift in the light beam"
-```
-
----
-
-### 📦 阶段四：输出打包（落盘 JSON）
-
-将所有内容写入项目 `Output/` 目录，生成一个完整的 JSON 文件。这是全案的唯一产出物，**既是前端可读的模板数据，也是 libtv-drama 做画布编排的数据源**。
+将所有内容写入项目 `Output/` 目录，生成一个完整的 JSON 文件。这是全案的唯一产出物，作为前端可读的模板数据。
 
 #### 文件：`Output/{项目名}_全案_{日期}.json`
 
-JSON 包含三大部分：
-1. **前端展示字段**（`video_source` / `track` / `script` / `shots` / `prompts` 等）— 保持与 index.html 兼容
-2. **rows 数组** — 阶段三最终版，含 `imageGenerationPrompt` / `videoMotionPrompt`
-3. **独立资产块（即"素材库"）** `characters[]` / `scenes[]` / `props[]` — 角色/场景/道具素材统一由这三个结构化资产块承担，前端"素材库"直接读它们，**不再单列 `materials` 字段**，避免与资产重复浪费 token。也供画布 skill 做角色分组/三视图/场景占位/道具锁定，不混入 rows
+JSON 包含两大部分：
+1. **前端展示字段**（`video_source` / `track` / `script` / `analysis` / `shots` / `prompts` / `connection` / `external_models` 等）— 保持与 index.html 兼容。分镜统一为中文 `shots`（每镜含 `name` / `tag` / `durationSeconds` / `description`），**不再有 `rows` 或英文分镜提示词**。
+2. **独立资产块（即"素材库"）** `characters[]` / `scenes[]` / `props[]` — 角色/场景/道具素材统一由这三个结构化资产块承担，前端"素材库"直接读它们，**不再单列 `materials` 字段**，避免重复浪费 token。
 
 ```json
 {
@@ -304,24 +247,6 @@ JSON 包含三大部分：
   "ai_prompt_template": {
     "video": "一份完整的、可直接粘贴到视频生成工具的英文提示词，涵盖全片叙事、色调、节奏、运镜，约150-300词。"
   },
-
-  "rows": [
-    {
-      "shotNumber": 1,
-      "durationSeconds": 2,
-      "shotSize": "全景",
-      "plotDescription": "",
-      "characterAction": "",
-      "dialogue": "/",
-      "emotion": "",
-      "sceneTags": "",
-      "lightingAndAtmosphere": "",
-      "audioEffects": "",
-      "characters": [],
-      "imageGenerationPrompt": "",
-      "videoMotionPrompt": ""
-    }
-  ],
 
   "characters": [
     {
@@ -383,13 +308,12 @@ JSON 包含三大部分：
 
 ## 执行规则（总纲）
 
-1. **一次输出全部四阶段**：不允许分多次对话完成，不允许说"下一阶段需要你确认后再继续"。
-2. **格式严格对齐**：阶段一固定格式，阶段二逐镜格式，阶段三 rows JSON，阶段四完整的 JSON 文件。
-3. **角色一致性**：所有阶段的角色描述必须引用阶段一的角色表，确保服装/外貌跨镜统一。
+1. **一次输出全部三阶段**：不允许分多次对话完成，不允许说"下一阶段需要你确认后再继续"。
+2. **格式严格对齐**：阶段一固定格式，阶段二逐镜分镜，阶段三完整的 JSON 文件。
+3. **角色一致性**：所有阶段的角色描述必须引用阶段一的角色设定，确保服装/外貌跨镜统一。
 4. **画面可绘画**：所有场景/动作描述必须具象（颜色、材质、光线方向），禁止抽象心理描写。
-5. **提示词可执行**：`imageGenerationPrompt` 和 `videoMotionPrompt` 必须完整、可粘贴到 AI 工具直接使用，不含占位符。
-6. **英文 prompts**：阶段三 rows 中用英文（兼容 libtv 和主流 AI 工具）；`prompts` 字段用中文（适合中文用户直接复制）。
-7. **前端格式兼容**：JSON 中的 `rows` 和 `ai_prompt_template` 字段确保前端卡片显示正常。
-8. **文件命名**：`{项目名}` 用中文简短名，`{日期}` 用 `YYYYMMDD` 格式。
-9. **只生产内容，不操作画布**：不要在响应中调用 libtv CLI 或任何画布操作命令。
-10. **分镜必须标时长**：阶段四 `shots[]`（分镜结构）里每一镜都必须含 `durationSeconds`（数字，单位秒），标注该镜头预计时长；所有镜时长之和应与 `script.structure` 描述的总时长大致吻合。
+5. **分镜为中文**：分镜统一为中文 `shots`（`name` / `tag` / `durationSeconds` / `description`），不生成英文生图/生视频提示词。`prompts` 字段的中文提示词供用户直接复制。
+6. **前端格式兼容**：JSON 的 `shots` / `characters` / `scenes` / `props` 等字段确保前端展示正常。
+7. **文件命名**：`{项目名}` 用中文简短名，`{日期}` 用 `YYYYMMDD` 格式。
+8. **只生产内容，不操作画布**：不要在响应中调用 libtv CLI 或任何画布操作命令。
+9. **分镜必须标时长**：`shots[]` 里每一镜都必须含 `durationSeconds`（数字，单位秒），标注该镜头预计时长；所有镜时长之和应与 `script.structure` 描述的总时长大致吻合。

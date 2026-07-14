@@ -1191,12 +1191,15 @@ function openDrawer(idx) {
     });
     html += `</div></details>`;
   }
-  const shots = t.shots || t.storyboard_structure;
-  if (shots && Array.isArray(shots)) {
-    html += `<details class="form-section" open><summary class="fs-title" style="cursor:pointer;display:flex;align-items:center;gap:8px"><span>🎬</span> 分镜结构</summary><div style="margin-top:var(--sp-md)">`;
-    shots.forEach(s => {
-      const dur = (s.durationSeconds != null && s.durationSeconds !== '') ? s.durationSeconds + ' 秒' : (s.duration || '');
-      html += `<div class="shot-card"><div class="shot-header"><span>` + esc(s.name||s.shot||'') + `</span>` + (dur ? `<span class="badge">⏱ ` + esc(String(dur)) + `</span>` : '') + ((s.tag||s.label) ? `<span class="badge">` + esc(s.tag||s.label) + `</span>` : '') + `</div><div class="shot-desc" style="font-size:14px">` + esc(s.description||s.content||'') + `</div></div>`;
+  // 分镜脚本：中文综合分镜 + 复制（优先 shots；旧数据从 rows 结构化字段拼中文）
+  const shotList = buildShotList(t);
+  if (shotList.length) {
+    html += `<details class="form-section" open><summary class="fs-title" style="cursor:pointer;display:flex;align-items:center;gap:8px"><span>🎬</span> 分镜脚本 · ${shotList.length} 镜</summary><div style="margin-top:var(--sp-md)">
+      <button class="btn btn-sm btn-primary" onclick="copyAllShots(${idx})" style="margin-bottom:var(--sp-md)">📋 复制全部分镜</button>`;
+    shotList.forEach((s, i) => {
+      const durBadge = (s.dur != null && s.dur !== '') ? `<span class="badge">⏱ ${esc(String(s.dur))} 秒</span>` : '';
+      const tagBadge = s.tag ? `<span class="badge">${esc(s.tag)}</span>` : '';
+      html += `<div class="shot-card"><div class="shot-header"><span>${esc(s.title)}</span>${durBadge}${tagBadge}<button class="btn btn-sm" style="margin-left:auto;font-size:11px;padding:3px 11px" onclick="copyShotText(${idx},${i})">复制</button></div><div class="shot-desc" style="font-size:14px;white-space:pre-wrap">${esc(s.desc)}</div></div>`;
     });
     html += `</div></details>`;
   }
@@ -1220,29 +1223,46 @@ function openDrawer(idx) {
     });
     html += `</div></div></details>`;
   }
-  if (t.rows && Array.isArray(t.rows) && t.rows.length > 0) {
-    html += `<details class="form-section" open><summary class="fs-title" style="cursor:pointer;display:flex;align-items:center;gap:8px"><span>🎞️</span> 分镜脚本 · ${t.rows.length} 镜</summary><div style="margin-top:var(--sp-md)">
-      <button class="btn btn-sm btn-primary" onclick="copyAllShotPrompts(${idx})" style="margin-bottom:var(--sp-md)">📋 复制全部提示词</button>
-      ${t.rows.map((s, si) => `<div class="shot-card">
-        <div class="shot-header"><span>镜 ${s.shotNumber}</span><span class="badge">${s.durationSeconds || '?'}秒</span><span class="badge">${s.shotSize || '—'}</span><span class="badge">${s.emotion || '—'}</span></div>
-        <div class="shot-detail"><span><span class="label">画面：</span>${s.plotDescription ? esc(s.plotDescription.replace(/[（(].*?[）)]/,'').trim().slice(0,70)) : '—'}</span><span><span class="label">台词：</span>${esc(s.dialogue || '/')}</span></div>
-        <div class="shot-desc">${esc(s.characterAction || '')}</div>
-        <div class="shot-prompts">
-          <textarea rows="3" readonly id="imgp_${idx}_${si}" placeholder="生图提示词">${esc(s.imageGenerationPrompt||'')}</textarea>
-          <button class="btn btn-sm" onclick="copyEl('imgp_${idx}_${si}')">复制生图</button>
-          <textarea rows="3" readonly id="vidp_${idx}_${si}" placeholder="生视频提示词">${esc(s.videoMotionPrompt||'')}</textarea>
-          <button class="btn btn-sm" onclick="copyEl('vidp_${idx}_${si}')">复制生视频</button>
-        </div></div>`).join('')}
-      </div></details>`;
-  }
-
   document.getElementById('drawerContent').innerHTML = html;
 }
 
-function copyAllShotPrompts(idx) {
-  const t = templates[idx]; if (!t || !t.rows) return;
-  const all = t.rows.map(s => `=== 镜 ${s.shotNumber} ===\n\n生图提示词：\n${s.imageGenerationPrompt || ''}\n\n生视频提示词：\n${s.videoMotionPrompt || ''}\n`).join('\n');
-  copyText(all); toast('已复制全部 ' + t.rows.length + ' 镜提示词');
+// 统一分镜数据：优先中文 shots；旧数据从 rows 结构化字段拼中文（不含英文提示词）
+function buildShotList(t) {
+  if (t.shots && Array.isArray(t.shots) && t.shots.length) {
+    return t.shots.map((s, i) => ({
+      title: s.name || s.shot || ('镜 ' + (i + 1)),
+      dur: (s.durationSeconds != null && s.durationSeconds !== '') ? s.durationSeconds : (s.duration || ''),
+      tag: s.tag || s.label || '',
+      desc: s.description || s.content || ''
+    }));
+  }
+  if (t.rows && Array.isArray(t.rows) && t.rows.length) {
+    return t.rows.map(s => ({
+      title: '镜 ' + (s.shotNumber != null ? s.shotNumber : ''),
+      dur: (s.durationSeconds != null && s.durationSeconds !== '') ? s.durationSeconds : '',
+      tag: s.emotion || '',
+      desc: [
+        s.plotDescription ? '画面：' + s.plotDescription : '',
+        s.characterAction ? '动作：' + s.characterAction : '',
+        (s.dialogue && s.dialogue !== '/') ? '台词：' + s.dialogue : '',
+        s.lightingAndAtmosphere ? '光影：' + s.lightingAndAtmosphere : '',
+        s.audioEffects ? '音效：' + s.audioEffects : ''
+      ].filter(Boolean).join('\n')
+    }));
+  }
+  return [];
+}
+function shotToText(s) {
+  return `【${s.title}】${s.dur !== '' && s.dur != null ? ' ' + s.dur + '秒' : ''}${s.tag ? ' [' + s.tag + ']' : ''}\n${s.desc}`;
+}
+function copyShotText(idx, i) {
+  const list = buildShotList(templates[idx]); if (!list[i]) return;
+  copyText(shotToText(list[i])); toast('已复制本镜');
+}
+function copyAllShots(idx) {
+  const list = buildShotList(templates[idx]);
+  if (!list.length) { toast('暂无分镜'); return; }
+  copyText(list.map(shotToText).join('\n\n')); toast('已复制全部 ' + list.length + ' 镜分镜');
 }
 
 function closeDrawer() { document.getElementById('drawerOverlay').classList.remove('active'); document.getElementById('drawer').classList.remove('open'); }
@@ -1250,7 +1270,6 @@ function closeDrawer() { document.getElementById('drawerOverlay').classList.remo
 function upd(idx, f, v) { if (templates[idx]) { templates[idx][f] = v; save(); render(); populateChips(); } }
 
 function copyText(t) { if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t);return} const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta); }
-function copyEl(id) { const el=document.getElementById(id); if(el){copyText(el.value);toast('已复制');}}
 function del(idx) { if(!confirm('确认删除这套模板？'))return; templates.splice(idx,1); save(); render(); populateChips(); closeDrawer(); toast('已删除'); }
 function clearAll() { if(!confirm('确认清空全部模板？'))return; if(!confirm(`确认删除全部 ${templates.length} 套模板？此操作不可撤销。`))return; templates=[]; save(); render(); populateChips(); closeDrawer(); toast('已清空'); }
 

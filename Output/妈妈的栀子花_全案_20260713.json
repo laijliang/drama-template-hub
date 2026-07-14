@@ -8,7 +8,6 @@
   "matched_pattern": "物件触发回忆 + 现实空缺对照 + 真相后置 + 互动召唤",
   "matched_emotion_curve": "曲线：孤独→触物思念→回忆温暖→现实空落→真相爆发→释怀升华（先抑后扬的催泪弧线，70%处揭示永别）",
   "target_audience": "25-50岁情感共鸣人群，经历过或恐惧失去至亲、重视亲情与生命教育的大众用户",
-
   "script": {
     "structure": "现实与回忆双线交织的催泪结构，总时长约82秒。现实线冷清（独居老母），回忆线暖金（女儿生前），以栀子花贯穿，结尾释怀升华并发出情感召唤。",
     "acts": [
@@ -29,7 +28,6 @@
       }
     ]
   },
-
   "analysis": [
     {
       "name": "角色分析",
@@ -52,30 +50,80 @@
       "content": "慢(0-25s思念铺垫3-4s/镜)-中(26-45s回忆穿插2-3s/镜)-慢(46-58s现实空镜留白4s/镜)-骤停(59s揭示真相静默1秒)-慢(69-82s哭与花开长镜留白3-4s/镜)。全程慢节奏留白，靠情绪密度而非剪辑速度打动人。"
     }
   ],
-
   "shots": [
-    { "name": "镜1-摸向空位", "tag": "悬念钩子", "durationSeconds": 4, "description": "画面内容：清晨老屋卧室，银发老母亲在旧木床上睁眼，手下意识摸向身边空荡的另一侧，微微一怔。\n镜头语言：近景固定，晨光从窗棂斜射。\n构图：老人偏左，右侧空床位大面积留白。\n光影：冷暖交界的清晨侧光，暖黄晨光扫过褪色碎花床单。\n人物表情：眼神刚醒的怔忪，随即泛起一丝失落。\n音效：清晨鸟鸣+一个孤单的钢琴单音。\n字幕：她每天醒来，还是会先摸一摸那边。" },
-    { "name": "镜2-嗅旧毛衣", "tag": "触物思念", "durationSeconds": 7, "description": "画面内容：老母亲坐床边打开樟木箱，取出一件叠得整齐的黄色旧毛衣，贴到脸颊轻嗅，闭眼。\n镜头语言：近景缓慢推近到毛衣与脸。\n构图：手与毛衣居中，樟木箱在下前景。\n光影：暖黄室内光，毛衣绒毛边缘透光。\n人物表情：闭眼轻嗅，眉头微蹙，嘴角克制颤动。\n音效：樟木箱开启的木质摩擦+钢琴轻起。\n台词：/" },
-    { "name": "镜3-童年扑怀(回忆)", "tag": "回忆温暖", "durationSeconds": 7, "description": "画面内容：暖金回忆，穿黄毛衣的小女孩笑着扑进年轻些的母亲怀里。\n镜头语言：中景手持轻微跟随，柔焦。\n构图：母女相拥居中，背景暖金虚化。\n光影：明亮暖金阳光，过曝柔光营造回忆感。\n人物表情：女孩灿烂大笑，母亲低头温柔笑。\n音效：孩童清脆笑声+温暖钢琴旋律。\n台词：(女孩童声)妈妈！" },
-    { "name": "镜4-抚过照片", "tag": "触物思念", "durationSeconds": 7, "description": "画面内容：现实，老母亲翻开牛皮纸相册，枯瘦手指缓缓抚过一张女儿青年时的微笑照片。\n镜头语言：俯拍近景，焦点在指尖与照片。\n构图：相册占满画面，手指引导视线。\n光影：暖黄台灯光，照片微微反光。\n人物表情：镜头未给脸，仅手指的摩挲传递眷恋。\n音效：纸页翻动声+钢琴延音。\n台词：/" },
-    { "name": "镜5-种花约定(回忆)", "tag": "回忆温暖", "durationSeconds": 9, "description": "画面内容：暖金回忆，青年女儿与母亲蹲在院里一起把一株栀子花苗种进土中，女儿抬头笑着说话。\n镜头语言：中景固定，浅景深。\n构图：母女在左，新栽花苗在右三分线。\n光影：明亮暖金午后光，尘埃在光束中漂浮。\n人物表情：女儿眼神明亮带憧憬，母亲含笑点头。\n音效：铲土声+鸟鸣+温暖弦乐。\n台词：(女儿)妈，等花开了，我就回来看你。" },
-    { "name": "镜6-独自浇花", "tag": "现实空落", "durationSeconds": 9, "description": "画面内容：现实青砖小院，那株栀子花只有零星花苞，老母亲弯腰迟缓地给它浇水。\n镜头语言：全景固定，缓慢留白。\n构图：老人在花旁偏下，大面积青砖与空院留白。\n光影：清晨冷调偏灰蓝，暖光微弱。\n人物表情：专注而落寞，动作迟缓。\n音效：水浇在土上的细声+空院回响+低钢琴。\n台词：/" },
-    { "name": "镜7-空碗夹菜", "tag": "现实空落", "durationSeconds": 9, "description": "画面内容：堂屋木饭桌摆着两副碗筷，一副始终干净空着。老母亲往空碗里夹了一筷菜，对着空座轻声说话。\n镜头语言：中景固定，前景空碗清晰。\n构图：老人在右，空座与空碗在左三分线。\n光影：暖黄吊灯光，空座处光线略暗。\n人物表情：温柔像在对谁说话，眼眶泛红。\n音效：碗筷轻碰+吊灯电流微响+钢琴。\n台词：(老母亲轻声)今天的菜，是你最爱吃的。" },
-    { "name": "镜8-揭示永别", "tag": "真相揭示", "durationSeconds": 9, "description": "画面内容：镜头缓缓摇到柜上——女儿的黑白照片旁供着一小束栀子花，压着一封没寄出的信。\n镜头语言：缓慢横摇+推近到照片与信。\n构图：黑白照居中，栀子花与信在下前景。\n光影：一束天光落在照片上，四周转暗。\n人物表情：无人物，物件叙事。\n音效：BGM骤停→静默1秒→单钢琴音落下。\n字幕：那年春天，她永远留在了二十二岁。" },
-    { "name": "镜9-花前痛哭", "tag": "情绪爆发", "durationSeconds": 7, "description": "画面内容：老母亲抱着黄毛衣，蹲在栀子花前，肩膀剧烈颤抖无声痛哭。\n镜头语言：中景缓慢环绕半周。\n构图：老人蜷缩在画面中心，花苞在侧。\n光影：冷调晨光，泪光反射微亮。\n人物表情：埋头于毛衣，从颤抖的背影可知痛哭。\n音效：压抑啜泣+催泪钢琴推向高潮。\n台词：(哽咽)妈想你了……" },
-    { "name": "镜10-花开重逢", "tag": "释怀升华", "durationSeconds": 8, "description": "画面内容：清晨满树栀子花盛开白花缀满枝头，阳光洒满小院。老母亲擦干泪抬头微笑，恍惚看见青年女儿站在花丛中含笑挥手，身影在光中渐化作飘落的花瓣。\n镜头语言：全景固定缓缓拉远。\n构图：盛开的栀子花树居中，老人与虚影的女儿呼应。\n光影：柔和暖金晨光，花瓣与光斑漫天。\n人物表情：老人含泪释然微笑，女儿虚影温柔挥手。\n音效：钢琴转明亮温暖+风吹花枝+隐约女儿轻唤'妈'。\n台词：(女儿虚影)妈，我一直都在。" },
-    { "name": "镜11-文案召唤", "tag": "升华留白", "durationSeconds": 5, "description": "画面内容：栀子花虚化为背景，中央浮现核心文案白字，逐行淡入。\n镜头语言：固定镜头，文案淡入淡出留白。\n构图：花海柔焦背景，白字居中极简。\n光影：柔光暖调，文字清晰。\n音效：钢琴最后一个音符轻柔收尾。\n字幕：被深深爱过的人，从来不曾真正离开。/ 如果你也在想念一个人，请为TA停留三秒。" }
+    {
+      "name": "镜1-摸向空位",
+      "tag": "悬念钩子",
+      "durationSeconds": 4,
+      "description": "画面内容：清晨老屋卧室，银发老母亲在旧木床上睁眼，手下意识摸向身边空荡的另一侧，微微一怔。\n镜头语言：近景固定，晨光从窗棂斜射。\n构图：老人偏左，右侧空床位大面积留白。\n光影：冷暖交界的清晨侧光，暖黄晨光扫过褪色碎花床单。\n人物表情：眼神刚醒的怔忪，随即泛起一丝失落。\n音效：清晨鸟鸣+一个孤单的钢琴单音。\n字幕：她每天醒来，还是会先摸一摸那边。"
+    },
+    {
+      "name": "镜2-嗅旧毛衣",
+      "tag": "触物思念",
+      "durationSeconds": 7,
+      "description": "画面内容：老母亲坐床边打开樟木箱，取出一件叠得整齐的黄色旧毛衣，贴到脸颊轻嗅，闭眼。\n镜头语言：近景缓慢推近到毛衣与脸。\n构图：手与毛衣居中，樟木箱在下前景。\n光影：暖黄室内光，毛衣绒毛边缘透光。\n人物表情：闭眼轻嗅，眉头微蹙，嘴角克制颤动。\n音效：樟木箱开启的木质摩擦+钢琴轻起。\n台词：/"
+    },
+    {
+      "name": "镜3-童年扑怀(回忆)",
+      "tag": "回忆温暖",
+      "durationSeconds": 7,
+      "description": "画面内容：暖金回忆，穿黄毛衣的小女孩笑着扑进年轻些的母亲怀里。\n镜头语言：中景手持轻微跟随，柔焦。\n构图：母女相拥居中，背景暖金虚化。\n光影：明亮暖金阳光，过曝柔光营造回忆感。\n人物表情：女孩灿烂大笑，母亲低头温柔笑。\n音效：孩童清脆笑声+温暖钢琴旋律。\n台词：(女孩童声)妈妈！"
+    },
+    {
+      "name": "镜4-抚过照片",
+      "tag": "触物思念",
+      "durationSeconds": 7,
+      "description": "画面内容：现实，老母亲翻开牛皮纸相册，枯瘦手指缓缓抚过一张女儿青年时的微笑照片。\n镜头语言：俯拍近景，焦点在指尖与照片。\n构图：相册占满画面，手指引导视线。\n光影：暖黄台灯光，照片微微反光。\n人物表情：镜头未给脸，仅手指的摩挲传递眷恋。\n音效：纸页翻动声+钢琴延音。\n台词：/"
+    },
+    {
+      "name": "镜5-种花约定(回忆)",
+      "tag": "回忆温暖",
+      "durationSeconds": 9,
+      "description": "画面内容：暖金回忆，青年女儿与母亲蹲在院里一起把一株栀子花苗种进土中，女儿抬头笑着说话。\n镜头语言：中景固定，浅景深。\n构图：母女在左，新栽花苗在右三分线。\n光影：明亮暖金午后光，尘埃在光束中漂浮。\n人物表情：女儿眼神明亮带憧憬，母亲含笑点头。\n音效：铲土声+鸟鸣+温暖弦乐。\n台词：(女儿)妈，等花开了，我就回来看你。"
+    },
+    {
+      "name": "镜6-独自浇花",
+      "tag": "现实空落",
+      "durationSeconds": 9,
+      "description": "画面内容：现实青砖小院，那株栀子花只有零星花苞，老母亲弯腰迟缓地给它浇水。\n镜头语言：全景固定，缓慢留白。\n构图：老人在花旁偏下，大面积青砖与空院留白。\n光影：清晨冷调偏灰蓝，暖光微弱。\n人物表情：专注而落寞，动作迟缓。\n音效：水浇在土上的细声+空院回响+低钢琴。\n台词：/"
+    },
+    {
+      "name": "镜7-空碗夹菜",
+      "tag": "现实空落",
+      "durationSeconds": 9,
+      "description": "画面内容：堂屋木饭桌摆着两副碗筷，一副始终干净空着。老母亲往空碗里夹了一筷菜，对着空座轻声说话。\n镜头语言：中景固定，前景空碗清晰。\n构图：老人在右，空座与空碗在左三分线。\n光影：暖黄吊灯光，空座处光线略暗。\n人物表情：温柔像在对谁说话，眼眶泛红。\n音效：碗筷轻碰+吊灯电流微响+钢琴。\n台词：(老母亲轻声)今天的菜，是你最爱吃的。"
+    },
+    {
+      "name": "镜8-揭示永别",
+      "tag": "真相揭示",
+      "durationSeconds": 9,
+      "description": "画面内容：镜头缓缓摇到柜上——女儿的黑白照片旁供着一小束栀子花，压着一封没寄出的信。\n镜头语言：缓慢横摇+推近到照片与信。\n构图：黑白照居中，栀子花与信在下前景。\n光影：一束天光落在照片上，四周转暗。\n人物表情：无人物，物件叙事。\n音效：BGM骤停→静默1秒→单钢琴音落下。\n字幕：那年春天，她永远留在了二十二岁。"
+    },
+    {
+      "name": "镜9-花前痛哭",
+      "tag": "情绪爆发",
+      "durationSeconds": 7,
+      "description": "画面内容：老母亲抱着黄毛衣，蹲在栀子花前，肩膀剧烈颤抖无声痛哭。\n镜头语言：中景缓慢环绕半周。\n构图：老人蜷缩在画面中心，花苞在侧。\n光影：冷调晨光，泪光反射微亮。\n人物表情：埋头于毛衣，从颤抖的背影可知痛哭。\n音效：压抑啜泣+催泪钢琴推向高潮。\n台词：(哽咽)妈想你了……"
+    },
+    {
+      "name": "镜10-花开重逢",
+      "tag": "释怀升华",
+      "durationSeconds": 8,
+      "description": "画面内容：清晨满树栀子花盛开白花缀满枝头，阳光洒满小院。老母亲擦干泪抬头微笑，恍惚看见青年女儿站在花丛中含笑挥手，身影在光中渐化作飘落的花瓣。\n镜头语言：全景固定缓缓拉远。\n构图：盛开的栀子花树居中，老人与虚影的女儿呼应。\n光影：柔和暖金晨光，花瓣与光斑漫天。\n人物表情：老人含泪释然微笑，女儿虚影温柔挥手。\n音效：钢琴转明亮温暖+风吹花枝+隐约女儿轻唤'妈'。\n台词：(女儿虚影)妈，我一直都在。"
+    },
+    {
+      "name": "镜11-文案召唤",
+      "tag": "升华留白",
+      "durationSeconds": 5,
+      "description": "画面内容：栀子花虚化为背景，中央浮现核心文案白字，逐行淡入。\n镜头语言：固定镜头，文案淡入淡出留白。\n构图：花海柔焦背景，白字居中极简。\n光影：柔光暖调，文字清晰。\n音效：钢琴最后一个音符轻柔收尾。\n字幕：被深深爱过的人，从来不曾真正离开。/ 如果你也在想念一个人，请为TA停留三秒。"
+    }
   ],
-
-
   "prompts": {
     "镜头提示词(中文生图用)": "清晨老屋卧室银发老母亲旧木床上醒来手摸向身边空床位晨光斜射褪色碎花床单近景电影写实浅景深8K\n暖金回忆穿黄毛衣小女孩笑着扑进年轻母亲怀里过曝柔光尘埃漂浮中景柔焦温暖电影感8K\n青砖小院老母亲弯腰给零星花苞的栀子花浇水冷调灰蓝清晨大面积留白全景孤寂氛围8K\n木饭桌两副蓝边碗筷一副空置老母亲往空碗夹菜暖黄吊灯眼眶泛红中景电影写实8K\n清晨满树白色栀子花盛开阳光洒满青砖小院老母亲擦泪微笑花瓣飘落柔金光斑全景治愈8K",
     "画面提示词(生视频用)": "近景老母亲刚醒手缓缓摸向空床位微怔晨光中尘埃浮动镜头轻微推近\n中景柔焦回忆小女孩奔跑扑进母亲怀里手持轻晃暖金过曝温暖氛围\n全景老母亲迟缓浇花水珠落在土上空院留白镜头固定情绪压抑\n缓慢横摇从空碗摇到柜上女儿黑白照片与栀子花BGM骤停静默\n全景固定缓缓拉远满树栀子花盛开老人抬头微笑女儿虚影挥手化作花瓣慢动作",
     "风格提示词(统一画风用)": "电影感写实AI漫剧，柔光暖调，浅景深特写为主聚焦微表情与手部动作。色调弧线：现实线冷清灰蓝偏暖黄，回忆线明亮暖金过曝柔光，结尾释怀柔和金光。以栀子花白与暖金为主色，情绪压抑段偏冷灰蓝。禁止卡通化、过饱和、喜剧化表情、现代穿帮、模糊人脸、手指畸形、显年轻化的老人。"
   },
-
-  "connection": "将提示词包与素材清单整合用于AI视频生成。流程：(1)逐镜复制imageGenerationPrompt到AI绘图工具生成底帧，严格绑定角色锁定描述保证跨镜一致(2)复制videoMotionPrompt到AI视频工具生成动态片段(3)按镜号1-11排序导入剪辑软件(4)按音效说明铺催泪钢琴BGM与环境音，镜8真相处留静默1秒(5)现实线与回忆线用色温区分(冷清/暖金)(6)合并导出，片尾保留情感召唤文案引导互动。",
-
+  "connection": "将提示词包与素材清单整合用于AI视频生成。流程：(1)逐镜参考分镜脚本的中文描述与「提示词与导出」里的中文提示词，在AI绘图工具生成底帧，绑定角色资产保证跨镜一致(2)在AI视频工具生成动态片段(3)按镜号1-11排序导入剪辑软件(4)按音效说明铺催泪钢琴BGM与环境音，镜8真相处留静默1秒(5)现实线与回忆线用色温区分(冷清/暖金)(6)合并导出，片尾保留情感召唤文案引导互动。",
   "external_models": [
     "Runway Gen-3(写实人物与柔光氛围推荐)",
     "KLING 1.6(人物情绪特写与微表情)",
@@ -83,191 +131,6 @@
     "Pika 2.0(回忆闪回柔焦转场)",
     "Sora(花开与拉远长镜头)"
   ],
-
-  "ai_prompt_template": {
-    "video": "An 82-second cinematic emotional AI short film in warm soft realistic style about an elderly Chinese mother grieving her long-lost daughter, using a gardenia plant as the thread of remembrance. Open on a quiet old bedroom at dawn: a silver-haired mother around 65 wakes and instinctively reaches for the empty side of the bed, subtitle 'She still reaches for that side every morning'. She takes an old hand-knitted yellow sweater from a camphor chest and presses it to her cheek. Warm golden flashback: a little girl in the yellow sweater runs laughing into a younger mother's arms. Back to reality, her thin fingers trace a photo in an old album. Flashback: a young woman and her mother plant a gardenia seedling together, the daughter smiling 'Mom, when it blooms I'll come back to see you'. Reality, cold blue morning: the mother slowly waters the sparse buds; at a wooden table two bowls are set, one always empty, she places food in the empty bowl and speaks softly. The camera pans to a black-and-white photo of the daughter with a small bunch of gardenias and an unsent letter, subtitle 'That spring, she stayed forever at twenty-two'. The mother clutches the yellow sweater and weeps silently before the flowers. At dawn the gardenia bursts into full white bloom, sunlight floods the brick courtyard, the mother wipes her tears and smiles as she glimpses her young daughter waving among the flowers, her figure dissolving into falling petals. End on soft text over blooming gardenias: 'Those who were deeply loved never truly leave. If you miss someone too, stay for three seconds for them.' Color arc: cold blue-gray reality warming to golden memory to tender golden release. Tearful piano score, one second of silence at the reveal. Shallow depth of field, close-ups on micro-expressions and hands, no cartoonish or oversaturated look, consistent character design.",
-    "duration": "82",
-    "aspect_ratio": "16:9",
-    "negative": "nsfw, lowres, bad anatomy, bad hands, text glitch, missing fingers, extra digit, cropped, worst quality, jpeg artifacts, watermark, blurry, deformed, oversaturated, cartoonish, comedic expression, modern anachronism, disfigured, cloned face"
-  },
-
-  "rows": [
-    {
-      "shotNumber": 1,
-      "durationSeconds": 4,
-      "shotSize": "近景",
-      "plotDescription": "清晨老屋卧室，银发老母亲在旧木床上醒来，手下意识摸向身边空荡的另一侧微怔（运镜:固定，晨光斜射；首镜）",
-      "characterAction": "缓缓睁眼，手掌无意识地探向身旁空床位，随即微微一怔，眼神泛起失落",
-      "dialogue": "/",
-      "emotion": "孤独/怔忪",
-      "sceneTags": "老屋卧室/旧木床/褪色碎花床单/木格窗晨光",
-      "lightingAndAtmosphere": "冷暖交界的清晨侧光，暖黄晨光扫过床单，整体清冷",
-      "audioEffects": "清晨鸟鸣+孤单的钢琴单音",
-      "characters": [{ "characterName": "老母亲", "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse" }],
-      "imageGenerationPrompt": "An elderly Chinese woman around 65 with silver-gray hair in a low bun, gentle wrinkled face, lying awake on an old wooden bed with faded floral sheets, her hand reaching toward the empty side of the bed, soft slanting dawn light through a wooden lattice window, cinematic realistic style, shallow depth of field, muted warm tones, quiet melancholy, 8k, high detail",
-      "videoMotionPrompt": "Static close shot slowly pushing in; the old woman opens her eyes and her hand drifts to the empty side of the bed, then pauses; dust motes float in the dawn light; subtle, still, melancholic"
-    },
-    {
-      "shotNumber": 2,
-      "durationSeconds": 7,
-      "shotSize": "近景",
-      "plotDescription": "老母亲坐床边打开樟木箱，取出叠得整齐的黄色旧毛衣贴到脸颊轻嗅闭眼（运镜:缓慢推近到毛衣与脸；沿用卧室场景）",
-      "characterAction": "打开樟木箱，双手捧出黄毛衣，缓缓贴到脸颊闭眼轻嗅，嘴角克制颤动",
-      "dialogue": "/",
-      "emotion": "眷恋/隐忍",
-      "sceneTags": "老屋卧室/樟木箱/黄色旧毛衣",
-      "lightingAndAtmosphere": "暖黄室内光，毛衣绒毛边缘透光，温柔",
-      "audioEffects": "樟木箱开启的木质摩擦声+钢琴轻起",
-      "characters": [{ "characterName": "老母亲", "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse" }],
-      "imageGenerationPrompt": "An elderly Chinese woman with silver hair pressing a folded old hand-knitted yellow sweater to her cheek with eyes closed, sitting by an open camphor wood chest, warm indoor light rim-lighting the wool fibers, tender grief, cinematic realistic style, shallow depth of field, 8k, high detail",
-      "videoMotionPrompt": "Slow push-in close shot; she lifts the yellow sweater to her cheek and closes her eyes, breathing it in; her lips tremble faintly; warm and quiet"
-    },
-    {
-      "shotNumber": 3,
-      "durationSeconds": 7,
-      "shotSize": "中景",
-      "plotDescription": "暖金回忆，穿黄毛衣的小女孩笑着扑进年轻些的母亲怀里（运镜:手持轻微跟随，柔焦；回忆线，色温转暖金）",
-      "characterAction": "小女孩张开双臂奔跑扑进母亲怀里，母亲低头张臂接住温柔笑",
-      "dialogue": "(女孩童声)妈妈！",
-      "emotion": "温暖/欢欣",
-      "sceneTags": "回忆院子/暖金阳光/黄毛衣",
-      "lightingAndAtmosphere": "明亮暖金阳光，过曝柔光营造回忆感，尘埃漂浮",
-      "audioEffects": "孩童清脆笑声+温暖钢琴旋律",
-      "characters": [
-        { "characterName": "女儿-童年", "characterDescription": "A little Chinese girl around 7 with twin ponytails tied with red hair ties, round cheeks, wearing a hand-knitted yellow sweater" },
-        { "characterName": "母亲-年轻", "characterDescription": "The same mother but around 45, dark hair with few grays, softer face, plain warm-toned blouse" }
-      ],
-      "imageGenerationPrompt": "Warm golden memory, a little Chinese girl around 7 with twin ponytails in a yellow knitted sweater running with open arms into the embrace of her younger mother around 45, overexposed soft golden sunlight, floating dust motes, soft focus, warm nostalgic cinematic style, shallow depth of field, 8k",
-      "videoMotionPrompt": "Handheld gentle follow, soft focus; the little girl runs and leaps into her mother's arms, both laughing; golden light blooms; warm and dreamy slow motion"
-    },
-    {
-      "shotNumber": 4,
-      "durationSeconds": 7,
-      "shotSize": "近景",
-      "plotDescription": "现实，老母亲翻开牛皮纸相册，枯瘦手指缓缓抚过女儿青年时的微笑照片（运镜:俯拍近景，焦点在指尖与照片；回到现实线）",
-      "characterAction": "翻开相册，枯瘦手指停在女儿照片上缓缓摩挲",
-      "dialogue": "/",
-      "emotion": "眷恋/怅惘",
-      "sceneTags": "老屋/牛皮纸相册/女儿照片/台灯",
-      "lightingAndAtmosphere": "暖黄台灯光，照片微微反光，安静",
-      "audioEffects": "纸页翻动声+钢琴延音",
-      "characters": [{ "characterName": "老母亲", "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse" }],
-      "imageGenerationPrompt": "Top-down close shot of thin wrinkled elderly hands gently tracing a photo of a smiling young woman in an old kraft-paper photo album, warm desk lamp light, soft reflection on the photo, quiet longing, cinematic realistic style, shallow depth of field, 8k, high detail",
-      "videoMotionPrompt": "Top-down close shot, focus on fingertips and photo; her fingers slowly caress the daughter's photo; a page settles; warm, still, wistful"
-    },
-    {
-      "shotNumber": 5,
-      "durationSeconds": 9,
-      "shotSize": "中景",
-      "plotDescription": "暖金回忆，青年女儿与母亲蹲在院里一起把栀子花苗种进土中，女儿抬头笑着许下约定（运镜:固定，浅景深；回忆线暖金）",
-      "characterAction": "母女并肩蹲着培土，女儿拍掉手上的泥抬头，眼神明亮带憧憬地笑着说话",
-      "dialogue": "(女儿)妈，等花开了，我就回来看你。",
-      "emotion": "温暖/憧憬",
-      "sceneTags": "回忆院子/栀子花苗/培土",
-      "lightingAndAtmosphere": "明亮暖金午后光，尘埃在光束中漂浮，浅景深",
-      "audioEffects": "铲土声+鸟鸣+温暖弦乐",
-      "characters": [
-        { "characterName": "女儿-青年", "characterDescription": "A young Chinese woman around 22, long black hair, bright warm smile, wearing a soft cream knit sweater" },
-        { "characterName": "母亲-年轻", "characterDescription": "The same mother but around 45, dark hair with few grays, softer face, plain warm-toned blouse" }
-      ],
-      "imageGenerationPrompt": "Warm golden memory, a young Chinese woman around 22 in a cream knit sweater and her mother around 45 crouching together planting a gardenia seedling in a brick courtyard, the daughter looking up with a bright hopeful smile, warm afternoon light, dust in the light beams, shallow depth of field, nostalgic cinematic style, 8k",
-      "videoMotionPrompt": "Static medium shot, shallow depth of field; mother and daughter pat soil around the seedling, the daughter looks up and speaks with a hopeful smile; gentle warm light, birdsong ambiance"
-    },
-    {
-      "shotNumber": 6,
-      "durationSeconds": 9,
-      "shotSize": "全景",
-      "plotDescription": "现实青砖小院，栀子花只有零星花苞，老母亲弯腰迟缓地浇水，大面积留白（运镜:固定，缓慢留白；现实线冷清）",
-      "characterAction": "老母亲提着水壶弯腰给花浇水，动作迟缓，久久凝视花苞",
-      "dialogue": "/",
-      "emotion": "落寞/空落",
-      "sceneTags": "青砖小院/栀子花零星花苞/水壶",
-      "lightingAndAtmosphere": "清晨冷调偏灰蓝，暖光微弱，空院寂静",
-      "audioEffects": "水浇在土上的细声+空院回响+低钢琴",
-      "characters": [{ "characterName": "老母亲", "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse" }],
-      "imageGenerationPrompt": "Wide shot of an elderly silver-haired woman bending slowly to water a gardenia plant with only sparse buds in a quiet gray-brick courtyard, cold bluish morning light with faint warmth, large empty negative space, lonely melancholic atmosphere, cinematic realistic style, 8k, high detail",
-      "videoMotionPrompt": "Static wide shot with slow pacing; the old woman bends and waters the sparse buds, then gazes at them; still, empty courtyard, cold quiet air"
-    },
-    {
-      "shotNumber": 7,
-      "durationSeconds": 9,
-      "shotSize": "中景",
-      "plotDescription": "堂屋木饭桌摆两副碗筷一副空置，老母亲往空碗夹菜对空座轻声说话（运镜:固定，前景空碗清晰；现实线）",
-      "characterAction": "老母亲夹起一筷菜放进对面空碗，看着空座温柔说话，眼眶泛红",
-      "dialogue": "(老母亲轻声)今天的菜，是你最爱吃的。",
-      "emotion": "温柔/心酸",
-      "sceneTags": "堂屋饭桌/两副蓝边碗筷/空座",
-      "lightingAndAtmosphere": "暖黄吊灯光，空座处光线略暗",
-      "audioEffects": "碗筷轻碰+吊灯电流微响+钢琴",
-      "characters": [{ "characterName": "老母亲", "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse" }],
-      "imageGenerationPrompt": "Medium shot of an elderly woman placing food into an empty bowl across a dark wooden dining table set with two blue-rimmed bowls, one always empty, warm yellow pendant light, the empty seat slightly darker, red-rimmed eyes, tender heartbreak, cinematic realistic style, shallow depth of field, 8k",
-      "videoMotionPrompt": "Static medium shot, empty bowl sharp in foreground; she places food in the empty bowl and speaks softly toward the empty seat; warm dim light, aching stillness"
-    },
-    {
-      "shotNumber": 8,
-      "durationSeconds": 9,
-      "shotSize": "近景",
-      "plotDescription": "镜头缓缓摇到柜上——女儿黑白照片旁供一小束栀子花压着一封没寄出的信（运镜:缓慢横摇+推近到照片与信；真相揭示）",
-      "characterAction": "无人物，物件叙事，天光落在黑白照片上",
-      "dialogue": "/",
-      "emotion": "震惊/哀恸",
-      "sceneTags": "柜台/女儿黑白照片/栀子花/未寄出的信",
-      "lightingAndAtmosphere": "一束天光落在照片上，四周转暗，肃穆",
-      "audioEffects": "BGM骤停→静默1秒→单钢琴音落下",
-      "characters": [],
-      "imageGenerationPrompt": "A black-and-white portrait of a young woman on a cabinet, beside it a small bunch of white gardenias and an unsent yellowed letter, a single shaft of soft light falling on the photo, surroundings darkening, solemn and sorrowful, cinematic realistic style, shallow depth of field, 8k, high detail",
-      "videoMotionPrompt": "Slow pan then push-in to the photo and letter; music cuts to one second of silence then a single piano note; solemn reveal, no people"
-    },
-    {
-      "shotNumber": 9,
-      "durationSeconds": 7,
-      "shotSize": "中景",
-      "plotDescription": "老母亲抱着黄毛衣蹲在栀子花前肩膀剧烈颤抖无声痛哭（运镜:缓慢环绕半周；情绪高潮）",
-      "characterAction": "老母亲把脸埋进黄毛衣，蜷缩蹲下，肩膀剧烈起伏无声痛哭",
-      "dialogue": "(哽咽)妈想你了……",
-      "emotion": "崩溃/悲痛",
-      "sceneTags": "青砖小院/栀子花/黄毛衣",
-      "lightingAndAtmosphere": "冷调晨光，泪光反射微亮",
-      "audioEffects": "压抑啜泣+催泪钢琴推向高潮",
-      "characters": [{ "characterName": "老母亲", "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse" }],
-      "imageGenerationPrompt": "An elderly silver-haired woman crouching before a gardenia plant, burying her face in an old yellow sweater, shoulders trembling as she weeps silently, cold morning light with faint tear glint, deep grief, cinematic realistic style, shallow depth of field, 8k, high detail",
-      "videoMotionPrompt": "Slow half-orbit around her; she clutches the yellow sweater and her shoulders heave with silent sobbing; cold light, tearful piano rising"
-    },
-    {
-      "shotNumber": 10,
-      "durationSeconds": 8,
-      "shotSize": "全景",
-      "plotDescription": "清晨满树栀子花盛开，老母亲擦泪微笑，恍惚看见青年女儿在花丛中含笑挥手身影化作花瓣（运镜:固定缓缓拉远；释怀升华）",
-      "characterAction": "老母亲抬头擦干泪露出释然微笑，花丛中女儿虚影温柔挥手，身影渐化作飘落花瓣",
-      "dialogue": "(女儿虚影)妈，我一直都在。",
-      "emotion": "释怀/温暖",
-      "sceneTags": "青砖小院/满树栀子花盛开/女儿虚影/花瓣",
-      "lightingAndAtmosphere": "柔和暖金晨光，花瓣与光斑漫天，治愈",
-      "audioEffects": "钢琴转明亮温暖+风吹花枝+隐约女儿轻唤'妈'",
-      "characters": [
-        { "characterName": "老母亲", "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse" },
-        { "characterName": "女儿-青年", "characterDescription": "A young Chinese woman around 22, long black hair, bright warm smile, wearing a soft cream knit sweater, semi-transparent luminous figure" }
-      ],
-      "imageGenerationPrompt": "Wide shot of a gardenia tree in full white bloom flooding a brick courtyard with morning light, an elderly woman wiping her tears and smiling as she glimpses a semi-transparent luminous figure of her young daughter in a cream sweater waving gently among the flowers, her figure dissolving into falling petals, tender golden light, petals and light specks drifting, healing atmosphere, cinematic realistic style, 8k, high detail",
-      "videoMotionPrompt": "Static wide shot slowly pulling back; the mother looks up smiling through tears; the daughter's luminous figure waves and dissolves into drifting petals; warm golden light, petals in the air, gentle slow motion"
-    },
-    {
-      "shotNumber": 11,
-      "durationSeconds": 5,
-      "shotSize": "全景",
-      "plotDescription": "栀子花虚化为背景，中央浮现核心文案白字逐行淡入并发出情感召唤（运镜:固定，文案淡入淡出留白；收尾）",
-      "characterAction": "无人物，白色文案在花海柔焦背景中央逐行淡入",
-      "dialogue": "/",
-      "emotion": "升华/共鸣",
-      "sceneTags": "栀子花海柔焦背景/白色文案",
-      "lightingAndAtmosphere": "柔光暖调，文字清晰，留白",
-      "audioEffects": "钢琴最后一个音符轻柔收尾",
-      "characters": [],
-      "imageGenerationPrompt": "Soft blurred background of blooming white gardenias, centered elegant white Chinese text fading in line by line, tender warm light, minimalist, cinematic, 8k",
-      "videoMotionPrompt": "Static shot; white text fades in line by line over softly blurred blooming gardenias; final piano note; gentle fade to hold"
-    }
-  ],
-
   "characters": [
     {
       "characterName": "老母亲",
@@ -282,11 +145,20 @@
       },
       "costume": {
         "default": "尘蓝色棉开衫内搭灰色衬衣，深色棉布裤，黑布鞋",
-        "colorPalette": ["尘蓝", "灰", "米白"],
+        "colorPalette": [
+          "尘蓝",
+          "灰",
+          "米白"
+        ],
         "prohibited": "不能浓妆、不能鲜艳华丽衣着、不能显年轻"
       },
       "lighting": "现实线冷清灰蓝偏暖黄，情绪处伦勃朗侧光",
-      "emotions": ["思念", "隐忍", "落寞", "释怀"],
+      "emotions": [
+        "思念",
+        "隐忍",
+        "落寞",
+        "释怀"
+      ],
       "characterDescription": "An elderly Chinese woman around 65, silver-gray hair in a neat low bun, gentle wrinkled face with kind tired eyes, wearing a plain dust-blue cotton cardigan over a gray blouse"
     },
     {
@@ -302,11 +174,18 @@
       },
       "costume": {
         "default": "柔软的米白色针织毛衣，浅色长裙",
-        "colorPalette": ["米白", "浅暖"],
+        "colorPalette": [
+          "米白",
+          "浅暖"
+        ],
         "prohibited": "不能出现在现实线、不能显病态、不能换发型"
       },
       "lighting": "回忆线明亮暖金过曝柔光；结尾虚影为发光半透明",
-      "emotions": ["明亮", "憧憬", "温柔"],
+      "emotions": [
+        "明亮",
+        "憧憬",
+        "温柔"
+      ],
       "characterDescription": "A young Chinese woman around 22, long black hair, bright warm smile, wearing a soft cream knit sweater"
     },
     {
@@ -322,15 +201,20 @@
       },
       "costume": {
         "default": "手织黄色毛衣，深色小裤，小布鞋",
-        "colorPalette": ["明黄", "暖"],
+        "colorPalette": [
+          "明黄",
+          "暖"
+        ],
         "prohibited": "不能换毛衣颜色、不能换发型"
       },
       "lighting": "回忆线明亮暖金柔光",
-      "emotions": ["欢欣", "天真"],
+      "emotions": [
+        "欢欣",
+        "天真"
+      ],
       "characterDescription": "A little Chinese girl around 7 with twin ponytails tied with red hair ties, round cheeks, wearing a hand-knitted yellow sweater"
     }
   ],
-
   "scenes": [
     {
       "sceneName": "老屋卧室",
@@ -339,7 +223,12 @@
       "description": "老式木床铺褪色碎花床单，床边一口樟木箱，木格窗，墙面斑驳",
       "lightingPlan": "清晨侧光从木格窗斜射，暖黄晨光配冷清空气",
       "colorTone": "冷暖交界，偏清冷",
-      "props": ["旧木床", "褪色碎花床单", "樟木箱", "黄色旧毛衣"],
+      "props": [
+        "旧木床",
+        "褪色碎花床单",
+        "樟木箱",
+        "黄色旧毛衣"
+      ],
       "prohibited": "不能出现现代家电、鲜艳装饰"
     },
     {
@@ -349,7 +238,11 @@
       "description": "青砖地面的小院，一株栀子花，竹椅木凳，贯穿全片的情感寄托空间",
       "lightingPlan": "现实线清晨冷调偏灰蓝暖光微弱；结尾满院暖金晨光花瓣纷飞",
       "colorTone": "现实冷清 / 结尾暖金",
-      "props": ["栀子花(花苗→满树盛开)", "水壶", "竹椅"],
+      "props": [
+        "栀子花(花苗→满树盛开)",
+        "水壶",
+        "竹椅"
+      ],
       "prohibited": "不能出现现代穿帮、过饱和色彩"
     },
     {
@@ -359,7 +252,11 @@
       "description": "深色木方桌摆两副蓝边碗筷，一副始终空置，暖黄吊灯",
       "lightingPlan": "暖黄吊灯顶光，空座处光线略暗形成缺失感",
       "colorTone": "暖黄偏低饱和",
-      "props": ["木方桌", "两副蓝边碗筷", "空座"],
+      "props": [
+        "木方桌",
+        "两副蓝边碗筷",
+        "空座"
+      ],
       "prohibited": "不能坐满人、空碗不能被使用"
     },
     {
@@ -369,11 +266,14 @@
       "description": "与青砖小院同一空间的回忆版本，阳光明亮花木繁盛，充满生机",
       "lightingPlan": "明亮暖金午后光，过曝柔光，尘埃在光束中漂浮",
       "colorTone": "明亮暖金过曝",
-      "props": ["栀子花苗", "培土工具", "黄毛衣"],
+      "props": [
+        "栀子花苗",
+        "培土工具",
+        "黄毛衣"
+      ],
       "prohibited": "不能出现现实线的冷清、不能显破败"
     }
   ],
-
   "props": [
     {
       "propName": "黄色旧毛衣",
