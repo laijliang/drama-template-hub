@@ -9,6 +9,7 @@ Output:
   A local mp4, extracted frames, and a manifest JSON under Output/media/<video_id>/.
 """
 import argparse
+import concurrent.futures
 import json
 import re
 import sys
@@ -58,15 +59,60 @@ def get_video_info(source_url: str) -> dict:
     return info
 
 
-def download_video(video_url: str, target_path: Path) -> dict:
+def download_video(video_url: str, target_path: Path, parts: int = 8) -> dict:
     target_path.parent.mkdir(parents=True, exist_ok=True)
     headers = {
         "User-Agent": "Mozilla/5.0",
         "Referer": "https://www.douyin.com/",
     }
+
+    # 探测是否支持 Range 分块下载，并取总大小
+    total = 0
+    accept_ranges = False
+    try:
+        probe = requests.get(video_url, headers={**headers, "Range": "bytes=0-0"}, timeout=15, stream=True)
+        if probe.status_code == 206:
+            content_range = probe.headers.get("Content-Range", "")  # 形如 bytes 0-0/1234567
+            if "/" in content_range:
+                total = int(content_range.rsplit("/", 1)[-1])
+                accept_ranges = total > 0
+        else:
+            total = int(probe.headers.get("Content-Length", "0") or "0")
+        probe.close()
+    except Exception:
+        accept_ranges = False
+
+    # 多线程分块并行下载（支持 Range 且 ≥4MB 才值得），失败自动回退单线程
+    if accept_ranges and total >= 4 * 1024 * 1024:
+        part_size = -(-total // parts)  # 向上取整
+        ranges = [(i * part_size, min((i + 1) * part_size - 1, total - 1)) for i in range(parts)]
+
+        def fetch(start: int, end: int) -> tuple:
+            r = requests.get(video_url, headers={**headers, "Range": f"bytes={start}-{end}"}, timeout=60)
+            r.raise_for_status()
+            data = r.content
+            r.close()
+            return start, data
+
+        try:
+            with target_path.open("wb") as f:
+                f.truncate(total)
+            with concurrent.futures.ThreadPoolExecutor(max_workers=parts) as ex:
+                futs = [ex.submit(fetch, s, e) for s, e in ranges]
+                with target_path.open("r+b") as f:
+                    for fut in concurrent.futures.as_completed(futs):
+                        start, data = fut.result()
+                        f.seek(start)
+                        f.write(data)
+            if target_path.stat().st_size == total:
+                return {"path": str(target_path), "bytes": total, "content_length": total}
+        except Exception:
+            pass  # 落到下面的单线程回退
+
+    # 单连接流式下载（回退 / 小文件 / 不支持 Range）
     with requests.get(video_url, headers=headers, stream=True, timeout=60) as resp:
         resp.raise_for_status()
-        total = int(resp.headers.get("content-length", "0") or "0")
+        total = int(resp.headers.get("content-length", "0") or total or "0")
         written = 0
         with target_path.open("wb") as file:
             for chunk in resp.iter_content(chunk_size=1024 * 1024):
