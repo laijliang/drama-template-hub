@@ -35,6 +35,9 @@
 - **生成全案**：用 Claude Code 打开本仓库，按 `skill/短剧AI全案生成器.md`，给一段剧情或文字描述即可生成全案 JSON —— 这条链不碰抖音、无需任何依赖
 
 ### B. 需要"从抖音链接拉片"时（可选）
+
+> 下面命令里的 `python` / `pip`：Windows 直接用；**macOS/Linux 若没有这两个命令，改用 `python3` / `pip3`**。
+
 1. **装 Python 依赖**
    ```bash
    pip install -r requirements.txt
@@ -124,13 +127,13 @@ Manage_Drama/
 #### A1. 获取视频元数据
 
 ```bash
-cd d:/Manage_Drama
+# 在项目根目录执行；Windows 用 python，macOS/Linux 用 python3
 python scripts/get_douyin_video.py "<抖音视频链接>"
 ```
 
 **脚本功能**：
 - 解析分享链接（`v.douyin.com` 短链 → 标准视频 URL）
-- 调用 `DouYin_Spider` 项目（`C:\Users\34355\Desktop\DouYin_Spider`）获取视频详情
+- 调用仓库内的 `DouYin_Spider` 项目获取视频详情
 - 输出结构化 JSON 到 stdout：
 
 | 字段 | 说明 |
@@ -147,7 +150,7 @@ python scripts/get_douyin_video.py "<抖音视频链接>"
 #### A2. 下载视频 + 抽帧（画面级拉片）
 
 ```bash
-cd d:/Manage_Drama
+# 在项目根目录执行；Windows 用 python，macOS/Linux 用 python3
 python scripts/prepare_douyin_lapian.py "<抖音视频链接>" --frame-interval 1 --max-frames 120
 ```
 
@@ -166,7 +169,7 @@ python scripts/prepare_douyin_lapian.py "<抖音视频链接>" --frame-interval 
   - `frame_extraction`：FPS、总帧数、时长、抽帧列表（每帧含时间戳、路径、场景变化分数）
   - `contact_sheets`：每张拼图的 `file` / `grid` / `frames` / `time_range` / `cells`（含每格时间戳、是否切换帧）
 
-> **依赖**：`opencv-python-headless`、`requests`、`python-dotenv`、`Pillow`，以及外部项目 `DouYin_Spider`。
+> **依赖**：`opencv-python-headless`、`requests`、`python-dotenv`、`Pillow`，以及仓库内的 `DouYin_Spider`。
 >
 > 独立工具 `scripts/make_contact_sheets.py` 可对已抽好的 `frames/` 直接生成拼图（不必重新下载视频），用法：`python scripts/make_contact_sheets.py <frames_dir> [--per-sheet 12] [--max-long 1536]`。
 
@@ -432,7 +435,7 @@ data/templates.json  ←(GitHub Pages 部署后同步)→  index.html
 
 | 组件 | 技术/依赖 |
 |------|-----------|
-| 数据采集 | Python 3、`requests`、`python-dotenv`、`DouYin_Spider`（外部项目） |
+| 数据采集 | Python 3、`requests`、`python-dotenv`、`DouYin_Spider`（随仓库提供） |
 | 视频抽帧 | `opencv-python-headless`（跳帧解码 + 场景检测） |
 | 分组拼图 | `Pillow`（拼网格 + 标注时间戳/切换帧，供拉片分析） |
 | 内容生成 | AI Agent skill（`短剧AI全案生成器.md`） |
