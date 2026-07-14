@@ -1,0 +1,16 @@
+# 拉片脚本本体（scripts/）
+opencv-python-headless
+numpy
+requests
+python-dotenv
+Pillow
+
+# DouYin_Spider 抖音数据采集（第三方项目 cv-cat/Douyin_Spider）所需
+PyExecJS
+loguru
+retry
+urllib3
+websockets
+protobuf3_to_dict
+openpyxl
+aiofiles

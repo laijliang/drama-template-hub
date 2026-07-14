@@ -16,6 +16,37 @@
 
 ---
 
+## 快速开始（环境配置）
+
+> **前端 + "文字剧情 → 生成全案" 开箱即用；只有"从抖音链接拉片"才需要额外配 DouYin_Spider + cookie。**
+
+### A. 只用前端 / 文字剧情生成（零配置）
+- **前端**：直接双击打开 `index.html`，或部署到 GitHub Pages 浏览
+- **生成全案**：用 Claude Code 打开本仓库，按 `skill/短剧AI全案生成器.md`，给一段剧情或文字描述即可生成全案 JSON —— 这条链不碰抖音、无需任何依赖
+
+### B. 需要"从抖音链接拉片"时（可选）
+1. **装 Python 依赖**
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **装 Node.js**（DouYin_Spider 的签名 JS 靠它执行），并安装其 npm 依赖
+   ```bash
+   cd DouYin_Spider && npm install && cd ..
+   ```
+3. **配置抖音 cookie**：把 `DouYin_Spider/.env.example` 复制成 `DouYin_Spider/.env`，填入你登录抖音后的 cookie（`.env` 已被 gitignore，不会上传）
+   ```bash
+   cp DouYin_Spider/.env.example DouYin_Spider/.env   # 然后编辑，填入 DY_COOKIES
+   ```
+4. **跑通验证**
+   ```bash
+   python scripts/get_douyin_video.py "<抖音视频链接>"
+   python scripts/prepare_douyin_lapian.py "<抖音视频链接>"   # 下载+抽帧+拼图
+   ```
+
+> `DouYin_Spider/` 是第三方开源项目 [cv-cat/Douyin_Spider](https://github.com/cv-cat/Douyin_Spider) 的代码（已随本仓库提供；cookie 与 node_modules 需自行配置/安装）。要指向别处的 DouYin_Spider，设环境变量 `DOUYIN_SPIDER_PATH` 即可。
+
+---
+
 ## 二、目录结构
 
 ```

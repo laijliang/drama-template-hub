@@ -25,7 +25,7 @@ description: >-
 
 ```bash
 cd d:/Manage_Drama
-"C:/Users/34355/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe" scripts/get_douyin_video.py "<用户给的视频链接>"
+python scripts/get_douyin_video.py "<用户给的视频链接>"
 ```
 
 脚本输出 JSON 包含：
@@ -42,7 +42,7 @@ cd d:/Manage_Drama
 如果用户明确要求“拉片/逐镜/画面分析”，必须继续处理 `video_url`：
 ```bash
 cd d:/Manage_Drama
-"C:/Users/34355/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe" scripts/prepare_douyin_lapian.py "<用户给的视频链接>" --frame-interval 1 --max-frames 120
+python scripts/prepare_douyin_lapian.py "<用户给的视频链接>" --frame-interval 1 --max-frames 120
 ```
 
 脚本会输出：

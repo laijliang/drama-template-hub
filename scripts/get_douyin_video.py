@@ -5,9 +5,11 @@
 用法: python get_douyin_video.py <视频链接>
 输出: 结构化 JSON（到 stdout），供 agent 做拉片分析
 
-依赖: DouYin_Spider 爬虫项目 (C:\\Users\\34355\\Desktop\\DouYin_Spider)
+依赖: 本仓库内的 DouYin_Spider/（第三方项目 cv-cat/Douyin_Spider）。
+      可用环境变量 DOUYIN_SPIDER_PATH 指向别处；需要在 DouYin_Spider/.env 配置抖音 cookie。
 """
 import json
+import os
 import sys
 import re
 import builtins
@@ -18,8 +20,12 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
-# 指向 DouYin_Spider 项目路径
-SPIDER_PATH = Path("C:/Users/34355/Desktop/DouYin_Spider")
+# DouYin_Spider 爬虫项目：默认用本仓库内的 DouYin_Spider/，
+# 也可用环境变量 DOUYIN_SPIDER_PATH 指向别处
+SPIDER_PATH = Path(os.environ.get(
+    "DOUYIN_SPIDER_PATH",
+    str(Path(__file__).resolve().parent.parent / "DouYin_Spider"),
+))
 sys.path.insert(0, str(SPIDER_PATH))
 
 try:

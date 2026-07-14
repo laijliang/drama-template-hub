@@ -9,6 +9,12 @@ __pycache__/
 .claude/settings.local.json
 .workbuddy/
 
+# DouYin_Spider 的本地凭据与可重建依赖（第三方项目 cv-cat/Douyin_Spider）
+DouYin_Spider/.env
+DouYin_Spider/node_modules/
+DouYin_Spider/datas/
+DouYin_Spider/downloads/
+
 # 系统文件
 .DS_Store
 Thumbs.db
