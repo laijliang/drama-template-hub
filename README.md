@@ -10,7 +10,7 @@
 
 1. **拉片分析**：输入抖音爆款视频链接，自动下载视频、抽帧、提取元数据，做逐镜画面分析
 2. **全案生成**：将故事构思或拉片分析结果，编译为结构化 JSON 全案包（含角色/场景/道具资产块 + 逐镜中文分镜）
-3. **前端展示**：通过 `index.html` 仪表盘浏览、筛选、管理所有全案模板，并一键复制分镜与资产
+3. **前端展示**：通过 `site/index.html` 仪表盘浏览、筛选、管理所有全案模板，并一键复制分镜与资产
 
 **设计原则**：只生产结构化 JSON 内容，不生成图片/视频；分镜与素材统一为中文，供人直接阅读与复制。
 
@@ -31,7 +31,7 @@
 > 只想用前端浏览、或只用「文字剧情 → 生成全案」的话，连 cookie 和 DouYin_Spider 都不用——见下面 A。
 
 ### A. 只用前端 / 文字剧情生成（零配置）
-- **前端**：直接双击打开 `index.html`，或部署到 GitHub Pages 浏览
+- **前端**：直接双击打开 `site/index.html`，或部署到 GitHub Pages 浏览
 - **生成全案**：用 Claude Code 打开本仓库，按 `skill/短剧AI全案生成器.md`，给一段剧情或文字描述即可生成全案 JSON —— 这条链不碰抖音、无需任何依赖
 
 ### B. 需要"从抖音链接拉片"时（可选）
@@ -86,9 +86,11 @@
 
 ```
 Manage_Drama/
-├── index.html                    # 前端仪表盘（拉片·短剧全案库）
-├── data/
-│   └── templates.json            # 前端模板数据库（同步到 GitHub Pages）
+├── site/                         # 前端仪表盘站点
+│   ├── index.html                #   仪表盘（拉片·短剧全案库）
+│   ├── data/
+│   │   └── templates.json        #   前端模板数据库（同步到 GitHub Pages）
+│   └── dist/                     #   部署产物（由 index.html+data 生成，可重建）
 ├── scripts/                      # 抖音数据采集脚本
 │   ├── get_douyin_video.py       #   获取视频元数据（标题/作者/互动/视频地址）
 │   ├── prepare_douyin_lapian.py  #   下载视频 + 抽帧 + 分组拼图 + manifest
@@ -130,8 +132,8 @@ Manage_Drama/
   └──────────┬───────────────┘
              ▼
   ┌──────────────────────────┐
-  │  阶段 C：前端展示         │  ← index.html
-  │  data/templates.json      │     仪表盘浏览 / 管理 / 复制
+  │  阶段 C：前端展示         │  ← site/index.html
+  │  site/data/templates.json │     仪表盘浏览 / 管理 / 复制
   └──────────────────────────┘
 ```
 
@@ -414,7 +416,7 @@ data/templates.json  ←(GitHub Pages 部署后同步)→  index.html
 
 ### 部署（GitHub Pages）
 
-项目已部署为静态站点，`index.html` 在仓库根目录，Pages 从 `main` 分支根目录构建。
+项目已部署为静态站点，入口在 `site/index.html`，由 `.github/workflows/pages.yml`（GitHub Actions）在 push 到 `main` 时把 `site/` 目录发布到 Pages。
 
 | 项 | 值 |
 |------|------|
@@ -424,7 +426,7 @@ data/templates.json  ←(GitHub Pages 部署后同步)→  index.html
 | 更新方式 | 改动 push 到 `main`，GitHub Pages 自动重新构建（约 1–2 分钟生效） |
 | 不上传项（`.gitignore`） | `Output/media/`（版权视频/抽帧）、`__pycache__/`、`.claude/settings.local.json`、`.workbuddy/` |
 
-> 每次改完 `index.html` 或新增全案后，记得把最新全案汇总进 `data/templates.json` 再 push，线上才会同步展示。
+> 每次改完 `site/index.html` 或新增全案后，记得把最新全案汇总进 `site/data/templates.json` 再 push，线上才会同步展示。
 
 ---
 
@@ -446,7 +448,7 @@ data/templates.json  ←(GitHub Pages 部署后同步)→  index.html
 
 ### 场景 3：前端模板库管理与创作
 
-1. 本地打开 `index.html`（或访问线上地址）
+1. 本地打开 `site/index.html`（或访问线上地址）
 2. 点击「导入」粘贴全案 JSON 或选择文件
 3. 浏览模板库、素材库、数据统计
 4. 点击卡片查看详情，复制分镜（中文）或复制角色/场景/道具资产（自动带生成提示词），拿去 AI 绘图工具生成图片
@@ -475,6 +477,6 @@ data/templates.json  ←(GitHub Pages 部署后同步)→  index.html
 
 4. **资产块独立**：`characters[]` / `scenes[]` / `props[]` 作为独立资产块，不再混入分镜描述中重复。道具升级为含象征意义和跨镜锁定细节的独立资产。前端"素材库"直接读这三个资产块，不再单列 `materials`。
 
-5. **前端兼容双格式**：`index.html` 同时兼容早期 `rows[]` 格式和新版 `shots[]` 格式，`buildShotList()` 自动适配（旧版从结构化字段拼成中文分镜）。
+5. **前端兼容双格式**：`site/index.html` 同时兼容早期 `rows[]` 格式和新版 `shots[]` 格式，`buildShotList()` 自动适配（旧版从结构化字段拼成中文分镜）。
 
 6. **复制即创作**：分镜和每个资产都可一键复制；资产复制会自动追加对应的中文生成提示词（全身图 9:16 / 场景图 16:9 / 三视图 16:9），复制出来即可直接喂给 AI 绘图工具。
