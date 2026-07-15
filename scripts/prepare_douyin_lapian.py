@@ -306,7 +306,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("url", help="Douyin share/video URL")
     parser.add_argument("--frame-interval", type=float, default=0.5, help="Sample one frame every N seconds")
-    parser.add_argument("--max-frames", type=int, default=200, help="Maximum frames to save; 0 means unlimited")
+    parser.add_argument("--max-frames", type=int, default=0, help="Maximum frames to save; 0 means unlimited")
     parser.add_argument("--scene-threshold", type=float, default=28.0, help="Mean pixel diff threshold for scene-change frames; 0 disables")
     parser.add_argument("--min-scene-gap", type=float, default=0.8, help="Minimum seconds between scene-change frames")
     parser.add_argument("--max-width", type=int, default=960, help="Resize extracted frames to this width")

@@ -42,7 +42,7 @@ python scripts/get_douyin_video.py "<用户给的视频链接>"
 如果用户明确要求“拉片/逐镜/画面分析”，必须继续处理 `video_url`：
 ```bash
 # 在项目根目录执行；Windows 用 python，macOS/Linux 用 python3
-python scripts/prepare_douyin_lapian.py "<用户给的视频链接>" --frame-interval 0.5 --max-frames 200
+python scripts/prepare_douyin_lapian.py "<用户给的视频链接>" --frame-interval 0.5 --max-frames 0
 ```
 
 脚本会输出：
