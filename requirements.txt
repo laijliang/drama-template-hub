@@ -8,5 +8,5 @@ Pillow
 # DouYin_Spider 作品信息拉取的签名链所需（第三方项目 cv-cat/Douyin_Spider，仅保留用得到的核心）
 PyExecJS
 beautifulsoup4
-protobuf
-protobuf3_to_dict
+protobuf>=5.27,<8          # 需匹配 DouYin_Spider/static/*_pb2.py（用 5.27.1 生成），勿升到不兼容的大版本
+protobuf3_to_dict         # 提供代码里 import 的 protobuf_to_dict 模块

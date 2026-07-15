@@ -42,6 +42,7 @@
    ```bash
    pip install -r requirements.txt
    ```
+   > 只需装**根目录**这一份 `requirements.txt`（已覆盖拉片脚本 + DouYin_Spider 实际用到的依赖）。`DouYin_Spider/requirements.txt` 是上游第三方项目的原始清单，含本项目用不到的包（loguru/retry/openpyxl 等），**不必单独安装**。
 2. **装 Node.js**（DouYin_Spider 的签名 JS 靠它执行），并安装其 npm 依赖
    ```bash
    cd DouYin_Spider && npm install && cd ..
@@ -62,6 +63,22 @@
    > 环境没配齐时脚本会直接告诉你缺哪一步（cookie 没填 / 没 `npm install`），照提示补上即可，不会再报看不懂的错误码。
 
 > `DouYin_Spider/` 是第三方开源项目 [cv-cat/Douyin_Spider](https://github.com/cv-cat/Douyin_Spider) 的代码（已随本仓库提供；cookie 与 node_modules 需自行配置/安装）。要指向别处的 DouYin_Spider，设环境变量 `DOUYIN_SPIDER_PATH` 即可。
+
+#### 拉片装不上 / 跑不通？常见报错速查
+
+> 拉片是本项目门槛最高的一环（要 Node 原生编译 + 抖音 cookie + 通常还要代理）。对号入座：
+
+| 现象 / 报错 | 原因 | 解决 |
+|------|------|------|
+| `npm install` 卡在 `canvas` 编译失败（`node-gyp` / `gyp ERR`） | `canvas` 是原生模块，缺 C++ 编译环境 | 按上面「⚠️ canvas 原生模块」装好对应平台的构建工具（Windows: VS Build Tools 勾 C++；mac: `brew install pkg-config cairo pango libpng jpeg giflib librsvg`；Linux: 装 `libcairo2-dev` 等），再重跑 `npm install` |
+| `npm install` / `git clone` 一直超时 | 国内网络访问 npm / GitHub 受限 | 开代理，或给 npm 设国内镜像：`npm config set registry https://registry.npmmirror.com` |
+| 脚本提示「未配置抖音 cookie / DY_COOKIES 为空」 | 没建 `.env` 或没填 cookie | 复制 `.env.example` 为 `.env`，填入登录抖音后从浏览器 F12 → Network 里复制的整段 Cookie |
+| 之前能跑，现在返回登录/风控/空数据 | 抖音 cookie 已过期 | 重新登录抖音，复制新 cookie 覆盖 `.env` 里的 `DY_COOKIES` |
+| 脚本提示「缺少 node 依赖」 | 没执行 `npm install` | `cd DouYin_Spider && npm install && cd ..` |
+| `ModuleNotFoundError: cv2 / requests / ...` | 没装 Python 依赖 | 在项目根执行 `pip install -r requirements.txt`（Win 用 `pip`，mac/Linux 用 `pip3`） |
+| `protobuf` 相关的运行时版本错误 | protobuf 版本与 `_pb2.py`（5.27.1 生成）不兼容 | `requirements.txt` 已把 `protobuf` 锁在 `>=5.27,<8`；若手动升过版，按此区间重装 |
+
+> 只是想用前端浏览、或「文字剧情 → 全案」的话，以上全都不需要——见上面 **A. 零配置**。
 
 ---
 
@@ -151,8 +168,9 @@ python scripts/get_douyin_video.py "<抖音视频链接>"
 
 ```bash
 # 在项目根目录执行；Windows 用 python，macOS/Linux 用 python3
-python scripts/prepare_douyin_lapian.py "<抖音视频链接>" --frame-interval 1 --max-frames 120
+python scripts/prepare_douyin_lapian.py "<抖音视频链接>" --frame-interval 0.5 --max-frames 0
 ```
+> 默认 `--frame-interval 0.5`（2 帧/秒，避免漏字幕）、`--max-frames 0`（不限帧数，长视频不截断）。
 
 **脚本功能**：
 - 调用 A1 获取视频地址
@@ -216,9 +234,10 @@ python scripts/prepare_douyin_lapian.py "<抖音视频链接>" --frame-interval 
 - `name`：镜号-场景名
 - `tag`：情绪/阶段标签
 - `durationSeconds`：预计时长（秒）
-- `description`：整合描述（画面内容 + 镜头语言 + 构图 + 光影 + 表情 + 动作 + 音效 + 台词）
+- `description`：整合描述（画面内容 + 镜头语言 + 构图 + 光影 + 表情 + 动作 + 台词；**不正向写音效/BGM**）
+- `negativePrompt`：逐镜负向/逆向提示词——**音频只保留对白**、不要 BGM/环境音/音效/旁白配音；画面不要烧录字幕/水印/logo；不要畸形手指/多指/崩坏/穿帮（POV 镜追加：不露"我"正脸）
 
-> 不生成英文 `rows` 或英文生图/生视频提示词。分镜统一为中文 `shots`。
+> 不生成英文 `rows` 或英文生图/生视频提示词。分镜统一为中文 `shots`。生成的是**只带对白的干净片段**，BGM/音效/字幕一律后期另加。
 
 ##### 阶段三：输出打包 JSON
 
@@ -233,6 +252,7 @@ JSON 结构：
   "tracks": [],                 // 基础赛道（固定 11 类：情感/搞笑/悬疑/治愈/逆袭/知识/萌宠/古风/玄幻/都市/剧情类，可多选，不得自造）
   "core_emotion": "",           // 核心情绪
   "hook_type": "",              // 钩子类型
+  "perspective": "",            // 叙事视角：第一人称POV / 第三人称（拉片必判，复刻须保留）
   "viral_reason": "",           // 爆款原因
 
   "script": {                   // 剧本结构
@@ -241,11 +261,12 @@ JSON 结构：
   },
 
   "analysis": [...],            // 分析（角色/冲突/情绪曲线/节奏等）
-  "shots": [...],               // 逐镜分镜（中文，含 name/tag/durationSeconds/description）
+  "shots": [...],               // 逐镜分镜（中文，含 name/tag/durationSeconds/description/negativePrompt）
   "prompts": {                  // 中文提示词包
     "镜头提示词(中文生图用)": "",
     "画面提示词(生视频用)": "",
-    "风格提示词(统一画风用)": ""
+    "风格提示词(统一画风用)": "",
+    "负向提示词(通用逆向-整片复用)": ""   // 一条整片通用的负向提示词，可一键复制套用
   },
   "connection": "",             // 使用说明
   "external_models": [...],     // 推荐外部模型
@@ -382,13 +403,14 @@ data/templates.json  ←(GitHub Pages 部署后同步)→  index.html
 
 | 文件 | 类型 | 说明 |
 |------|------|------|
-| `妈妈的栀子花_全案_20260713.json` | 完整全案 | 新格式，含 `shots[]` + `characters[]` + `scenes[]` + `props[]` |
-| `巷口那碗面_全案_20260713.json` | 完整全案 | 新格式，含 `shots[]` + `characters[]` + `scenes[]` + `props[]` |
+| `Output/*_全案_*.json`（当前 6 套） | 完整全案 | 新格式，含 `shots[]`（每镜带 `negativePrompt`）+ `characters[]` + `scenes[]` + `props[]` |
 | `media/{video_id}/` | 拉片素材 | 抖音视频下载 + 抽帧 + manifest.json |
+
+已有全案：妈妈的栀子花 / 巷口那碗面 / 九十九只鱼干 / 妈妈家里还有我 / 逆火而行 / 这场暴雪是难忘一课。
 
 ### data/templates.json
 
-当前包含 2 套模板（妈妈的栀子花 + 巷口那碗面），供前端仪表盘展示。
+当前汇总 6 套模板，供前端仪表盘展示（与 `Output/` 全案保持同步）。
 
 ### 部署（GitHub Pages）
 
