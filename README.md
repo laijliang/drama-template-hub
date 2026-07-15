@@ -161,7 +161,7 @@ python scripts/prepare_douyin_lapian.py "<抖音视频链接>" --frame-interval 
   - 采用**跳帧解码**（`cap.grab()` 跳过无关帧）+ **降采样场景检测**（约每 0.1 秒在缩小灰度图上比对差异），抽帧解码比逐帧快约 3–4 倍，抽帧结果基本一致
 - 帧图保存到 `Output/media/{video_id}/frames/frame_XXXX_XXX.XXs.jpg`
 - **分组拼图（contact sheet）**：把抽好的帧按场景切换均分成若干张网格拼图（默认每张 12 帧，长边 ≤1536px），每格标时间戳/帧号、镜头切换帧标红框 + CUT，存到 `Output/media/{video_id}/contact_sheets/sheet_*.jpg`
-  - 目的：拉片分析时**先读约 5–7 张拼图**（可并行、时序上下文完整）而非逐张读 80 帧，某段存疑再定向读原帧，大幅减少读图次数
+  - 目的：拉片分析时**分批读拼图（每批 3–5 张，可并行、时序上下文完整）**、按时序读完全部，而非逐张读几十上百帧；某段存疑再定向读原帧，大幅减少读图次数
   - 参数：`--sheet-frames`（每张帧数）、`--sheet-max-long`（长边上限）、`--no-sheets`（关闭，完全兼容旧行为）
 - 生成 `manifest.json`（拉片素材清单），包含：
   - `video_info`：视频元数据
