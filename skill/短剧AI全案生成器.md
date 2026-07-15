@@ -219,12 +219,14 @@ python scripts/prepare_douyin_lapian.py "<用户给的视频链接>" --frame-int
 - **角色动作+表情：** （可绘画的具象动作）
 - **台词：** "..." 或 /
 - **情绪标签：** 平淡/温柔/冷漠/愤怒/委屈/震惊/暧昧/悲伤/狂妄/好奇/感动
-- **音效：** （环境音/BGM/音效）
+- **负向提示词（逆向）：** 每镜必写。**音频只保留角色对白**（无台词则静音）；不要 BGM/背景音乐、不要环境音/杂音、不要音效、不要旁白配音与多余人声；画面不要烧录字幕/滚动字幕、不要水印/台标/logo/二维码；不要畸形手指/多指少指/多余肢体/面部崩坏/五官错位/透视错误/变形；不要穿帮的现代元素与季节穿帮。**POV 镜追加：** 不露"我"的正脸与全身，镜头保持人眼主观高度。
 - **前镜关联：** 首镜 / 沿用镜号X场景与服装
+
+> ⚠️ **不要在画面描述里正向写"环境音/BGM/鼓点/音效"**——这类声音统一交给负向提示词排除。生成的是**只带对白的干净片段**，BGM、音效、字幕一律后期另加。
 
 #### 【整合为 shots 分镜】
 
-把每一镜的上述要点，**整合成一段连贯的中文 `description`**，依次涵盖：画面内容 → 镜头语言/运镜 → 构图 → 光影 → 人物表情 → 肢体动作 → 音效 → 台词。角色的外貌/服装在描述里直接写明并跨镜保持一致（引用阶段一角色设定）。每镜同时记录 `durationSeconds`（数字秒）、镜号-场景名 `name` 与情绪/阶段 `tag`。
+把每一镜的上述要点，**整合成一段连贯的中文 `description`**，依次涵盖：画面内容 → 镜头语言/运镜 → 构图 → 光影 → 人物表情 → 肢体动作 → 台词（**不写正向音效/BGM**）。角色的外貌/服装在描述里直接写明并跨镜保持一致（引用阶段一角色设定）。每镜同时记录 `durationSeconds`（数字秒）、镜号-场景名 `name`、情绪/阶段 `tag`，以及 `negativePrompt`（逐镜的负向/逆向提示词，内容见上「负向提示词」要点）。
 
 #### 【分镜时长：比原片略长 + 补全细节】
 
@@ -246,7 +248,7 @@ python scripts/prepare_douyin_lapian.py "<用户给的视频链接>" --frame-int
 #### 文件：`Output/{项目名}_全案_{日期}.json`
 
 JSON 包含两大部分：
-1. **前端展示字段**（`video_source` / `tracks` / `core_emotion` / `hook_type` / `script` / `analysis` / `shots` / `prompts` / `connection` / `external_models` 等）— 保持与 index.html 兼容。分镜统一为中文 `shots`（每镜含 `name` / `tag` / `durationSeconds` / `description`），**不再有 `rows` 或英文分镜提示词**。
+1. **前端展示字段**（`video_source` / `tracks` / `core_emotion` / `hook_type` / `script` / `analysis` / `shots` / `prompts` / `connection` / `external_models` 等）— 保持与 index.html 兼容。分镜统一为中文 `shots`（每镜含 `name` / `tag` / `durationSeconds` / `description` / `negativePrompt`），**不再有 `rows` 或英文分镜提示词**。
 2. **独立资产块（即"素材库"）** `characters[]` / `scenes[]` / `props[]` — 角色/场景/道具素材统一由这三个结构化资产块承担，前端"素材库"直接读它们，**不再单列 `materials` 字段**，避免重复浪费 token。
 
 ```json
@@ -277,7 +279,8 @@ JSON 包含两大部分：
       "name": "镜号1-场景名",
       "tag": "标签",
       "durationSeconds": 3,
-      "description": "画面内容+镜头语言+构图+光影+人物表情+肢体动作+音效+台词"
+      "description": "画面内容+镜头语言+构图+光影+人物表情+肢体动作+台词（不写正向音效/BGM）",
+      "negativePrompt": "音频只保留角色对白，无台词则静音；不要BGM/背景音乐、环境音/杂音、音效、旁白配音；画面不要烧录字幕/水印/logo；不要畸形手指/多指/崩坏/穿帮（POV镜追加：不露'我'正脸）"
     }
   ],
 
@@ -351,7 +354,8 @@ JSON 包含两大部分：
 2. **格式严格对齐**：阶段一固定格式，阶段二逐镜分镜，阶段三完整的 JSON 文件。
 3. **角色一致性**：所有阶段的角色描述必须引用阶段一的角色设定，确保服装/外貌跨镜统一。
 4. **画面可绘画**：所有场景/动作描述必须具象（颜色、材质、光线方向），禁止抽象心理描写。
-5. **分镜为中文**：分镜统一为中文 `shots`（`name` / `tag` / `durationSeconds` / `description`），不生成英文生图/生视频提示词。`prompts` 字段的中文提示词供用户直接复制。
+5. **分镜为中文**：分镜统一为中文 `shots`（`name` / `tag` / `durationSeconds` / `description` / `negativePrompt`），不生成英文生图/生视频提示词。`prompts` 字段的中文提示词供用户直接复制。
+   - **每镜必带 `negativePrompt`（负向/逆向提示词）**：核心是「音频只保留角色对白、不要 BGM/环境音/音效/旁白配音」+「画面不要烧录字幕/水印/logo、不要畸形手指/多指/崩坏/穿帮」+（POV 镜）「不露"我"正脸」。生成的是**只带对白的干净片段**，BGM/音效/字幕一律后期另加；`description` 里**不要**再正向写"环境音/BGM/鼓点/音效"。
 6. **前端格式兼容**：JSON 的 `shots` / `characters` / `scenes` / `props` 等字段确保前端展示正常。
 7. **文件命名**：`{项目名}` 用中文简短名，`{日期}` 用 `YYYYMMDD` 格式。
 8. **分镜必须标时长**：`shots[]` 里每一镜都必须含 `durationSeconds`（数字，单位秒），标注该镜头预计时长；所有镜时长之和应与 `script.structure` 描述的总时长大致吻合。
