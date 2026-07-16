@@ -26,7 +26,7 @@
 
 > 帮我克隆 `https://github.com/laijliang/drama-template-hub`，按 README 的「快速开始」装好 Python 与 DouYin_Spider 的依赖；我的抖音 cookie 是 `<粘贴你的 cookie>`，帮我写进 `DouYin_Spider/.env`，然后跑一下 `scripts/get_douyin_video.py` 验证。
 
-**前提**：机器上要先有 `git` / `Python 3` / `Node.js`（这三个运行时 Claude 装不了，需自备）；网络能访问 GitHub 与 npm（国内一般要开代理）。抖音 cookie 是登录凭据、会过期，过期后重配一次即可。
+**前提**：机器上要先有 `git` / `Python 3` / `Node.js`（这三个运行时 Claude 装不了，需自备，但都只是装个安装包，**不需要 C++ 编译环境**）；网络能访问 GitHub 与 npm（国内一般要开代理）。抖音 cookie 是登录凭据、会过期，过期后重配一次即可。
 
 > 只想用前端浏览、或只用「文字剧情 → 生成全案」的话，连 cookie 和 DouYin_Spider 都不用——见下面 A。
 
@@ -47,10 +47,9 @@
    ```bash
    cd DouYin_Spider && npm install && cd ..
    ```
-   > ⚠️ 依赖里的 `canvas` 是**原生模块**，`npm install` 需要本机有编译环境，装不上多半是缺下面这些：
-   > - **Windows**：装 [Visual Studio Build Tools]（勾选「C++ 生成工具」）
-   > - **macOS**：`brew install pkg-config cairo pango libpng jpeg giflib librsvg`
-   > - **Linux**：`sudo apt install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev`
+   > ✅ **不需要 C++ 编译环境**。npm 依赖已精简到只剩 `jsrsasign` 一个**纯 JS** 包（几秒装完）。
+   > 上游原有的 `canvas`（原生模块，需要 VS Build Tools / cairo 等，是安装失败的头号原因）以及
+   > `jsdom` / `sdenv` / `vm` 经实测均未被任何签名 JS 用到，已移除。Node.js 本身装个安装包即可。
 3. **配置抖音 cookie**：把 `DouYin_Spider/.env.example` 复制成 `DouYin_Spider/.env`，填入你登录抖音后的 cookie（`.env` 已被 gitignore，不会上传）
    ```bash
    cp DouYin_Spider/.env.example DouYin_Spider/.env   # 然后编辑，填入 DY_COOKIES
@@ -70,8 +69,8 @@
 
 | 现象 / 报错 | 原因 | 解决 |
 |------|------|------|
-| `npm install` 卡在 `canvas` 编译失败（`node-gyp` / `gyp ERR`） | `canvas` 是原生模块，缺 C++ 编译环境 | 按上面「⚠️ canvas 原生模块」装好对应平台的构建工具（Windows: VS Build Tools 勾 C++；mac: `brew install pkg-config cairo pango libpng jpeg giflib librsvg`；Linux: 装 `libcairo2-dev` 等），再重跑 `npm install` |
-| `npm install` / `git clone` 一直超时 | 国内网络访问 npm / GitHub 受限 | 开代理，或给 npm 设国内镜像：`npm config set registry https://registry.npmmirror.com` |
+| `npm install` 卡在 `canvas` 编译失败（`node-gyp` / `gyp ERR`） | 你的 `DouYin_Spider/package.json` 是旧版，还带着 `canvas` 等用不到的原生依赖 | 拉取最新代码（新版依赖只剩纯 JS 的 `jsrsasign`，不需要编译器），然后 `rm -rf DouYin_Spider/node_modules DouYin_Spider/package-lock.json` 再重跑 `npm install` |
+| `npm install` / `git clone` 一直超时 | 国内网络访问 npm / GitHub 受限 | 开代理，或给 npm 设国内镜像：`npm install --registry=https://registry.npmmirror.com` |
 | 脚本提示「未配置抖音 cookie / DY_COOKIES 为空」 | 没建 `.env` 或没填 cookie | 复制 `.env.example` 为 `.env`，填入登录抖音后从浏览器 F12 → Network 里复制的整段 Cookie |
 | 之前能跑，现在返回登录/风控/空数据 | 抖音 cookie 已过期 | 重新登录抖音，复制新 cookie 覆盖 `.env` 里的 `DY_COOKIES` |
 | 脚本提示「缺少 node 依赖」 | 没执行 `npm install` | `cd DouYin_Spider && npm install && cd ..` |

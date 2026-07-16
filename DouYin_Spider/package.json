@@ -1,9 +1,6 @@
 {
+  "_comment": "本项目只用到抖音作品信息拉取的签名链（static/dy_ab.js），它唯一 require 的是 jsrsasign（纯 JS，无需编译）。上游原有的 canvas/jsdom/sdenv/vm 经实测均未被任何 JS require（canvas 仅作为字符串常量出现在 dy_live_sign.js 里），已移除——canvas 是原生模块，需要 C++ 构建链，是安装失败的头号原因。",
   "dependencies": {
-    "canvas": "^2.11.2",
-    "jsdom": "^25.0.1",
-    "jsrsasign": "^11.1.0",
-    "sdenv": "^0.2.2",
-    "vm": "^0.1.0"
+    "jsrsasign": "^11.1.0"
   }
 }
