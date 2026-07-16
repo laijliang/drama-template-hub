@@ -725,6 +725,14 @@ const EMBEDDED_DATA = [
   }
 ];
 
+// 合并远程与本地：远程数据为准，但保留「远程没有的」本地模板（手动导入的不会被同步冲掉）
+// 按 video_source 去重；没有 video_source 的本地模板一律保留
+function mergeRemote(remote) {
+  const remoteKeys = new Set(remote.map(t => t.video_source).filter(Boolean));
+  const localOnly = templates.filter(t => !t.video_source || !remoteKeys.has(t.video_source));
+  return [...remote.map(item => ({...item})), ...localOnly];
+}
+
 function syncFromGitHub() {
   const isLocal = window.location.protocol === 'file:';
   if (isLocal) { setStatus(false); return; }
@@ -732,10 +740,12 @@ function syncFromGitHub() {
     .then(r => { if (!r.ok) throw Error('No data file'); return r.json(); })
     .then(data => {
       if (!Array.isArray(data) || !data.length) return;
-      if (JSON.stringify(templates) === JSON.stringify(data)) { setStatus(true); return; }
-      templates = data.map(item => ({...item}));
+      const merged = mergeRemote(data);
+      if (JSON.stringify(templates) === JSON.stringify(merged)) { setStatus(true); return; }
+      const kept = merged.length - data.length;
+      templates = merged;
       save(); render(); populateChips();
-      toast('已同步 ' + templates.length + ' 套模板');
+      toast('已同步 ' + data.length + ' 套' + (kept > 0 ? `（保留本地导入 ${kept} 套）` : ''));
       setStatus(true);
     })
     .catch(() => { setStatus(false); });
@@ -1348,7 +1358,7 @@ function addList(list) {
   list.forEach(item => {
     if(!item.video_source&&!item.track)return;
     if(item.video_source&&templates.some(t=>t.video_source===item.video_source))return;
-    templates.push(item); n++;
+    templates.push({...item, _local: true}); n++;   // 标记为本地导入，同步时不被远程冲掉
   });
   save(); render(); populateChips(); toast(`成功导入 ${n} 套模板`);
 }
