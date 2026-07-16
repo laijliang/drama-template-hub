@@ -85,24 +85,30 @@
 
 ```
 Manage_Drama/
-├── site/                         # 前端仪表盘站点
+├── site/                         # 前端站点（GitHub Pages 的发布根目录）
 │   ├── index.html                #   仪表盘（拉片·短剧全案库）
-│   ├── data/
-│   │   └── templates.json        #   前端模板数据库（同步到 GitHub Pages）
-│   └── dist/                     #   部署产物（由 index.html+data 生成，可重建）
+│   └── data/
+│       └── templates.json        #   前端模板数据库（线上由前端 fetch 加载）
+├── .github/workflows/
+│   └── pages.yml                 # push main 时自动把 site/ 发布到 GitHub Pages
 ├── scripts/                      # 抖音数据采集脚本
 │   ├── get_douyin_video.py       #   获取视频元数据（标题/作者/互动/视频地址）
 │   ├── prepare_douyin_lapian.py  #   下载视频 + 抽帧 + 分组拼图 + manifest
 │   └── make_contact_sheets.py    #   独立拼图工具（对已抽好的 frames/ 生成拼图）
 ├── skill/                        # AI Agent 技能定义
 │   └── 短剧AI全案生成器.md        #   内容生成 skill（三阶段产出 JSON）
+├── DouYin_Spider/                # 第三方抖音采集库（cv-cat/Douyin_Spider，随仓库提供）
+│   ├── static/dy_ab.js           #   签名 JS（唯一依赖 jsrsasign，纯 JS 无需编译）
+│   ├── package.json              #   npm 依赖（仅 jsrsasign）
+│   └── .env                      #   抖音 cookie（需自建，已 gitignore）
 ├── Output/                       # 产出目录
 │   ├── *_全案_*.json             #   完整全案 JSON
-│   └── media/{video_id}/         #   下载的视频与抽帧图片
+│   └── media/{video_id}/         #   下载的视频与抽帧图片（已 gitignore）
 │       ├── {video_id}.mp4
 │       ├── frames/frame_*.jpg           #   逐帧图（原样保留，供定向放大）
 │       ├── contact_sheets/sheet_*.jpg   #   分组拼图（拉片分析优先读这个）
 │       └── manifest.json
+├── requirements.txt              # Python 依赖（拉片脚本 + 签名链所需，装这一份即可）
 ├── README.md
 └── .gitignore
 ```
