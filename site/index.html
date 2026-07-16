@@ -721,15 +721,7 @@ const EMBEDDED_DATA = [
       "镜头提示词(中文生图用)": "中年男人被围堵墙角灰色旧衬衫疲惫胡茬脸攥紧拳头指节发白阴天冷调青灰光近景手持晃动对角线构图像素电影感8K\n医院走廊尽头男人蹲角落脸埋手臂白色荧光灯空荡走廊孤寂氛围伦勃朗光影浅景深8K\n昏暗房间台灯特写颤抖手握笔签协议一盏暖光聚焦文件伦勃朗布光一滴泪滑过脸颊8K",
       "画面提示词(生视频用)": "手持晃动近景男人被指责低头不语周围人群手指点点镜头微晃增强冲突感\n医院走廊暖金阳光夫妻拥抱男人粗糙手轻拍后背浅景深催泪氛围\n固定特写男人颤抖握笔签协议笔尖迟疑后落下泪滑过脸颊慢动作",
       "风格提示词(统一画风用)": "写实电影感叙事浅景深特写为主聚焦微表情。色调演变：开场冷灰高对比到中段过渡到暖金到结尾柔和温暖。色彩压抑段以黑灰深蓝为主暖色段以暖金米白为主。禁止卡通化五官过饱和颜色喜剧化表情现代穿帮模糊人脸手指畸形"
-    },
-    "connection": "将提示词包与素材清单整合用于AI视频生成。流程：(1)逐镜复制imageGenerationPrompt到AI绘图工具生底帧(2)复制videoMotionPrompt到AI视频工具生成动态片段(3)按镜号排序列入剪辑软件(4)按音效说明添加BGM和环境音(5)合并导出一键出片。",
-    "external_models": [
-      "Runway Gen-3(写实风格推荐)",
-      "Pika 2.0(情绪镜头)",
-      "KLING 1.6(人物特写)",
-      "Vidu(中国风)",
-      "Sora(长镜头)"
-    ]
+    }
   }
 ];
 
@@ -1192,18 +1184,6 @@ function openDrawer(idx) {
       html += `<div class="shot-card"><div class="shot-header"><span>` + esc(k) + `</span></div><div class="shot-desc" style="font-size:14px">` + esc(Array.isArray(v) ? v.join('\n') : typeof v === 'string' ? v : JSON.stringify(v, null, 2)) + `</div></div>`;
     });
     html += `</div></details>`;
-  }
-  const connection = t.connection || t.export_module;
-  if (connection) {
-    html += `<details class="form-section" open><summary class="fs-title" style="cursor:pointer;display:flex;align-items:center;gap:8px"><span>🔗</span> 导出与连接</summary><div style="margin-top:var(--sp-md)"><div class="shot-card"><div class="shot-desc" style="font-size:14px">` + esc(typeof connection === 'string' ? connection : JSON.stringify(connection, null, 2)) + `</div></div></div></details>`;
-  }
-  const external = t.external_models || t.video_models;
-  if (external) {
-    html += `<details class="form-section" open><summary class="fs-title" style="cursor:pointer;display:flex;align-items:center;gap:8px"><span>🎥</span> 外部视频模型</summary><div style="margin-top:var(--sp-md)"><div style="display:flex;flex-wrap:wrap;gap:8px">`;
-    (Array.isArray(external) ? external : [external]).forEach(m => {
-      html += `<span class="card-badge track" style="font-size:13px;padding:6px 14px">` + esc(typeof m === 'string' ? m : m.name||m) + `</span>`;
-    });
-    html += `</div></div></details>`;
   }
   document.getElementById('drawerContent').innerHTML = html;
 }

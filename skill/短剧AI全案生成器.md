@@ -251,7 +251,7 @@ python scripts/prepare_douyin_lapian.py "<用户给的视频链接>" --frame-int
 #### 文件：`Output/{项目名}_全案_{日期}.json`
 
 JSON 包含两大部分：
-1. **前端展示字段**（`video_source` / `tracks` / `core_emotion` / `hook_type` / `script` / `analysis` / `shots` / `prompts` / `connection` / `external_models` 等）— 保持与 index.html 兼容。分镜统一为中文 `shots`（每镜含 `name` / `tag` / `durationSeconds` / `description` / `negativePrompt`），**不再有 `rows` 或英文分镜提示词**。
+1. **前端展示字段**（`video_source` / `tracks` / `core_emotion` / `hook_type` / `perspective` / `script` / `analysis` / `shots` / `prompts` 等）— 保持与 index.html 兼容。分镜统一为中文 `shots`（每镜含 `name` / `tag` / `durationSeconds` / `description` / `negativePrompt`），**不再有 `rows` 或英文分镜提示词**。
 2. **独立资产块（即"素材库"）** `characters[]` / `scenes[]` / `props[]` — 角色/场景/道具素材统一由这三个结构化资产块承担，前端"素材库"直接读它们，**不再单列 `materials` 字段**，避免重复浪费 token。
 
 ```json
@@ -293,10 +293,6 @@ JSON 包含两大部分：
     "风格提示词(统一画风用)": "...",
     "负向提示词(通用逆向-整片复用)": "【音频】只保留角色对白，无台词处静音；不要BGM/背景音乐、环境音/杂音、音效、旁白配音与多余人声。【画面文字】不要烧录字幕/水印/台标/logo/二维码/弹幕。【质量】不要畸形手指、多指少指、多余或缺失肢体、面部崩坏、五官错位、透视错误、比例失调、模糊重影。【穿帮】不要现代穿帮元素与无关杂物、不要季节/场景穿帮。【一致性】人物五官/发型/穿搭跨镜不变、画风/清晰度/光影不跳变。【POV镜追加】不露主观视角'我'的正脸与全身，保持人眼高度。"
   },
-
-  "connection": "使用说明",
-
-  "external_models": ["Runway Gen-3", "KLING", "Pika", "Vidu"],
 
   "characters": [
     {
