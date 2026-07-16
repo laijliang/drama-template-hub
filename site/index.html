@@ -1215,7 +1215,8 @@ function buildShotList(t) {
       title: s.name || s.shot || ('镜 ' + (i + 1)),
       dur: (s.durationSeconds != null && s.durationSeconds !== '') ? s.durationSeconds : (s.duration || ''),
       tag: s.tag || s.label || '',
-      desc: s.description || s.content || ''
+      desc: s.description || s.content || '',
+      neg: s.negativePrompt || ''
     }));
   }
   if (t.rows && Array.isArray(t.rows) && t.rows.length) {
@@ -1237,14 +1238,43 @@ function buildShotList(t) {
 function shotToText(s) {
   return `【${s.title}】${s.dur !== '' && s.dur != null ? ' ' + s.dur + '秒' : ''}${s.tag ? ' [' + s.tag + ']' : ''}\n${s.desc}`;
 }
+// 从 prompts 里按关键词取一条提示词（兼容不同 key 命名）
+function pickPrompt(t, kw) {
+  const p = t.prompts || t.prompt_module; if (!p || typeof p !== 'object') return '';
+  const hit = Object.keys(p).find(k => k.includes(kw)); if (!hit) return '';
+  const v = p[hit];
+  return Array.isArray(v) ? v.join('\n') : (typeof v === 'string' ? v : '');
+}
+// 复制分镜时自动追加的提示词（页面不显示，仅进剪贴板；隔行拼接）
+function shotPromptAppendix(t, s, withShared) {
+  const parts = [];
+  if (s && s.neg) parts.push('【本镜负向提示词】\n' + s.neg);
+  if (withShared) {
+    const style = pickPrompt(t, '风格提示词');
+    if (style) parts.push('【风格提示词（统一画风）】\n' + style);
+    const uni = pickPrompt(t, '通用逆向') || pickPrompt(t, '整片复用');
+    if (uni) parts.push('【通用负向提示词（整片复用）】\n' + uni);
+  }
+  return parts.length ? '\n\n——— 提示词（复制自带，页面不显示）———\n' + parts.join('\n\n') : '';
+}
 function copyShotText(idx, i) {
-  const list = buildShotList(templates[idx]); if (!list[i]) return;
-  copyText(shotToText(list[i])); toast('已复制本镜');
+  const t = templates[idx]; const list = buildShotList(t); if (!list[i]) return;
+  copyText(shotToText(list[i]) + shotPromptAppendix(t, list[i], true));
+  toast('已复制本镜（含提示词）');
 }
 function copyAllShots(idx) {
-  const list = buildShotList(templates[idx]);
+  const t = templates[idx]; const list = buildShotList(t);
   if (!list.length) { toast('暂无分镜'); return; }
-  copyText(list.map(shotToText).join('\n\n')); toast('已复制全部 ' + list.length + ' 镜分镜');
+  // 每镜带各自的负向提示词；风格/通用负向为整片共用，只在结尾附一次
+  const body = list.map(s => shotToText(s) + shotPromptAppendix(t, s, false)).join('\n\n');
+  const tail = [];
+  const style = pickPrompt(t, '风格提示词');
+  if (style) tail.push('【风格提示词（统一画风）】\n' + style);
+  const uni = pickPrompt(t, '通用逆向') || pickPrompt(t, '整片复用');
+  if (uni) tail.push('【通用负向提示词（整片复用）】\n' + uni);
+  const tailBlock = tail.length ? '\n\n——— 整片通用提示词（复制自带，页面不显示）———\n' + tail.join('\n\n') : '';
+  copyText(body + tailBlock);
+  toast('已复制全部 ' + list.length + ' 镜（含提示词）');
 }
 
 // 资产（角色/场景/道具）统一工具：渲染 + 复制共用
