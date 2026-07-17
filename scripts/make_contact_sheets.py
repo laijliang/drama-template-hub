@@ -57,27 +57,39 @@ def load_scene_flags(manifest_path, scene_threshold: float) -> set:
 
 
 def group_frames(items: list, per_sheet: int, scene_set: set) -> list:
-    """均分为 N 组，分界吸附到最近的场景切换帧（窗口内），不把一个镜头劈成两张。"""
+    """顺序切分为每组 ≤ per_sheet 帧，分界尽量吸附到场景切换帧，不把一个镜头劈成两张。
+
+    分界必须「顺序推进」：从上一个分界出发，理想分界 = 上一分界 + per_sheet，
+    只在 [理想-win, 理想] 这个「向前回看」的窗口里找切换点。这样在数学上保证
+    每组不超过 per_sheet（旧实现让每个分界各自独立吸附到最近切换点，相邻分界会
+    撞到同一点被去重合并成超大组、或相向靠拢挤出 3~4 帧的碎片组）。
+    """
     n = len(items)
-    groups_n = max(1, math.ceil(n / per_sheet))
-    ideal = [round(i * n / groups_n) for i in range(1, groups_n)]
-    scene_pos = [i for i, it in enumerate(items) if it["index"] in scene_set]
-    win = max(1, per_sheet // 2)
-    bounds = []
-    for b in ideal:
-        best = b
-        if scene_pos:
-            cand = min(scene_pos, key=lambda p: abs(p - b))
-            if abs(cand - b) <= win:
-                best = cand
-        bounds.append(best)
-    bounds = sorted(set([0] + bounds + [n]))
-    groups = []
-    for i in range(len(bounds) - 1):
-        seg = items[bounds[i]:bounds[i + 1]]
-        if seg:
-            groups.append(seg)
-    return groups
+    if n <= per_sheet:
+        return [items]
+    scene_pos = sorted(i for i, it in enumerate(items) if it["index"] in scene_set)
+    win = max(1, per_sheet // 3)              # 吸附窗口：只向前回看，保证不超上限
+    min_size = max(2, (per_sheet + 1) // 2)   # 最小组长，避免碎片组
+    bounds = [0]
+    while n - bounds[-1] > per_sheet:
+        start = bounds[-1]
+        ideal = start + per_sheet
+        cands = [p for p in scene_pos
+                 if ideal - win <= p <= ideal and p - start >= min_size]
+        bounds.append(max(cands) if cands else ideal)
+    bounds.append(n)
+    groups = [items[bounds[i]:bounds[i + 1]] for i in range(len(bounds) - 1)]
+    # 处理过小的尾组：能并回前一组就并；并了会超上限就把两组重新均分，
+    # 避免出现只有 1~2 帧的碎片尾图
+    if len(groups) >= 2 and len(groups[-1]) < min_size:
+        merged = groups[-2] + groups[-1]
+        if len(merged) <= per_sheet:
+            groups[-2] = merged
+            groups.pop()
+        else:
+            half = (len(merged) + 1) // 2
+            groups[-2], groups[-1] = merged[:half], merged[half:]
+    return [g for g in groups if g]
 
 
 def choose_grid(n: int, ar: float, max_long: int, min_cols: int = 2):
@@ -160,9 +172,12 @@ def main():
     out_dir = Path(args.out) if args.out else (frames_dir.parent / "contact_sheets")
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    # 网格按 per_sheet 算一次、全片统一：每格尺寸恒定，所有拼图版式一致
+    # （旧实现按每组实际帧数各算各的，导致同一部片出现 3x4/4x2/3x7 等多种版式）
+    cols, rows, tw, th = choose_grid(args.per_sheet, ar, args.max_long)
+
     sheets = []
     for gi, group in enumerate(groups):
-        cols, rows, tw, th = choose_grid(len(group), ar, args.max_long)
         sheet = build_sheet(group, cols, rows, tw, th, scene_set)
         fname = f"sheet_{gi:02d}.jpg"
         sheet.save(out_dir / fname, quality=args.quality)

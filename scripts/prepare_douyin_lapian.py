@@ -158,6 +158,13 @@ def extract_frames(
     min_scene_gap_seconds: float,
     max_width: int,
 ) -> dict:
+    # 清掉上一次抽帧留下的旧帧：帧文件名由「采样序号+时间戳」组成，换了 --frame-interval
+    # 后新旧帧文件名不同、不会互相覆盖，残留的旧帧会混进 frames/ 污染拼图与分析。
+    # frames/ 是可由 mp4 重建的派生产物（已 gitignore），这里只删本脚本生成的 frame_*.jpg。
+    if frames_dir.exists():
+        for stale in frames_dir.glob("frame_*.jpg"):
+            stale.unlink()
+
     cap = cv2.VideoCapture(str(video_path))
     if not cap.isOpened():
         raise RuntimeError(f"无法打开视频文件: {video_path}")
@@ -257,9 +264,10 @@ def build_contact_sheets(frame_data: dict, work_dir: Path, per_sheet: int,
         return []
     out_dir = work_dir / "contact_sheets"
     out_dir.mkdir(parents=True, exist_ok=True)
+    # 网格按 per_sheet 算一次、全片统一（与 make_contact_sheets.py 保持一致）
+    cols, rows, tw, th = choose_grid(per_sheet, ar, max_long)
     sheets = []
     for gi, group in enumerate(group_frames(items, per_sheet, scene_set)):
-        cols, rows, tw, th = choose_grid(len(group), ar, max_long)
         fname = f"sheet_{gi:02d}.jpg"
         build_sheet(group, cols, rows, tw, th, scene_set).save(out_dir / fname, quality=quality)
         sheets.append({
